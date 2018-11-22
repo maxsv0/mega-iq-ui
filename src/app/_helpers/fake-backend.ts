@@ -41,6 +41,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
       }
 
+      // get location
+      if (request.url.endsWith('/ip') && request.method === 'GET') {
+        return of(new HttpResponse({ status: 200, body: 'Berlin, Germany' }));
+      }
+
       // get users
       if (request.url.endsWith('/users') && request.method === 'GET') {
         // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
