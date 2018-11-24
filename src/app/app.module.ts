@@ -15,6 +15,7 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { HomeComponent } from './user/home/home.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { HomeComponent } from './user/home/home.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    AlertComponent
+    AlertComponent,
+    ProfileComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

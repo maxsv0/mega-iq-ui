@@ -13,7 +13,7 @@ export class UserService {
   }
 
   getById(id: number) {
-    return this.http.get(environment.apiUrl + '/users/${id}');
+    return this.http.get(environment.apiUrl + `/users/${id}`);
   }
 
   register(user: User) {
@@ -25,10 +25,10 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put(environment.apiUrl + '/users/${user.id}', user);
+    return this.http.put(environment.apiUrl + `/users/${user.id}`, user);
   }
 
   delete(id: number) {
-    return this.http.delete(environment.apiUrl + '/users/${id}');
+    return this.http.delete(environment.apiUrl + `/users/${id}`);
   }
 }
