@@ -12,9 +12,9 @@ import { routing } from './app-routing.module';
 import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { IndexComponent } from './index/index.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { HomeComponent } from './user/home/home.component';
 
 
 @NgModule({
