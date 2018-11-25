@@ -9,9 +9,10 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" routerLink="/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">IQ Tests</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Practice IQ Test</a>
+          <a class="dropdown-item" href="#">Standard IQ Test</a>
+          <a class="dropdown-item" href="#">Mega IQ Test</a>
+          <a class="dropdown-item" href="#">Mega IQ Test</a>
         </div>
       </li>
       <li class="nav-item">
@@ -21,21 +22,22 @@
         <a class="nav-link" href="#">Best Results</a>
       </li>
     </ul>
-    <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-light" *ngIf="currentUser">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/" i18n>Home</a>
-  </div>
-  <div class="navbar-nav navbar-right">
-    <a class="nav-item nav-link" routerLink="/" i18n>Home</a>
-    <a class="nav-item nav-link" (click)="logout()" i18n>Logout</a>
+    <ul class="navbar-nav mt-2 mt-md-0" *ngIf="currentUser">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user/{{currentUser.id}}">{{currentUser.name}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()" i18n>Logout</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
