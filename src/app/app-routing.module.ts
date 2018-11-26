@@ -7,7 +7,8 @@ import { RegisterComponent } from './user/register/register.component';
 import { HomeComponent } from './user/home/home.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import {SettingsComponent} from './user/settings/settings.component';
-import {ForgetComponent} from '@/user/forget/forget.component';
+import {ForgetComponent} from './user/forget/forget.component';
+import {ResultsComponent} from './results/results.component';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'iqtest/results', component: ResultsComponent },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'user/:userId', component: ProfileComponent },

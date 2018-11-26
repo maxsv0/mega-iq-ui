@@ -18,6 +18,7 @@ import { HomeComponent } from './user/home/home.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { ForgetComponent } from './user/forget/forget.component';
+import { ResultsComponent } from './results/results.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ForgetComponent } from './user/forget/forget.component';
     AlertComponent,
     ProfileComponent,
     SettingsComponent,
-    ForgetComponent
+    ForgetComponent,
+    ResultsComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
