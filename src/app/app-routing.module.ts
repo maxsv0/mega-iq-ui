@@ -7,14 +7,16 @@ import { RegisterComponent } from './user/register/register.component';
 import { HomeComponent } from './user/home/home.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import {SettingsComponent} from './user/settings/settings.component';
+import {ForgetComponent} from '@/user/forget/forget.component';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'settings', component: SettingsComponent },
+  { path: 'forget', component: ForgetComponent },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'user/:userId', component: ProfileComponent },
 
   // otherwise redirect to home

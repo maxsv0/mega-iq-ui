@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
-import {AlertService, UserService, AuthenticationService} from '../../_services';
+import {AlertService, UserService, AuthenticationService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
   }
 

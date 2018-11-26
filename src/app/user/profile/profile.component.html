@@ -1,6 +1,9 @@
 <div class="jumbotron" *ngIf="user">
 
   <h2 i18n>User profile</h2>
+  <div *ngIf="currentUser && currentUser.id == user.id">
+    <a routerLink="/settings">link</a>
+  </div>
 
   {{user.id}}
   {{user.name}}

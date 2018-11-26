@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {UserService} from '@/_services';
+import {AuthenticationService, UserService} from '@/_services';
 import {User} from '@/_models';
 import {first} from 'rxjs/operators';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -10,12 +11,18 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  currentUser: User;
   user: Object;
 
   constructor(
     private route: ActivatedRoute,
+    private authenticationService: AuthenticationService,
     private userService: UserService
-  ) { }
+  ) {
+    if (this.authenticationService.currentUserValue) {
+      this.currentUser = this.authenticationService.currentUserValue;
+    }
+  }
 
   ngOnInit() {
     const userId = this.route.snapshot.params['userId'];

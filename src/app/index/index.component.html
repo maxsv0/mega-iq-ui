@@ -8,3 +8,10 @@
   <a routerLink="/login" class="btn btn-link">login</a>
   <a routerLink="/register" class="btn btn-link">register</a>
 </p>
+
+
+<ul>
+  <li *ngFor="let user of users">
+    {{user.id}}: <a routerLink="/user/{{user.id}}">{{user.name}}</a>
+  </li>
+</ul>
