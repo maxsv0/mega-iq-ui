@@ -1,6 +1,7 @@
 export class User {
   id: number;
   email: string;
+  isPublic: boolean;
   isEmailVerified: boolean;
   name: string;
   password: string;

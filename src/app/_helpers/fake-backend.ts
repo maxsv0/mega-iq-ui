@@ -68,6 +68,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return of(new HttpResponse({ status: 200, body: user }));
       }
 
+      // update user *** FAKE ***
+      if (request.url.match(/\/users\/\d+$/) && request.method === 'PUT') {
+        let urlParts = request.url.split('/');
+        let id = parseInt(urlParts[urlParts.length - 1]);
+        let matchedUsers = users.filter(user => { return user.id === id; });
+        let user = matchedUsers.length ? matchedUsers[0] : null;
+        return of(new HttpResponse({ status: 200, body: user }));
+      }
+
       // register user
       if (request.url.endsWith('/users/register') && request.method === 'POST') {
         // get new user object from post body
