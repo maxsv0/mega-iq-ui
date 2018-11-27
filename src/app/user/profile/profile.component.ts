@@ -26,12 +26,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     const userId = this.route.snapshot.params['userId'];
-    console.log(userId);
 
     this.userService.getById(userId).pipe(first()).subscribe(user => {
       this.user = user;
+      console.log(this.user);
     });
-    console.log(this.user);
   }
 
 }

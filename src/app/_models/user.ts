@@ -4,6 +4,7 @@ export class User {
   isPublic: boolean;
   isEmailVerified: boolean;
   name: string;
+  pic: string;
   password: string;
   age: string;
   location: string;

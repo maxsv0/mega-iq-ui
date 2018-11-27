@@ -5,6 +5,8 @@ import {User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-settings',
@@ -15,11 +17,13 @@ export class SettingsComponent implements OnInit {
   profileForm: FormGroup;
   loading = false;
   submitted = false;
+  avatarsDefault = [];
 
   currentUser: User;
   currentUserSubscription: Subscription;
 
   constructor(
+    private http: HttpClient,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -33,6 +37,8 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.avatarsDefault = this.userService.getAvatarsDefault();
+
     this.profileForm = this.formBuilder.group({
       id: [this.currentUser.id],
       email: [this.currentUser.email, [Validators.required, Validators.email]],
@@ -40,6 +46,7 @@ export class SettingsComponent implements OnInit {
       age: [this.currentUser.age],
       location: [this.currentUser.location],
       isPublic: [this.currentUser.isPublic],
+      pic: [this.currentUser.pic]
     });
   }
 
@@ -65,5 +72,9 @@ export class SettingsComponent implements OnInit {
         });
   }
 
-
+  detectLocation() {
+    this.http.get(environment.apiUrl + '/ip').subscribe(data => {
+      this.profileForm.controls['location'].setValue(data);
+    });
+  }
 }

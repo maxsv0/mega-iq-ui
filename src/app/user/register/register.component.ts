@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  avatarsDefault = [];
 
   constructor(
     private http: HttpClient,
@@ -31,6 +32,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.avatarsDefault = this.userService.getAvatarsDefault();
+
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
@@ -39,6 +42,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
       isPublic: [true],
+      pic: [this.avatarsDefault[0]],
       terms: ['', Validators.required]
     });
   }

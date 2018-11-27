@@ -35,4 +35,19 @@ export class UserService {
   delete(id: number) {
     return this.http.delete(environment.apiUrl + `/users/${id}`);
   }
+
+  getAvatarsDefault() {
+    return new Array(
+      '/assets/user/avatar/pic1.jpg',
+      '/assets/user/avatar/pic2.jpg',
+      '/assets/user/avatar/pic3.jpg',
+      '/assets/user/avatar/pic4.jpg',
+      '/assets/user/avatar/pic5.jpg',
+      '/assets/user/avatar/pic6.jpg',
+      '/assets/user/avatar/pic7.jpg',
+      '/assets/user/avatar/pic8.jpg',
+      '/assets/user/avatar/pic9.jpg',
+      '/assets/user/avatar/pic10.jpg'
+    );
+  }
 }
