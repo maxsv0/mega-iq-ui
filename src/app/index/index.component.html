@@ -12,6 +12,6 @@
 
 <ul>
   <li *ngFor="let user of users">
-    {{user.id}}: <a routerLink="/user/{{user.id}}">{{user.name}}</a>
+    {{user.id}}: <a routerLink="{{user.url}}">{{user.name}}</a>
   </li>
 </ul>

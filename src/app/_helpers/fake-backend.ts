@@ -33,6 +33,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             age: user.age,
             location: user.location,
             pic: user.pic,
+            url: '/user/' + user.id,
+            iq: 155,
             isPublic: user.isPublic,
             isEmailVerified: true,
             token: 'fake-jwt-token'

@@ -5,8 +5,10 @@ export class User {
   isEmailVerified: boolean;
   name: string;
   pic: string;
+  url: string;
   password: string;
   age: string;
+  iq: number;
   location: string;
   token: string;
 }
