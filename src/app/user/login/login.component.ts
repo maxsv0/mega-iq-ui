@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../../_services';
 
-@Component({templateUrl: 'login.component.html', styleUrls: ['./login.component.scss']})
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.scss']
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -50,8 +53,13 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
+        apiResponseUser => {
+          if (apiResponseUser.ok) {
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.alertService.error(apiResponseUser.msg);
+            this.loading = false;
+          }
         },
         error => {
           this.alertService.error(error);

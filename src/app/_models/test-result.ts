@@ -5,8 +5,8 @@ import {QuestionGroupsResult} from '@/_models/question.groups';
 import {TestStatusEnum} from '@/_models/enum/test-status.enum';
 
 export class TestResult {
- // code: UUID;
-  url: String;
+  code: string;
+  url: string;
   user: User;
   type: TestTypeEnum;
   locale: string;

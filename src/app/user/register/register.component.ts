@@ -64,9 +64,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.userService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['/login']);
+        apiResponseUser => {
+          if (apiResponseUser.ok) {
+            this.alertService.success('Registration successful', true);
+            this.authenticationService.update(apiResponseUser.user);
+            this.router.navigate(['/home']);
+          } else {
+            this.alertService.error(apiResponseUser.msg);
+            this.loading = false;
+          }
         },
         error => {
           this.alertService.error(error);

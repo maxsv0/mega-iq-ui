@@ -1,9 +1,6 @@
 <div class="jumbotron" *ngIf="user">
 
   <h2 i18n>User profile</h2>
-  <div *ngIf="currentUser && currentUser.id == user.id">
-    <a routerLink="/settings">link</a>
-  </div>
 
   <img src="{{user.pic}}" class="img-avatar float-right">
 
@@ -16,8 +13,6 @@
   {{user.email}}
 
   isPublic: {{user.isPublic}}
-  pic: {{user.pic}}
-  password: {{user.password}}
   age: {{user.age}}
   location: {{user.location}}
 

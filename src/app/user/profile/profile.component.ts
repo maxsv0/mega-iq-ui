@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AuthenticationService, UserService} from '@/_services';
-import {User} from '@/_models';
+import {AlertService, AuthenticationService, UserService} from '@/_services';
+import {User, ApiResponseUser} from '@/_models';
 import {first} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 
@@ -17,7 +17,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.currentUser = this.authenticationService.currentUserValue;
@@ -27,10 +28,19 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     const userId = this.route.snapshot.params['userId'];
 
-    this.userService.getById(userId).pipe(first()).subscribe(user => {
-      this.user = user;
-      console.log(this.user);
-    });
+    this.userService.getById(userId)
+      .pipe(first())
+      .subscribe(
+        apiResponseUser => {
+          if (apiResponseUser.ok) {
+            this.user = apiResponseUser.user;
+          } else {
+            this.alertService.error(apiResponseUser.msg);
+          }
+        },
+        error => {
+          this.alertService.error(error);
+        });
   }
 
 }

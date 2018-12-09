@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {User} from '@/_models';
-import {Subscription} from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
@@ -50,6 +50,11 @@ export class SettingsComponent implements OnInit {
     });
   }
 
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.profileForm.controls;
+  }
+
   onSubmit() {
     this.submitted = true;
 
@@ -62,9 +67,15 @@ export class SettingsComponent implements OnInit {
     this.userService.update(this.profileForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success('Successfully saved', true);
-          this.router.navigate(['/user/' + this.currentUser.id]);
+        apiResponseUser => {
+          if (apiResponseUser.ok) {
+            this.authenticationService.update(apiResponseUser.user);
+            this.alertService.success('Successfully saved', true);
+            this.router.navigate(['/user/' + this.currentUser.id]);
+          } else {
+            this.alertService.error(apiResponseUser.msg);
+            this.loading = false;
+          }
         },
         error => {
           this.alertService.error(error);

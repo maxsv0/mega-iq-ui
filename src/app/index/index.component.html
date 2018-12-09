@@ -9,9 +9,11 @@
   <a routerLink="/register" class="btn btn-link">register</a>
 </p>
 
-
-<ul>
-  <li *ngFor="let user of users">
-    {{user.id}}: <a routerLink="{{user.url}}">{{user.name}}</a>
-  </li>
-</ul>
+<div class="jumbotron">
+  <h3>Top users:</h3>
+  <ul>
+    <li *ngFor="let user of usersTop">
+      <a routerLink="{{user.url}}">{{user.name}} [{{user.iq}}] {{user.location}}, {{user.age}}</a>
+    </li>
+  </ul>
+</div>

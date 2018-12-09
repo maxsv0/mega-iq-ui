@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from '@/_models';
+import {User, ApiResponseUser, ApiResponseUsersList} from '@/_models';
 import {environment} from '../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getTopToday() {
-    return this.http.get<User[]>(environment.apiUrl + '/users/today');
+  getTop() {
+    return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/top');
   }
 
-  getAll() {
-    return this.http.get<User[]>(environment.apiUrl + '/users/month');
-  }
+  // getAll() {
+  //   return this.http.get<User[]>(environment.apiUrl + '/users/month');
+  // }
 
   getById(id: number) {
-    return this.http.get(environment.apiUrl + `/users/${id}`);
+    return this.http.get<ApiResponseUser>(environment.apiUrl + `/user/${id}`);
   }
 
   register(user: User) {
-    return this.http.post(environment.apiUrl + '/users/register', user);
+    return this.http.post<ApiResponseUser>(environment.apiUrl + '/user/new', user);
   }
 
   forget(user: User) {
@@ -29,11 +30,7 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put(environment.apiUrl + `/users/${user.id}`, user);
-  }
-
-  delete(id: number) {
-    return this.http.delete(environment.apiUrl + `/users/${id}`);
+    return this.http.put<ApiResponseUser>(environment.apiUrl + `/user/${user.id}`, user);
   }
 
   getAvatarsDefault() {

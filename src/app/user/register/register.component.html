@@ -1,7 +1,7 @@
 <div class="jumbotron">
 
 <h2 i18n>Register</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" method="post">
   <div class="form-group required">
     <label for="email" i18n>Email</label>
     <input type="text" id="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />

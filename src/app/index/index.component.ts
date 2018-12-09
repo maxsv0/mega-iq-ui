@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {first} from 'rxjs/operators';
-import {UserService} from '@/_services';
+import {AlertService, UserService} from '@/_services';
 import {User} from '@/_models';
 
 @Component({
@@ -8,10 +8,11 @@ import {User} from '@/_models';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-  users: User[] = [];
+  usersTop: User[] = [];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -19,8 +20,16 @@ export class IndexComponent implements OnInit {
   }
 
   private loadUsers() {
-    this.userService.getTopToday().pipe(first()).subscribe(users => {
-      this.users = users;
-    });
+    this.userService.getTop().pipe(first()).subscribe(
+      apiResponseUsersList => {
+        if (apiResponseUsersList.ok) {
+          this.usersTop = apiResponseUsersList.users;
+        } else {
+          this.alertService.error(apiResponseUsersList.msg);
+        }
+      },
+      error => {
+        this.alertService.error(error);
+      });
   }
 }
