@@ -16,10 +16,10 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.loadUsersTop();
   }
 
-  private loadUsers() {
+  private loadUsersTop() {
     this.userService.getTop().pipe(first()).subscribe(
       apiResponseUsersList => {
         if (apiResponseUsersList.ok) {

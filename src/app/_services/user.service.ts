@@ -13,9 +13,9 @@ export class UserService {
     return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/top');
   }
 
-  // getAll() {
-  //   return this.http.get<User[]>(environment.apiUrl + '/users/month');
-  // }
+  getAll() {
+    return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/list');
+  }
 
   getById(id: number) {
     return this.http.get<ApiResponseUser>(environment.apiUrl + `/user/${id}`);

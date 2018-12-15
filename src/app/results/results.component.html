@@ -1,3 +1,18 @@
-<p>
-  results works!
-</p>
+
+<div class="jumbotron">
+  <h3>Top users this month:</h3>
+
+  <div class="media" *ngFor="let user of users">
+    <div class="mr-3">
+      <img class="img-avatar-small" src="{{user.pic}}" alt="{{user.name}} IQ {{user.iq}}">
+    </div>
+    <div class="media-body">
+      <h5 class="mt-0"><a routerLink="{{user.url}}">{{user.name}}</a></h5>
+      <p>{{user.location}}, {{user.age}}</p>
+    </div>
+    <div class="ml-3">
+      {{user.iq}}
+    </div>
+  </div>
+
+</div>

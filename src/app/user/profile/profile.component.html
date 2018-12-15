@@ -1,16 +1,13 @@
 <div class="jumbotron" *ngIf="user">
 
-  <h2 i18n>User profile</h2>
+  <h2>{{user.name}}</h2>
 
   <img src="{{user.pic}}" class="img-avatar float-right">
 
 <pre>
 
-  iq: {{user.iq}}
 
-  {{user.id}}
-  {{user.name}}
-  {{user.email}}
+  iq: {{user.iq}}
 
   isPublic: {{user.isPublic}}
   age: {{user.age}}

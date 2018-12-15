@@ -1,19 +1,26 @@
-<p>
-  index works!
-</p>
-
+<div class="jumbotron">
 <p>
   <a routerLink="/" class="btn btn-link">index</a>
   <a routerLink="/home" class="btn btn-link">user home</a>
   <a routerLink="/login" class="btn btn-link">login</a>
   <a routerLink="/register" class="btn btn-link">register</a>
 </p>
+</div>
 
 <div class="jumbotron">
   <h3>Top users:</h3>
-  <ul>
-    <li *ngFor="let user of usersTop">
-      <a routerLink="{{user.url}}">{{user.name}} [{{user.iq}}] {{user.location}}, {{user.age}}</a>
-    </li>
-  </ul>
+
+  <div class="media" *ngFor="let user of usersTop">
+    <div class="mr-3">
+      <img class="img-avatar-small" src="{{user.pic}}" alt="{{user.name}} IQ {{user.iq}}">
+    </div>
+    <div class="media-body">
+      <h5 class="mt-0"><a routerLink="{{user.url}}">{{user.name}}</a></h5>
+      <p>{{user.location}}, {{user.age}}</p>
+    </div>
+    <div class="ml-3">
+      {{user.iq}}
+    </div>
+  </div>
+
 </div>
