@@ -9,6 +9,7 @@ import {User} from '@/_models';
 })
 export class IndexComponent implements OnInit {
   usersTop: User[] = [];
+  interval: number;
 
   constructor(
     private userService: UserService,
@@ -17,6 +18,10 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.loadUsersTop();
+
+    this.interval = setInterval(() => {
+      this.loadUsersTop();
+    }, 5000);
   }
 
   private loadUsersTop() {
