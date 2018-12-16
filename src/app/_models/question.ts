@@ -1,4 +1,4 @@
-import {Answer} from '@/_models/answer';
+import {Answer} from '@/_models';
 
 export class Question {
   pic: string;

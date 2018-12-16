@@ -1,4 +1,4 @@
-import {User} from '@/_models/user';
+import {User} from '@/_models';
 
 export class ApiResponseUsersList {
   ok: boolean;
