@@ -10,7 +10,6 @@ import {User} from '@/_models';
 })
 export class ResultsComponent implements OnInit {
   users: User[] = [];
-  interval: number;
 
   constructor(
     private userService: UserService,
@@ -19,10 +18,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.loadUsersAll();
-
-    this.interval = setInterval(() => {
-      this.loadUsersAll();
-    }, 5000);
   }
 
   private loadUsersAll() {
