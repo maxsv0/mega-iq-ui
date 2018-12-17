@@ -1,3 +1,19 @@
-<p>
-  iqtest works!
-</p>
+<div *ngIf="testActive">
+  <h2>{{testActive.name}}</h2>
+  <a class="btn btn-primary btn-lg" (click)="startTest(testActive.type)">Start Test</a>
+</div>
+
+<div class="jumbotron" *ngIf="!testActive">
+  <h3>Mega IQ tests</h3>
+
+  <div class="media" *ngFor="let testType of testTypes">
+    <div class="media-body">
+      <h3 class="mt-0"><a routerLink="{{testType.url}}">{{testType.name}}</a></h3>
+      <p>{{testType.description}}</p>
+    </div>
+    <div class="ml-3">
+      {{testType.type}}
+    </div>
+  </div>
+
+</div>

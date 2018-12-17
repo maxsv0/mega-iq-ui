@@ -9,7 +9,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import {SettingsComponent} from './user/settings/settings.component';
 import {ForgetComponent} from './user/forget/forget.component';
 import {ResultsComponent} from './results/results.component';
-import {IqtestComponent} from './iqtest/iqtest.component';
+import {IqTestComponent} from './iqtest/iqtest.component';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
@@ -17,12 +17,9 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
-  { path: 'iqtest', component: IqtestComponent },
-  { path: 'iqtest/iq-practice', component: IqtestComponent },
-  { path: 'iqtest/iq-standard', component: IqtestComponent },
-  { path: 'iqtest/mega-iq', component: IqtestComponent },
-  { path: 'iqtest/math', component: IqtestComponent },
+  { path: 'iqtest', component: IqTestComponent },
   { path: 'iqtest/results', component: ResultsComponent },
+  { path: 'iqtest/:testType', component: IqTestComponent },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'user/:userId', component: ProfileComponent },

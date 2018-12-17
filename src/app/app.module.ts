@@ -16,7 +16,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { ForgetComponent } from './user/forget/forget.component';
 import { ResultsComponent } from './results/results.component';
-import { IqtestComponent } from './iqtest/iqtest.component';
+import { IqTestComponent } from './iqtest/iqtest.component';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { IqtestComponent } from './iqtest/iqtest.component';
     SettingsComponent,
     ForgetComponent,
     ResultsComponent,
-    IqtestComponent
+    IqTestComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
