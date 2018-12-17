@@ -6,3 +6,5 @@ export * from './test-result';
 export * from './question.groups';
 export * from './question';
 export * from './answer';
+export * from './iqtest';
+
