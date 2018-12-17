@@ -1,3 +1,6 @@
 export enum QuestionGroupEnum {
-  MATH, GRAMMAR, HORIZONS, LOGIC,
+  MATH = 'MATH',
+  GRAMMAR = 'GRAMMAR',
+  HORIZONS = 'HORIZONS',
+  LOGIC = 'LOGIC',
 }

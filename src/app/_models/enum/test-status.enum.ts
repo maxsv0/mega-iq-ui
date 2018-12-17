@@ -1,3 +1,5 @@
 export enum TestStatusEnum {
-  ACTIVE, EXPIRED, FINISHED,
+  ACTIVE = 'ACTIVE',
+  EXPIRED = 'EXPIRED',
+  FINISHED = 'FINISHED',
 }
