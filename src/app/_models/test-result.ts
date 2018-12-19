@@ -11,7 +11,7 @@ export class TestResult {
   createDate: Date;
   updateDate: Date;
   finishDate: Date;
-  points: number
+  points: number;
   groupsGraph: QuestionGroupsResult;
   questionSet: Question[];
 }
