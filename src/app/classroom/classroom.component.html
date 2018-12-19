@@ -1,0 +1,35 @@
+<div class="jumbotron">
+
+<h1>Active test {{activeTest.type}} - {{activeTest.status}}</h1>
+<p>
+  <span>Test started</span>: {{activeTest.createDate}}
+</p>
+<p>
+  <span>Test finished</span>: {{activeTest.finishDate}}
+</p>
+<p>
+  <span>ID</span>: {{activeTest.code}}
+</p>
+
+<div *ngFor="let question of activeTest.questionSet">
+  <h2>{{question.title}}</h2>
+  {{question.pic}}
+  <h3>{{question.description}}</h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" *ngFor="let answer of question.answers">
+        {{answer.id}} : {{answer.pic}}
+      </div>
+    </div>
+  </div>
+
+  <p>
+    <span>Your answer</span>:
+    {{question.answerUser}}
+  </p>
+
+  <hr>
+</div>
+
+</div>
