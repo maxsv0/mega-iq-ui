@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
@@ -9,7 +8,9 @@ import { ProfileComponent } from './user/profile/profile.component';
 import {SettingsComponent} from './user/settings/settings.component';
 import {ForgetComponent} from './user/forget/forget.component';
 import {ResultsComponent} from './results/results.component';
-import {IqTestComponent} from './iqtest/iqtest.component';
+import {IqTestComponent} from './iqtest/iq-test.component';
+import {IqResultComponent} from './iqresult/iq-result.component';
+import {ClassroomComponent} from './classroom/classroom.component';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
@@ -20,6 +21,8 @@ const appRoutes: Routes = [
   { path: 'iqtest', component: IqTestComponent },
   { path: 'iqtest/results', component: ResultsComponent },
   { path: 'iqtest/:testType', component: IqTestComponent },
+  { path: 'iqtest/result/:testCode', component: IqResultComponent },
+  { path: 'classroom/:testCode', component: ClassroomComponent },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'user/:userId', component: ProfileComponent },

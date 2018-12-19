@@ -6,7 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 
-import { AlertComponent } from './_components';
+import { AlertComponent } from './_alert';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './user/login/login.component';
@@ -16,8 +16,9 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { ForgetComponent } from './user/forget/forget.component';
 import { ResultsComponent } from './results/results.component';
-import { IqTestComponent } from './iqtest/iqtest.component';
-
+import { IqTestComponent } from './iqtest/iq-test.component';
+import { ClassroomComponent } from './classroom/classroom.component';
+import { IqResultComponent } from './iqresult/iq-result.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,9 @@ import { IqTestComponent } from './iqtest/iqtest.component';
     SettingsComponent,
     ForgetComponent,
     ResultsComponent,
-    IqTestComponent
+    IqTestComponent,
+    ClassroomComponent,
+    IqResultComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
