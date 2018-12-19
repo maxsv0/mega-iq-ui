@@ -1,9 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
-import {User, ApiResponseUser} from '@/_models';
+import {User} from '@/_models';
 import {first} from 'rxjs/operators';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -39,7 +38,7 @@ export class ProfileComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error('API error: ' + error);
         });
   }
 

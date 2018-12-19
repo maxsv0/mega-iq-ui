@@ -56,7 +56,7 @@ export class ForgetComponent implements OnInit {
           this.router.navigate(['/forget']);
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error('API error: ' + error);
           this.loading = false;
         });
   }

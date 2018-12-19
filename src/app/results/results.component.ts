@@ -30,7 +30,7 @@ export class ResultsComponent implements OnInit {
         }
       },
       error => {
-        this.alertService.error(error);
+        this.alertService.error('API error: ' + error);
       });
   }
 }
