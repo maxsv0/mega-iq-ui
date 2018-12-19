@@ -1,3 +1,23 @@
 <h1>Hi {{currentUser.name}}! <a routerLink="/settings">Edit profile</a></h1>
 
 <h2><a routerLink="{{currentUser.url}}">View public profile {{currentUser.name}}</a></h2>
+
+<div class="jumbotron">
+
+  <div class="media" *ngFor="let test of userTests">>
+    <img class="mr-3" src="..." alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0">Test {{test.type}}</h5>
+      <p>
+          Status: {{test.status}}, id: {{test.code}}
+      </p>
+      <p>
+          Date started: {{test.createDate}}, finished: {{test.finishDate}}
+      </p>
+      <p>
+        <a routerLink="{{test.url}}" class="btn btn-primary">Go to test</a>
+      </p>
+      </div>
+  </div>
+
+</div>

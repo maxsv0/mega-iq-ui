@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import {TestResult, User} from '@/_models';
+import {UserService, AuthenticationService, IqTestService, AlertService} from '@/_services';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -12,10 +12,12 @@ import { UserService, AuthenticationService } from '@/_services';
 export class HomeComponent implements OnInit, OnDestroy {
   currentUser: User;
   currentUserSubscription: Subscription;
+  userTests: TestResult[];
 
   constructor(
+    private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
-    private userService: UserService
+    private alertService: AlertService
   ) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
@@ -23,6 +25,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.iqTestService.getMyAll()
+      .pipe(first())
+      .subscribe(
+        apiResponseTestResultList => {
+          if (apiResponseTestResultList.ok) {
+            this.userTests = apiResponseTestResultList.tests;
+          } else {
+            this.alertService.error(apiResponseTestResultList.msg);
+          }
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
+        });
   }
 
   ngOnDestroy() {
