@@ -13,6 +13,7 @@ import {first} from 'rxjs/operators';
 export class IqTestComponent implements OnInit {
   testTypes: IqTest[] = [];
   testActive: IqTest;
+  loading = false;
 
   constructor(
     private iqTestService: IqTestService,
@@ -36,19 +37,22 @@ export class IqTestComponent implements OnInit {
   }
 
   startTest(type: TestTypeEnum) {
+    this.loading = true;
     this.iqTestService.startTest(type)
       .pipe(first())
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.iqTestService.update(apiResponseTestResult.test)
+            this.iqTestService.update(apiResponseTestResult.test);
             this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
+            this.loading = false;
           }
         },
         error => {
           this.alertService.error('API error: ' + error);
+          this.loading = false;
         });
   }
 }
