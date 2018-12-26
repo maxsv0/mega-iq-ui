@@ -6,6 +6,8 @@ import {first} from 'rxjs/operators';
 import {AlertService, UserService, AuthenticationService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {StorageService} from '@/_services/storage.service';
+import {ApiResponseBase} from '@/_models/api-response-base';
 
 @Component({
   templateUrl: 'register.component.html',
@@ -14,8 +16,10 @@ import {environment} from '../../../environments/environment';
 export class RegisterComponent implements OnInit, AfterViewInit {
   registerForm: FormGroup;
   loading = false;
+  uploading = false;
   submitted = false;
   avatarsDefault = [];
+  uploadPic = '';
 
   constructor(
     private http: HttpClient,
@@ -23,6 +27,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
+    private storageService: StorageService,
     private alertService: AlertService
   ) {
     // redirect to home if already logged in
@@ -60,6 +65,10 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       return;
     }
 
+    if (this.uploadPic) {
+      this.registerForm.controls['pic'].setValue(this.uploadPic);
+    }
+
     this.loading = true;
     this.userService.register(this.registerForm.value)
       .pipe(first())
@@ -85,8 +94,42 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   detectLocation() {
-    this.http.get(environment.apiUrl + '/ip').subscribe(data => {
-        this.registerForm.controls['location'].setValue(data);
-    });
+    this.loading = true;
+    this.http.get<ApiResponseBase>(environment.apiUrl + '/ip').subscribe(
+      apiResponseBase => {
+          if (apiResponseBase.ok) {
+            this.registerForm.controls['location'].setValue(apiResponseBase.msg);
+          } else {
+            this.alertService.error(apiResponseBase.msg);
+          }
+          this.loading = false;
+        },
+        error => {
+          console.log('API error: ' + error);
+          this.loading = false;
+        });
+  }
+
+  handleFileInput(files: FileList) {
+    let fileToUpload: File = null;
+    fileToUpload = files.item(0);
+    if (fileToUpload) {
+      this.uploading = true;
+      this.storageService.uploadFile(fileToUpload)
+        .pipe(first())
+        .subscribe(
+          apiResponseBase => {
+            if (apiResponseBase.ok) {
+              this.uploadPic = apiResponseBase.msg;
+            } else {
+              this.alertService.error(apiResponseBase.msg);
+            }
+            this.uploading = false;
+          },
+          error => {
+            this.alertService.error('API error: ' + error);
+            this.uploading = false;
+          });
+    }
   }
 }
