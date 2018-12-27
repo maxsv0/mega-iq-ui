@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       password2: ['', [Validators.required, Validators.minLength(6)]],
       isPublic: [true],
       pic: [this.avatarsDefault[0]],
-      terms: ['', Validators.required]
+      terms: [true, Validators.required]
     });
   }
 

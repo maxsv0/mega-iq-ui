@@ -25,7 +25,7 @@ export class StorageService {
   }
 
   createUploadUrl() {
-    this.http.get<ApiResponseBase>(environment.apiUrl + '/storage/upload')
+    this.http.get<ApiResponseBase>(environment.apiUrl + '/storage/create')
       .pipe(first())
       .subscribe(data => {
         if (data.ok) {

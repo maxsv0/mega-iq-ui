@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {StorageService} from '@/_services/storage.service';
 
 @Component({
   selector: 'app-settings',
@@ -16,8 +17,10 @@ import {HttpClient} from '@angular/common/http';
 export class SettingsComponent implements OnInit {
   profileForm: FormGroup;
   loading = false;
+  uploading = false;
   submitted = false;
   avatarsDefault = [];
+  uploadPic = '';
 
   currentUser: User;
   currentUserSubscription: Subscription;
@@ -29,6 +32,7 @@ export class SettingsComponent implements OnInit {
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService,
     private userService: UserService,
+    private storageService: StorageService,
     private alertService: AlertService
   ) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -63,6 +67,10 @@ export class SettingsComponent implements OnInit {
       return;
     }
 
+    if (this.uploadPic) {
+      this.profileForm.controls['pic'].setValue(this.uploadPic);
+    }
+
     this.loading = true;
     this.userService.update(this.profileForm.value)
       .pipe(first())
@@ -87,5 +95,28 @@ export class SettingsComponent implements OnInit {
     this.http.get(environment.apiUrl + '/ip').subscribe(data => {
       this.profileForm.controls['location'].setValue(data);
     });
+  }
+
+  handleFileInput(files: FileList) {
+    let fileToUpload: File = null;
+    fileToUpload = files.item(0);
+    if (fileToUpload) {
+      this.uploading = true;
+      this.storageService.uploadFile(fileToUpload)
+        .pipe(first())
+        .subscribe(
+          apiResponseBase => {
+            if (apiResponseBase.ok) {
+              this.uploadPic = apiResponseBase.msg;
+            } else {
+              this.alertService.error(apiResponseBase.msg);
+            }
+            this.uploading = false;
+          },
+          error => {
+            this.alertService.error('API error: ' + error);
+            this.uploading = false;
+          });
+    }
   }
 }
