@@ -1,4 +1,5 @@
 ﻿export * from './user';
+export * from './api-response-base';
 export * from './api-response-user';
 export * from './api-response-users-list';
 export * from './api-response-test-result';
