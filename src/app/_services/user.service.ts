@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {User, ApiResponseUser, ApiResponseUsersList} from '@/_models';
+import {User, ApiResponseUser, ApiResponseUsersList, ApiResponseBase} from '@/_models';
 import {environment} from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -30,6 +30,14 @@ export class UserService {
 
   update(user: User) {
     return this.http.put<ApiResponseUser>(environment.apiUrl + `/user/${user.id}`, user);
+  }
+
+  verifyEmail() {
+    return this.http.get<ApiResponseBase>(environment.apiUrl + '/user/verify');
+  }
+
+  verifyEmailCheck(code: string) {
+    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/verify', code);
   }
 
   getAvatarsDefault() {

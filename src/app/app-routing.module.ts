@@ -24,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'iqtest/result/:testCode', component: IqResultComponent },
   { path: 'classroom/:testCode', component: ClassroomComponent },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'settings/:verifyCode', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'user/:userId', component: ProfileComponent },
 

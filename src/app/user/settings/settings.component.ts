@@ -38,6 +38,11 @@ export class SettingsComponent implements OnInit {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
     });
+
+    const code = this.route.snapshot.params['verifyCode'];
+    if (code) {
+      this.sendVerifyEmailCheck(code);
+    }
   }
 
   ngOnInit() {
@@ -118,5 +123,38 @@ export class SettingsComponent implements OnInit {
             this.uploading = false;
           });
     }
+  }
+
+  sendVerifyEmail() {
+    this.userService.verifyEmail()
+      .pipe(first())
+      .subscribe(
+        apiResponse => {
+          if (apiResponse.ok) {
+            this.alertService.success(apiResponse.msg);
+          } else {
+            this.alertService.error(apiResponse.msg);
+          }
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
+        });
+  }
+
+  sendVerifyEmailCheck(code: string) {
+    this.userService.verifyEmailCheck(code)
+      .pipe(first())
+      .subscribe(
+        apiResponse => {
+          if (apiResponse.ok) {
+            this.currentUser.isEmailVerified = true;
+            this.alertService.success(apiResponse.msg);
+          } else {
+            this.alertService.error(apiResponse.msg);
+          }
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
+        });
   }
 }

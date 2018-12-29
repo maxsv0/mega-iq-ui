@@ -1,3 +1,4 @@
+import {environment} from '../../../environments/environment';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
@@ -41,5 +42,4 @@ export class ProfileComponent implements OnInit {
           this.alertService.error('API error: ' + error);
         });
   }
-
 }
