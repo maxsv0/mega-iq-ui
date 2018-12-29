@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
-import {User} from '@/_models';
+import {ApiResponseBase, User} from '@/_models';
 import {BehaviorSubject, Subscription} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
@@ -97,9 +97,20 @@ export class SettingsComponent implements OnInit {
   }
 
   detectLocation() {
-    this.http.get(environment.apiUrl + '/ip').subscribe(data => {
-      this.profileForm.controls['location'].setValue(data);
-    });
+    this.loading = true;
+    this.http.get<ApiResponseBase>(environment.apiUrl + '/ip').subscribe(
+      apiResponseBase => {
+        if (apiResponseBase.ok) {
+          this.profileForm.controls['location'].setValue(apiResponseBase.msg);
+        } else {
+          this.alertService.error(apiResponseBase.msg);
+        }
+        this.loading = false;
+      },
+      error => {
+        console.log('API error: ' + error);
+        this.loading = false;
+      });
   }
 
   handleFileInput(files: FileList) {
