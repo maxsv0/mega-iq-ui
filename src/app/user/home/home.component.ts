@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import {TestResult, User} from '@/_models';
+import {IqTest, TestResult, User} from '@/_models';
 import {UserService, AuthenticationService, IqTestService, AlertService} from '@/_services';
 
 @Component({
@@ -10,6 +10,7 @@ import {UserService, AuthenticationService, IqTestService, AlertService} from '@
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  testTypes: IqTest[] = [];
   currentUser: User;
   currentUserSubscription: Subscription;
   userTests: TestResult[];
@@ -25,6 +26,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.testTypes = this.iqTestService.getIqTest();
+
     this.iqTestService.getMyAll()
       .pipe(first())
       .subscribe(

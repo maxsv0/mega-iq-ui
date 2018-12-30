@@ -30,3 +30,94 @@ body {
   width: 60px;
   max-height: 60px;
 }
+
+$colorPractice: #6fb4b3;
+$colorPracticeLight: lighten($colorPractice, 10%);
+$colorPracticeDark: darken($colorPractice, 15%);
+
+$colorStandart: #87d987;
+$colorStandartLight: lighten($colorStandart, 10%);
+$colorStandartDark: darken($colorStandart, 15%);
+
+$colorMegaIq: #7d8ac0;
+$colorMegaIqLight: lighten($colorMegaIq, 10%);
+$colorMegaIqDark: darken($colorMegaIq, 15%);
+
+$colorMath: #e8c865;
+$colorMathLight: lighten($colorMath, 10%);
+$colorMathDark: darken($colorMath, 15%);
+
+$colorGrammar: #d3c1a9;
+$colorGrammarLight: lighten($colorMath, 10%);
+$colorGrammarDark: darken($colorMath, 15%);
+
+.test-practice {
+  background-color: $colorPractice;
+}
+
+.btn-practice {
+  background-color: $colorPractice;
+  border-bottom: 5px $colorPracticeDark solid;
+}
+
+.btn-practice:hover {
+  background-color: $colorPracticeLight;
+  border-bottom: 5px $colorPracticeDark solid;
+}
+
+.test-standart {
+  background-color: $colorStandart;
+}
+
+.btn-standart {
+  background-color: $colorStandart;
+  border-bottom: 5px $colorStandartDark solid;
+}
+
+.btn-standart:hover {
+  background-color: $colorStandartLight;
+  border-bottom: 5px $colorStandartDark solid;
+}
+
+.test-megaiq {
+  background-color: $colorMegaIq;
+}
+
+.btn-megaiq {
+  background-color: $colorMegaIq;
+  border-bottom: 5px $colorMegaIqDark solid;
+}
+
+.btn-megaiq:hover {
+  background-color: $colorMegaIqLight;
+  border-bottom: 5px $colorMegaIqDark solid;
+}
+
+.test-math {
+  background-color: $colorMath;
+}
+
+.btn-math {
+  background-color: $colorMath;
+  border-bottom: 5px $colorMathDark solid;
+}
+
+.btn-math:hover {
+  background-color: $colorMathLight;
+  border-bottom: 5px $colorMathDark solid;
+}
+
+.test-grammar {
+  background-color: $colorGrammar;
+}
+
+.btn-grammar {
+  background-color: $colorGrammar;
+  border-bottom: 5px $colorGrammarDark solid;
+}
+
+.btn-grammar:hover {
+  background-color: $colorGrammarLight;
+  border-bottom: 5px $colorGrammarDark solid;
+}
+

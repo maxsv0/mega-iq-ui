@@ -27,8 +27,8 @@ export class IqTestComponent implements OnInit {
 
     this.testTypes = this.iqTestService.getIqTest();
 
-    this.testTypes.forEach(
-      (test) => {
+    Object.entries(this.testTypes).forEach(
+      ([key, test]) =>  {
         if (test.url === '/iqtest/' + testType) {
           this.testActive = test;
         }

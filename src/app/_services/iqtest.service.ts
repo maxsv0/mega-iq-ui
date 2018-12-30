@@ -58,37 +58,42 @@ export class IqTestService {
 
     const iqTestPractice = new IqTest();
     iqTestPractice.type = TestTypeEnum.PRACTICE_IQ;
+    iqTestPractice.class = 'practice';
     iqTestPractice.name = 'Practice IQ Test';
     iqTestPractice.url = '/iqtest/iq-practice';
-    iqTestPractice.pic = '/sssss.';
+    iqTestPractice.pic = 'https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/novice_init_bg.jpg';
     testTypes.push(iqTestPractice);
 
     const iqTestStandart = new IqTest();
     iqTestStandart.type = TestTypeEnum.STANDART_IQ;
+    iqTestStandart.class = 'standart';
     iqTestStandart.name = 'Standart IQ Test';
     iqTestStandart.url = '/iqtest/iq-standard';
-    iqTestStandart.pic = '/sssss.';
+    iqTestStandart.pic = 'https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/normal_init_bg.jpg';
     testTypes.push(iqTestStandart);
 
     const iqTestMega = new IqTest();
     iqTestMega.type = TestTypeEnum.MEGA_IQ;
+    iqTestMega.class = 'megaiq';
     iqTestMega.name = 'Mega IQ Test';
     iqTestMega.url = '/iqtest/mega-iq';
-    iqTestMega.pic = '/sssss.';
+    iqTestMega.pic = 'https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/mega_init_bg.jpg';
     testTypes.push(iqTestMega);
 
     const iqTestMath = new IqTest();
     iqTestMath.type = TestTypeEnum.MATH;
+    iqTestMath.class = 'math';
     iqTestMath.name = 'Math IQ Test';
     iqTestMath.url = '/iqtest/math';
-    iqTestMath.pic = '/sssss.';
+    iqTestMath.pic = 'https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/math_init_bg.jpg';
     testTypes.push(iqTestMath);
 
     const iqTestGrammar = new IqTest();
     iqTestGrammar.type = TestTypeEnum.GRAMMAR;
+    iqTestGrammar.class = 'grammar';
     iqTestGrammar.name = 'Grammar IQ Test';
     iqTestGrammar.url = '/iqtest/grammar';
-    iqTestGrammar.pic = '/sssss.';
+    iqTestGrammar.pic = 'https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/grammar_init_bg.jpg';
     testTypes.push(iqTestGrammar);
 
     return testTypes;

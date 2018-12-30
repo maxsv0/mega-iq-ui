@@ -4,9 +4,8 @@
 
 <div class="jumbotron">
 
-  <div class="media" *ngFor="let test of userTests">>
-    <img class="mr-3" src="..." alt="Generic placeholder image">
-    <div class="media-body">
+  <div class="media" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[test.type].pic + ')'}">
+    <div class="media-body col-md-8 ml-md-auto">
       <h5 class="mt-0">Test {{test.type}}</h5>
       <p>
           Status: {{test.status}}, id: {{test.code}}

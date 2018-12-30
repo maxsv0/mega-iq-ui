@@ -1,4 +1,4 @@
-<div class="col-md-8 offset-md-2">
+<div class="col-sm-12">
 
 <div *ngIf="testActive">
   <h2>{{testActive.name}}</h2>
@@ -10,19 +10,25 @@
   </div>
 </div>
 
-<div class="jumbotron" *ngIf="!testActive">
-  <h3>Mega IQ tests</h3>
-
-  <div class="media" *ngFor="let testType of testTypes">
-    <div class="media-body">
-      <h3 class="mt-0"><a routerLink="{{testType.url}}">{{testType.name}}</a></h3>
-      <p>{{testType.description}}</p>
-    </div>
-    <div class="ml-3">
-      {{testType.type}}
+<div *ngIf="!testActive">
+  <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue" [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+    <div class="media mb-2">
+      <div class="media-body">
+        <div class="test-{{item.value.class}}">
+          <h1 class="mx-5 my-4">{{item.value.name}}</h1>
+        </div>
+        <div class="row mr-1">
+          <div class="col-md-7">
+            <p>{{item.value.description}}</p>
+          </div>
+          <div class="col-md-5">
+            <a class="btn btn-block btn-primary btn-{{item.value.class}}" routerLink="{{item.value.url}}">
+              Go to {{item.value.name}}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
-
 </div>
