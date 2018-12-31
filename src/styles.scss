@@ -35,9 +35,9 @@ $colorPractice: #6fb4b3;
 $colorPracticeLight: lighten($colorPractice, 10%);
 $colorPracticeDark: darken($colorPractice, 15%);
 
-$colorStandart: #87d987;
-$colorStandartLight: lighten($colorStandart, 10%);
-$colorStandartDark: darken($colorStandart, 15%);
+$colorStandard: #87d987;
+$colorStandardLight: lighten($colorStandard, 10%);
+$colorStandardDark: darken($colorStandard, 15%);
 
 $colorMegaIq: #7d8ac0;
 $colorMegaIqLight: lighten($colorMegaIq, 10%);
@@ -56,6 +56,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .btn-practice {
+  border-color: $colorPractice;
   background-color: $colorPractice;
   border-bottom: 5px $colorPracticeDark solid;
 }
@@ -65,18 +66,19 @@ $colorGrammarDark: darken($colorMath, 15%);
   border-bottom: 5px $colorPracticeDark solid;
 }
 
-.test-standart {
-  background-color: $colorStandart;
+.test-standard {
+  background-color: $colorStandard;
 }
 
-.btn-standart {
-  background-color: $colorStandart;
-  border-bottom: 5px $colorStandartDark solid;
+.btn-standard {
+  border-color: $colorStandard;
+  background-color: $colorStandard;
+  border-bottom: 5px $colorStandardDark solid;
 }
 
-.btn-standart:hover {
-  background-color: $colorStandartLight;
-  border-bottom: 5px $colorStandartDark solid;
+.btn-standard:hover {
+  background-color: $colorStandardLight;
+  border-bottom: 5px $colorStandardDark solid;
 }
 
 .test-megaiq {
@@ -84,6 +86,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .btn-megaiq {
+  border-color: $colorMegaIq;
   background-color: $colorMegaIq;
   border-bottom: 5px $colorMegaIqDark solid;
 }
@@ -98,6 +101,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .btn-math {
+  border-color: $colorMath;
   background-color: $colorMath;
   border-bottom: 5px $colorMathDark solid;
 }
@@ -112,6 +116,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .btn-grammar {
+  border-color: $colorGrammar;
   background-color: $colorGrammar;
   border-bottom: 5px $colorGrammarDark solid;
 }

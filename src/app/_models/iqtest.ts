@@ -7,5 +7,7 @@ export class IqTest {
   pic: string;
   duration: string;
   description: string;
+  questions: number;
+  time: number;
   class: string;
 }

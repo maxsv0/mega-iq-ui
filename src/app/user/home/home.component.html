@@ -1,22 +1,46 @@
-<h1>Hi {{currentUser.name}}! <a routerLink="/settings">Edit profile</a></h1>
-
-<h2><a routerLink="{{currentUser.url}}">View public profile {{currentUser.name}}</a></h2>
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Hi {{currentUser.name}}!</h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <button routerLink="/settings" class="btn btn-link btn-light">
+      Edit profile
+    </button>
+    <button routerLink="{{currentUser.url}}" class="btn btn-link btn-light">
+      View profile
+    </button>
+  </div>
+</div>
 
 <div class="jumbotron">
-
-  <div class="media" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[test.type].pic + ')'}">
-    <div class="media-body col-md-8 ml-md-auto">
-      <h5 class="mt-0">Test {{test.type}}</h5>
-      <p>
-          Status: {{test.status}}, id: {{test.code}}
-      </p>
-      <p>
-          Date started: {{test.createDate}}, finished: {{test.finishDate}}
-      </p>
-      <p>
-        <a routerLink="{{test.url}}" class="btn btn-primary">Go to test</a>
-      </p>
+  <h2>Latest activity</h2>
+  <div class="test mb-2" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
+    <div class="media">
+      <div class="media-body col-md-3">
+        <p class="text-center my-5" *ngIf="test.status === testStatus.ACTIVE">
+          <a routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg">Continue test</a>
+        </p>
       </div>
+      <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].class}}">
+        <h2 class="mt-3 mb-2">{{this.testTypes[this.testTypesKeys[test.type]].name}}
+          <span class="badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 'badge-danger': test.status === testStatus.ACTIVE, 'badge-secondary': test.status === testStatus.EXPIRED}">{{test.status}}</span>
+        </h2>
+        <p>
+          <svg class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#link"/>
+          </svg>
+          <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-light">mega-iq.com{{test.url}}</a>
+        </p>
+        <p>
+          Date started: {{test.createDate | date:'medium'}}
+        </p>
+        <p *ngIf="test.updateDate">
+          Last update: {{test.updateDate | date:'medium'}}
+        </p>
+        <p *ngIf="test.finishDate">
+          Date finished: {{test.finishDate | date:'medium'}}
+        </p>
+      </div>
+    </div>
   </div>
-
 </div>

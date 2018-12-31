@@ -4,6 +4,7 @@ import { first } from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
 import {UserService, AuthenticationService, IqTestService, AlertService} from '@/_services';
+import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -11,9 +12,11 @@ import {UserService, AuthenticationService, IqTestService, AlertService} from '@
 })
 export class HomeComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
+  testTypesKeys: [] = [];
   currentUser: User;
   currentUserSubscription: Subscription;
   userTests: TestResult[];
+  public testStatus = TestStatusEnum;
 
   constructor(
     private iqTestService: IqTestService,
@@ -27,6 +30,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.testTypes = this.iqTestService.getIqTest();
+
+    Object.entries(this.testTypes).forEach(
+      ([key, test]) =>  {
+        this.testTypesKeys[test.type] = key;
+      }
+    );
+    console.log(this.testTypesKeys);
 
     this.iqTestService.getMyAll()
       .pipe(first())

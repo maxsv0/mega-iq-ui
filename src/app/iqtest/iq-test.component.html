@@ -15,15 +15,17 @@
     <div class="media mb-2">
       <div class="media-body">
         <div class="test-{{item.value.class}}">
-          <h1 class="mx-5 my-4">{{item.value.name}}</h1>
+          <h1 class="mx-5 my-3">{{item.value.name}}</h1>
         </div>
-        <div class="row mr-1">
+        <div class="row mx-1">
           <div class="col-md-7">
-            <p>{{item.value.description}}</p>
+            <h2>{{item.value.name}}<br>{{item.value.questions}} questions</h2>
+            <h3 class="mt-5">{{item.value.description}}</h3>
+            <h4 class="mt-4">Average testing time is {{item.value.time}} min</h4>
           </div>
           <div class="col-md-5">
             <a class="btn btn-block btn-primary btn-{{item.value.class}}" routerLink="{{item.value.url}}">
-              Go to {{item.value.name}}
+              Go to the {{item.value.name}}
             </a>
           </div>
         </div>
