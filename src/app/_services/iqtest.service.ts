@@ -37,12 +37,7 @@ export class IqTestService {
   }
 
   submitAnswer(id: string, question: number, answer: number) {
-    return this.http.post<ApiResponseTestResult>(environment.apiUrl + '/test/' + id, {
-      params: {
-        question: question,
-        answer: answer
-      }
-    });
+    return this.http.post<ApiResponseTestResult>(environment.apiUrl + `/test/${id}`, { question, answer });
   }
 
   getByCode(id: string) {

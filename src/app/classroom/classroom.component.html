@@ -1,35 +1,41 @@
-<div class="jumbotron">
+<div class="row">
+  <div class="col-md-8">
+    <div class="jumbotron">
+      <h1>Active test {{activeTest.type}} - {{activeTest.status}}</h1>
+      <div>
+        <h2>{{activeQuestion.title}}</h2>
+        <div class="text-center">
+          <img src="{{activeQuestion.pic}}" class="img-fluid">
+        </div>
+        <h3>{{activeQuestion.description}}</h3>
 
-<h1>Active test {{activeTest.type}} - {{activeTest.status}}</h1>
-<p>
-  <span>Test started</span>: {{activeTest.createDate}}
-</p>
-<p>
-  <span>Test finished</span>: {{activeTest.finishDate}}
-</p>
-<p>
-  <span>ID</span>: {{activeTest.code}}
-</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm" *ngFor="let answer of activeQuestion.answers"
+                 [ngClass]="{'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
 
-<div *ngFor="let question of activeTest.questionSet">
-  <h2>{{question.title}}</h2>
-  {{question.pic}}
-  <h3>{{question.description}}</h3>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm" *ngFor="let answer of question.answers">
-        {{answer.id}} : {{answer.pic}}
+              <a routerLink="/classroom/{{activeTest.code}}/{{activeQuestionId}}/{{answer.id}}" *ngIf="activeTest.status === testStatus.ACTIVE"><img src="{{answer.pic}}"></a>
+              <span *ngIf="activeTest.status === testStatus.FINISHED"><img src="{{answer.pic}}"></span>
+            </div>
+            <div class="col-sm-12" *ngIf="loading">
+              <img class="pl-3"
+                   src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+              <span class="pl-3 text-muted">Submitting answer... please wait</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <p>
-    <span>Your answer</span>:
-    {{question.answerUser}}
-  </p>
-
-  <hr>
-</div>
-
+  <div class="col-md-4">
+    <div class="jumbotron">
+      <p>
+        <span>Started</span>: {{activeTest.createDate}}
+      </p>
+      <a *ngFor="let question of activeTest.questionSet; index as index"
+         routerLink="/classroom/{{activeTest.code}}/{{index + 1}}"
+         [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }"
+      >{{index + 1}}</a>
+    </div>
+  </div>
 </div>

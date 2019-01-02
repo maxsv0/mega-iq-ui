@@ -52,6 +52,7 @@ $colorGrammarLight: lighten($colorMath, 10%);
 $colorGrammarDark: darken($colorMath, 15%);
 
 .test-practice {
+  border-color: $colorPractice;
   background-color: $colorPractice;
 }
 
@@ -67,6 +68,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .test-standard {
+  border-color: $colorStandard;
   background-color: $colorStandard;
 }
 
@@ -82,6 +84,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .test-megaiq {
+  border-color: $colorMegaIq;
   background-color: $colorMegaIq;
 }
 
@@ -97,6 +100,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .test-math {
+  border-color: $colorMath;
   background-color: $colorMath;
 }
 
@@ -112,6 +116,7 @@ $colorGrammarDark: darken($colorMath, 15%);
 }
 
 .test-grammar {
+  border-color: $colorGrammar;
   background-color: $colorGrammar;
 }
 

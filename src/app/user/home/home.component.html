@@ -16,9 +16,10 @@
   <h2>Latest activity</h2>
   <div class="test mb-2" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="media">
-      <div class="media-body col-md-3">
-        <p class="text-center my-5" *ngIf="test.status === testStatus.ACTIVE">
-          <a routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg">Continue test</a>
+      <div class="media-body col-md-4">
+        <p class="text-center m-5">
+          <a routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg" *ngIf="test.status === testStatus.ACTIVE">Continue test</a>
+          <a routerLink="/classroom/{{test.code}}" class="btn btn-info btn-block btn-lg" *ngIf="test.status === testStatus.FINISHED">Check results</a>
         </p>
       </div>
       <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].class}}">
@@ -31,15 +32,14 @@
           </svg>
           <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-light">mega-iq.com{{test.url}}</a>
         </p>
-        <p>
-          Date started: {{test.createDate | date:'medium'}}
-        </p>
-        <p *ngIf="test.updateDate">
-          Last update: {{test.updateDate | date:'medium'}}
-        </p>
-        <p *ngIf="test.finishDate">
-          Date finished: {{test.finishDate | date:'medium'}}
-        </p>
+        <div class="row">
+          <p class="col">
+            Started: {{test.createDate | date:'medium'}}
+          </p>
+          <p class="col" *ngIf="test.finishDate">
+            Finished: {{test.finishDate | date:'medium'}}
+          </p>
+        </div>
       </div>
     </div>
   </div>

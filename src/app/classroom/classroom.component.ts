@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {TestResult, User} from '@/_models';
-import {Subscription} from 'rxjs';
+import {Question, TestResult, User} from '@/_models';
+import {Observable, Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {first} from 'rxjs/operators';
+import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 
 @Component({
   selector: 'app-classroom',
@@ -12,10 +13,14 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./classroom.component.scss']
 })
 export class ClassroomComponent implements OnInit, OnDestroy {
-  questionForm: FormGroup;
+  loading = false;
+  public testStatus = TestStatusEnum;
 
   activeTest: TestResult;
   activeTestSubscription: Subscription;
+  activeQuestionIdSubscription: Subscription;
+  activeQuestionId: number;
+  activeQuestion: Question;
 
   currentUser: User;
   currentUserSubscription: Subscription;
@@ -53,7 +58,19 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.activeQuestionIdSubscription = this.route.params.subscribe(params => {
+      if (params['questionId']) {
+        this.activeQuestionId = params['questionId'];
+      } else {
+        this.activeQuestionId = 1;
+      }
+      if (this.activeTest && this.activeQuestionId) {
+        this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+      }
+      if (params['answerId']) {
+        this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -61,15 +78,34 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   private createForm() {
-    this.questionForm = this.formBuilder.group({
-      id: [this.activeTest.code]
-      // answer1: [this.activeTest.questionSet.pop()],
-      // answer2: [this.activeTest.questionSet.pop()],
-      // answer3: [this.activeTest.questionSet.pop()],
-      // answer4: [this.activeTest.questionSet.pop()],
-      // answer5: [this.activeTest.questionSet.pop()],
-      // answer6: [this.activeTest.questionSet.pop()],
-    });
+    // this.questionForm = this.formBuilder.group({
+    //   id: [this.activeTest.code]
+    //   // answer1: [this.activeTest.questionSet.pop()],
+    //   // answer2: [this.activeTest.questionSet.pop()],
+    //   // answer3: [this.activeTest.questionSet.pop()],
+    //   // answer4: [this.activeTest.questionSet.pop()],
+    //   // answer5: [this.activeTest.questionSet.pop()],
+    //   // answer6: [this.activeTest.questionSet.pop()],
+    // });
+  }
+
+  submitAnswer(code: string, question: number, answer: number) {
+    this.loading = true;
+    this.iqTestService.submitAnswer(code, question, answer)
+      .pipe(first())
+      .subscribe(
+        apiResponseTestResult => {
+          if (apiResponseTestResult.ok) {
+            this.iqTestService.update(apiResponseTestResult.test);
+          } else {
+            this.alertService.error(apiResponseTestResult.msg);
+          }
+          this.loading = false;
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
+          this.loading = false;
+        });
   }
 
 }
