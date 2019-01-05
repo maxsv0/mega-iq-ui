@@ -41,6 +41,10 @@ export class UserService {
     return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/verify', code);
   }
 
+  detectLocation() {
+    return this.http.get<ApiResponseBase>(environment.apiGeoIpUrl + '/ip');
+  }
+
   getAvatarsDefault() {
     return [
       'https://lh3.googleusercontent.com/INTuvwHpiXTigV8UQWi5MpSaRt-0mimAQL_eyfGMOynRK_USId0_Z45KFIrKI3tp21J_q6panwRUfrDOBAqHbA',

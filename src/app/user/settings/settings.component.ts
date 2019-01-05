@@ -5,7 +5,6 @@ import {ApiResponseBase, User} from '@/_models';
 import {BehaviorSubject, Subscription} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {StorageService} from '@/_services/storage.service';
 
@@ -98,7 +97,7 @@ export class SettingsComponent implements OnInit {
 
   detectLocation() {
     this.loading = true;
-    this.http.get<ApiResponseBase>(environment.apiUrl + '/ip').subscribe(
+    this.userService.detectLocation().subscribe(
       apiResponseBase => {
         if (apiResponseBase.ok) {
           this.profileForm.controls['location'].setValue(apiResponseBase.msg);

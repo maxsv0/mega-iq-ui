@@ -3,11 +3,8 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
-import {AlertService, UserService, AuthenticationService} from '@/_services';
+import {AlertService, UserService, AuthenticationService, StorageService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {StorageService} from '@/_services/storage.service';
-import {ApiResponseBase} from '@/_models/api-response-base';
 
 @Component({
   templateUrl: 'register.component.html',
@@ -95,7 +92,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   detectLocation() {
     this.loading = true;
-    this.http.get<ApiResponseBase>(environment.apiUrl + '/ip').subscribe(
+    this.userService.detectLocation().subscribe(
       apiResponseBase => {
           if (apiResponseBase.ok) {
             this.registerForm.controls['location'].setValue(apiResponseBase.msg);
