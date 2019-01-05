@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.mega-iq.com',
-  apiGeoIpUrl: 'https://geoip.mega-iq.com'
+  apiUrl: 'http://new.mega-iq.com/api/v1',
+  apiGeoIpUrl: 'http://new.mega-iq.com/geoip'
 };
