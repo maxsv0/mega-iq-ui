@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://new.mega-iq.com/api/v1'
+  apiUrl: 'https://api.mega-iq.com'
 };

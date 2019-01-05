@@ -68,25 +68,15 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
       }
       if (params['answerId']) {
-        this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
+        if (this.activeTest.status === TestStatusEnum.ACTIVE) {
+          this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
+        }
       }
     });
   }
 
   ngOnDestroy() {
     this.activeTestSubscription.unsubscribe();
-  }
-
-  private createForm() {
-    // this.questionForm = this.formBuilder.group({
-    //   id: [this.activeTest.code]
-    //   // answer1: [this.activeTest.questionSet.pop()],
-    //   // answer2: [this.activeTest.questionSet.pop()],
-    //   // answer3: [this.activeTest.questionSet.pop()],
-    //   // answer4: [this.activeTest.questionSet.pop()],
-    //   // answer5: [this.activeTest.questionSet.pop()],
-    //   // answer6: [this.activeTest.questionSet.pop()],
-    // });
   }
 
   submitAnswer(code: string, question: number, answer: number) {
@@ -97,6 +87,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
             this.iqTestService.update(apiResponseTestResult.test);
+            this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
