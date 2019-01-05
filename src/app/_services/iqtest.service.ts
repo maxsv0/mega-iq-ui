@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ApiResponseTestResult, ApiResponseTestResultList, IqTest, TestResult} from '@/_models';
@@ -37,7 +37,7 @@ export class IqTestService {
   }
 
   submitAnswer(id: string, question: number, answer: number) {
-    return this.http.post<ApiResponseTestResult>(environment.apiUrl + `/test/${id}`, { question, answer });
+    return this.http.post<ApiResponseTestResult>(environment.apiUrl + `/test/${id}`, {question, answer});
   }
 
   getByCode(id: string) {

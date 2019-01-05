@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {first} from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
-import {UserService, AuthenticationService, IqTestService, AlertService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.testTypes = this.iqTestService.getIqTest();
 
     Object.entries(this.testTypes).forEach(
-      ([key, test]) =>  {
+      ([key, test]) => {
         this.testTypesKeys[test.type] = key;
       }
     );

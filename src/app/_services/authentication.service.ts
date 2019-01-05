@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-import { User } from '@/_models';
-import { environment } from '../../environments/environment';
+import {User} from '@/_models';
+import {environment} from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
 
   login(login: string, password: string) {
-    return this.http.post<any>(environment.apiUrl + '/user/login', { login, password })
+    return this.http.post<any>(environment.apiUrl + '/user/login', {login, password})
       .pipe(map(apiResponseUser => {
 
         // login successful if there's a jwt token in the response

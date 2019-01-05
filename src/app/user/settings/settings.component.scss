@@ -7,7 +7,7 @@
 
 [type=radio] + img {
   cursor: pointer;
-  margin-right:5px;
+  margin-right: 5px;
 }
 
 [type=radio]:checked + img {
@@ -15,14 +15,14 @@
 }
 
 .card-body {
-  padding:5px;
-  max-height:200px;
+  padding: 5px;
+  max-height: 200px;
   overflow: scroll;
 }
 
 .required label::after {
-  content:" *";
-  color:red;
+  content: " *";
+  color: red;
 }
 
 .btn-outline-secondary {

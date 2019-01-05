@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TestTypeEnum} from '@/_models/enum';
 import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -20,7 +20,8 @@ export class IqTestComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     const testType = this.route.snapshot.params['testType'];

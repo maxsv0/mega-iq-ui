@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';
-import {ApiResponseTestResult, TestResult} from '@/_models';
+import {TestResult} from '@/_models';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
@@ -18,7 +18,8 @@ export class IqResultComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     const testCode = this.route.snapshot.params['testCode'];

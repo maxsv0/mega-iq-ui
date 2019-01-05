@@ -1,6 +1,4 @@
-import { TestBed } from '@angular/core/testing';
-
-import { IqTestService } from './iqtest.service';
+import {TestBed} from '@angular/core/testing';
 
 describe('IqtestService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

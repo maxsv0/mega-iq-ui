@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
-import {AlertService, UserService, AuthenticationService, StorageService} from '@/_services';
+import {AlertService, AuthenticationService, StorageService, UserService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -94,17 +94,17 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.loading = true;
     this.userService.detectLocation().subscribe(
       apiResponseBase => {
-          if (apiResponseBase.ok) {
-            this.registerForm.controls['location'].setValue(apiResponseBase.msg);
-          } else {
-            this.alertService.error(apiResponseBase.msg);
-          }
-          this.loading = false;
-        },
-        error => {
-          console.log('API error: ' + error);
-          this.loading = false;
-        });
+        if (apiResponseBase.ok) {
+          this.registerForm.controls['location'].setValue(apiResponseBase.msg);
+        } else {
+          this.alertService.error(apiResponseBase.msg);
+        }
+        this.loading = false;
+      },
+      error => {
+        console.log('API error: ' + error);
+        this.loading = false;
+      });
   }
 
   handleFileInput(files: FileList) {

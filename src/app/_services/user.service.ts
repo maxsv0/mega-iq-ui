@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {User, ApiResponseUser, ApiResponseUsersList, ApiResponseBase} from '@/_models';
+import {ApiResponseBase, ApiResponseUser, ApiResponseUsersList, User} from '@/_models';
 import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})

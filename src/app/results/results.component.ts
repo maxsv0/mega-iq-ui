@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertService, UserService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {User} from '@/_models';
@@ -14,7 +14,8 @@ export class ResultsComponent implements OnInit {
   constructor(
     private userService: UserService,
     private alertService: AlertService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadUsersAll();

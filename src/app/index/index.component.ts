@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 import {AlertService, UserService} from '@/_services';
 import {User} from '@/_models';
@@ -13,7 +13,8 @@ export class IndexComponent implements OnInit {
   constructor(
     private userService: UserService,
     private alertService: AlertService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadUsersTop();

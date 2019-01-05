@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
-import {ApiResponseBase, User} from '@/_models';
-import {BehaviorSubject, Subscription} from 'rxjs';
+import {User} from '@/_models';
+import {Subscription} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';

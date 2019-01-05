@@ -1,13 +1,14 @@
-﻿import { Injectable } from '@angular/core';
-import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+﻿import {Injectable} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {Observable, of, throwError} from 'rxjs';
+import {delay, dematerialize, materialize, mergeMap} from 'rxjs/operators';
 import {User} from '@/_models';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  constructor() {
+  }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // array in local storage for registered users
@@ -40,26 +41,26 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             token: 'fake-jwt-token'
           };
 
-          return of(new HttpResponse({ status: 200, body: body }));
+          return of(new HttpResponse({status: 200, body: body}));
         } else {
           // else return 400 bad request
-          return throwError({ error: { message: 'Email or password is incorrect' } });
+          return throwError({error: {message: 'Email or password is incorrect'}});
         }
       }
 
       // get location
       if (request.url.endsWith('/ip') && request.method === 'GET') {
-        return of(new HttpResponse({ status: 200, body: 'Berlin, Germany' }));
+        return of(new HttpResponse({status: 200, body: 'Berlin, Germany'}));
       }
 
       // get users today
       if (request.url.endsWith('/users/today') && request.method === 'GET') {
-        return of(new HttpResponse({ status: 200, body: users }));
+        return of(new HttpResponse({status: 200, body: users}));
       }
 
       // get users
       if (request.url.endsWith('/users/month') && request.method === 'GET') {
-        return of(new HttpResponse({ status: 200, body: users }));
+        return of(new HttpResponse({status: 200, body: users}));
       }
 
       // get user by id
@@ -67,19 +68,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // find user by id in users array
         let urlParts = request.url.split('/');
         let id = parseInt(urlParts[urlParts.length - 1]);
-        let matchedUsers = users.filter(user => { return user.id === id; });
+        let matchedUsers = users.filter(user => {
+          return user.id === id;
+        });
         let user = matchedUsers.length ? matchedUsers[0] : null;
 
-        return of(new HttpResponse({ status: 200, body: user }));
+        return of(new HttpResponse({status: 200, body: user}));
       }
 
       // update user *** FAKE ***
       if (request.url.match(/\/users\/\d+$/) && request.method === 'PUT') {
         let urlParts = request.url.split('/');
         let id = parseInt(urlParts[urlParts.length - 1]);
-        let matchedUsers = users.filter(user => { return user.id === id; });
+        let matchedUsers = users.filter(user => {
+          return user.id === id;
+        });
         let user = matchedUsers.length ? matchedUsers[0] : null;
-        return of(new HttpResponse({ status: 200, body: user }));
+        return of(new HttpResponse({status: 200, body: user}));
       }
 
       // register user
@@ -88,9 +93,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         let newUser = request.body;
 
         // validation
-        let duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
+        let duplicateUser = users.filter(user => {
+          return user.email === newUser.email;
+        }).length;
         if (duplicateUser) {
-          return throwError({ error: { message: 'Email "' + newUser.email + '" is already taken' } });
+          return throwError({error: {message: 'Email "' + newUser.email + '" is already taken'}});
         }
 
         // save new user
@@ -99,7 +106,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         localStorage.setItem('users', JSON.stringify(users));
 
         // respond 200 OK
-        return of(new HttpResponse({ status: 200 }));
+        return of(new HttpResponse({status: 200}));
       }
 
       // delete user
@@ -120,10 +127,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           }
 
           // respond 200 OK
-          return of(new HttpResponse({ status: 200 }));
+          return of(new HttpResponse({status: 200}));
         } else {
           // return 401 not authorised if token is null or invalid
-          return throwError({ status: 401, error: { message: 'Unauthorised' } });
+          return throwError({status: 401, error: {message: 'Unauthorised'}});
         }
       }
 

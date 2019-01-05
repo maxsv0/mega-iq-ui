@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
-import { AlertService, UserService, AuthenticationService } from '@/_services';
+import {AlertService, AuthenticationService, UserService} from '@/_services';
 
 @Component({
   selector: 'app-forget',
@@ -35,7 +35,9 @@ export class ForgetComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.forgetForm.controls; }
+  get f() {
+    return this.forgetForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;

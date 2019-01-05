@@ -1,5 +1,5 @@
-import {User, Question, QuestionGroupsResult} from '@/_models';
-import {TestTypeEnum, TestStatusEnum} from '@/_models/enum';
+import {Question, QuestionGroupsResult, User} from '@/_models';
+import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 
 export class TestResult {
   code: string;

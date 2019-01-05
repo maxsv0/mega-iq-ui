@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture} from '@angular/core/testing';
 
-import { IqResultComponent } from './iq-result.component';
+import {IqResultComponent} from './iq-result.component';
 
 describe('IqResultComponent', () => {
   let component: IqResultComponent;

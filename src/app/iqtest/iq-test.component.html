@@ -1,36 +1,39 @@
 <div class="col-sm-12">
 
-<div *ngIf="testActive">
-  <h2>{{testActive.name}}</h2>
+  <div *ngIf="testActive">
+    <h2>{{testActive.name}}</h2>
 
-  <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary btn-lg" (click)="startTest(testActive.type)" i18>Start Test</button>
-    <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-    <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary btn-lg" (click)="startTest(testActive.type)" i18>Start Test
+      </button>
+      <img *ngIf="loading" class="pl-3"
+           src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+      <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
+    </div>
   </div>
-</div>
 
-<div *ngIf="!testActive">
-  <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue" [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
-    <div class="media mb-2">
-      <div class="media-body">
-        <div class="test-{{item.value.class}}">
-          <h1 class="mx-5 my-3">{{item.value.name}}</h1>
-        </div>
-        <div class="row mx-1">
-          <div class="col-md-7">
-            <h2>{{item.value.name}}<br>{{item.value.questions}} questions</h2>
-            <h3 class="mt-5">{{item.value.description}}</h3>
-            <h4 class="mt-4">Average testing time is {{item.value.time}} min</h4>
+  <div *ngIf="!testActive">
+    <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue"
+         [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+      <div class="media mb-2">
+        <div class="media-body">
+          <div class="test-{{item.value.class}}">
+            <h1 class="mx-5 my-3">{{item.value.name}}</h1>
           </div>
-          <div class="col-md-5">
-            <a class="btn btn-block btn-lg btn-{{item.value.class}}" routerLink="{{item.value.url}}">
-              Go to the {{item.value.name}}
-            </a>
+          <div class="row mx-1">
+            <div class="col-md-7">
+              <h2>{{item.value.name}}<br>{{item.value.questions}} questions</h2>
+              <h3 class="mt-5">{{item.value.description}}</h3>
+              <h4 class="mt-4">Average testing time is {{item.value.time}} min</h4>
+            </div>
+            <div class="col-md-5">
+              <a class="btn btn-block btn-lg btn-{{item.value.class}}" routerLink="{{item.value.url}}">
+                Go to the {{item.value.name}}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

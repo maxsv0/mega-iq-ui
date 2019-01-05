@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Question, TestResult, User} from '@/_models';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
+import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
   selector: 'app-classroom',
