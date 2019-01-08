@@ -7,5 +7,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", {value: true});
 __export(require("./error.interceptor"));
 __export(require("./jwt.interceptor"));
-__export(require("./fake-backend"));
 //# sourceMappingURL=index.js.map
