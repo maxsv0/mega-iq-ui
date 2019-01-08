@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
-import {AlertService, AuthenticationService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
@@ -36,8 +36,33 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.testTypesKeys[test.type] = key;
       }
     );
-    console.log(this.testTypesKeys);
 
+    this.loadMyResult();
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.currentUserSubscription.unsubscribe();
+  }
+
+  deleteTestResult(code: string) {
+    this.iqTestService.deleteTestResult(code)
+      .pipe(first())
+      .subscribe(
+        apiResponseBase => {
+          if (apiResponseBase.ok) {
+            this.alertService.success(apiResponseBase.msg);
+          } else {
+            this.alertService.error(apiResponseBase.msg);
+          }
+          this.loadMyResult();
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
+        });
+  }
+
+  private loadMyResult() {
     this.iqTestService.getMyAll()
       .pipe(first())
       .subscribe(
@@ -51,10 +76,5 @@ export class HomeComponent implements OnInit, OnDestroy {
         error => {
           this.alertService.error('API error: ' + error);
         });
-  }
-
-  ngOnDestroy() {
-    // unsubscribe to ensure no memory leaks
-    this.currentUserSubscription.unsubscribe();
   }
 }

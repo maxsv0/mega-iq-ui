@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {ApiResponseTestResult, ApiResponseTestResultList, IqTest, TestResult} from '@/_models';
+import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, IqTest, TestResult} from '@/_models';
 import {TestTypeEnum} from '@/_models/enum';
 import {BehaviorSubject, Observable} from 'rxjs';
 
@@ -21,6 +21,10 @@ export class IqTestService {
 
   public get activeTestValue(): TestResult {
     return this.activeTestSubject.value;
+  }
+
+  deleteTestResult(code: string) {
+    return this.http.delete<ApiResponseBase>(environment.apiUrl + `/test/${code}`);
   }
 
   update(test: TestResult) {

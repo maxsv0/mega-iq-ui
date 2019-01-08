@@ -6,6 +6,7 @@ import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {TestStatusEnum} from '@/_models/enum';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-classroom',
@@ -20,6 +21,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   activeTestSubscription: Subscription;
   activeQuestionIdSubscription: Subscription;
   activeQuestionId: number;
+  activeQuestionIdPrev: number;
+  activeQuestionIdNext: number;
   activeQuestion: Question;
 
   currentUser: User;
@@ -34,19 +37,9 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     private alertService: AlertService
   ) {
     const testCode = this.route.snapshot.params['testCode'];
-    this.iqTestService.getByCode(testCode)
-      .pipe(first())
-      .subscribe(
-        apiResponseTestResult => {
-          if (apiResponseTestResult.ok) {
-            this.iqTestService.update(apiResponseTestResult.test);
-          } else {
-            this.alertService.error(apiResponseTestResult.msg);
-          }
-        },
-        error => {
-          this.alertService.error('API error: ' + error);
-        });
+    if (testCode) {
+      this.loadTestByCode(testCode);
+    }
 
     this.activeTestSubscription = this.iqTestService.activeTest.subscribe(test => {
       this.activeTest = test;
@@ -59,16 +52,22 @@ export class ClassroomComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.activeQuestionIdSubscription = this.route.params.subscribe(params => {
+      if (params['testCode']) {
+        this.loadTestByCode(params['testCode']);
+      }
+
       if (params['questionId']) {
-        this.activeQuestionId = params['questionId'];
+        this.activeQuestionId = Number(params['questionId']);
       } else {
         this.activeQuestionId = 1;
       }
-      if (this.activeTest && this.activeQuestionId) {
-        this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
-      }
+
+      this.updateActiveTest();
+
       if (params['answerId']) {
-        if (this.activeTest.status === TestStatusEnum.ACTIVE) {
+        const answerId = Number(params['answerId']);
+        if (answerId && this.activeQuestion.answers[answerId] && this.activeQuestion.answerUser !== answerId
+          && this.activeTest.status === TestStatusEnum.ACTIVE) {
           this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
         }
       }
@@ -92,10 +91,43 @@ export class ClassroomComponent implements OnInit, OnDestroy {
             this.alertService.error(apiResponseTestResult.msg);
           }
           this.loading = false;
+          $('#loadingDone').removeClass('d-none').show().fadeOut('slow');
         },
         error => {
           this.alertService.error('API error: ' + error);
           this.loading = false;
+        });
+  }
+
+  private updateActiveTest() {
+    this.activeQuestionIdPrev = this.activeQuestionId - 1;
+
+    if (this.activeTest && this.activeQuestionId) {
+      this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+      this.activeQuestionIdNext = this.activeQuestionId + 1;
+      if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
+        this.activeQuestionIdNext = 0;
+      }
+    } else {
+      this.activeQuestionIdNext = 0;
+      this.activeQuestion = null;
+    }
+  }
+
+  private loadTestByCode(testCode: string) {
+    this.iqTestService.getByCode(testCode)
+      .pipe(first())
+      .subscribe(
+        apiResponseTestResult => {
+          if (apiResponseTestResult.ok) {
+            this.iqTestService.update(apiResponseTestResult.test);
+            this.updateActiveTest();
+          } else {
+            this.alertService.error(apiResponseTestResult.msg);
+          }
+        },
+        error => {
+          this.alertService.error('API error: ' + error);
         });
   }
 

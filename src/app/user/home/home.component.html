@@ -14,14 +14,6 @@
   <div class="test mb-2" *ngFor="let test of userTests"
        [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="media">
-      <div class="media-body col-md-4">
-        <p class="text-center m-5">
-          <a routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg"
-             *ngIf="test.status === testStatus.ACTIVE">Continue test</a>
-          <a routerLink="/classroom/{{test.code}}" class="btn btn-info btn-block btn-lg"
-             *ngIf="test.status === testStatus.FINISHED">Check results</a>
-        </p>
-      </div>
       <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].class}}">
         <h2 class="mt-3 mb-2">{{this.testTypes[this.testTypesKeys[test.type]].name}}
           <span class="badge"
@@ -41,6 +33,25 @@
             Finished: {{test.finishDate | date:'medium'}}
           </p>
         </div>
+      </div>
+      <div class="media-body col-md-4">
+        <p class="text-center m-5">
+          <a routerLink="{{test.url}}" class="btn btn-warning btn-block btn-lg"
+             *ngIf="test.status === testStatus.ACTIVE">Continue test</a>
+          <a routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg"
+             *ngIf="test.status === testStatus.FINISHED">
+            <svg class="feather">
+              <use xlink:href="/assets/feather-sprite.svg#sun"/>
+            </svg>
+            Check results</a>
+
+          <a class="btn btn-danger btn-block btn-lg mt-5" (click)="deleteTestResult(test.code)"
+             *ngIf="test.status !== testStatus.ACTIVE">
+            <svg class="feather">
+              <use xlink:href="/assets/feather-sprite.svg#trash"/>
+            </svg>
+            Delete</a>
+        </p>
       </div>
     </div>
   </div>
