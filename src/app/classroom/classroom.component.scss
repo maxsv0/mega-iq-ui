@@ -28,11 +28,12 @@
   background-color: #5cb85c;
   border-bottom: 1px #4e9d4e solid;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, .5);
+  box-shadow: 0px 0px 5px #dc3545;
   color: #fff;
 }
 
 .answer-active {
-  border: 1px dashed red;
+  border: 1px dashed #dc3545;
 }
 
 .answer-correct {

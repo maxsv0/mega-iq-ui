@@ -2,7 +2,7 @@
   <div class="col-md-8">
     <div class="jumbotron py-5">
       <div>
-        <h3>{{activeQuestion.title}}</h3>
+        <h3><span class="text-muted mr-3">Question #{{activeQuestionId}}</span>{{activeQuestion.title}}<span class="badge badge-success ml-2" *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser">Done</span></h3>
         <div class="text-center my-3">
           <img src="{{activeQuestion.pic}}" width="470" height="370">
         </div>
@@ -15,7 +15,7 @@
                  *ngIf="activeTest.status === testStatus.ACTIVE"><img src="{{answer.pic}}" width="92" height="92"></a>
               <span *ngIf="activeTest.status === testStatus.FINISHED"><img src="{{answer.pic}}" width="92" height="92"></span>
             </div>
-            <div class="col-sm-12" style="height:40px;">
+            <div class="col-sm-12" style="height:25px;">
               <div *ngIf="loading">
                 <img class="pl-3"
                      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
@@ -25,7 +25,7 @@
                 <span class="pl-3 text-success">Done!</span>
               </div>
             </div>
-            <div class="col-sm-12 card" *ngIf="activeQuestion.description">
+            <div class="col-sm-12 card mb-3" *ngIf="activeQuestion.description">
               <p class="my-3">
                 <svg class="feather">
                   <use xlink:href="/assets/feather-sprite.svg#message-circle"/>
@@ -47,22 +47,25 @@
   </div>
   <div class="col-md-4">
     <div class="jumbotron py-5">
-      <h4>Test {{activeTest.type}}
+      <h4>{{activeTestName}}
         <span class="badge"
               [ngClass]="{ 'badge-success': activeTest.status === testStatus.FINISHED, 'badge-danger': activeTest.status === testStatus.ACTIVE, 'badge-secondary': activeTest.status === testStatus.EXPIRED}">{{activeTest.status}}</span>
       </h4>
-      <p class="mt-3">Navigate questions:</p>
-      <p class="mb-5">
+      <p class="mt-3 text-muted">Click to navigate questions</p>
+      <p>
         <a *ngFor="let question of activeTest.questionSet; index as index"
            routerLink="/classroom/{{activeTest.code}}/{{index + 1}}"
            [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }"
         >{{index + 1}}</a>
       </p>
+    </div>
+
+    <div class="jumbotron py-5">
       <p>
         <span>Started</span>: {{activeTest.createDate | date:'medium'}}
       </p>
-      <p *ngIf="activeTest.finishDate">
-        <span>Finished</span>: {{activeTest.finishDate | date:'medium'}}
+      <p *ngIf="activeTest.points">
+        <span>Result</span>: {{activeTest.points}}
       </p>
       <p *ngIf="!activeTest.finishDate" class="text-muted">
         <svg class="feather">
@@ -70,9 +73,17 @@
         </svg>
         <span i18n>Once you submit all answers the test will be finished automatically</span>
       </p>
-      <p *ngIf="activeTest.points">
-        <span>Result</span>: {{activeTest.points}}
-      </p>
+      <div *ngIf="activeTest.finishDate" class="text-muted">
+        <h4>
+          <svg class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#check"/>
+          </svg>
+          <span i18n>Test finished</span>
+        </h4>
+        <h4 class="text-info">
+          {{activeTest.finishDate | date:'medium'}}
+        </h4>
+      </div>
     </div>
   </div>
 </div>

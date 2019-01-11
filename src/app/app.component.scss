@@ -1,3 +1,47 @@
 .container:first-of-type {
-  padding-top: 80px;
+  padding-top: 25px;
+}
+
+#bgMain {
+  background-color: #f8f9fa;
+}
+
+.bg-iq-practice {
+  background-size: 100%;
+  background-color: #000!important;;
+  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/novice_init_bg.jpg) ;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bg-iq-standard {
+  background-size: 100%;
+  background-color: #000!important;;
+  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/normal_init_bg.jpg) ;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bg-mega-iq {
+  background-size: 100%;
+  background-color: #000!important;;
+  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/mega_init_bg.jpg) ;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bg-math {
+  background-size: 100%;
+  background-color: #c5bdb4!important;
+  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/math_init_bg.jpg) ;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bg-grammar {
+  background-size: 100%;
+  background-color: #d1cdc2!important;
+  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/grammar_init_bg.jpg) ;
+  background-position: center top;
+  background-repeat: no-repeat;
 }

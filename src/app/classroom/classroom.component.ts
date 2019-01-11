@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Question, TestResult, User} from '@/_models';
+import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
@@ -14,10 +14,12 @@ import * as $ from 'jquery';
   styleUrls: ['./classroom.component.scss']
 })
 export class ClassroomComponent implements OnInit, OnDestroy {
+  testTypes: IqTest[] = [];
   loading = false;
   public testStatus = TestStatusEnum;
 
   activeTest: TestResult;
+  activeTestName: string;
   activeTestSubscription: Subscription;
   activeQuestionIdSubscription: Subscription;
   activeQuestionId: number;
@@ -40,9 +42,18 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     if (testCode) {
       this.loadTestByCode(testCode);
     }
+    this.testTypes = this.iqTestService.getIqTest();
 
     this.activeTestSubscription = this.iqTestService.activeTest.subscribe(test => {
       this.activeTest = test;
+
+      this.testTypes.forEach(
+        (testData) => {
+          if (test.type === testData.type) {
+            this.activeTestName = testData.name;
+          }
+        }
+      );
     });
 
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -66,7 +77,9 @@ export class ClassroomComponent implements OnInit, OnDestroy {
 
       if (params['answerId']) {
         const answerId = Number(params['answerId']);
-        if (answerId && this.activeQuestion.answers[answerId] && this.activeQuestion.answerUser !== answerId
+        // TODO check answer exists
+        //  console.log(this.activeQuestion.answers;
+        if (answerId && this.activeQuestion.answerUser !== answerId
           && this.activeTest.status === TestStatusEnum.ACTIVE) {
           this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
         }
@@ -91,7 +104,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
             this.alertService.error(apiResponseTestResult.msg);
           }
           this.loading = false;
-          $('#loadingDone').removeClass('d-none').show().fadeOut('slow');
+          $('#loadingDone').removeClass('d-none').show().fadeOut(2000);
         },
         error => {
           this.alertService.error('API error: ' + error);

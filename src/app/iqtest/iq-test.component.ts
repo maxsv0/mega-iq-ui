@@ -12,7 +12,7 @@ import {first} from 'rxjs/operators';
 })
 export class IqTestComponent implements OnInit {
   testTypes: IqTest[] = [];
-  testActive: IqTest;
+  testSelected: IqTest;
   loading = false;
 
   constructor(
@@ -31,7 +31,7 @@ export class IqTestComponent implements OnInit {
     this.testTypes.forEach(
       (test) => {
         if (test.url === '/iqtest/' + testType) {
-          this.testActive = test;
+          this.testSelected = test;
         }
       }
     );

@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 
-import {AuthenticationService} from './_services';
-import {User} from './_models';
+import {AuthenticationService, IqTestService} from './_services';
+import {IqTest, User} from './_models';
+import {Subscription} from 'rxjs';
+import {TestTypeEnum} from '@/_models/enum';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,13 @@ import {User} from './_models';
 export class AppComponent {
   title = 'mega-iq-ui';
   currentUser: User;
+  backgroundClass: string;
+  testTypes: IqTest[] = [];
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
+    private iqTestService: IqTestService,
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(
@@ -22,6 +28,28 @@ export class AppComponent {
         this.currentUser = user;
       }
     );
+
+    this.testTypes = this.iqTestService.getIqTest();
+
+    this.iqTestService.activeTest.subscribe(test => {
+      this.testTypes.forEach(
+        (testType) => {
+          if (test.type === testType.type) {
+            this.backgroundClass = testType.styleName;
+          }
+        }
+      );
+    });
+
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url.startsWith('/iqtest/')) {
+          this.backgroundClass = event.url.substr(8);
+        } else if (!event.url.startsWith('/classroom/')) {
+          this.backgroundClass = '';
+        }
+      }
+    });
   }
 
   logout() {

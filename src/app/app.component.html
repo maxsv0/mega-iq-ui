@@ -42,11 +42,18 @@
 </nav>
 
 <!-- main app container -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <alert></alert>
-      <router-outlet></router-outlet>
+<div id="bgMain"
+     [ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
+             'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
+             'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
+                    'bg-math': backgroundClass === 'math',
+                 'bg-grammar': backgroundClass === 'grammar'}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <alert></alert>
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

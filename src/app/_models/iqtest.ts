@@ -9,5 +9,5 @@ export class IqTest {
   description: string;
   questions: number;
   time: number;
-  class: string;
+  styleName: string;
 }

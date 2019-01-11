@@ -57,7 +57,7 @@ export class IqTestService {
 
     const iqTestPractice = new IqTest();
     iqTestPractice.type = TestTypeEnum.PRACTICE_IQ;
-    iqTestPractice.class = 'practice';
+    iqTestPractice.styleName = 'practice';
     iqTestPractice.name = 'Practice IQ Test';
     iqTestPractice.description = 'Practice IQ Test is designed to familiarize with the methodology of testing';
     iqTestPractice.url = '/iqtest/iq-practice';
@@ -68,7 +68,7 @@ export class IqTestService {
 
     const iqTestStandard = new IqTest();
     iqTestStandard.type = TestTypeEnum.STANDART_IQ;
-    iqTestStandard.class = 'standard';
+    iqTestStandard.styleName = 'standard';
     iqTestStandard.name = 'Standard IQ Test';
     iqTestStandard.description = 'Standard IQ Test';
     iqTestStandard.url = '/iqtest/iq-standard';
@@ -79,7 +79,7 @@ export class IqTestService {
 
     const iqTestMega = new IqTest();
     iqTestMega.type = TestTypeEnum.MEGA_IQ;
-    iqTestMega.class = 'megaiq';
+    iqTestMega.styleName = 'megaiq';
     iqTestMega.name = 'Mega IQ Test';
     iqTestMega.description = 'This is a serious challenge!';
     iqTestMega.url = '/iqtest/mega-iq';
@@ -90,7 +90,7 @@ export class IqTestService {
 
     const iqTestMath = new IqTest();
     iqTestMath.type = TestTypeEnum.MATH;
-    iqTestMath.class = 'math';
+    iqTestMath.styleName = 'math';
     iqTestMath.name = 'Math IQ Test';
     iqTestMath.description = 'Math IQ Test';
     iqTestMath.url = '/iqtest/math';
@@ -101,7 +101,7 @@ export class IqTestService {
 
     const iqTestGrammar = new IqTest();
     iqTestGrammar.type = TestTypeEnum.GRAMMAR;
-    iqTestGrammar.class = 'grammar';
+    iqTestGrammar.styleName = 'grammar';
     iqTestGrammar.name = 'Grammar IQ Test';
     iqTestGrammar.description = 'Grammar IQ Test';
     iqTestGrammar.url = '/iqtest/grammar';

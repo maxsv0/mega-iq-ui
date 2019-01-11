@@ -14,7 +14,7 @@
   <div class="test mb-2" *ngFor="let test of userTests"
        [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="media">
-      <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].class}}">
+      <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].styleName}}">
         <h2 class="mt-3 mb-2">{{this.testTypes[this.testTypesKeys[test.type]].name}}
           <span class="badge"
                 [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 'badge-danger': test.status === testStatus.ACTIVE, 'badge-secondary': test.status === testStatus.EXPIRED}">{{test.status}}</span>
