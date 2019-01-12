@@ -5,5 +5,6 @@ export class ApiResponseUsersList {
   msg: string;
   date: Date;
   users: User[];
+  count: number;
 }
 
