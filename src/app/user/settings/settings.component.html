@@ -14,7 +14,12 @@
           <ng-template #elseIsEmailVerified>
             <p class="text-danger" i18n>Email not verified</p>
             <p>
-              <a class="btn btn-info" (click)="sendVerifyEmail()">Send verification email again</a>
+              <button [disabled]="loading || uploading" class="btn btn-info"(click)="sendVerifyEmail()">
+                <svg class="feather">
+                  <use xlink:href="/assets/feather-sprite.svg#mail"/>
+                </svg>
+                <span i18n>Send Verification Email</span>
+              </button>
             </p>
           </ng-template>
 

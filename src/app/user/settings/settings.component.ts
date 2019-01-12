@@ -136,6 +136,7 @@ export class SettingsComponent implements OnInit {
   }
 
   sendVerifyEmail() {
+    this.loading = true;
     this.userService.verifyEmail()
       .pipe(first())
       .subscribe(
@@ -145,6 +146,7 @@ export class SettingsComponent implements OnInit {
           } else {
             this.alertService.error(apiResponse.msg);
           }
+          this.loading = false;
         },
         error => {
           this.alertService.error('API error: ' + error);
