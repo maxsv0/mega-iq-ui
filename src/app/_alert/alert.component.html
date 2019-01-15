@@ -1,4 +1,9 @@
 <div class="container" *ngIf="message">
   <div class="col-md-6 offset-md-3"
-       [ngClass]="{ 'alert text-center': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+       [ngClass]="{ 'alert text-center': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+    {{message.text}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </div>
