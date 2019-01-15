@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentUser: User;
   currentUserSubscription: Subscription;
   userTests: TestResult[];
+  loading = false;
   public testStatus = TestStatusEnum;
 
   constructor(
@@ -46,6 +47,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   deleteTestResult(code: string) {
+    this.loading = true;
+
     this.iqTestService.deleteTestResult(code)
       .pipe(first())
       .subscribe(
@@ -72,6 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
+
+          this.loading = false;
         },
         error => {
           this.alertService.error('API error: ' + error);

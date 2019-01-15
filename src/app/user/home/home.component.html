@@ -1,9 +1,12 @@
 <div class="row">
   <div class="col-sm-9">
-    <h1>Hi {{currentUser.name}}! <a routerLink="{{currentUser.url}}">View profile</a></h1>
+    <h1>Hi {{currentUser.name}}! <a routerLink="{{currentUser.url}}">Open profile page</a></h1>
   </div>
   <div class="col-sm-3 text-right">
-    <button routerLink="/settings" class="btn btn-link btn-light">
+    <button routerLink="/settings" class="btn btn-outline-primary">
+      <svg class="feather">
+        <use xlink:href="/assets/feather-sprite.svg#settings"/>
+      </svg>
       Edit profile
     </button>
   </div>
@@ -17,7 +20,7 @@
       <div class="media-body col-md-8 ml-md-auto test-{{this.testTypes[this.testTypesKeys[test.type]].styleName}}">
         <h2 class="mt-3 mb-2">{{this.testTypes[this.testTypesKeys[test.type]].name}}
           <span class="badge"
-                [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 'badge-danger': test.status === testStatus.ACTIVE, 'badge-secondary': test.status === testStatus.EXPIRED}">{{test.status}}</span>
+                [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 'badge-primary': test.status === testStatus.ACTIVE, 'badge-secondary': test.status === testStatus.EXPIRED}">{{test.status}}</span>
         </h2>
         <p>
           <svg class="feather">
@@ -36,21 +39,25 @@
       </div>
       <div class="media-body col-md-4">
         <p class="text-center m-5">
-          <a routerLink="{{test.url}}" class="btn btn-warning btn-block btn-lg"
-             *ngIf="test.status === testStatus.ACTIVE">Continue test</a>
-          <a routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg"
+          <button routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg"
+             *ngIf="test.status === testStatus.ACTIVE">Continue test</button>
+
+          <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
              *ngIf="test.status === testStatus.FINISHED">
             <svg class="feather">
               <use xlink:href="/assets/feather-sprite.svg#sun"/>
             </svg>
-            Check results</a>
+            Check results</button>
 
-          <a class="btn btn-danger btn-block btn-lg mt-5" (click)="deleteTestResult(test.code)"
-             *ngIf="test.status !== testStatus.ACTIVE">
+          <button class="btn btn-danger btn-block btn-lg mt-5" (click)="deleteTestResult(test.code)"
+             *ngIf="test.status !== testStatus.ACTIVE"  [disabled]="loading" >
             <svg class="feather">
               <use xlink:href="/assets/feather-sprite.svg#trash"/>
             </svg>
-            Delete</a>
+            Delete
+            <img *ngIf="loading" class="pl-3"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          </button>
         </p>
       </div>
     </div>
