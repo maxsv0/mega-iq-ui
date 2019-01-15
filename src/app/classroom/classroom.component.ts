@@ -6,7 +6,6 @@ import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {TestStatusEnum} from '@/_models/enum';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-classroom',
@@ -20,8 +19,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
 
   activeTest: TestResult;
   activeTestName: string;
-  activeTestSubscription: Subscription;
-  activeQuestionIdSubscription: Subscription;
   activeQuestionId: number;
   activeQuestionIdPrev: number;
   activeQuestionIdNext: number;
@@ -38,23 +35,13 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {
+    this.activeQuestionId = 1;
     const testCode = this.route.snapshot.params['testCode'];
     if (testCode) {
-      this.loadTestByCode(testCode);
+      this.initTestByCode(testCode);
     }
+
     this.testTypes = this.iqTestService.getIqTest();
-
-    this.activeTestSubscription = this.iqTestService.activeTest.subscribe(test => {
-      this.activeTest = test;
-
-      this.testTypes.forEach(
-        (testData) => {
-          if (test.type === testData.type) {
-            this.activeTestName = testData.name;
-          }
-        }
-      );
-    });
 
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
@@ -62,33 +49,15 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.activeQuestionIdSubscription = this.route.params.subscribe(params => {
-      if (params['testCode']) {
-        this.loadTestByCode(params['testCode']);
-      }
-
-      if (params['questionId']) {
-        this.activeQuestionId = Number(params['questionId']);
-      } else {
-        this.activeQuestionId = 1;
-      }
-
-      this.updateActiveTest();
-
-      if (params['answerId']) {
-        const answerId = Number(params['answerId']);
-        // TODO check answer exists
-        //  console.log(this.activeQuestion.answers;
-        if (answerId && this.activeQuestion.answerUser !== answerId
-          && this.activeTest.status === TestStatusEnum.ACTIVE) {
-          this.submitAnswer(this.activeTest.code, this.activeQuestionId, params['answerId']);
-        }
-      }
-    });
   }
 
   ngOnDestroy() {
-    this.activeTestSubscription.unsubscribe();
+    this.currentUserSubscription.unsubscribe();
+  }
+
+  setQuestion(questionId: number) {
+    this.activeQuestionId = questionId;
+    this.updateActiveTest(this.activeTest);
   }
 
   submitAnswer(code: string, question: number, answer: number) {
@@ -98,13 +67,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.iqTestService.update(apiResponseTestResult.test);
-            this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+            this.updateActiveTest(apiResponseTestResult.test);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
           this.loading = false;
-          $('#loadingDone').removeClass('d-none').show().fadeOut(2000);
         },
         error => {
           this.alertService.error('API error: ' + error);
@@ -112,10 +79,18 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
-  private updateActiveTest() {
+  private updateActiveTest(test: TestResult) {
+    this.activeTest = test;
     this.activeQuestionIdPrev = this.activeQuestionId - 1;
 
     if (this.activeTest && this.activeQuestionId) {
+      this.testTypes.forEach(
+        (testData) => {
+          if (this.activeTest.type === testData.type) {
+            this.activeTestName = testData.name;
+          }
+        }
+      );
       this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
       this.activeQuestionIdNext = this.activeQuestionId + 1;
       if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
@@ -127,14 +102,14 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     }
   }
 
-  private loadTestByCode(testCode: string) {
+  private initTestByCode(testCode: string) {
     this.iqTestService.getByCode(testCode)
       .pipe(first())
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.iqTestService.update(apiResponseTestResult.test);
-            this.updateActiveTest();
+            this.activeTest = apiResponseTestResult.test;
+            this.updateActiveTest(apiResponseTestResult.test);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }

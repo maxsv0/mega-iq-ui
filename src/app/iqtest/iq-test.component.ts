@@ -44,7 +44,6 @@ export class IqTestComponent implements OnInit {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.iqTestService.update(apiResponseTestResult.test);
             this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
           } else {
             this.alertService.error(apiResponseTestResult.msg);

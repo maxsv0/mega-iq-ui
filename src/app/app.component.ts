@@ -31,20 +31,19 @@ export class AppComponent {
 
     this.testTypes = this.iqTestService.getIqTest();
 
-    this.iqTestService.activeTest.subscribe(test => {
-      this.testTypes.forEach(
-        (testType) => {
-          if (test.type === testType.type) {
-            this.backgroundClass = testType.styleName;
-          }
-        }
-      );
-    });
-
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         if (event.url.startsWith('/iqtest/')) {
           this.backgroundClass = event.url.substr(8);
+        } else if (event.url.startsWith('/classroom/')) {
+          this.backgroundClass = '';
+          // this.testTypes.forEach(
+          //   (testType) => {
+          //     if (test.type === testType.type) {
+          //       this.backgroundClass = testType.styleName;
+          //     }
+          //   }
+          // );
         } else if (!event.url.startsWith('/classroom/')) {
           this.backgroundClass = '';
         }

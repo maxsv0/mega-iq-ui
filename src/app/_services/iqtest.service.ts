@@ -9,27 +9,13 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class IqTestService {
-  private activeTestSubject: BehaviorSubject<TestResult>;
-  public activeTest: Observable<TestResult>;
-
   constructor(
     private http: HttpClient
   ) {
-    this.activeTestSubject = new BehaviorSubject<TestResult>(JSON.parse(localStorage.getItem('currentTest')));
-    this.activeTest = this.activeTestSubject.asObservable();
-  }
-
-  public get activeTestValue(): TestResult {
-    return this.activeTestSubject.value;
   }
 
   deleteTestResult(code: string) {
     return this.http.delete<ApiResponseBase>(environment.apiUrl + `/test/${code}`);
-  }
-
-  update(test: TestResult) {
-    localStorage.setItem('currentTest', JSON.stringify(test));
-    this.activeTestSubject.next(test);
   }
 
   startTest(type: TestTypeEnum) {
