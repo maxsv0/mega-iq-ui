@@ -51,7 +51,7 @@ export class IqTestComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
           this.loading = false;
         });
   }

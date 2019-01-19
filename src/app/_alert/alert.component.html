@@ -1,4 +1,4 @@
-<div class="container" *ngIf="message">
+<div class="container" id="messageAlert" *ngIf="message">
   <div class="col-md-6 offset-md-3"
        [ngClass]="{ 'alert text-center': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
     {{message.text}}

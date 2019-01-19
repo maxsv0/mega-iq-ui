@@ -29,6 +29,26 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    const token = this.route.snapshot.queryParams['token'];
+    if (token) {
+      this.loading = true;
+      this.authenticationService.loginToken(token)
+        .pipe(first())
+        .subscribe(
+          apiResponseUser => {
+            if (apiResponseUser.ok) {
+              this.router.navigate([this.returnUrl]);
+            } else {
+              this.alertService.error(apiResponseUser.msg);
+              this.loading = false;
+            }
+          },
+          error => {
+            this.alertService.error('API Service Unavailable. ' + error);
+            this.loading = false;
+          });
+    }
+
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -64,7 +84,7 @@ export class LoginComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
           this.loading = false;
         });
   }

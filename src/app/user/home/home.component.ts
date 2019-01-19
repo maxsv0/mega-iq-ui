@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentUserSubscription: Subscription;
   userTests: TestResult[];
   loading = false;
+  deletedId = null;
   public testStatus = TestStatusEnum;
 
   constructor(
@@ -48,6 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   deleteTestResult(code: string) {
     this.loading = true;
+    this.deletedId = code;
 
     this.iqTestService.deleteTestResult(code)
       .pipe(first())
@@ -61,7 +63,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.loadMyResult();
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 
@@ -79,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 }

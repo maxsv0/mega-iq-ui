@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 }

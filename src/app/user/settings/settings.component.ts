@@ -90,7 +90,7 @@ export class SettingsComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
           this.loading = false;
         });
   }
@@ -129,7 +129,7 @@ export class SettingsComponent implements OnInit {
             this.uploading = false;
           },
           error => {
-            this.alertService.error('API error: ' + error);
+            this.alertService.error('API Service Unavailable. ' + error);
             this.uploading = false;
           });
     }
@@ -149,11 +149,13 @@ export class SettingsComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
+          this.loading = false;
         });
   }
 
   sendVerifyEmailCheck(code: string) {
+    this.loading = false;
     this.userService.verifyEmailCheck(code)
       .pipe(first())
       .subscribe(
@@ -164,9 +166,11 @@ export class SettingsComponent implements OnInit {
           } else {
             this.alertService.error(apiResponse.msg);
           }
+          this.loading = false;
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
+          this.loading = false;
         });
   }
 }

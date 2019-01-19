@@ -74,7 +74,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
           this.loading = false;
         });
   }
@@ -115,7 +115,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 

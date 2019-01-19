@@ -35,6 +35,18 @@ export class AuthenticationService {
       }));
   }
 
+  loginToken(token: string) {
+    return this.http.post<any>(environment.apiUrl + '/user/loginToken', {token})
+      .pipe(map(apiResponseUser => {
+
+        // login successful if there's a jwt token in the response
+        if (apiResponseUser.ok) {
+          this.update(apiResponseUser.user);
+        }
+
+        return apiResponseUser;
+      }));
+  }
   update(user: User) {
     // store user details and jwt token in local storage
     if (user && user.token) {

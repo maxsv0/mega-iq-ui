@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
           }
         },
         error => {
-          this.alertService.error('API error: ' + error);
+          this.alertService.error('API Service Unavailable. ' + error);
           this.loading = false;
         });
   }
@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         this.loading = false;
       },
       error => {
-        console.log('API error: ' + error);
+        console.log('API Service Unavailable. ' + error);
         this.loading = false;
       });
   }
@@ -124,7 +124,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.uploading = false;
           },
           error => {
-            this.alertService.error('API error: ' + error);
+            this.alertService.error('API Service Unavailable. ' + error);
             this.uploading = false;
           });
     }

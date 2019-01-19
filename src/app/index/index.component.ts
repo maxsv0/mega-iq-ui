@@ -46,7 +46,7 @@ export class IndexComponent implements OnInit {
         }
       },
       error => {
-        this.alertService.error('API error: ' + error);
+        this.alertService.error('API Service Unavailable. ' + error);
       });
   }
 }
