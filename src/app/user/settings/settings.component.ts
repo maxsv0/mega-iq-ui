@@ -155,7 +155,7 @@ export class SettingsComponent implements OnInit {
   }
 
   sendVerifyEmailCheck(code: string) {
-    this.loading = false;
+    this.loading = true;
     this.userService.verifyEmailCheck(code)
       .pipe(first())
       .subscribe(
