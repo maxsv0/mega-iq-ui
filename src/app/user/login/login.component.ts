@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/home']);
+      this.router.navigate([this.returnUrl]);
     }
   }
 
@@ -53,9 +56,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to form fields
