@@ -4,8 +4,6 @@ import {AlertService, UserService} from '@/_services';
 import {User} from '@/_models';
 import * as $ from 'jquery';
 
-declare var $: $;
-
 @Component({
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss', './flipclock.css'],
@@ -18,20 +16,24 @@ export class IndexComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService
   ) {
-    this.initJs();
+
   }
 
   ngOnInit() {
     this.loadUsersTop();
+    this.initJs();
   }
 
   private initJs() {
     $(document).ready(function () {
-      $('#counter').FlipClock(1000000, {
+      // @ts-ignore
+      const clock = new FlipClock($('#counter'), 1481981, {
         clockFace: 'Counter',
+        minimumDigits: 7,
         autoStart: true,
-        minimumDigits: 7
+        countdown: false
       });
+      console.log(clock);
     });
   }
 

@@ -1,3 +1,17 @@
+/* Get the bourbon mixin from http://bourbon.io */
+/* Reset */
+.flip-clock-wrapper * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
 .flip-clock-wrapper a {
   cursor: pointer;
@@ -36,6 +50,7 @@
 .flip-clock-meridium {
   background: none !important;
   box-shadow: 0 0 0 !important;
+  font-size: 36px !important;
 }
 
 .flip-clock-meridium a {
@@ -63,9 +78,10 @@
 .flip-clock-wrapper ul {
   position: relative;
   float: left;
-  margin: 10px;
-  width: 70px;
-  height: 135px;
+  margin: 5px;
+  width: 60px;
+  height: 90px;
+  font-size: 80px;
   font-weight: bold;
   line-height: 87px;
   border-radius: 6px;
@@ -128,7 +144,7 @@
 .flip-clock-wrapper ul li a div.up:after {
   content: "";
   position: absolute;
-  top: 65px;
+  top: 44px;
   left: 0;
   z-index: 5;
   width: 100%;
@@ -157,10 +173,9 @@
   color: #ccc;
   text-shadow: 0 1px 2px #000;
   text-align: center;
-  line-height: 130px;
   background-color: #333;
   border-radius: 6px;
-  font-size: 120px;
+  font-size: 70px;
 }
 
 .flip-clock-wrapper ul li a div.up div.inn {
@@ -181,9 +196,9 @@
 }
 
 .flip-clock-wrapper ul.play li.flip-clock-active {
-  -webkit-animation: asd 0.5s 0.5s linear both;
-  -moz-animation: asd 0.5s 0.5s linear both;
-  animation: asd 0.5s 0.5s linear both;
+  -webkit-animation: asd 0.01s 0.49s linear both;
+  -moz-animation: asd 0.01s 0.49s linear both;
+  animation: asd 0.01s 0.49s linear both;
   z-index: 5;
 }
 
@@ -239,10 +254,6 @@
     z-index: 2;
   }
 
-  20% {
-    z-index: 4;
-  }
-
   100% {
     z-index: 4;
   }
@@ -251,10 +262,6 @@
 @-moz-keyframes asd {
   0% {
     z-index: 2;
-  }
-
-  20% {
-    z-index: 4;
   }
 
   100% {
@@ -267,10 +274,6 @@
     z-index: 2;
   }
 
-  20% {
-    z-index: 4;
-  }
-
   100% {
     z-index: 4;
   }
@@ -279,10 +282,6 @@
 @keyframes asd {
   0% {
     z-index: 2;
-  }
-
-  20% {
-    z-index: 4;
   }
 
   100% {
@@ -390,24 +389,22 @@
 
 /* SHADOW */
 .flip-clock-wrapper ul.play li.flip-clock-before .up .shadow {
+  background: black;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, black));
-  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
   background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
   background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
-  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
   -webkit-animation: show 0.5s linear both;
   -moz-animation: show 0.5s linear both;
   animation: show 0.5s linear both;
 }
 
 .flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
+  background: black;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, black));
-  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
   background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
   background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
-  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
   -webkit-animation: hide 0.5s 0.3s linear both;
   -moz-animation: hide 0.5s 0.3s linear both;
   animation: hide 0.5s 0.3s linear both;
@@ -415,24 +412,22 @@
 
 /*DOWN*/
 .flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
+  background: black;
   background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, rgba(0, 0, 0, 0.1)));
-  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
   background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
   background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
   -webkit-animation: show 0.5s linear both;
   -moz-animation: show 0.5s linear both;
   animation: show 0.5s linear both;
 }
 
 .flip-clock-wrapper ul.play li.flip-clock-active .down .shadow {
+  background: black;
   background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, rgba(0, 0, 0, 0.1)));
-  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
   background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
   background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
   -webkit-animation: hide 0.5s 0.3s linear both;
   -moz-animation: hide 0.5s 0.3s linear both;
   animation: hide 0.5s 0.2s linear both;
