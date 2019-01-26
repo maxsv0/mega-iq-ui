@@ -1719,10 +1719,10 @@ var FlipClock;
 		factory: false,
 		
 		/**
-		 * Timer interval (1 second by default)
+		 * Timer interval (14 second by default)
 		 */		
 		 
-		interval: 5000,
+		interval: 14000,
 
 		/**
 		 * The rate of the animation in milliseconds (not currently in use)
