@@ -26,7 +26,7 @@ export class UserService {
   }
 
   forget(user: User) {
-    return this.http.post(environment.apiUrl + '/users/forget', user);
+    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/forget', user);
   }
 
   update(user: User) {

@@ -53,9 +53,9 @@ export class ForgetComponent implements OnInit {
     this.userService.forget(this.forgetForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success('Email containing new password was sent successful', true);
-          this.router.navigate(['/forget']);
+        apiResponse => {
+          this.alertService.success(apiResponse.msg);
+          this.loading = false;
         },
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
