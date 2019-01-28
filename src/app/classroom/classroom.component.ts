@@ -79,6 +79,25 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
+  submitFinish(code: string) {
+    this.loading = true;
+    this.iqTestService.finishTest(code)
+      .pipe(first())
+      .subscribe(
+        apiResponseTestResult => {
+          if (apiResponseTestResult.ok) {
+            this.updateActiveTest(apiResponseTestResult.test);
+          } else {
+            this.alertService.error(apiResponseTestResult.msg);
+          }
+          this.loading = false;
+        },
+        error => {
+          this.alertService.error('API Service Unavailable. ' + error);
+          this.loading = false;
+        });
+  }
+
   private updateActiveTest(test: TestResult) {
     this.activeTest = test;
     this.activeQuestionIdPrev = this.activeQuestionId - 1;

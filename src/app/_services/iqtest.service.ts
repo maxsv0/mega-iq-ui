@@ -26,6 +26,14 @@ export class IqTestService {
     });
   }
 
+  finishTest(code: string) {
+    return this.http.get<ApiResponseTestResult>(environment.apiUrl + '/test/finish', {
+      params: {
+        testCode: code
+      }
+    });
+  }
+
   submitAnswer(id: string, question: number, answer: number) {
     return this.http.post<ApiResponseTestResult>(environment.apiUrl + `/test/${id}`, {question, answer});
   }
