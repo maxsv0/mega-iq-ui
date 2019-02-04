@@ -34,6 +34,8 @@ export class SettingsComponent implements OnInit {
     private storageService: StorageService,
     private alertService: AlertService
   ) {
+    this.loadUserProfile();
+
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
     });
@@ -42,6 +44,30 @@ export class SettingsComponent implements OnInit {
     if (code) {
       this.sendVerifyEmailCheck(code);
     }
+  }
+
+  private loadUserProfile() {
+    this.userService.getMyInfo()
+      .pipe(first())
+      .subscribe(
+        apiResponseUser => {
+          if (apiResponseUser.ok) {
+            this.currentUser = apiResponseUser.user;
+
+            this.profileForm.controls['id'].setValue(this.currentUser.id);
+            this.profileForm.controls['email'].setValue(this.currentUser.email);
+            this.profileForm.controls['name'].setValue(this.currentUser.name);
+            this.profileForm.controls['age'].setValue(this.currentUser.age);
+            this.profileForm.controls['location'].setValue(this.currentUser.location);
+            this.profileForm.controls['isPublic'].setValue(this.currentUser.isPublic);
+            this.profileForm.controls['pic'].setValue(this.currentUser.pic);
+          } else {
+            this.alertService.error(apiResponseUser.msg);
+          }
+        },
+        error => {
+          this.alertService.error('API Service Unavailable. ' + error);
+        });
   }
 
   ngOnInit() {

@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       location: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
-      isPublic: [true],
       pic: [this.avatarsDefault[0]],
       terms: [true, Validators.required]
     });

@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
-import {AlertService, AuthenticationService} from '@/_services';
+import {AlertService, AuthenticationService, UserService} from '@/_services';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private userService: UserService
   ) {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
@@ -29,6 +30,11 @@ export class LoginComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate([this.returnUrl]);
     }
+  }
+
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.loginForm.controls;
   }
 
   ngOnInit() {
@@ -58,10 +64,32 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.loginForm.controls;
+  loginGoogle() {
+    this.authenticationService.googleLogin()
+      .then(data => {
+        this.loading = false;
+        console.log('g redirect to: ' + this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+      })
+      .catch(data => {
+        this.alertService.error(data.message);
+        this.loading = false;
+      });
   }
+
+  loginFacebook() {
+    this.authenticationService.facebookLogin()
+      .then(data => {
+        this.loading = false;
+        console.log('f redirect to: ' + this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+      })
+      .catch(data => {
+        this.alertService.error(data.message);
+        this.loading = false;
+      });
+  }
+
 
   onSubmit() {
     this.submitted = true;
@@ -73,19 +101,15 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.authenticationService.login(this.f.email.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        apiResponseUser => {
-          if (apiResponseUser.ok) {
-            this.router.navigate([this.returnUrl]);
-          } else {
-            this.alertService.error(apiResponseUser.msg);
-            this.loading = false;
-          }
-        },
-        error => {
-          this.alertService.error('API Service Unavailable. ' + error);
-          this.loading = false;
-        });
+      .then(data => {
+        this.authenticationService.storeFirebaseUser(data.user);
+        this.loading = false;
+        console.log('regirect to: ' + this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+      })
+      .catch(data => {
+        this.alertService.error(data.message);
+        this.loading = false;
+      });
   }
 }

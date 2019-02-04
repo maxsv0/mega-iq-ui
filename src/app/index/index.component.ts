@@ -29,7 +29,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.clockTimerSubscription.unsubscribe();
+    if (this.clockTimerSubscription) {
+      this.clockTimerSubscription.unsubscribe();
+    }
   }
 
   private initJs() {

@@ -21,6 +21,10 @@ export class UserService {
     return this.http.get<ApiResponseUser>(environment.apiUrl + `/user/${id}`);
   }
 
+  getMyInfo() {
+    return this.http.get<ApiResponseUser>(environment.apiUrl + `/user`);
+  }
+
   register(user: User) {
     return this.http.post<ApiResponseUser>(environment.apiUrl + '/user/new', user);
   }

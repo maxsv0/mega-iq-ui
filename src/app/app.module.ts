@@ -19,6 +19,10 @@ import {ResultsComponent} from './results/results.component';
 import {IqTestComponent} from './iqtest/iq-test.component';
 import {ClassroomComponent} from './classroom/classroom.component';
 import {IqResultComponent} from './iqresult/iq-result.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AuthenticationService} from '@/_services';
 
 @NgModule({
   imports: [
@@ -26,6 +30,8 @@ import {IqResultComponent} from './iqresult/iq-result.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase, 'Mega-IQ'),
+    AngularFireAuthModule,
     routing
   ],
   declarations: [
@@ -44,6 +50,7 @@ import {IqResultComponent} from './iqresult/iq-result.component';
     IqResultComponent
   ],
   providers: [
+    AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
