@@ -30,10 +30,10 @@ export class AuthenticationService {
       token => {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         if (user !== null) {
+          console.log('store token: ' + token);
           user.token = token;
+          this.update(user);
         }
-        console.log('store token: ' + token);
-        this.update(user);
       }
     );
   }
@@ -82,18 +82,18 @@ export class AuthenticationService {
     let user = null;
     if (userCredential !== null) {
       user = new User();
-      user.id = Number(userCredential.uid);
+      user.uid = userCredential.uid;
       user.email = userCredential.email;
       user.name = userCredential.displayName;
       user.isEmailVerified = userCredential.emailVerified;
       user.pic = userCredential.photoURL;
-    }
 
-    this.update(user);
+      this.update(user);
+    }
   }
 
   update(user: User) {
-    console.log('store user: ' + user);
+    console.log('update storage with user: ' + user);
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }

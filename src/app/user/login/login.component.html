@@ -6,7 +6,7 @@
         <div class="form-group">
           <label for="email" i18>Email</label>
           <input type="text" id="email" formControlName="email" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autocomplete=email/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required" i18>Email is required</div>
             <div *ngIf="f.email.errors.email" i18>Email is not valid</div>
@@ -15,7 +15,7 @@
         <div class="form-group">
           <label for="password" i18>Password</label>
           <input type="password" id="password" formControlName="password" class="form-control"
-                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autocomplete=current-password/>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required" i18>Password is required</div>
           </div>
@@ -36,7 +36,7 @@
       <h2 i18>Login with Google</h2>
 
       <button type="button" class="btn btn-link" (click)="loginGoogle()">
-       <img src="/assets/img/btn_google_signin_light_normal_web.png" border="0">
+       <img src="/assets/img/btn_google_signin_light_normal_web.png" srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">
       </button>
 
       <!--

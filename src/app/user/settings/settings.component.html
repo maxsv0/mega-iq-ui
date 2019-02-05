@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="col-md-7">
-    <div class="jumbotron">
-      <h2 i18n>Edit profile</h2>
-      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-7">
+        <h2 i18n>Edit profile</h2>
         <div class="form-group required">
           <label for="email" i18n>Email</label>
           <input type="text" id="email" formControlName="email" class="form-control"
@@ -14,7 +14,7 @@
           <ng-template #elseIsEmailVerified>
             <p class="text-danger" i18n>Email not verified</p>
             <p>
-              <button [disabled]="loading || uploading" class="btn btn-outline-info btn-sm"(click)="sendVerifyEmail()">
+              <button [disabled]="loading || uploading" class="btn btn-outline-info btn-sm" (click)="sendVerifyEmail()">
                 <svg class="feather">
                   <use xlink:href="/assets/feather-sprite.svg#mail"/>
                 </svg>
@@ -57,35 +57,6 @@
         </div>
 
         <div class="form-group">
-          <label i18n>Image</label>
-          <div class="input-group mb-3">
-            <div class="card">
-              <div class="card-body">
-                <div class="row no-gutters">
-                  <label class="col" *ngFor="let avatar of avatarsDefault">
-                    <input type="radio" formControlName="pic" value="{{avatar}}">
-                    <img src="{{avatar}}=s60-c" class="img-avatar-small">
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group" *ngIf="currentUser.pic">
-          <label i18n>Current image</label>
-          <div class="input-group mb-3">
-            <img src="{{currentUser.pic}}=s300-c" class="img-thumbnail">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="uploadPic" i18n>Upload new image</label>
-          <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
-          <img *ngIf="uploading" class="pl-3"
-               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-          <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
-          <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
-        </div>
-        <div class="form-group">
           <div class="form-check">
             <input type="checkbox" id="isPublic" formControlName="isPublic" class="form-check-input" value="1"/>
             <label class="form-check-label" for="isPublic" i18n>Profile is public</label>
@@ -104,10 +75,38 @@
         </div>
 
         <input type="hidden" id="id" formControlName="id"/>
-      </form>
+    </div>
+    <div class="col-lg-5">
+        <div class="form-group" *ngIf="currentUser.pic">
+          <label i18n>Current image</label>
+          <div class="input-group mb-3">
+            <img src="{{currentUser.pic}}=s300-c" class="img-thumbnail">
+          </div>
+        </div>
+        <div class="form-group">
+          <label i18n>Image</label>
+          <div class="input-group mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="row no-gutters">
+                  <label class="col" *ngFor="let avatar of avatarsDefault">
+                    <input type="radio" formControlName="pic" value="{{avatar}}">
+                    <img src="{{avatar}}=s60-c" class="img-avatar-small">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="uploadPic" i18n>Upload new image</label>
+          <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
+          <img *ngIf="uploading" class="pl-3"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
+          <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
+        </div>
     </div>
   </div>
-  <div class="col-md-5">
-    google login btn here
   </div>
-</div>
+</form>

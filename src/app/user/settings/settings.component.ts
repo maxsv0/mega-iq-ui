@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {User} from '@/_models';
@@ -13,7 +13,7 @@ import {StorageService} from '@/_services/storage.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, AfterViewInit {
   profileForm: FormGroup;
   loading = false;
   uploading = false;
@@ -34,8 +34,6 @@ export class SettingsComponent implements OnInit {
     private storageService: StorageService,
     private alertService: AlertService
   ) {
-    this.loadUserProfile();
-
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
     });
@@ -44,6 +42,8 @@ export class SettingsComponent implements OnInit {
     if (code) {
       this.sendVerifyEmailCheck(code);
     }
+
+    this.avatarsDefault = this.userService.getAvatarsDefault();
   }
 
   private loadUserProfile() {
@@ -54,11 +54,14 @@ export class SettingsComponent implements OnInit {
           if (apiResponseUser.ok) {
             this.currentUser = apiResponseUser.user;
 
+            // in case data is loaded after page init
             this.profileForm.controls['id'].setValue(this.currentUser.id);
             this.profileForm.controls['email'].setValue(this.currentUser.email);
             this.profileForm.controls['name'].setValue(this.currentUser.name);
             this.profileForm.controls['age'].setValue(this.currentUser.age);
-            this.profileForm.controls['location'].setValue(this.currentUser.location);
+            if (this.currentUser.location) {
+              this.profileForm.controls['location'].setValue(this.currentUser.location);
+            }
             this.profileForm.controls['isPublic'].setValue(this.currentUser.isPublic);
             this.profileForm.controls['pic'].setValue(this.currentUser.pic);
           } else {
@@ -71,8 +74,7 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.avatarsDefault = this.userService.getAvatarsDefault();
-
+    console.log('Build form for user ID ' + this.currentUser.email);
     this.profileForm = this.formBuilder.group({
       id: [this.currentUser.id],
       email: [this.currentUser.email, [Validators.required, Validators.email]],
@@ -82,6 +84,16 @@ export class SettingsComponent implements OnInit {
       isPublic: [this.currentUser.isPublic],
       pic: [this.currentUser.pic]
     });
+    console.log('Build form done');
+
+    this.loadUserProfile();
+  }
+
+  ngAfterViewInit() {
+    console.log('location: ' + this.currentUser.location);
+    if (this.currentUser.location == null) {
+      this.detectLocation();
+    }
   }
 
   // convenience getter for easy access to form fields

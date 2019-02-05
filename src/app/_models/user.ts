@@ -6,9 +6,9 @@ export class User {
   name: string;
   pic: string;
   url: string;
-  password: string;
   age: string;
   iq: number;
   location: string;
   token: string;
+  uid: string;
 }

@@ -1,8 +1,15 @@
 <div class="row">
-  <div class="col-sm-9">
-    <h1>Hi {{currentUser.name}}! <a routerLink="{{currentUser.url}}">Open profile page</a></h1>
+  <div class="col-sm-6">
+    <h1>Hi {{currentUser.name}}!</h1>
   </div>
-  <div class="col-sm-3 text-right">
+  <div class="col-sm-6 text-right">
+    <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
+      <svg class="feather">
+        <use xlink:href="/assets/feather-sprite.svg#home"/>
+      </svg>
+      Open profile page
+    </button>
+
     <button routerLink="/settings" class="btn btn-outline-primary">
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#settings"/>

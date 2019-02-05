@@ -74,6 +74,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
             this.userTests = apiResponseTestResultList.tests;
+            this.currentUser = apiResponseTestResultList.user;
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
