@@ -64,7 +64,7 @@ export class IqTestService {
     iqTestStandard.type = TestTypeEnum.STANDART_IQ;
     iqTestStandard.styleName = 'standard';
     iqTestStandard.name = 'Standard IQ Test';
-    iqTestStandard.description = 'Standard IQ Test';
+    iqTestStandard.description = 'Pass the Standard Test to check your IQ level';
     iqTestStandard.url = '/iqtest/iq-standard';
     iqTestStandard.pic = 'https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg';
     iqTestStandard.time = 10;
@@ -75,7 +75,7 @@ export class IqTestService {
     iqTestMega.type = TestTypeEnum.MEGA_IQ;
     iqTestMega.styleName = 'megaiq';
     iqTestMega.name = 'Mega IQ Test';
-    iqTestMega.description = 'This is a serious challenge!';
+    iqTestMega.description = 'Mind-Blowing IQ Test to be passed only by absolute geniuses';
     iqTestMega.url = '/iqtest/mega-iq';
     iqTestMega.pic = 'https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg';
     iqTestMega.time = 30;
@@ -86,7 +86,7 @@ export class IqTestService {
     iqTestMath.type = TestTypeEnum.MATH;
     iqTestMath.styleName = 'math';
     iqTestMath.name = 'Math IQ Test';
-    iqTestMath.description = 'Math IQ Test';
+    iqTestMath.description = '';
     iqTestMath.url = '/iqtest/math';
     iqTestMath.pic = 'https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg';
     iqTestMath.time = 10;
