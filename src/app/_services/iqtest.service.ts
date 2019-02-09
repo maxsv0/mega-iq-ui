@@ -52,8 +52,8 @@ export class IqTestService {
     const iqTestPractice = new IqTest();
     iqTestPractice.type = TestTypeEnum.PRACTICE_IQ;
     iqTestPractice.styleName = 'practice';
-    iqTestPractice.name = 'Practice IQ Test';
-    iqTestPractice.description = 'Practice IQ Test is designed to familiarize with the methodology of testing';
+    iqTestPractice.name = 'IQ Practice Test';
+    iqTestPractice.description = 'Get familiar with the methodology of testing by passing the IQ Practice Test';
     iqTestPractice.url = '/iqtest/iq-practice';
     iqTestPractice.pic = 'https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg';
     iqTestPractice.time = 5;
