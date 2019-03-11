@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseBase => {
           if (apiResponseBase.ok) {
-            this.alertService.success(apiResponseBase.msg);
+            // this.alertService.success(apiResponseBase.msg);
           } else {
             this.alertService.error(apiResponseBase.msg);
           }
