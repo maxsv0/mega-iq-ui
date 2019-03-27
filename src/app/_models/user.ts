@@ -11,4 +11,5 @@ export class User {
   location: string;
   token: string;
   uid: string;
+  password: string;
 }

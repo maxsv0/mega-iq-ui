@@ -71,9 +71,29 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       .subscribe(
         apiResponseUser => {
           if (apiResponseUser.ok) {
-            this.alertService.success('Registration successful', true);
-            this.authenticationService.update(apiResponseUser.user);
-            this.router.navigate(['/home']);
+            this.alertService.success('Registration was successful. You can now log in.', true);
+
+            if (apiResponseUser.user) {
+              // user doesn't has access token at this point and need to log in
+              if (apiResponseUser.user.token == null) {
+                if (apiResponseUser.user.password == null) {
+                  this.router.navigate(['/login']);
+                } else {
+                  // we have a password and could login
+                  this.authenticationService.login(apiResponseUser.user.email, apiResponseUser.user.password)
+                    .then(data => {
+                      this.authenticationService.storeFirebaseUser(data.user);
+                      this.router.navigate(['/home']);
+                    })
+                    .catch(data => {
+                      this.alertService.error(data.message);
+                      this.loading = false;
+                    });
+                }
+              } else {
+                this.router.navigate(['/home']);
+              }
+            }
           } else {
             this.alertService.error(apiResponseUser.msg);
             this.loading = false;
