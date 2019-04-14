@@ -1,14 +1,20 @@
-# MegaIqUi
+# Mega-IQ UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Mega-IQ Angular 7 application.
+
+## MEGA-IQ 3.0. Requirements
+
+## [Requirements Document](https://docs.google.com/document/d/1juGpnjcJOHJY45edddpCGH7KFqlJFZyafU-qRk0eF3s/edit?usp=sharing)
+
+## Production server
+Localized end-point URL: 
+* http://en2.mega-iq.com (EN)
+* http://de.mega-iq.com (DE)
+* http://ru.mega-iq.com (RU)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
