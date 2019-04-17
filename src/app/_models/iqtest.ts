@@ -5,7 +5,6 @@ export class IqTest {
   name: string;
   url: string;
   pic: string;
-  duration: string;
   description: string;
   questions: number;
   time: number;
