@@ -8,5 +8,6 @@ export class IqTest {
   description: string;
   questions: number;
   time: number;
+  expire: number;
   styleName: string;
 }

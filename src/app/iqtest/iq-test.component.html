@@ -24,7 +24,7 @@
             <div class="col-md-7">
               <h2>{{item.value.name}}<br>{{item.value.questions}} questions</h2>
               <h3 class="mt-5">{{item.value.description}}</h3>
-              <h4 class="mt-4">Average testing time is {{item.value.time}} min</h4>
+              <h4 class="mt-4">Average testing time is {{item.value.time}} min, limit {{item.value.expire}} min</h4>
             </div>
             <div class="col-md-5">
               <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">
