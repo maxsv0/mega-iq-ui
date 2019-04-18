@@ -26,21 +26,7 @@ export class IqTestComponent implements OnInit {
   ngOnInit() {
     const testType = this.route.snapshot.params['testType'];
 
-    this.iqTestService.getIqTest()
-      .pipe(first())
-      .subscribe(
-        apiResponseTests => {
-          if (apiResponseTests.ok) {
-            this.testTypes = apiResponseTests.tests;
-          } else {
-            this.alertService.error(apiResponseTests.msg);
-            this.loading = false;
-          }
-        },
-        error => {
-          this.alertService.error('API Service Unavailable. ' + error);
-          this.loading = false;
-        });
+    this.testTypes = this.iqTestService.getIqTest();
 
     this.testTypes.forEach(
       (test) => {
