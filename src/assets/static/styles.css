@@ -1,0 +1,77 @@
+@media (min-width: 960px) {
+    .col-lg-10 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 10px;
+        padding-left: 10px;
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px !important;
+    }
+}
+
+.bg-dark {
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+}
+
+.page-about {
+    background: #f8f9fa;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.our-mission {
+    display: flex;
+    justify-content: center;
+}
+
+.our-mission .row {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
+}
+
+#about.card {
+    background: #fff;
+    margin-bottom: 2rem;
+}
+
+#about.card-lg {
+    padding: 4rem;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+}
+
+#about h1, #about p, #about h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#about .about-text {
+    text-align: justify;
+}
+
+
+.team {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team img {
+    height: 200px;
+    width: 230px;
+}
+
