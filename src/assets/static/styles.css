@@ -1,5 +1,16 @@
+@media (min-width: 500px) and (max-width: 992px) {
+    .team, .names {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team img {
+        margin-bottom: 2rem;
+    }
+}
+
 @media (min-width: 960px) {
-    .col-lg-10 {
+    .col-lg-12 {
         position: relative;
         min-height: 1px;
         padding-right: 10px;
@@ -57,21 +68,34 @@
 
 #about h1, #about p, #about h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 #about .about-text {
     text-align: justify;
 }
 
-
 .team {
     display: flex;
     justify-content: space-between;
+    margin-top: 25px;
 }
 
 .team img {
-    height: 200px;
+    height: 230px;
     width: 230px;
+    border-radius: 50%;
+    transition: transform .3s ease-in-out;
+}
+
+.team img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.09);
+}
+
+.names {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
 
