@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" routerLink="/iqtest/" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Start IQ Test</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" routerLink="/iqtest/iq-practice">Practice IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/iq-standard">Standard IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/mega-iq">Mega IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/math">Math Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/grammar">Grammar Test</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iqtest/results">Best Results</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav mt-2 mt-md-0" *ngIf="currentUser">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home">{{currentUser.name}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()" i18n>Logout</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /navbar -->
+    <div class="page-about">
+        <div class="container our-mission">
+            <div class="row">
+                <div class="col-lg-12 col-xl-10 mx-auto">
+                    <section class="card card-lg" id="about">
+                        <h1 class="bla">- Our Mission -</h1>
+                        <p>Help you be smarter every day!</p>
+                        <h2>About</h2>
+                        <p class="about-text">Bacon ipsum dolor amet cow ham shank short loin bresaola ham hock sirloin. Porchetta chicken 
+                            chuck corned beef sausage ball tip leberkas flank capicola short loin 
+                           filet mignon meatloaf tri-tip spare ribs shank. Turkey venison pastrami short loin swine. 
+                           Beef shoulder ground round, burgdoggen chuck strip steak spare ribs rump boudin tenderloin tongue pork 
+                           belly fatback. Prosciutto chicken chuck ground round doner ham, rump jowl filet mignon meatball. Swine 
+                           bacon rump shoulder bresaola, leberkas meatloaf frankfurter shank. Pig tenderloin strip steak meatloaf, 
+                           ribeye sausage cow drumstick biltong.
+                        </p>
+                        <h2>Meet the Team</h2>
+                        <div class="team">
+                            <img src="https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg" alt="t1">
+                            <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2018/2-dog.jpg" alt="t2">
+                            <img src="https://i.kinja-img.com/gawker-media/image/upload/s--4vlfc0Vs--/c_scale,f_auto,fl_progressive,q_80,w_800/zhdfbwvbc2miyqyaryl9.jpg" alt="t3">
+                        </div>
+                        <div class="names">
+                            <h2>Celeste Millington</h2>
+                            <h2>Vera Schneider</h2>
+                            <h2>Aarron Cornish</h2>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
