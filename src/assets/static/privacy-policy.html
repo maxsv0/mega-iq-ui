@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" routerLink="/iqtest/" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Start IQ Test</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" routerLink="/iqtest/iq-practice">Practice IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/iq-standard">Standard IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/mega-iq">Mega IQ Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/math">Math Test</a>
+                <a class="dropdown-item" routerLink="/iqtest/grammar">Grammar Test</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/iqtest/results">Best Results</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav mt-2 mt-md-0" *ngIf="currentUser">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home">{{currentUser.name}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()" i18n>Logout</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /navbar -->
+    <div class="page-privacy-policy">
+        <div class="container">
+                <h1>Privacy Policy for Mega-IQ</h1>
+
+                <p>At Mega-IQ, accessible from http://de.mega-iq.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Mega-IQ and how we use it.</p>
+                
+                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at support@mega-iq.com</p>
+                
+                <h2>Log Files</h2>
+                
+                <p>Mega-IQ follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+                
+                <h2>Cookies and Web Beacons</h2>
+                
+                <p>Like any other website, Mega-IQ uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+                
+                <h2>Google DoubleClick DART Cookie</h2>
+                
+                <p>Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></p>
+                
+                
+                <h2>Privacy Policies</h2>
+                
+                <P>You may consult this list to find the Privacy Policy for each of the advertising partners of Mega-IQ. Our Privacy Policy was created with the help of the <a href="https://privacypolicygenerator.info">GDPR Privacy Policy Generator</a> and the <a href="https://termsfeed.com/privacy-policy/generator/">Privacy Policy Generator from TermsFeed</a> plus the <a href="https://termsandconditionstemplate.net">Terms and Conditions Template</a>.</p>
+                
+                <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Mega-IQ, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+                
+                <p>Note that Mega-IQ has no access to or control over these cookies that are used by third-party advertisers.</p>
+                
+                <h2>Third Pary Privacy Policies</h2>
+                
+                <p>Mega-IQ's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You may find a complete list of these Privacy Policies and their links here: Privacy Policy Links.</p>
+                
+                <p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites. What Are Cookies?</p>
+                
+                <h2>Children's Information</h2>
+                
+                <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+                
+                <p>Mega-IQ does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+                
+                <h2>Online Privacy Policy Only</h2>
+                
+                <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Mega-IQ. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+                
+                <h2>Consent</h2>
+                
+                <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
+        </div>
+    </div>
+    
+</body>
+
+</html>

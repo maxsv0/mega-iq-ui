@@ -30,7 +30,8 @@
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
 }
 
-.page-about {
+.page-about, 
+.page-privacy-policy {
     background: #f8f9fa;
 }
 
@@ -99,3 +100,16 @@
     margin-top: 2rem;
 }
 
+.page-privacy-policy .container, .terms-conditions .container {
+    padding: 20px;
+}
+
+.page-privacy-policy h1,
+.page-privacy-policy h2,
+.page-privacy-policy p,
+.terms-conditions p, 
+.terms-conditions li, 
+.terms-conditions ol, 
+.terms-conditions h1 {
+    text-align: justify;
+}
