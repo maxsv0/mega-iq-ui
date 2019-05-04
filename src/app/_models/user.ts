@@ -3,6 +3,7 @@ export class User {
   email: string;
   isPublic: boolean;
   isEmailVerified: boolean;
+  isUnsubscribed: boolean;
   name: string;
   pic: string;
   url: string;

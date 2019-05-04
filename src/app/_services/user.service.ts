@@ -34,7 +34,7 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put<ApiResponseUser>(environment.apiUrl + `/user/${user.id}`, user);
+    return this.http.post<ApiResponseUser>(environment.apiUrl + `/user/${user.id}`, user);
   }
 
   verifyEmail() {
