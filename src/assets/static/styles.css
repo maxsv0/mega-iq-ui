@@ -76,8 +76,7 @@
     text-align: justify;
 }
 
-.team {
-    display: flex;
+.team .col {
     justify-content: space-between;
     margin-top: 25px;
 }
@@ -94,10 +93,10 @@
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.09);
 }
 
-.names {
-    display: flex;
+.names .col {
     justify-content: space-between;
-    margin-top: 2rem;
+    padding-top: 2rem;
+    text-align: center;
 }
 
 .page-privacy-policy .container, .terms-conditions .container {
