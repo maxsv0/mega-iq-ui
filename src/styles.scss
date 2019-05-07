@@ -131,3 +131,27 @@ $colorGrammarDark: darken($colorMath, 15%);
   border-bottom: 5px $colorGrammarDark solid;
 }
 
+/** Loaders **/
+.page-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 15px solid rgba(180, 180, 180, .2);
+  border-top: 15px solid $colorStandard;
+  animation: animate 1s infinite linear;
+  z-index: 9999;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
