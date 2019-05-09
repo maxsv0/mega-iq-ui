@@ -38,31 +38,6 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label i18n>Image</label>
-          <div class="input-group mb-3">
-            <div class="card">
-              <div class="card-body">
-                <div class="row no-gutters">
-                  <label class="col" *ngFor="let avatar of avatarsDefault">
-                    <input type="radio" formControlName="pic" value="{{avatar}}">
-                    <img src="{{avatar}}=s60-c" class="img-avatar-small">
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="uploadPic" i18n>Upload image</label>
-          <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
-          <img *ngIf="uploading" class="pl-3"
-               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-          <span *ngIf="uploading" class="pl-3 text-muted">Loading... please wait</span>
-          <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
-        </div>
-
         <div class="form-group required">
           <label for="password" i18n>Password</label>
           <input type="password" id="password" formControlName="password" class="form-control"

@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
-import {AlertService, AuthenticationService, StorageService, UserService} from '@/_services';
+import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -13,9 +13,7 @@ import {HttpClient} from '@angular/common/http';
 export class RegisterComponent implements OnInit, AfterViewInit {
   registerForm: FormGroup;
   loading = false;
-  uploading = false;
   submitted = false;
-  avatarsDefault = [];
   uploadPic = '';
 
   constructor(
@@ -24,7 +22,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private storageService: StorageService,
     private alertService: AlertService
   ) {
     // redirect to home if already logged in
@@ -34,8 +31,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.avatarsDefault = this.userService.getAvatarsDefault();
-
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
@@ -43,7 +38,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       location: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
-      pic: [this.avatarsDefault[0]],
       terms: [true, Validators.required]
     });
   }
@@ -59,10 +53,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
-    }
-
-    if (this.uploadPic) {
-      this.registerForm.controls['pic'].setValue(this.uploadPic);
     }
 
     this.loading = true;
@@ -110,7 +100,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   detectLocation() {
-    this.loading = true;
     this.userService.detectLocation().subscribe(
       apiResponseBase => {
         if (apiResponseBase.ok) {
@@ -126,26 +115,4 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       });
   }
 
-  handleFileInput(files: FileList) {
-    let fileToUpload: File = null;
-    fileToUpload = files.item(0);
-    if (fileToUpload) {
-      this.uploading = true;
-      this.storageService.uploadFile(fileToUpload)
-        .pipe(first())
-        .subscribe(
-          apiResponseBase => {
-            if (apiResponseBase.ok) {
-              this.uploadPic = apiResponseBase.msg;
-            } else {
-              this.alertService.error(apiResponseBase.msg);
-            }
-            this.uploading = false;
-          },
-          error => {
-            this.alertService.error('API Service Unavailable. ' + error);
-            this.uploading = false;
-          });
-    }
-  }
 }
