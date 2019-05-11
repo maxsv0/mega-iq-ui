@@ -64,7 +64,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     let index = 1;
     this.activeTest.questionSet.forEach(
         (question) => {
-          this.submitAnswer(code, index++, 1);
+          this.submitAnswer(code, index++, question.answers[0].id);
         }
       );
   }
