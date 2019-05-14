@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {ApiResponseBase, ApiResponseUser, ApiResponseUsersList, User} from '@/_models';
+import {ApiResponseBase, ApiResponseUser, ApiResponseUsersList, ApiResponseUsersTop, User} from '@/_models';
 import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
@@ -10,7 +10,7 @@ export class UserService {
   }
 
   getTop() {
-    return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/top');
+    return this.http.get<ApiResponseUsersTop>(environment.apiUrl + '/user/top');
   }
 
   getAll() {
