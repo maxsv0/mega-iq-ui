@@ -7,5 +7,6 @@ export class ApiResponseUsersTop {
   users: User[];
   usersTop: User[];
   count: number;
+  exampleProfile: User;
 }
 

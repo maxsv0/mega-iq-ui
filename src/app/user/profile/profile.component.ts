@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {User} from '@/_models';
@@ -11,7 +11,9 @@ import {first} from 'rxjs/operators';
 })
 export class ProfileComponent implements OnInit {
   currentUser: User;
-  user: Object;
+
+  @Input()
+  user: User;
 
   constructor(
     private route: ActivatedRoute,
