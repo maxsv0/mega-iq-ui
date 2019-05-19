@@ -41,35 +41,35 @@
   </div>
 </nav>
 <!-- loader -->
-<div *ngIf="false">
+<!-- <div *ngIf="loading">
 	<div class="page-loader"></div>
-</div>
+</div> -->
 <!-- /loader -->
 
 <!-- main app container -->
-<div id="bgMain"
-     [ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
-             'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
-             'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
-                    'bg-math': backgroundClass === 'math',
-                 'bg-grammar': backgroundClass === 'grammar'}">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <alert></alert>
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
+	<div id="bgMain"
+		[ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
+				'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
+				'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
+						'bg-math': backgroundClass === 'math',
+					'bg-grammar': backgroundClass === 'grammar'}">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-12">
+			<alert></alert>
+			<router-outlet></router-outlet>
+		</div>
+		</div>
+	</div>
 </div>
 
 <!-- credits -->
 <div class="text-center">
-  <br>
-  <ul class="list-inline text-muted">
-    <li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>
-    <li class="list-inline-item"><a href="/assets/static/about.html">About</a></li>
-    <li class="list-inline-item"><a href="/assets/static/privacy-policy.html">Privacy Policy</a></li>
-    <li class="list-inline-item"><a href="/assets/static/terms-conditions.html">Terms and Conditions</a></li>
-  </ul>
+	<br>
+	<ul class="list-inline text-muted">
+		<li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>
+		<li class="list-inline-item"><a href="/assets/static/about.html">About</a></li>
+		<li class="list-inline-item"><a href="/assets/static/privacy-policy.html">Privacy Policy</a></li>
+		<li class="list-inline-item"><a href="/assets/static/terms-conditions.html">Terms and Conditions</a></li>
+	</ul>
 </div>
