@@ -11,7 +11,9 @@ import {interval, Subscription} from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class IndexComponent implements OnInit, OnDestroy {
+  usersList: User[] = [];
   usersTop: User[] = [];
+  userExample: User;
   clock: any;
   clockTimerSubscription: Subscription;
   clockSpeed: number;
@@ -46,13 +48,15 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   private loadUsersTop() {
     this.userService.getTop().pipe(first()).subscribe(
-      apiResponseUsersList => {
-        if (apiResponseUsersList.ok) {
-          this.usersTop = apiResponseUsersList.users;
+      apiResponseUsersTop => {
+        if (apiResponseUsersTop.ok) {
+          this.usersTop = apiResponseUsersTop.usersTop;
+          this.usersList = apiResponseUsersTop.users;
+          this.userExample = apiResponseUsersTop.exampleProfile;
         } else {
-          this.alertService.error(apiResponseUsersList.msg);
+          this.alertService.error(apiResponseUsersTop.msg);
         }
-        this.scrollToValue(apiResponseUsersList.count + 1481181 + 1000);
+        this.scrollToValue(apiResponseUsersTop.count + 1481181 + 1000);
       },
       error => {
         this.alertService.error('API Service Unavailable. ' + error);

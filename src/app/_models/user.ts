@@ -13,4 +13,5 @@ export class User {
   token: string;
   uid: string;
   password: string;
+  totalScore: number;
 }

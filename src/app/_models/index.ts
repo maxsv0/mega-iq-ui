@@ -2,6 +2,7 @@
 export * from './api-response-base';
 export * from './api-response-user';
 export * from './api-response-users-list';
+export * from './api-response-users-top';
 export * from './api-response-test-result';
 export * from './api-response-tests';
 export * from './api-response-test-result-list';

@@ -60,6 +60,15 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     this.updateActiveTest(this.activeTest);
   }
 
+  submitAllRandom(code: string) {
+    let index = 1;
+    this.activeTest.questionSet.forEach(
+        (question) => {
+          this.submitAnswer(code, index++, question.answers[0].id);
+        }
+      );
+  }
+
   submitAnswer(code: string, question: number, answer: number) {
     this.loading = true;
     this.iqTestService.submitAnswer(code, question, answer)

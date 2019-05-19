@@ -82,6 +82,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       age: [this.currentUser.age],
       location: [this.currentUser.location],
       isPublic: [this.currentUser.isPublic],
+      isUnsubscribed: [this.currentUser.isUnsubscribed],
       pic: [this.currentUser.pic]
     });
     console.log('Build form done');
