@@ -26,15 +26,17 @@ export class IqTestComponent implements OnInit {
   ngOnInit() {
     const testType = this.route.snapshot.params['testType'];
 
-    this.testTypes = this.iqTestService.getIqTest();
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
 
-    this.testTypes.forEach(
-      (test) => {
-        if (test.url === '/iqtest/' + testType) {
-          this.testSelected = test;
+      this.testTypes.forEach(
+        (test) => {
+          if (test.url === '/iqtest/' + testType) {
+            this.testSelected = test;
+          }
         }
-      }
-    );
+      );
+    });
   }
 
   startTest(type: TestTypeEnum) {

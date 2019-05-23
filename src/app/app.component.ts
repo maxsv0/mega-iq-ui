@@ -29,7 +29,9 @@ export class AppComponent {
       }
     );
 
-    this.testTypes = this.iqTestService.getIqTest();
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
+    });
 
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {

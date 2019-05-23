@@ -41,7 +41,9 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       this.initTestByCode(testCode);
     }
 
-    this.testTypes = this.iqTestService.getIqTest();
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
+    });
 
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
