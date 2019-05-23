@@ -53,11 +53,31 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col">
-      <div class="m-auto col-md-8">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="m-auto">
         <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
       </div>
+    </div>
   </div>
+</div>
 
+<div class="container">
+  <div class="row" *ngIf="testTypes">
+    <div class="test col-md-5 offset-md-1 mb-2" *ngFor="let item of testTypes | keyvalue"
+         [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+      <div class="media mx-5 my-2">
+        <div class="media-body">
+          <div class="test-{{item.value.styleName}}">
+            <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">
+              <h1 class="my-4">{{item.value.name}}</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
