@@ -31,15 +31,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.testTypes = this.iqTestService.getIqTest();
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
 
-    Object.entries(this.testTypes).forEach(
-      ([key, test]) => {
-        this.testTypesKeys[test.type] = key;
-      }
-    );
+      Object.entries(this.testTypes).forEach(
+        ([key, test]) => {
+          this.testTypesKeys[test.type] = key;
+        }
+      );
 
-    this.loadMyResult();
+      this.loadMyResult();
+    });
   }
 
   ngOnDestroy() {
