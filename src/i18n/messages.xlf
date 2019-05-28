@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file original="ng.template" id="ngi18n">
+    <unit id="2586312104569557204">
+      <notes>
+        <note category="location">app/app.component.html:2</note>
+      </notes>
+      <segment>
+        <source>Mega-IQ</source>
+      </segment>
+    </unit>
     <unit id="3854501539966213538">
       <notes>
         <note category="location">app/app.component.html:12</note>
@@ -65,19 +73,21 @@
         <source>Terms and Conditions</source>
       </segment>
     </unit>
-    <unit id="3301086086650990787">
+    <unit id="2454050363478003966">
       <notes>
-        <note category="location">app/user/register/register.component.html:4</note>
-        <note category="location">app/user/register/register.component.html:74</note>
+        <note category="location">app/user/login/login.component.html:4</note>
+        <note category="location">app/user/login/login.component.html:24</note>
       </notes>
       <segment>
-        <source>Register</source>
+        <source>Login</source>
       </segment>
     </unit>
     <unit id="4768749765465246664">
       <notes>
+        <note category="location">app/user/login/login.component.html:7</note>
         <note category="location">app/user/register/register.component.html:7</note>
         <note category="location">app/user/settings/settings.component.html:7</note>
+        <note category="location">app/user/forget/forget.component.html:7</note>
       </notes>
       <segment>
         <source>Email</source>
@@ -85,8 +95,10 @@
     </unit>
     <unit id="8552587679160911578">
       <notes>
+        <note category="location">app/user/login/login.component.html:11</note>
         <note category="location">app/user/register/register.component.html:11</note>
         <note category="location">app/user/settings/settings.component.html:29</note>
+        <note category="location">app/user/forget/forget.component.html:11</note>
       </notes>
       <segment>
         <source>Email is required</source>
@@ -94,11 +106,57 @@
     </unit>
     <unit id="6166496530300942880">
       <notes>
+        <note category="location">app/user/login/login.component.html:12</note>
         <note category="location">app/user/register/register.component.html:12</note>
         <note category="location">app/user/settings/settings.component.html:30</note>
+        <note category="location">app/user/forget/forget.component.html:12</note>
       </notes>
       <segment>
         <source>Email is not valid</source>
+      </segment>
+    </unit>
+    <unit id="1431416938026210429">
+      <notes>
+        <note category="location">app/user/login/login.component.html:16</note>
+        <note category="location">app/user/register/register.component.html:42</note>
+      </notes>
+      <segment>
+        <source>Password</source>
+      </segment>
+    </unit>
+    <unit id="205044832662301680">
+      <notes>
+        <note category="location">app/user/login/login.component.html:20</note>
+        <note category="location">app/user/register/register.component.html:46</note>
+      </notes>
+      <segment>
+        <source>Password is required</source>
+      </segment>
+    </unit>
+    <unit id="3301086086650990787">
+      <notes>
+        <note category="location">app/user/login/login.component.html:27</note>
+        <note category="location">app/user/register/register.component.html:4</note>
+        <note category="location">app/user/register/register.component.html:74</note>
+      </notes>
+      <segment>
+        <source>Register</source>
+      </segment>
+    </unit>
+    <unit id="2680737621537987649">
+      <notes>
+        <note category="location">app/user/login/login.component.html:28</note>
+      </notes>
+      <segment>
+        <source>Forget Password?</source>
+      </segment>
+    </unit>
+    <unit id="8999284073934392732">
+      <notes>
+        <note category="location">app/user/login/login.component.html:36</note>
+      </notes>
+      <segment>
+        <source>Login with Google</source>
       </segment>
     </unit>
     <unit id="8953033926734869941">
@@ -135,22 +193,6 @@
       </notes>
       <segment>
         <source>Location</source>
-      </segment>
-    </unit>
-    <unit id="1431416938026210429">
-      <notes>
-        <note category="location">app/user/register/register.component.html:42</note>
-      </notes>
-      <segment>
-        <source>Password</source>
-      </segment>
-    </unit>
-    <unit id="205044832662301680">
-      <notes>
-        <note category="location">app/user/register/register.component.html:46</note>
-      </notes>
-      <segment>
-        <source>Password is required</source>
       </segment>
     </unit>
     <unit id="8547747030242972664">
@@ -197,6 +239,7 @@
       <notes>
         <note category="location">app/user/register/register.component.html:78</note>
         <note category="location">app/user/settings/settings.component.html:82</note>
+        <note category="location">app/user/forget/forget.component.html:19</note>
       </notes>
       <segment>
         <source>Cancel</source>
@@ -313,6 +356,32 @@
       </notes>
       <segment>
         <source>Upload new image</source>
+      </segment>
+    </unit>
+    <unit id="8434435657357906899">
+      <notes>
+        <note category="location">app/user/forget/forget.component.html:4</note>
+      </notes>
+      <segment>
+        <source>Submit a form to create a new password</source>
+      </segment>
+    </unit>
+    <unit id="6972105223770675605">
+      <notes>
+        <note category="location">app/user/forget/forget.component.html:16</note>
+      </notes>
+      <segment>
+        <source>Reset Password</source>
+      </segment>
+    </unit>
+    <unit id="8942871764594485977">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:7,9</note>
+      </notes>
+      <segment>
+        <source>
+        Start Test
+      </source>
       </segment>
     </unit>
     <unit id="361469352814485355">
