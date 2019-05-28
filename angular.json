@@ -64,6 +64,20 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "de": {
+              "aot": true,
+              "outputPath": "dist/mega-iq-ui-de",
+              "i18nFile": "src/i18n/messages.de.xlf",
+              "i18nFormat": "xlf2",
+              "i18nLocale": "de"
+            },
+            "ru": {
+              "aot": true,
+              "outputPath": "dist/mega-iq-ui-ru",
+              "i18nFile": "src/i18n/messages.ru.xlf",
+              "i18nFormat": "xlf2",
+              "i18nLocale": "ru"
             }
           }
         },
@@ -75,6 +89,12 @@
           "configurations": {
             "production": {
               "browserTarget": "mega-iq-ui:build:production"
+            },
+            "de": {
+              "browserTarget": "mega-iq-ui:build:de"
+            },
+            "ru": {
+              "browserTarget": "mega-iq-ui:build:ru"
             }
           }
         },
@@ -111,6 +131,22 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf2",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "defaultLanguage": "en",
+              "languages": [
+                "en",
+                "de",
+                "ru"
+              ]
+            }
           }
         }
       }

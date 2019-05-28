@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="en">
+  <file original="ng.template" id="ngi18n">
+    <unit id="3854501539966213538">
+      <notes>
+        <note category="location">app/app.component.html:12</note>
+      </notes>
+      <segment state="final">
+        <source>Start IQ Test</source>
+      <target>Start IQ Test</target></segment>
+    </unit>
+    <unit id="3242997623282735515">
+      <notes>
+        <note category="location">app/app.component.html:18</note>
+      </notes>
+      <segment state="final">
+        <source>Best Results</source>
+      <target>Best Results</target></segment>
+    </unit>
+    <unit id="3797778920049399855">
+      <notes>
+        <note category="location">app/app.component.html:26</note>
+      </notes>
+      <segment state="final">
+        <source>Logout</source>
+      <target>Logout</target></segment>
+    </unit>
+    <unit id="7028204981963450021">
+      <notes>
+        <note category="location">app/app.component.html:31</note>
+      </notes>
+      <segment state="final">
+        <source>Sign up</source>
+      <target>Sign up</target></segment>
+    </unit>
+    <unit id="8520023152129279437">
+      <notes>
+        <note category="location">app/app.component.html:34</note>
+      </notes>
+      <segment state="final">
+        <source>Log In</source>
+      <target>Log In</target></segment>
+    </unit>
+    <unit id="1726363342938046830">
+      <notes>
+        <note category="location">app/app.component.html:67</note>
+      </notes>
+      <segment state="final">
+        <source>About</source>
+      <target>About</target></segment>
+    </unit>
+    <unit id="8439955599488894226">
+      <notes>
+        <note category="location">app/app.component.html:68</note>
+      </notes>
+      <segment state="final">
+        <source>Privacy Policy</source>
+      <target>Privacy Policy</target></segment>
+    </unit>
+    <unit id="664573589261423471">
+      <notes>
+        <note category="location">app/app.component.html:69</note>
+      </notes>
+      <segment state="final">
+        <source>Terms and Conditions</source>
+      <target>Terms and Conditions</target></segment>
+    </unit>
+    <unit id="3301086086650990787">
+      <notes>
+        <note category="location">app/user/register/register.component.html:4</note>
+        <note category="location">app/user/register/register.component.html:74</note>
+      </notes>
+      <segment state="final">
+        <source>Register</source>
+      <target>Register</target></segment>
+    </unit>
+    <unit id="4768749765465246664">
+      <notes>
+        <note category="location">app/user/register/register.component.html:7</note>
+        <note category="location">app/user/settings/settings.component.html:7</note>
+      </notes>
+      <segment state="final">
+        <source>Email</source>
+      <target>Email</target></segment>
+    </unit>
+    <unit id="8552587679160911578">
+      <notes>
+        <note category="location">app/user/register/register.component.html:11</note>
+        <note category="location">app/user/settings/settings.component.html:29</note>
+      </notes>
+      <segment state="final">
+        <source>Email is required</source>
+      <target>Email is required</target></segment>
+    </unit>
+    <unit id="6166496530300942880">
+      <notes>
+        <note category="location">app/user/register/register.component.html:12</note>
+        <note category="location">app/user/settings/settings.component.html:30</note>
+      </notes>
+      <segment state="final">
+        <source>Email is not valid</source>
+      <target>Email is not valid</target></segment>
+    </unit>
+    <unit id="8953033926734869941">
+      <notes>
+        <note category="location">app/user/register/register.component.html:16</note>
+        <note category="location">app/user/settings/settings.component.html:34</note>
+      </notes>
+      <segment state="final">
+        <source>Name</source>
+      <target>Name</target></segment>
+    </unit>
+    <unit id="3833692663709091545">
+      <notes>
+        <note category="location">app/user/register/register.component.html:20</note>
+        <note category="location">app/user/settings/settings.component.html:38</note>
+      </notes>
+      <segment state="final">
+        <source>Name is required</source>
+      <target>Name is required</target></segment>
+    </unit>
+    <unit id="1130652265542107236">
+      <notes>
+        <note category="location">app/user/register/register.component.html:24</note>
+        <note category="location">app/user/settings/settings.component.html:42</note>
+      </notes>
+      <segment state="final">
+        <source>Age</source>
+      <target>Age</target></segment>
+    </unit>
+    <unit id="471816275243265264">
+      <notes>
+        <note category="location">app/user/register/register.component.html:28</note>
+        <note category="location">app/user/settings/settings.component.html:46</note>
+      </notes>
+      <segment state="final">
+        <source>Location</source>
+      <target>Location</target></segment>
+    </unit>
+    <unit id="1431416938026210429">
+      <notes>
+        <note category="location">app/user/register/register.component.html:42</note>
+      </notes>
+      <segment state="final">
+        <source>Password</source>
+      <target>Password</target></segment>
+    </unit>
+    <unit id="205044832662301680">
+      <notes>
+        <note category="location">app/user/register/register.component.html:46</note>
+      </notes>
+      <segment state="final">
+        <source>Password is required</source>
+      <target>Password is required</target></segment>
+    </unit>
+    <unit id="8547747030242972664">
+      <notes>
+        <note category="location">app/user/register/register.component.html:51</note>
+      </notes>
+      <segment state="final">
+        <source>Password Confirmation</source>
+      <target>Password Confirmation</target></segment>
+    </unit>
+    <unit id="6042936940683833037">
+      <notes>
+        <note category="location">app/user/register/register.component.html:55</note>
+      </notes>
+      <segment state="final">
+        <source>Password confirmation is required</source>
+      <target>Password confirmation is required</target></segment>
+    </unit>
+    <unit id="7215971708512983557">
+      <notes>
+        <note category="location">app/user/register/register.component.html:56</note>
+      </notes>
+      <segment state="final">
+        <source>Password confirmation must be at least 6 characters</source>
+      <target>Password confirmation must be at least 6 characters</target></segment>
+    </unit>
+    <unit id="5258473985829185568">
+      <notes>
+        <note category="location">app/user/register/register.component.html:63</note>
+      </notes>
+      <segment state="final">
+        <source>Accept terms and conditions and privacy policy.</source>
+      <target>Accept terms and conditions and privacy policy.</target></segment>
+    </unit>
+    <unit id="8733077627528624313">
+      <notes>
+        <note category="location">app/user/register/register.component.html:65</note>
+      </notes>
+      <segment state="final">
+        <source>You must agree before submitting.</source>
+      <target>You must agree before submitting.</target></segment>
+    </unit>
+    <unit id="2159130950882492111">
+      <notes>
+        <note category="location">app/user/register/register.component.html:78</note>
+        <note category="location">app/user/settings/settings.component.html:82</note>
+      </notes>
+      <segment state="final">
+        <source>Cancel</source>
+      <target>Cancel</target></segment>
+    </unit>
+    <unit id="1819424728751166535">
+      <notes>
+        <note category="location">app/user/home/home.component.html:10</note>
+      </notes>
+      <segment state="final">
+        <source>Open profile page</source>
+      <target>Open profile page</target></segment>
+    </unit>
+    <unit id="5265161251609188502">
+      <notes>
+        <note category="location">app/user/home/home.component.html:17</note>
+        <note category="location">app/user/settings/settings.component.html:5</note>
+      </notes>
+      <segment state="final">
+        <source>Edit profile</source>
+      <target>Edit profile</target></segment>
+    </unit>
+    <unit id="5338231862998220113">
+      <notes>
+        <note category="location">app/user/home/home.component.html:23</note>
+      </notes>
+      <segment state="final">
+        <source>Latest activity</source>
+      <target>Latest activity</target></segment>
+    </unit>
+    <unit id="61627423335000084">
+      <notes>
+        <note category="location">app/user/home/home.component.html:57</note>
+      </notes>
+      <segment state="final">
+        <source>Check results</source>
+      <target>Check results</target></segment>
+    </unit>
+    <unit id="7022070615528435141">
+      <notes>
+        <note category="location">app/user/home/home.component.html:65</note>
+      </notes>
+      <segment state="final">
+        <source>Delete</source>
+      <target>Delete</target></segment>
+    </unit>
+    <unit id="3649366019356514608">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:12</note>
+      </notes>
+      <segment state="final">
+        <source>Email is verified</source>
+      <target>Email is verified</target></segment>
+    </unit>
+    <unit id="8560168889836089858">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:15</note>
+      </notes>
+      <segment state="final">
+        <source>Email not verified</source>
+      <target>Email not verified</target></segment>
+    </unit>
+    <unit id="514060533210330102">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:21</note>
+      </notes>
+      <segment state="final">
+        <source>Send Verification Email</source>
+      <target>Send Verification Email</target></segment>
+    </unit>
+    <unit id="1925257283213222352">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:62</note>
+      </notes>
+      <segment state="final">
+        <source>Profile is public</source>
+      <target>Profile is public</target></segment>
+    </unit>
+    <unit id="8253818393183514086">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:69</note>
+      </notes>
+      <segment state="final">
+        <source>Disable all email notifications</source>
+      <target>Disable all email notifications</target></segment>
+    </unit>
+    <unit id="7000649363168371045">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:78</note>
+      </notes>
+      <segment state="final">
+        <source>Save changes</source>
+      <target>Save changes</target></segment>
+    </unit>
+    <unit id="7650624232624154748">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:89</note>
+      </notes>
+      <segment state="final">
+        <source>Current image</source>
+      <target>Current image</target></segment>
+    </unit>
+    <unit id="3012906865384504293">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:95</note>
+      </notes>
+      <segment state="final">
+        <source>Image</source>
+      <target>Image</target></segment>
+    </unit>
+    <unit id="6973948056639772089">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:110</note>
+      </notes>
+      <segment state="final">
+        <source>Upload new image</source>
+      <target>Upload new image</target></segment>
+    </unit>
+    <unit id="361469352814485355">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:120</note>
+      </notes>
+      <segment state="final">
+        <source>Test finished</source>
+      <target>Test finished</target></segment>
+    </unit>
+  </file>
+</xliff>
