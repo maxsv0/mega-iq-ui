@@ -7,20 +7,20 @@
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#home"/>
       </svg>
-      Open profile page
+      <span i18n>Open profile page</span>
     </button>
 
     <button routerLink="/settings" class="btn btn-outline-primary">
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#settings"/>
       </svg>
-      Edit profile
+      <span i18n>Edit profile</span>
     </button>
   </div>
 </div>
 
 <div class="jumbotron">
-  <h2>Latest activity</h2>
+  <h2 i18n>Latest activity</h2>
   <div class="test mb-2" *ngFor="let test of userTests"
        [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="media">
@@ -54,14 +54,15 @@
             <svg class="feather">
               <use xlink:href="/assets/feather-sprite.svg#sun"/>
             </svg>
-            Check results</button>
+            <span i18n>Check results</span>
+            </button>
 
           <button class="btn btn-danger btn-block btn-lg mt-5" (click)="deleteTestResult(test.code)"
              *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
             <svg class="feather">
               <use xlink:href="/assets/feather-sprite.svg#trash"/>
             </svg>
-            Delete
+            <span i18n>Delete</span>
             <img *ngIf="loading && test.code === deletedId" class="pl-3"
                  src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
           </button>
