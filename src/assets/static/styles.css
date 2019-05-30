@@ -75,7 +75,7 @@
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
 }
 
-#about h1, #about p, #about h2 {
+#about h1, #about h2 {
     text-align: center;
     margin-bottom: 2rem;
 }

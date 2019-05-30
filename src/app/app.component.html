@@ -41,13 +41,13 @@
   </div>
 </nav>
 <!-- loader -->
-<!-- <div *ngIf="loading">
+<div *ngIf="loading">
 	<div class="page-loader"></div>
-</div> -->
+</div>
 <!-- /loader -->
 
 <!-- main app container -->
-	<div id="bgMain"
+	<div *ngIf="!loading" id="bgMain"
 		[ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
 				'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
 				'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
@@ -64,7 +64,7 @@
 </div>
 
 <!-- credits -->
-<div class="text-center">
+<div *ngIf="!loading" class="text-center">
 	<br>
 	<ul class="list-inline text-muted">
 		<li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>

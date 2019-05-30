@@ -5,6 +5,7 @@ import {AuthenticationService, IqTestService} from './_services';
 import {IqTest, User} from './_models';
 import {Subscription} from 'rxjs';
 import {TestTypeEnum} from '@/_models/enum';
+import { __await } from 'tslib';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent {
 		}
 	);
 
-	this.testTypes = this.iqTestService.getIqTest();
+	// load iq tests
+	this.loadIqTest();
 
 	router.events.subscribe((event) => {
 	if (event instanceof NavigationStart) {
@@ -51,6 +53,19 @@ export class AppComponent {
 	}
 	});
 }
+
+	async loadIqTest() {
+		this.loading = true;
+		try {
+			await this.iqTestService.getIqTest().subscribe(tests => {
+				this.testTypes = tests;
+			});
+			this.loading = false;
+		} catch(err) {
+			alert(`An error occurred:${err}`);
+			this.loading = false;
+		}
+	}
 
 	logout() {
 		this.authenticationService.logout();

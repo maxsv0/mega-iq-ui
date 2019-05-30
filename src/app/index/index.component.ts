@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {first} from 'rxjs/operators';
-import {AlertService, UserService} from '@/_services';
-import {User} from '@/_models';
+import {AlertService, IqTestService, UserService} from '@/_services';
+import {IqTest, User} from '@/_models';
 import * as $ from 'jquery';
 import {interval, Subscription} from 'rxjs';
 
@@ -11,6 +11,7 @@ import {interval, Subscription} from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class IndexComponent implements OnInit, OnDestroy {
+  testTypes: IqTest[] = [];
   usersList: User[] = [];
   usersTop: User[] = [];
   userExample: User;
@@ -19,10 +20,13 @@ export class IndexComponent implements OnInit, OnDestroy {
   clockSpeed: number;
 
   constructor(
+    private iqTestService: IqTestService,
     private userService: UserService,
     private alertService: AlertService
   ) {
-
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
+    });
   }
 
   ngOnInit() {
