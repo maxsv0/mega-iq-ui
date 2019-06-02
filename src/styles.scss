@@ -51,6 +51,12 @@ $colorGrammar: #d3c1a9;
 $colorGrammarLight: lighten($colorMath, 10%);
 $colorGrammarDark: darken($colorMath, 15%);
 
+$spacer: 1rem !default;
+
+.mt-6 {
+	margin-top: ($spacer * 5);
+}
+
 .test-practice {
   border-color: $colorPractice;
   background-color: $colorPractice;

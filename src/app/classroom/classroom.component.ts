@@ -15,6 +15,7 @@ import {TestStatusEnum} from '@/_models/enum';
 export class ClassroomComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
   loading = false;
+  updating: boolean = false;
   public testStatus = TestStatusEnum;
 
   activeTest: TestResult;
@@ -58,8 +59,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   setQuestion(questionId: number) {
-    this.activeQuestionId = questionId;
-    this.updateActiveTest(this.activeTest);
+	this.activeQuestionId = questionId;
+	this.updateActiveTest(this.activeTest);
   }
 
   submitAllRandom(code: string) {
@@ -109,28 +110,38 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
-  private updateActiveTest(test: TestResult) {
-    this.activeTest = test;
-    this.activeQuestionIdPrev = this.activeQuestionId - 1;
+	private async updateActiveTest(test: TestResult) {
+		this.updating = true;
+		this.activeTest = test;
+		this.activeQuestionIdPrev = this.activeQuestionId - 1;
 
-    if (this.activeTest && this.activeQuestionId) {
-      this.testTypes.forEach(
-        (testData) => {
-          if (this.activeTest.type === testData.type) {
-            this.activeTestName = testData.name;
-          }
-        }
-      );
-      this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
-      this.activeQuestionIdNext = this.activeQuestionId + 1;
-      if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
-        this.activeQuestionIdNext = 0;
-      }
-    } else {
-      this.activeQuestionIdNext = 0;
-      this.activeQuestion = null;
-    }
-  }
+		try {
+			if (this.activeTest && this.activeQuestionId) {
+				await this.testTypes.forEach(
+					(testData) => {
+						if (this.activeTest.type === testData.type) {
+							this.activeTestName = testData.name;
+						}
+						this.updating = false;
+					}
+				);
+				this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+				this.activeQuestionIdNext = this.activeQuestionId + 1;
+				if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
+					this.activeQuestionIdNext = 0;
+					this.updating = false;
+				}
+			} else {
+				this.activeQuestionIdNext = 0;
+				this.activeQuestion = null;
+				this.updating = false;
+			}
+		}
+		catch (err) {
+			this.alertService.error(`API Service Unavailable. ${err}`);
+		}
+
+	}
 
   private initTestByCode(testCode: string) {
     this.iqTestService.getByCode(testCode)

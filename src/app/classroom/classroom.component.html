@@ -4,23 +4,21 @@
       <div>
         <h3><span class="text-muted mr-3">Question #{{activeQuestionId}}</span>{{activeQuestion.title}}</h3>
         <div class="text-center my-3">
-          <img src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470" height="370">
+		  <img *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470" height="370">
+		  <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
         </div>
         <div class="container card my-3">
-          <div class="row text-center">
-            <div class="col-md-2 col-sm-3 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
-                 [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
-
-              <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
-                   *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0"><img src="{{answer.pic}}"
-                                                                                         srcset="{{answer.pic2x}} 2x"
-                                                                                         width="92"
-                                                                                         height="92"></div>
-              <div *ngIf="activeTest.status === testStatus.FINISHED"><img src="{{answer.pic}}"
-                                                                            srcset="{{answer.pic2x}} 2x" width="92"
-                                                                            height="92">
-              </div>
-            </div>
+          <div *ngIf="!updating" class="row text-center">
+			<div class="col-md-2 col-sm-3 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
+				[ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
+				<div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
+					*ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0">
+					<img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
+				</div>
+				<div *ngIf="activeTest.status === testStatus.FINISHED">
+					<img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
+				</div>
+			</div>
           </div>
         </div>
         <div class="container">
@@ -50,7 +48,7 @@
             </div>
             <div class="col-sm-6 text-right">
               <div class="btn btn-link" (click)="setQuestion(activeQuestionIdNext)"
-                   [ngClass]="{'disabled': activeQuestionIdNext === 0}">
+                   [ngClass]="{'disabled': activeQuestionIdNext === 0}" [class.disabled]="updating">
                 <span>Next Question</span>
                 <svg class="feather">
                   <use xlink:href="/assets/feather-sprite.svg#chevron-right"/>
