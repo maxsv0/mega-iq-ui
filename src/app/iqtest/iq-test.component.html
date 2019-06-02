@@ -4,8 +4,8 @@
     	<h2>{{testSelected.name}}</h2>
 
 		<div class="form-group">
-			<button [disabled]="loading" id="start-test-btn" class="btn btn-primary btn-lg" (click)="startTest(testSelected.type)" i18>
-				<span *ngIf="!loading">Start Test</span>
+			<button [disabled]="loading" id="start-test-btn" class="btn btn-primary btn-lg" (click)="startTest(testSelected.type)">
+				<span *ngIf="!loading" i18n>Start Test</span>
 				<span *ngIf="loading" class="actn-loader"></span>
 			</button>
 				<span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
