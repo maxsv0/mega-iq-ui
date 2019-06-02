@@ -20,6 +20,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   submitted = false;
   avatarsDefault = [];
   uploadPic = '';
+  isLoading: boolean = false;
 
   currentUser: User;
   currentUserSubscription: Subscription;
@@ -46,8 +47,9 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     this.avatarsDefault = this.userService.getAvatarsDefault();
   }
 
-  private loadUserProfile() {
-    this.userService.getMyInfo()
+  private async loadUserProfile() {
+    this.isLoading = true;
+    await this.userService.getMyInfo()
       .pipe(first())
       .subscribe(
         apiResponseUser => {
@@ -67,9 +69,11 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           } else {
             this.alertService.error(apiResponseUser.msg);
           }
+          this.isLoading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+		  this.alertService.error('API Service Unavailable. ' + error);
+		  this.isLoading = false;
         });
   }
 
