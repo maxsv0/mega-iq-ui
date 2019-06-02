@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="ru">
+  <file original="ng.template" id="ngi18n">
+    <unit id="2586312104569557204">
+      <notes>
+        <note category="location">app/app.component.html:2</note>
+      </notes>
+      <segment state="translated">
+        <source>Mega-IQ</source>
+      <target>Мега-Айкю</target></segment>
+    </unit><unit id="3854501539966213538">
+      <notes>
+        <note category="location">app/app.component.html:12</note>
+      </notes>
+      <segment state="translated">
+        <source>Start IQ Test</source>
+      <target>Начать тест на айкю</target></segment>
+    </unit>
+    <unit id="3242997623282735515">
+      <notes>
+        <note category="location">app/app.component.html:18</note>
+      </notes>
+      <segment state="translated">
+        <source>Best Results</source>
+      <target>Рейтинг лучших айкю</target></segment>
+    </unit>
+    <unit id="3797778920049399855">
+      <notes>
+        <note category="location">app/app.component.html:26</note>
+      </notes>
+      <segment state="translated">
+        <source>Logout</source>
+      <target>Выйти</target></segment>
+    </unit>
+    <unit id="7028204981963450021">
+      <notes>
+        <note category="location">app/app.component.html:31</note>
+      </notes>
+      <segment state="translated">
+        <source>Sign up</source>
+      <target>Регистрация</target></segment>
+    </unit>
+    <unit id="8520023152129279437">
+      <notes>
+        <note category="location">app/app.component.html:34</note>
+      </notes>
+      <segment state="translated">
+        <source>Log In</source>
+      <target>Войти</target></segment>
+    </unit>
+    <unit id="1726363342938046830">
+      <notes>
+        <note category="location">app/app.component.html:67</note>
+      </notes>
+      <segment state="translated">
+        <source>About</source>
+      <target>О Мега-Айкю</target></segment>
+    </unit>
+    <unit id="8439955599488894226">
+      <notes>
+        <note category="location">app/app.component.html:68</note>
+      </notes>
+      <segment state="translated">
+        <source>Privacy Policy</source>
+      <target>Политика конфиденциальности</target></segment>
+    </unit>
+    <unit id="664573589261423471">
+      <notes>
+        <note category="location">app/app.component.html:69</note>
+      </notes>
+      <segment state="translated">
+        <source>Terms and Conditions</source>
+      <target>Условия и положения</target></segment>
+    </unit><unit id="2454050363478003966">
+      <notes>
+        <note category="location">app/user/login/login.component.html:4</note>
+        <note category="location">app/user/login/login.component.html:24</note>
+      </notes>
+      <segment state="translated">
+        <source>Login</source>
+      <target>Войти</target></segment>
+    </unit>
+    <unit id="3301086086650990787">
+      <notes>
+        
+        
+      <note category="location">app/user/login/login.component.html:27</note><note category="location">app/user/register/register.component.html:4</note><note category="location">app/user/register/register.component.html:74</note></notes>
+      <segment state="translated">
+        <source>Register</source>
+      <target>Регистрация</target></segment>
+    </unit><unit id="2680737621537987649">
+      <notes>
+        <note category="location">app/user/login/login.component.html:28</note>
+      </notes>
+      <segment state="translated">
+        <source>Forget Password?</source>
+      <target>Забыли пароль?</target></segment>
+    </unit><unit id="8999284073934392732">
+      <notes>
+        <note category="location">app/user/login/login.component.html:36</note>
+      </notes>
+      <segment state="translated">
+        <source>Login with Google</source>
+      <target>Вход через Google</target></segment>
+    </unit>
+    <unit id="4768749765465246664">
+      <notes>
+        
+        
+      <note category="location">app/user/login/login.component.html:7</note><note category="location">app/user/register/register.component.html:7</note><note category="location">app/user/settings/settings.component.html:7</note><note category="location">app/user/forget/forget.component.html:7</note></notes>
+      <segment state="translated">
+        <source>Email</source>
+      <target>Email</target></segment>
+    </unit>
+    <unit id="8552587679160911578">
+      <notes>
+        
+        
+      <note category="location">app/user/login/login.component.html:11</note><note category="location">app/user/register/register.component.html:11</note><note category="location">app/user/settings/settings.component.html:29</note><note category="location">app/user/forget/forget.component.html:11</note></notes>
+      <segment state="translated">
+        <source>Email is required</source>
+      <target>Email обязательное поле</target></segment>
+    </unit>
+    <unit id="6166496530300942880">
+      <notes>
+        
+        
+      <note category="location">app/user/login/login.component.html:12</note><note category="location">app/user/register/register.component.html:12</note><note category="location">app/user/settings/settings.component.html:30</note><note category="location">app/user/forget/forget.component.html:12</note></notes>
+      <segment state="translated">
+        <source>Email is not valid</source>
+      <target>Email введен неправильно</target></segment>
+    </unit>
+    <unit id="8953033926734869941">
+      <notes>
+        <note category="location">app/user/register/register.component.html:16</note>
+        <note category="location">app/user/settings/settings.component.html:34</note>
+      </notes>
+      <segment state="translated">
+        <source>Name</source>
+      <target>Имя</target></segment>
+    </unit>
+    <unit id="3833692663709091545">
+      <notes>
+        <note category="location">app/user/register/register.component.html:20</note>
+        <note category="location">app/user/settings/settings.component.html:38</note>
+      </notes>
+      <segment state="translated">
+        <source>Name is required</source>
+      <target>Имя обязательно для заполнения</target></segment>
+    </unit>
+    <unit id="1130652265542107236">
+      <notes>
+        <note category="location">app/user/register/register.component.html:24</note>
+        <note category="location">app/user/settings/settings.component.html:42</note>
+      </notes>
+      <segment state="translated">
+        <source>Age</source>
+      <target>Возраст</target></segment>
+    </unit>
+    <unit id="471816275243265264">
+      <notes>
+        <note category="location">app/user/register/register.component.html:28</note>
+        <note category="location">app/user/settings/settings.component.html:46</note>
+      </notes>
+      <segment state="translated">
+        <source>Location</source>
+      <target>Регион</target></segment>
+    </unit>
+    <unit id="1431416938026210429">
+      <notes>
+        
+      <note category="location">app/user/login/login.component.html:16</note><note category="location">app/user/register/register.component.html:42</note></notes>
+      <segment state="translated">
+        <source>Password</source>
+      <target>Пароль</target></segment>
+    </unit>
+    <unit id="205044832662301680">
+      <notes>
+        
+      <note category="location">app/user/login/login.component.html:20</note><note category="location">app/user/register/register.component.html:46</note></notes>
+      <segment state="translated">
+        <source>Password is required</source>
+      <target>Пароль обязательное поле</target></segment>
+    </unit>
+    <unit id="8547747030242972664">
+      <notes>
+        <note category="location">app/user/register/register.component.html:51</note>
+      </notes>
+      <segment state="translated">
+        <source>Password Confirmation</source>
+      <target>Подтверждение пароля</target></segment>
+    </unit>
+    <unit id="6042936940683833037">
+      <notes>
+        <note category="location">app/user/register/register.component.html:55</note>
+      </notes>
+      <segment state="translated">
+        <source>Password confirmation is required</source>
+      <target>Подтверждение пароля обязательно для заполнения</target></segment>
+    </unit>
+    <unit id="7215971708512983557">
+      <notes>
+        <note category="location">app/user/register/register.component.html:56</note>
+      </notes>
+      <segment state="translated">
+        <source>Password confirmation must be at least 6 characters</source>
+      <target>Пароль должен быть не менее 6 символов</target></segment>
+    </unit>
+    <unit id="5258473985829185568">
+      <notes>
+        <note category="location">app/user/register/register.component.html:63</note>
+      </notes>
+      <segment state="translated">
+        <source>Accept terms and conditions and privacy policy.</source>
+      <target>Принять условия и политику конфиденциальности.</target></segment>
+    </unit>
+    <unit id="8733077627528624313">
+      <notes>
+        <note category="location">app/user/register/register.component.html:65</note>
+      </notes>
+      <segment state="translated">
+        <source>You must agree before submitting.</source>
+      <target>Вы должны согласиться перед отправкой.</target></segment>
+    </unit>
+    <unit id="2159130950882492111">
+      <notes>
+        
+        
+      <note category="location">app/user/register/register.component.html:78</note><note category="location">app/user/settings/settings.component.html:82</note><note category="location">app/user/forget/forget.component.html:19</note></notes>
+      <segment state="translated">
+        <source>Cancel</source>
+      <target>Отменить</target></segment>
+    </unit>
+    <unit id="1819424728751166535">
+      <notes>
+        <note category="location">app/user/home/home.component.html:10</note>
+      </notes>
+      <segment state="translated">
+        <source>Open profile page</source>
+      <target>Открыть Ваш профиль</target></segment>
+    </unit>
+    <unit id="5265161251609188502">
+      <notes>
+        <note category="location">app/user/home/home.component.html:17</note>
+        <note category="location">app/user/settings/settings.component.html:5</note>
+      </notes>
+      <segment state="translated">
+        <source>Edit profile</source>
+      <target>Редактировать профиль</target></segment>
+    </unit>
+    <unit id="5338231862998220113">
+      <notes>
+        <note category="location">app/user/home/home.component.html:23</note>
+      </notes>
+      <segment state="translated">
+        <source>Latest activity</source>
+      <target>Последние действия</target></segment>
+    </unit>
+    <unit id="61627423335000084">
+      <notes>
+        <note category="location">app/user/home/home.component.html:57</note>
+      </notes>
+      <segment state="translated">
+        <source>Check results</source>
+      <target>Результат теста</target></segment>
+    </unit>
+    <unit id="7022070615528435141">
+      <notes>
+        <note category="location">app/user/home/home.component.html:65</note>
+      </notes>
+      <segment state="translated">
+        <source>Delete</source>
+      <target>Удалить</target></segment>
+    </unit>
+    <unit id="3649366019356514608">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:12</note>
+      </notes>
+      <segment state="translated">
+        <source>Email is verified</source>
+      <target>Email подтвержден</target></segment>
+    </unit>
+    <unit id="8560168889836089858">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:15</note>
+      </notes>
+      <segment state="translated">
+        <source>Email not verified</source>
+      <target>Email не подтвержден</target></segment>
+    </unit>
+    <unit id="514060533210330102">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:21</note>
+      </notes>
+      <segment state="translated">
+        <source>Send Verification Email</source>
+      <target>Отправить письмо с подтверждением</target></segment>
+    </unit>
+    <unit id="1925257283213222352">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:62</note>
+      </notes>
+      <segment state="translated">
+        <source>Profile is public</source>
+      <target>Профиль доступен всем</target></segment>
+    </unit>
+    <unit id="8253818393183514086">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:69</note>
+      </notes>
+      <segment state="translated">
+        <source>Disable all email notifications</source>
+      <target>Отключить все email уведомления</target></segment>
+    </unit>
+    <unit id="7000649363168371045">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:78</note>
+      </notes>
+      <segment state="translated">
+        <source>Save changes</source>
+      <target>Сохранить изменения</target></segment>
+    </unit>
+    <unit id="7650624232624154748">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:89</note>
+      </notes>
+      <segment state="translated">
+        <source>Current image</source>
+      <target>Текущее изображение</target></segment>
+    </unit>
+    <unit id="3012906865384504293">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:95</note>
+      </notes>
+      <segment state="translated">
+        <source>Image</source>
+      <target>Изображение</target></segment>
+    </unit>
+    <unit id="6973948056639772089">
+      <notes>
+        <note category="location">app/user/settings/settings.component.html:110</note>
+      </notes>
+      <segment state="translated">
+        <source>Upload new image</source>
+      <target>Загрузить новое изображение</target></segment>
+    </unit><unit id="8434435657357906899">
+      <notes>
+        <note category="location">app/user/forget/forget.component.html:4</note>
+      </notes>
+      <segment state="translated">
+        <source>Submit a form to create a new password</source>
+      <target>Заполните форму для создание нового пароля</target></segment>
+    </unit><unit id="6972105223770675605">
+      <notes>
+        <note category="location">app/user/forget/forget.component.html:16</note>
+      </notes>
+      <segment state="translated">
+        <source>Reset Password</source>
+      <target>Восстановить пароль</target></segment>
+    </unit><unit id="8942871764594485977">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:7,9</note>
+      </notes>
+      <segment state="initial">
+        <source>
+        Start Test
+      </source>
+      <target>
+        Start Test
+      </target></segment>
+    </unit>
+    <unit id="361469352814485355">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:120</note>
+      </notes>
+      <segment state="translated">
+        <source>Test finished</source>
+      <target>Тест завершен</target></segment>
+    </unit>
+  </file>
+</xliff>

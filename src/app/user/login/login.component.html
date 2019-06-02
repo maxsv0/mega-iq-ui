@@ -1,32 +1,33 @@
 <div class="row">
   <div class="col-md-7">
     <div class="jumbotron">
-      <h2 i18>Login</h2>
+      <h2 i18n>Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" method="post">
         <div class="form-group">
-          <label for="email" i18>Email</label>
+          <label for="email" i18n>Email</label>
           <input type="text" id="email" formControlName="email" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autocomplete=email/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required" i18>Email is required</div>
-            <div *ngIf="f.email.errors.email" i18>Email is not valid</div>
+            <div *ngIf="f.email.errors.required" i18n>Email is required</div>
+            <div *ngIf="f.email.errors.email" i18n>Email is not valid</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password" i18>Password</label>
+          <label for="password" i18n>Password</label>
           <input type="password" id="password" formControlName="password" class="form-control"
                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autocomplete=current-password/>
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required" i18>Password is required</div>
+            <div *ngIf="f.password.errors.required" i18n>Password is required</div>
           </div>
         </div>
         <div class="form-group">
-		<button [disabled]="loading" id="login-btn" class="btn btn-primary" i18>
+
+		<button [disabled]="loading" id="login-btn" class="btn btn-primary">
 			<span *ngIf="loading" class="actn-loader"></span>
 			<span *ngIf="!loading">Login</span>
 		</button>
-          <a routerLink="/register" class="btn btn-link" i18>Register</a>
-          <a routerLink="/forget" class="btn btn-link" i18>Forget Password?</a>
+          <a routerLink="/register" class="btn btn-link" i18n>Register</a>
+          <a routerLink="/forget" class="btn btn-link" i18n>Forget Password?</a>
         </div>
       </form>
 
@@ -34,7 +35,7 @@
   </div>
   <div class="col-md-5">
     <div class="jumbotron">
-      <h2 i18>Login with Google</h2>
+      <h2 i18n>Login with Google</h2>
 
       <button type="button" class="btn btn-link" (click)="loginGoogle()">
        <img src="/assets/img/btn_google_signin_light_normal_web.png" srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">

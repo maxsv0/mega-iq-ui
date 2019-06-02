@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract-i18n": "ng xi18n mega-iq-ui --i18n-format xlf2 --output-path i18n --i18n-locale en && ng run mega-iq-ui:xliffmerge",
+    "start-de": "ng serve --configuration=de",
+    "start-ru": "ng serve --configuration=ru"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +24,7 @@
     "@angular/platform-browser": "^7.2.15",
     "@angular/platform-browser-dynamic": "^7.2.15",
     "@angular/router": "^7.2.15",
+    "@ngx-i18nsupport/tooling": "^1.1.3",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "feather-icons": "^4.21.0",
@@ -36,6 +40,7 @@
     "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "^7.2.15",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.3",
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

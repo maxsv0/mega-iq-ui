@@ -7,20 +7,20 @@
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#home"/>
       </svg>
-      Open profile page
+      <span i18n>Open profile page</span>
     </button>
 
     <button routerLink="/settings" class="btn btn-outline-primary">
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#settings"/>
       </svg>
-      Edit profile
+      <span i18n>Edit profile</span>
     </button>
   </div>
 </div>
 
 <div class="jumbotron">
-  <h2>Latest activity</h2>
+  <h2 i18n>Latest activity</h2>
   <div class="test mb-2" *ngFor="let test of userTests"
        [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="media">
@@ -54,14 +54,15 @@
             <svg class="feather">
               <use xlink:href="/assets/feather-sprite.svg#sun"/>
             </svg>
-            Check results</button>
+            <span i18n>Check results</span>
+            </button>
 
           <button class="btn btn-danger btn-block btn-lg mt-5" (click)="deleteTestResult(test.code)"
              *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
             <svg *ngIf="!loading" class="feather">
               <use xlink:href="/assets/feather-sprite.svg#trash"/>
             </svg>
-            <span *ngIf="!loading">Delete</span>
+            <span *ngIf="!loading" i18n>Delete</span>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
         </p>
