@@ -1,83 +1,90 @@
-<div class="row">
-  <div class="col text-center">
-   <div class="jumbotron">
-     <div id="counter" style="margin:2em;"></div>
-   </div>
-  </div>
-  <div class="col-md-4">
+
+<section id="home">
+    <div class="container-fluid">
+        <div id="counter"></div>
+    </div>
+</section>
+
+<!-- <div class="col-md-4">
     <p>
-      <a routerLink="/" class="btn btn-link">index</a>
-      <a routerLink="/home" class="btn btn-link">user home</a>
-      <a routerLink="/login" class="btn btn-link">login</a>
-      <a routerLink="/register" class="btn btn-link">register</a>
+    <a routerLink="/" class="btn btn-link">index</a>
+    <a routerLink="/home" class="btn btn-link">user home</a>
+    <a routerLink="/login" class="btn btn-link">login</a>
+    <a routerLink="/register" class="btn btn-link">register</a>
     </p>
-  </div>
+</div> -->
+<section id="iq-scores" class="container d-flex my-5">
 
-  <div class="col-md-6">
-    <div class="jumbotron">
-      <h3>Mega IQ Ever</h3>
-
-      <div class="media" *ngFor="let user of usersTop">
-        <div class="mr-3">
-          <img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}">
-        </div>
-        <div class="media-body">
-          <h5 class="mt-0"><a routerLink="{{user.url}}">{{user.name}}</a></h5>
-          <p>{{user.location}}, {{user.age}}</p>
-        </div>
-        <div class="ml-3">
-          {{user.iq}}
-        </div>
-        <div class="ml-3">
-          {{user.totalScore}}
-        </div>
-      </div>
+    <div class="col-md-6">
+        <h3 class="text-center mb-3">Mega IQ Ever</h3>
+        <table class="w-100 bg-white">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>IQ</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersTop">
+                    <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.location}}</td>
+                    <td>{{user.iq}}</td>
+                    <td>{{user.totalScore}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="jumbotron">
-      <h3>Best IQ today</h3>
+    <div class="col-md-6">
+            <h3 class="text-center mb-3">Best IQ Today</h3>
+            <table class="w-100 bg-white">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Age</th>
+                        <th>Location</th>
+                        <th>IQ</th>
+                        <th>Total Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of usersList">
+                        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+                        <td>{{user.age}}</td>
+                        <td>{{user.location}}</td>
+                        <td>{{user.iq}}</td>
+                        <td>{{user.totalScore}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-      <div class="media" *ngFor="let user of usersList">
-        <div class="mr-3">
-          <img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}">
-        </div>
-        <div class="media-body">
-          <h5 class="mt-0"><a routerLink="{{user.url}}">{{user.name}}</a></h5>
-          <p>{{user.location}}, {{user.age}}</p>
-        </div>
-        <div class="ml-3">
-          {{user.iq}}
-        </div>
-      </div>
+</section>
+
+<section id="user-example" class="container my-5">
+    <div class="clearfix">
+        <h2 class="text-center">Example profile</h2>
     </div>
-  </div>
-</div>
+    <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+</section>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="m-auto">
-        <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row" *ngIf="testTypes">
+<div class="row" *ngIf="testTypes">
     <div class="test col-md-5 offset-md-1 mb-2" *ngFor="let item of testTypes | keyvalue"
-         [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
-      <div class="media mx-5 my-2">
+        [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+    <div class="media mx-5 my-2">
         <div class="media-body">
-          <div class="test-{{item.value.styleName}}">
+        <div class="test-{{item.value.styleName}}">
             <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">
-              <h1 class="my-4">{{item.value.name}}</h1>
+            <h1 class="my-4">{{item.value.name}}</h1>
             </a>
-          </div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
+    </div>
+</div>
 </div>

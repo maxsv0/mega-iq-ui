@@ -1,0 +1,21 @@
+$colorPractice: #6fb4b3;
+$colorPracticeLight: lighten($colorPractice, 10%);
+$colorPracticeDark: darken($colorPractice, 15%);
+
+$colorStandard: #87d987;
+$colorStandardLight: lighten($colorStandard, 10%);
+$colorStandardDark: darken($colorStandard, 15%);
+
+$colorMegaIq: #7d8ac0;
+$colorMegaIqLight: lighten($colorMegaIq, 10%);
+$colorMegaIqDark: darken($colorMegaIq, 15%);
+
+$colorMath: #e8c865;
+$colorMathLight: lighten($colorMath, 10%);
+$colorMathDark: darken($colorMath, 15%);
+
+$colorGrammar: #d3c1a9;
+$colorGrammarLight: lighten($colorMath, 10%);
+$colorGrammarDark: darken($colorMath, 15%);
+
+$spacer: 1rem !default;

@@ -8,6 +8,14 @@
   background-color: #f8f9fa;
 }
 
+.home-image {
+    background-image: url('../assets/img/bg6.jpg');
+    @include background-size(cover);
+    min-width: 1024px;
+    width: 100%;
+    max-height: 40em;
+}
+
 .bg-iq-practice {
   background-size: 100%;
   background-color: #000!important;;
@@ -47,3 +55,91 @@
   background-position: center top;
   background-repeat: no-repeat;
 }
+
+#header-mega-iq {
+
+    .header-floating {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1111;
+        @include box-shadow(0, 2px, 2px, -2px rgba(0,0,0,.2));
+    }
+
+    .header-nav-wrapper {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+        .container {
+
+            &::before {
+                display: table;
+                content: '';
+            }
+        }
+    }
+
+    .navbar-brand {
+        color: var(--primary) !important;
+    }
+
+    .bg-none {
+        background: none;
+    }
+
+    #profile-modal {
+        img {
+            max-width: 4em;
+            max-height: 4em;
+            @include border-radius(4em);
+        }
+
+        .modal-footer {
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    #language-picker {
+
+        .dropdown-menu {
+            min-width: 7em;
+        }
+
+        img {
+            max-width: 1.2em;
+            vertical-align: baseline;
+        }
+    }
+}
+
+#start-test-dropdown {
+    .l-radius {
+        border-top-left-radius: 2em;
+        border-bottom-left-radius: 2em;
+    }
+
+    .r-radius {
+        border-top-right-radius: 2em;
+        border-bottom-right-radius: 2em;
+    }
+
+    .dropdown {
+        .dropdown-menu {
+            left: -8em;
+            @include transition(all, .1s);
+            overflow: hidden;
+            transform-origin: top center;
+            transform: scale(1,0);
+            display: block;
+        }
+        &:hover {
+            .dropdown-menu {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
