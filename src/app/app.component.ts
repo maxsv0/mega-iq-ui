@@ -32,7 +32,7 @@ export class AppComponent {
 	);
 
 	// load iq tests
-	this.loadIqTest();
+    this.loadIqTest();
 
 	router.events.subscribe((event) => {
 	    if (event instanceof NavigationStart) {
@@ -70,5 +70,6 @@ export class AppComponent {
 	logout() {
 		this.authenticationService.logout();
 		this.router.navigate(['/login']);
-	}
+    }
+    
 }

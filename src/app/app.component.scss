@@ -13,7 +13,10 @@
     @include background-size(cover);
     min-width: 1024px;
     width: 100%;
-    max-height: 40em;
+    max-height: 46em;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bg-iq-practice {
@@ -58,26 +61,15 @@
 
 #header-mega-iq {
 
-    .header-floating {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 1111;
+    z-index: 1111;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &.stickNav {
+        background: #f8f9fa;
+        @include transition(all, .3s, ease-in-out);
         @include box-shadow(0, 2px, 2px, -2px rgba(0,0,0,.2));
-    }
-
-    .header-nav-wrapper {
-        background-color: rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-
-        .container {
-
-            &::before {
-                display: table;
-                content: '';
-            }
-        }
     }
 
     .navbar-brand {
@@ -89,6 +81,7 @@
     }
 
     #profile-modal {
+
         img {
             max-width: 4em;
             max-height: 4em;
@@ -100,9 +93,21 @@
                 text-decoration: none;
             }
         }
+
+        .modal-dialog {
+            margin: 10em auto;
+        }
     }
 
     #language-picker {
+
+        a {
+            text-decoration: none;
+        }
+
+        button:focus {
+            outline: 0;
+        }
 
         .dropdown-menu {
             min-width: 7em;
