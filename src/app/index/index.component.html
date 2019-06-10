@@ -1,7 +1,11 @@
 
 <section id="home">
-    <div class="container-fluid">
-        <div id="counter"></div>
+    <div class="container-fluid d-flex flex-column align-items-center">
+        <h1 class="text-center position-relative pt-10 text-white">Join the Mega IQ Tests Passed</h1>
+        <div class="test-start-btn position-relative align-self-center">
+            <a routerLink="/iqtest/">Start Test</a>
+        </div>
+        <div id="counter" class="px-4 d-flex justify-content-center"></div>
     </div>
 </section>
 
@@ -72,19 +76,16 @@
     <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
 </section>
 
-<div class="container">
-    <div class="row" *ngIf="testTypes">
-        <div class="test col-md-5 offset-md-1 mb-2" *ngFor="let item of testTypes | keyvalue"
-            [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
-            <div class="media mx-5 my-2">
-                <div class="media-body">
-                    <div class="test-{{item.value.styleName}}">
-                        <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">
-                            <h1 class="my-4">{{item.value.name}}</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
+    <div class="card-container d-flex flex-column px-5" *ngFor="let item of testTypes | keyvalue" [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+        <div class="course-title text-white">
+            <h1>{{item.value.name}}</h1>
         </div>
+        <div class="course-title text-white">
+            <p>{{item.value.description}}</p>
+        </div>
+        <button class="btn btn-success w-50 align-self-center">
+            <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
+        </button>
     </div>
-</div>
+</section>

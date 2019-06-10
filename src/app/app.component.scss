@@ -13,7 +13,7 @@
     @include background-size(cover);
     min-width: 1024px;
     width: 100%;
-    max-height: 46em;
+    max-height: 41em;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -88,22 +88,12 @@
             @include border-radius(4em);
         }
 
-        .modal-footer {
-            a {
-                text-decoration: none;
-            }
-        }
-
         .modal-dialog {
             margin: 10em auto;
         }
     }
 
     #language-picker {
-
-        a {
-            text-decoration: none;
-        }
 
         button:focus {
             outline: 0;

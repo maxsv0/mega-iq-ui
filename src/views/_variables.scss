@@ -1,3 +1,4 @@
+/** Custom colors **/
 $colorPractice: #6fb4b3;
 $colorPracticeLight: lighten($colorPractice, 10%);
 $colorPracticeDark: darken($colorPractice, 15%);
@@ -19,3 +20,17 @@ $colorGrammarLight: lighten($colorMath, 10%);
 $colorGrammarDark: darken($colorMath, 15%);
 
 $spacer: 1rem !default;
+
+/** Custom margins **/
+.mt-6 {
+	margin-top: ($spacer * 5);
+}
+
+/** Custom positions **/
+.pt-6 {
+    top: ($spacer * 6);
+}
+
+.pt-10 {
+    top: ($spacer * 10);
+}
