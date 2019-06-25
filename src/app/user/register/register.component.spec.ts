@@ -1,6 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {RegisterComponent} from './register.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AppTestUtils} from '@/appTestUtils';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -8,7 +13,11 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RegisterComponent]
+      declarations: [RegisterComponent],
+      imports: [ReactiveFormsModule, HttpClientModule, RouterTestingModule],
+      providers: [
+        {provide: AngularFireAuth, useValue: new AppTestUtils().mockUserEmpty()},
+      ],
     })
       .compileComponents();
   }));
@@ -19,7 +28,7 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -1,6 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ForgetComponent} from './forget.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AppTestUtils} from '@/appTestUtils';
 
 describe('ForgetComponent', () => {
   let component: ForgetComponent;
@@ -8,7 +13,11 @@ describe('ForgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ForgetComponent]
+      declarations: [ForgetComponent],
+      imports: [ReactiveFormsModule, HttpClientModule, RouterTestingModule],
+      providers: [
+        {provide: AngularFireAuth, useValue: new AppTestUtils().mockUser()},
+      ],
     })
       .compileComponents();
   }));
