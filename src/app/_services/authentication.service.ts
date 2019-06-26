@@ -38,7 +38,7 @@ export class AuthenticationService {
   }
 
   public get currentUserValue(): User {
-    if (Object.entries(this.currentUserSubject.value).length !== 0) {
+    if (this.currentUserSubject.value && Object.entries(this.currentUserSubject.value).length !== 0) {
       return this.currentUserSubject.value;
     } else {
       return null;
