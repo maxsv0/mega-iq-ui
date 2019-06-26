@@ -29,8 +29,7 @@ export class AuthenticationService {
     this.firebaseAuth.idToken.subscribe(
       token => {
         const user = JSON.parse(localStorage.getItem('currentUser'));
-        if (user !== null) {
-          console.log('store token: ' + token);
+        if (user !== null && Object.entries(user).length !== 0) {
           user.token = token;
           this.update(user);
         }
@@ -39,7 +38,11 @@ export class AuthenticationService {
   }
 
   public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+    if (this.currentUserSubject.value && Object.entries(this.currentUserSubject.value).length !== 0) {
+      return this.currentUserSubject.value;
+    } else {
+      return null;
+    }
   }
 
   login(email: string, password: string) {
@@ -93,7 +96,7 @@ export class AuthenticationService {
   }
 
   update(user: User) {
-    console.log('update storage with user: ' + user);
+    console.log('update storage with user: ' + user.uid);
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }

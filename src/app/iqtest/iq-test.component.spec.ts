@@ -1,6 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {IqTestComponent} from './iq-test.component';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('IqTestComponent', () => {
   let component: IqTestComponent;
@@ -8,7 +10,8 @@ describe('IqTestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IqTestComponent]
+      declarations: [IqTestComponent],
+      imports: [HttpClientModule, RouterTestingModule],
     })
       .compileComponents();
   }));
