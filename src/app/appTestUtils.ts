@@ -3,6 +3,10 @@ import {BehaviorSubject} from 'rxjs';
 
 export class AppTestUtils {
   public mockUserEmpty() {
+    console.log('Test with empty user');
+
+    localStorage.removeItem('currentUser');
+
     const currentTokenSubject = new BehaviorSubject<string>(null);
 
     const currentUserSubject = new BehaviorSubject<User>(null);
@@ -17,7 +21,7 @@ export class AppTestUtils {
     const testUser = new User();
     testUser.uid = 'ABC123';
     testUser.name = 'test';
-    testUser.email = 'build-test@mega-iq.com'
+    testUser.email = 'build-test@mega-iq.com';
     console.log('Test user:');
     console.log(testUser);
 

@@ -6,7 +6,6 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AuthGuard} from '@/_guards';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
