@@ -4,9 +4,9 @@
   padding-top: 25px;
 }
 
-#bgMain {
-  background-color: #f8f9fa;
-}
+// #bgMain {
+//   background-color: #f8f9fa;
+// }
 
 .home-image {
     background-image: url('../assets/img/bg6.jpg');
@@ -135,6 +135,22 @@
                 transform: scale(1);
             }
         }
+    }
+}
+
+/** Responsive **/
+
+@include mobile {
+    // .home-image {
+    //     min-width: 24rem;
+    //     max-height: 42rem;
+    //     background-attachment: initial;
+    // }
+
+    #bgMain {
+        min-width: 22rem;
+        background-image: none;
+        min-width: initial;
     }
 }
 

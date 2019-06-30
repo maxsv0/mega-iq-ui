@@ -1,18 +1,15 @@
-<div id="iq-user" class="grid-col-row d-flex justify-content-center" *ngIf="user">
+<div id="iq-user" class="grid-col-row d-flex justify-content-center mt-5" *ngIf="user">
+    <div class="badge iq-badge position-relative">IQ {{user.iq}}</div>
     <div class="grid-col grid-col-4">
         <div class="profile-example">
             <div class="profile-hover">
-                <img src="{{user.pic}}=s300-c" class="img-avatar float-right w-100">
-                <div class="hover-bg bg-color-1"></div>
-                <a href="#"></a>
-            </div>
-            <div class="profile-name bg-dark d-flex justify-content-between p-3">
-                <h3 class="m-0 text-white">{{user.name}}</h3>
-                <h3 class="m-0 text-white">IQ: {{user.iq}}</h3>
+                <a routerLink="/user/{{user.id}}">
+                    <img src="{{user.pic}}=s300-c" class="img-avatar float-right w-100">
+                </a>
             </div>
             <div class="profile-data d-flex justify-content-between bg-primary px-3 py-4">
-                <p class="text-white m-0">Age: {{user.age}}</p>
-                <p class="text-white m-0">{{user.location}}</p>
+                <h3 class="m-0 text-white">{{user.name}}</h3>
+                <h3 class="text-white m-0">{{user.location}}</h3>
             </div>
         </div>
     </div>

@@ -85,3 +85,21 @@
         vertical-align: middle;
     }
 }
+
+/** Responsive **/
+
+/** Mobile (xs-l) **/
+
+@include mobile {
+    #iq-scores {
+        flex-direction: column;
+    }
+
+    #home {
+
+        .flip-clock-wrapper {
+            margin-bottom: 14rem;
+        }
+        
+    }
+}
