@@ -1,6 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ClassroomComponent} from './classroom.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AppTestUtils} from '@/appTestUtils';
 
 describe('ClassroomComponent', () => {
   let component: ClassroomComponent;
@@ -8,7 +13,11 @@ describe('ClassroomComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ClassroomComponent]
+      declarations: [ClassroomComponent],
+      imports: [ReactiveFormsModule, HttpClientModule, RouterTestingModule],
+      providers: [
+        {provide: AngularFireAuth, useValue: new AppTestUtils().mockUser()},
+      ],
     })
       .compileComponents();
   }));

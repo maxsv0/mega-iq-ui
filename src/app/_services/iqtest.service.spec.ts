@@ -1,11 +1,14 @@
 import {TestBed} from '@angular/core/testing';
+import {HttpClientModule} from '@angular/common/http';
+import {IqTestService} from '@/_services/iqtest.service';
 
 describe('IqtestService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientModule],
+  }));
 
-  // TODO: inject parameters to constructor
-  // it('should be created', () => {
-  //   const service: IqtestService = TestBed.get(IqtestService);
-  //   expect(service).toBeTruthy();
-  // });
+  it('should be created', () => {
+    const service: IqTestService = TestBed.get(IqTestService);
+    expect(service).toBeTruthy();
+  });
 });

@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AlertComponent} from './alert.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AlertComponent', () => {
   let component: AlertComponent;
@@ -8,6 +9,7 @@ describe('AlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [AlertComponent]
     })
       .compileComponents();
@@ -19,8 +21,7 @@ describe('AlertComponent', () => {
     fixture.detectChanges();
   });
 
-  // TODO: inject parameters to constructor
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

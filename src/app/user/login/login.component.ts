@@ -20,8 +20,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService,
-    private userService: UserService
+    private alertService: AlertService
   ) {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
