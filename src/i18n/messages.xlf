@@ -76,7 +76,6 @@
     <unit id="2454050363478003966">
       <notes>
         <note category="location">app/user/login/login.component.html:4</note>
-        <note category="location">app/user/login/login.component.html:24</note>
       </notes>
       <segment>
         <source>Login</source>
@@ -135,7 +134,7 @@
     </unit>
     <unit id="3301086086650990787">
       <notes>
-        <note category="location">app/user/login/login.component.html:27</note>
+        <note category="location">app/user/login/login.component.html:29</note>
         <note category="location">app/user/register/register.component.html:4</note>
         <note category="location">app/user/register/register.component.html:74</note>
       </notes>
@@ -145,7 +144,7 @@
     </unit>
     <unit id="2680737621537987649">
       <notes>
-        <note category="location">app/user/login/login.component.html:28</note>
+        <note category="location">app/user/login/login.component.html:30</note>
       </notes>
       <segment>
         <source>Forget Password?</source>
@@ -153,7 +152,7 @@
     </unit>
     <unit id="8999284073934392732">
       <notes>
-        <note category="location">app/user/login/login.component.html:36</note>
+        <note category="location">app/user/login/login.component.html:38</note>
       </notes>
       <segment>
         <source>Login with Google</source>
@@ -237,9 +236,9 @@
     </unit>
     <unit id="2159130950882492111">
       <notes>
-        <note category="location">app/user/register/register.component.html:78</note>
-        <note category="location">app/user/settings/settings.component.html:82</note>
-        <note category="location">app/user/forget/forget.component.html:19</note>
+        <note category="location">app/user/register/register.component.html:77</note>
+        <note category="location">app/user/settings/settings.component.html:81</note>
+        <note category="location">app/user/forget/forget.component.html:20</note>
       </notes>
       <segment>
         <source>Cancel</source>
@@ -336,7 +335,7 @@
     </unit>
     <unit id="7650624232624154748">
       <notes>
-        <note category="location">app/user/settings/settings.component.html:89</note>
+        <note category="location">app/user/settings/settings.component.html:88</note>
       </notes>
       <segment>
         <source>Current image</source>
@@ -344,7 +343,7 @@
     </unit>
     <unit id="3012906865384504293">
       <notes>
-        <note category="location">app/user/settings/settings.component.html:95</note>
+        <note category="location">app/user/settings/settings.component.html:94</note>
       </notes>
       <segment>
         <source>Image</source>
@@ -352,7 +351,7 @@
     </unit>
     <unit id="6973948056639772089">
       <notes>
-        <note category="location">app/user/settings/settings.component.html:110</note>
+        <note category="location">app/user/settings/settings.component.html:109</note>
       </notes>
       <segment>
         <source>Upload new image</source>
@@ -368,25 +367,23 @@
     </unit>
     <unit id="6972105223770675605">
       <notes>
-        <note category="location">app/user/forget/forget.component.html:16</note>
+        <note category="location">app/user/forget/forget.component.html:17</note>
       </notes>
       <segment>
         <source>Reset Password</source>
       </segment>
     </unit>
-    <unit id="8942871764594485977">
+    <unit id="6611630004208902126">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:7,9</note>
+        <note category="location">app/iqtest/iq-test.component.html:8</note>
       </notes>
       <segment>
-        <source>
-        Start Test
-      </source>
+        <source>Start Test</source>
       </segment>
     </unit>
     <unit id="361469352814485355">
       <notes>
-        <note category="location">app/classroom/classroom.component.html:120</note>
+        <note category="location">app/classroom/classroom.component.html:115</note>
       </notes>
       <segment>
         <source>Test finished</source>
