@@ -78,6 +78,13 @@
               "i18nFile": "src/i18n/messages.ru.xlf",
               "i18nFormat": "xlf2",
               "i18nLocale": "ru"
+            },
+            "es": {
+              "aot": true,
+              "outputPath": "dist/mega-iq-ui-es",
+              "i18nFile": "src/i18n/messages.es.xlf",
+              "i18nFormat": "xlf2",
+              "i18nLocale": "es"
             }
           }
         },
@@ -95,6 +102,9 @@
             },
             "ru": {
               "browserTarget": "mega-iq-ui:build:ru"
+            },
+            "es": {
+              "browserTarget": "mega-iq-ui:build:es"
             }
           }
         },
@@ -144,7 +154,8 @@
               "languages": [
                 "en",
                 "de",
-                "ru"
+                "ru",
+                "es"
               ]
             }
           }
