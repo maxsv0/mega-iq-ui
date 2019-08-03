@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
   usersList: User[] = [];
   usersTop: User[] = [];
-  userExample: User;
+  userExamples: User[];
   clock: any;
   clockTimerSubscription: Subscription;
   clockSpeed: number;
@@ -56,7 +56,8 @@ export class IndexComponent implements OnInit, OnDestroy {
         if (apiResponseUsersTop.ok) {
           this.usersTop = apiResponseUsersTop.usersTop;
           this.usersList = apiResponseUsersTop.users;
-          this.userExample = apiResponseUsersTop.exampleProfile;
+          this.userExamples = apiResponseUsersTop.exampleProfiles;
+          console.log(this.userExamples);
         } else {
           this.alertService.error(apiResponseUsersTop.msg);
         }

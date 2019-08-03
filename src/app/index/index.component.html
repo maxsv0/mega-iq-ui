@@ -73,7 +73,9 @@
     <div class="clearfix">
         <h2 class="text-center">Example profile</h2>
     </div>
-    <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+    <div *ngFor="let userExample of userExamples">
+        <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+    </div>
 </section>
 
 <section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
