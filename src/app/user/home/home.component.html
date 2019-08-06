@@ -21,7 +21,7 @@
 
 <section class="d-flex flex-wrap" *ngIf="testTypes">
     <div class="card-container" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
-        <div class="badge px-2 pt-2 w-50 text-white"
+        <div class="badge px-2 py-2 w-50 text-white"
             [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 
                          'badge-primary': test.status === testStatus.ACTIVE, 
                          'badge-secondary': test.status === testStatus.EXPIRED }">
