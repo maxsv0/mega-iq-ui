@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import 'views/mixins';
+@import 'views/variables';
+@import 'views/base';
+
 body {
 }
 
@@ -29,32 +33,6 @@ body {
 .img-avatar-small {
   width: 60px;
   max-height: 60px;
-}
-
-$colorPractice: #6fb4b3;
-$colorPracticeLight: lighten($colorPractice, 10%);
-$colorPracticeDark: darken($colorPractice, 15%);
-
-$colorStandard: #87d987;
-$colorStandardLight: lighten($colorStandard, 10%);
-$colorStandardDark: darken($colorStandard, 15%);
-
-$colorMegaIq: #7d8ac0;
-$colorMegaIqLight: lighten($colorMegaIq, 10%);
-$colorMegaIqDark: darken($colorMegaIq, 15%);
-
-$colorMath: #e8c865;
-$colorMathLight: lighten($colorMath, 10%);
-$colorMathDark: darken($colorMath, 15%);
-
-$colorGrammar: #d3c1a9;
-$colorGrammarLight: lighten($colorMath, 10%);
-$colorGrammarDark: darken($colorMath, 15%);
-
-$spacer: 1rem !default;
-
-.mt-6 {
-	margin-top: ($spacer * 5);
 }
 
 .test-practice {
@@ -135,103 +113,6 @@ $spacer: 1rem !default;
 .btn-grammar:hover {
   background-color: $colorGrammarLight;
   border-bottom: 5px $colorGrammarDark solid;
-}
-
-/** Page loader **/
-.page-loader {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-	border: 15px solid rgba(180, 180, 180, .2);
-	border-top: 15px solid $colorStandard;
-	animation: animate 1s infinite linear;
-	z-index: 9999;
-}
-
-	@keyframes animate {
-	0% {
-		transform: translate(-50%, -50%) rotate(0deg);
-	}
-	100% {
-		transform: translate(-50%, -50%) rotate(360deg);
-	}
-}
-
-/**Action loader **/
-.actn-loader:before,
-.actn-loader:after,
-.actn-loader {
-	border-radius: 50%;
-	animation-fill-mode: both;
-	animation: actn-loader 1.5s infinite ease-in-out;
-}
-
-.actn-loader {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	color: inherit;
-	vertical-align: middle;
-	pointer-events: none;
-	color: #fff;
-	position: relative;
-	transform: translateZ(0);
-	animation-delay: -0.16s;
-	top: -1em;
-	
-	&:before {
-		right: 100%;
-		animation-delay: -0.32s;
-	}
-	&:after {
-		left: 100%;
-	}
-
-	&:before,
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		width: inherit;
-		height: inherit;
-	}
-}
-
-@keyframes actn-loader {
-	0%,
-	80%,
-	100% {
-		box-shadow: 0 1em 0 -1em;
-	}
-	40% {
-		box-shadow: 0 1em 0 -.2em;
-	}
-}
-
-/** File upload loader **/
-.uploader {
-	display: inline-block;
-	color: inherit;
-	vertical-align: middle;
-	pointer-events: none;
-	width: 5em;
-	height: 1em;
-	border: .05em $colorStandard solid;
-	border-radius: .1em;
-	background: linear-gradient(-60deg, transparent 0%, transparent 50%, $colorStandard 50%, $colorStandard 75%, transparent 75%, transparent);
-	background-size: 1em 2em;
-	background-position: 0 0;
-	animation: uploader 0.8s infinite linear;
-}
-
-@keyframes uploader {
-	from { background-position: 0 0; }
-	to { background-position: -2em 0; }
 }
   
 

@@ -32,33 +32,33 @@ export class AppComponent {
 	);
 
 	// load iq tests
-	this.loadIqTest();
+    this.loadIqTest();
 
 	router.events.subscribe((event) => {
-	if (event instanceof NavigationStart) {
-		if (event.url.startsWith('/iqtest/')) {
-			this.backgroundClass = event.url.substr(8);
-		} else if (event.url.startsWith('/classroom/')) {
-			this.backgroundClass = '';
-		// this.testTypes.forEach(
-		//   (testType) => {
-		//     if (test.type === testType.type) {
-		//       this.backgroundClass = testType.styleName;
-		//     }
-		//   }
-		// );
-		} else if (!event.url.startsWith('/classroom/')) {
-			this.backgroundClass = '';
-		}
-	}
-	});
+	    if (event instanceof NavigationStart) {
+            switch (event.url) {
+                case '/iqtest/':
+                    this.backgroundClass = event.url.substr(8);
+                    break;
+                case '/classroom/':
+                    this.backgroundClass = '';
+                    break;
+                case '/':
+                    this.backgroundClass = 'home-image';
+                    break;
+                default: 
+                    this.backgroundClass = '';
+                    break;
+            }
+        }
+    });
 }
 
 	async loadIqTest() {
 		this.loading = true;
 		try {
 			await this.iqTestService.getIqTest().subscribe(tests => {
-				this.testTypes = tests;
+                this.testTypes = tests;
 			});
 			this.loading = false;
 		} catch(err) {
@@ -70,5 +70,6 @@ export class AppComponent {
 	logout() {
 		this.authenticationService.logout();
 		this.router.navigate(['/login']);
-	}
+    }
+    
 }

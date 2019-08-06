@@ -1,3 +1,5 @@
+@import 'src/styles';
+
 .test {
   height: 250px;
   padding: 0;
@@ -15,5 +17,9 @@
 }
 
 .jumbotron {
-  padding-top: 1.5em
+  padding-top: 1.5em;
+}
+
+.badge {
+    @include border-radius(2em);
 }
