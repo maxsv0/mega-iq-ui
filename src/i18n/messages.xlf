@@ -315,20 +315,60 @@
         <source>Edit profile</source>
       </segment>
     </unit>
+    <unit id="3419681791450150574">
+      <notes>
+        <note category="location">app/user/home/home.component.html:35</note>
+      </notes>
+      <segment>
+        <source>Progress</source>
+      </segment>
+    </unit>
+    <unit id="3326877877555410533">
+      <notes>
+        <note category="location">app/user/home/home.component.html:39</note>
+      </notes>
+      <segment>
+        <source>Started</source>
+      </segment>
+    </unit>
+    <unit id="340430316261570792">
+      <notes>
+        <note category="location">app/user/home/home.component.html:42</note>
+      </notes>
+      <segment>
+        <source>Finished</source>
+      </segment>
+    </unit>
+    <unit id="7419704019640008953">
+      <notes>
+        <note category="location">app/user/home/home.component.html:45</note>
+      </notes>
+      <segment>
+        <source>Share</source>
+      </segment>
+    </unit>
+    <unit id="8454851517732652038">
+      <notes>
+        <note category="location">app/user/home/home.component.html:49</note>
+      </notes>
+      <segment>
+        <source>Continue test</source>
+      </segment>
+    </unit>
     <unit id="61627423335000084">
       <notes>
-        <note category="location">app/user/home/home.component.html:57</note>
+        <note category="location">app/user/home/home.component.html:56</note>
       </notes>
       <segment>
         <source>Check results</source>
       </segment>
     </unit>
-    <unit id="7063383469685227515">
+    <unit id="7022070615528435141">
       <notes>
-        <note category="location">app/user/home/home.component.html:62</note>
+        <note category="location">app/user/home/home.component.html:61</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_ITALIC_TEXT" equivEnd="CLOSE_ITALIC_TEXT" type="fmt" dispStart="&lt;i&gt;" dispEnd="&lt;/i&gt;"></pc> Delete</source>
+        <source>Delete</source>
       </segment>
     </unit>
     <unit id="3649366019356514608">

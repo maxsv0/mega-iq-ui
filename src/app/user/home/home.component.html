@@ -32,22 +32,21 @@
       <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
     </div>
     <div class="course-progress text-white">
-      <p>Progress</p>
+      <p i18n>Progress</p>
       <progress value="50" max="100" role="progressbar"></progress>
     </div>
     <div class="course-starts text-white">
-      <span>Started: {{test.createDate | date:'medium'}}</span>
+      <span i18n>Started</span>: {{test.createDate | date:'medium'}}
     </div>
     <div class="course-ends text-white" *ngIf="test.finishDate">
-      <span>Finished: {{test.finishDate | date:'medium'}}</span>
+      <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
     </div>
     <div class="course-call-to-action-btn pt-1 mt-3">
-      <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> Share</a>
+      <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span i18n>Share</span></a>
     </div>
     <div class="test-action-btn mt-3">
       <button routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg"
-              *ngIf="test.status === testStatus.ACTIVE">Continue test
-      </button>
+              *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test</button>
 
       <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
               *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
@@ -57,9 +56,9 @@
         <span i18n>Check results</span>
       </button>
 
-      <button class="btn btn-danger btn-block btn-lg" (click)="deleteTestResult(test.code)"
+      <button class="btn btn-danger" (click)="deleteTestResult(test.code)"
               *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
-        <span *ngIf="!loading" i18n><i class="fa fa-trash" aria-hidden="true"></i> Delete</span>
+        <span *ngIf="!loading"><i class="fa fa-trash" aria-hidden="true"></i> <span i18n>Delete</span></span>
         <span *ngIf="loading" class="actn-loader"></span>
       </button>
     </div>

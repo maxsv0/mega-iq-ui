@@ -68,31 +68,31 @@
       <notes>
         <note category="location">app/index/index.component.html:3</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
-      <target>Join the Mega IQ now! IQ Tests Passed</target></segment>
+      <target>Присоединяйтесь к Мега-Айкю! Тест уже прошли</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
         <note category="location">app/index/index.component.html:5</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Start The IQ Test</source>
-      <target>Start The IQ Test</target></segment>
+      <target>Перейти к Айкю тесту</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
         <note category="location">app/index/index.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Mega IQ Ever</source>
-      <target>Mega IQ Ever</target></segment>
+      <target>Лучшие айкю за все время</target></segment>
     </unit><unit id="2392488717875840729">
       <notes>
         <note category="location">app/index/index.component.html:18</note>
         <note category="location">app/index/index.component.html:42</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>User</source>
-      <target>User</target></segment>
+      <target>Пользователь</target></segment>
     </unit><unit id="2454050363478003966">
       <notes>
         
@@ -192,23 +192,23 @@
         <note category="location">app/index/index.component.html:21</note>
         <note category="location">app/index/index.component.html:45</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ</source>
-      <target>IQ</target></segment>
+      <target>Айкю</target></segment>
     </unit><unit id="5263690784228037855">
       <notes>
         <note category="location">app/index/index.component.html:22</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Total Score</source>
-      <target>Total Score</target></segment>
+      <target>Общая оценка</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
         <note category="location">app/index/index.component.html:38</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Best IQ Today</target></segment>
+      <target>Лучшие Айкю за сегодня</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
@@ -291,22 +291,57 @@
       <segment state="translated">
         <source>Edit profile</source>
       <target>Редактировать профиль</target></segment>
+    </unit><unit id="3419681791450150574">
+      <notes>
+        <note category="location">app/user/home/home.component.html:35</note>
+      </notes>
+      <segment state="translated">
+        <source>Progress</source>
+      <target>Прогресс</target></segment>
+    </unit><unit id="3326877877555410533">
+      <notes>
+        <note category="location">app/user/home/home.component.html:39</note>
+      </notes>
+      <segment state="translated">
+        <source>Started</source>
+      <target>Старт</target></segment>
+    </unit><unit id="340430316261570792">
+      <notes>
+        <note category="location">app/user/home/home.component.html:42</note>
+      </notes>
+      <segment state="translated">
+        <source>Finished</source>
+      <target>Завершен</target></segment>
+    </unit><unit id="7419704019640008953">
+      <notes>
+        <note category="location">app/user/home/home.component.html:45</note>
+      </notes>
+      <segment state="translated">
+        <source>Share</source>
+      <target>Поделиться</target></segment>
+    </unit><unit id="8454851517732652038">
+      <notes>
+        <note category="location">app/user/home/home.component.html:49</note>
+      </notes>
+      <segment state="translated">
+        <source>Continue test</source>
+      <target>Продолжить тест</target></segment>
     </unit>
     
     <unit id="61627423335000084">
       <notes>
-        <note category="location">app/user/home/home.component.html:57</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:56</note></notes>
       <segment state="translated">
         <source>Check results</source>
       <target>Результат теста</target></segment>
-    </unit><unit id="7063383469685227515">
+    </unit><unit id="7022070615528435141">
       <notes>
-        <note category="location">app/user/home/home.component.html:62</note>
+        <note category="location">app/user/home/home.component.html:61</note>
       </notes>
-      <segment state="initial">
-        <source><pc id="0" equivStart="START_ITALIC_TEXT" equivEnd="CLOSE_ITALIC_TEXT" type="fmt" dispStart="&lt;i>" dispEnd="&lt;/i>"/> Delete</source>
-      <target><pc id="0" equivStart="START_ITALIC_TEXT" equivEnd="CLOSE_ITALIC_TEXT" type="fmt" dispStart="&lt;i>" dispEnd="&lt;/i>"/> Delete</target></segment>
+      <segment state="translated">
+        <source>Delete</source>
+      <target>Удалить</target></segment>
     </unit>
     
     <unit id="3649366019356514608">
@@ -398,9 +433,9 @@
       <notes>
         
       <note category="location">app/iqtest/iq-test.component.html:9</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Start Test</source>
-      <target>Start Test</target></segment>
+      <target>Начать тест</target></segment>
     </unit>
     <unit id="361469352814485355">
       <notes>
