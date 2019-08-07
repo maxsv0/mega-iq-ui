@@ -1,7 +1,7 @@
 <form *ngIf="!isLoading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div class="jumbotron">
-  <div class="row">
-    <div class="col-lg-7">
+    <div class="row">
+      <div class="col-lg-7">
         <h2 i18n>Edit profile</h2>
         <div class="form-group required">
           <label for="email" i18n>Email</label>
@@ -56,34 +56,35 @@
           </div>
         </div>
 
-      <div class="form-group">
-        <div class="form-check">
-          <input type="checkbox" id="isPublic" formControlName="isPublic" class="form-check-input" value="1"/>
-          <label class="form-check-label" for="isPublic" i18n>Profile is public</label>
+        <div class="form-group">
+          <div class="form-check">
+            <input type="checkbox" id="isPublic" formControlName="isPublic" class="form-check-input" value="1"/>
+            <label class="form-check-label" for="isPublic" i18n>Profile is public</label>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <div class="form-check">
-          <input type="checkbox" id="isUnsubscribed" formControlName="isUnsubscribed" class="form-check-input" value="1"/>
-          <label class="form-check-label" for="isUnsubscribed" i18n>Disable all email notifications</label>
+        <div class="form-group">
+          <div class="form-check">
+            <input type="checkbox" id="isUnsubscribed" formControlName="isUnsubscribed" class="form-check-input"
+                   value="1"/>
+            <label class="form-check-label" for="isUnsubscribed" i18n>Disable all email notifications</label>
+          </div>
         </div>
-      </div>
 
         <div class="form-group">
           <button [disabled]="loading || uploading" class="btn btn-primary" id="save-changes">
             <svg *ngIf="!loading" class="feather">
               <use xlink:href="/assets/feather-sprite.svg#save"/>
             </svg>
-			<span *ngIf="!loading" i18n>Save changes</span>
-			<span *ngIf="loading" class="actn-loader"></span>
+            <span *ngIf="!loading" i18n>Save changes</span>
+            <span *ngIf="loading" class="actn-loader"></span>
           </button>
           <a routerLink="/user/{{currentUser.id}}" class="btn btn-link" i18n>Cancel</a>
         </div>
 
         <input type="hidden" id="id" formControlName="id"/>
-    </div>
-    <div class="col-lg-5">
+      </div>
+      <div class="col-lg-5">
         <div class="form-group" *ngIf="currentUser.pic">
           <label i18n>Current image</label>
           <div class="input-group mb-3">
@@ -105,28 +106,28 @@
             </div>
           </div>
         </div>
-		<div class="form-group">
-		<label for="uploadPic" i18n>Upload new image</label>
-		<input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
-		<span *ngIf="uploading" class="uploader"></span>
-		<span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
-		<img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
-		</div>
+        <div class="form-group">
+          <label for="uploadPic" i18n>Upload new image</label>
+          <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
+          <span *ngIf="uploading" class="uploader"></span>
+          <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
+          <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 </form>
 
 <form *ngIf="isLoading">
-	<div class="jumbotron loader-placeholder">
-		<div class="row">
-			<!-- loader -->
-			<div >
-				<div class="page-loader"></div>
-			</div>
-		<!-- /loader -->
-		</div>
-	</div>
+  <div class="jumbotron loader-placeholder">
+    <div class="row">
+      <!-- loader -->
+      <div>
+        <div class="page-loader"></div>
+      </div>
+      <!-- /loader -->
+    </div>
+  </div>
 </form>
 
 

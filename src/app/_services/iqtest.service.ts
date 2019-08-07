@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiResponseTests, IqTest, TestResult, User} from '@/_models';
+import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiResponseTests, IqTest} from '@/_models';
 import {TestTypeEnum} from '@/_models/enum';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {first} from 'rxjs/operators';

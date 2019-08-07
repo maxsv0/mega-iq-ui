@@ -72,8 +72,8 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.isLoading = false;
         },
         error => {
-		  this.alertService.error('API Service Unavailable. ' + error);
-		  this.isLoading = false;
+          this.alertService.error('API Service Unavailable. ' + error);
+          this.isLoading = false;
         });
   }
 

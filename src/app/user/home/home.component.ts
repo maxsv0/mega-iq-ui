@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
-import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({

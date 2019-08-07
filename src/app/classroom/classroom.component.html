@@ -4,21 +4,22 @@
       <div>
         <h3><span class="text-muted mr-3">Question #{{activeQuestionId}}</span>{{activeQuestion.title}}</h3>
         <div class="text-center my-3">
-		  <img *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470" height="370">
-		  <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
+          <img *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470"
+               height="370">
+          <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
         </div>
         <div class="container card my-3">
           <div *ngIf="!updating" class="row text-center">
-			<div class="col-md-2 col-sm-3 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
-				[ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
-				<div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
-					*ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0">
-					<img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
-				</div>
-				<div *ngIf="activeTest.status === testStatus.FINISHED">
-					<img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
-				</div>
-			</div>
+            <div class="col-md-2 col-sm-3 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
+                 [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
+              <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
+                   *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0">
+                <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
+              </div>
+              <div *ngIf="activeTest.status === testStatus.FINISHED">
+                <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" width="92" height="92">
+              </div>
+            </div>
           </div>
         </div>
         <div class="container">
@@ -92,19 +93,19 @@
       </p>
       <p *ngIf="!activeTest.finishDate">
         <button class="btn btn-primary btn-block" (click)="submitFinish(activeTest.code)" [disabled]="loading">
-			<svg *ngIf="!loading" class="feather">
-				<use xlink:href="/assets/feather-sprite.svg#zap"/>
-			</svg>
-			<span *ngIf="!loading">Submit test</span>  
-			<span *ngIf="loading" class="actn-loader"></span>
+          <svg *ngIf="!loading" class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#zap"/>
+          </svg>
+          <span *ngIf="!loading">Submit test</span>
+          <span *ngIf="loading" class="actn-loader"></span>
         </button>
 
         <button class="btn btn-info btn-block" (click)="submitAllRandom(activeTest.code)" [disabled]="loading">
-			<svg *ngIf="!loading" class="feather">
-				<use xlink:href="/assets/feather-sprite.svg#zap"/>
-			</svg>
-        	<span *ngIf="!loading">Submit ALL</span> 
-			<span *ngIf="loading" class="actn-loader"></span>
+          <svg *ngIf="!loading" class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#zap"/>
+          </svg>
+          <span *ngIf="!loading">Submit ALL</span>
+          <span *ngIf="loading" class="actn-loader"></span>
         </button>
       </p>
       <div *ngIf="activeTest.finishDate" class="text-muted">

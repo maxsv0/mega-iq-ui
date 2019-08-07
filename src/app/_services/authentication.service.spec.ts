@@ -9,7 +9,7 @@ describe('AuthenticationService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientModule],
     providers: [
-      { provide: AngularFireAuth, useValue: new AppTestUtils().mockUser() },
+      {provide: AngularFireAuth, useValue: new AppTestUtils().mockUser()},
     ]
   }));
 
