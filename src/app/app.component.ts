@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import { LOCALE_ID } from '@angular/core';
+
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 
 import {AuthenticationService, IqTestService} from './_services';
@@ -23,13 +25,18 @@ export class AppComponent {
 		private route: ActivatedRoute,
 		private router: Router,
 		private iqTestService: IqTestService,
-		private authenticationService: AuthenticationService
+		private authenticationService: AuthenticationService,
+    @Inject(LOCALE_ID) public locale: string
 	) 	{
 		this.authenticationService.currentUser.subscribe(
 		user => {
 			this.currentUser = user;
 		}
-	);
+
+		if (this.locale.includes('-')) {
+      this.locale = this.locale.substring(0, this.locale.indexOf('-'));
+    }
+);
 
 	// load iq tests
     this.loadIqTest();

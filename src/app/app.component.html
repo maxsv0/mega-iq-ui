@@ -1,7 +1,7 @@
 <header id="header-mega-iq" class="position-fixed w-100 bg-light">
     <div class="container py-2 position-relative">
         <nav class="navbar navbar-expand-md">
-            <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
+            <a class="navbar-brand" routerLink="/" i18n>Mega-IQ {{ locale }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -9,61 +9,27 @@
             <!-- Start Test Dropdwon -->
             <div class="collapse navbar-collapse" id="start-test-dropdown">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                             <button type="button" class="btn btn-primary l-radius">
                                 <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
                             </button>
-                            <div class="btn-group" role="group">
+                            <div class="btn-group dropdown" role="group">
                                 <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                                 <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
                                     <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="/iqtest/results" i18n>Best Results</a>
                                 </div>
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
+                    </li>
                 </ul>
                 <!-- Profile Button -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile-modal" *ngIf="currentUser">
+                <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser">
                     <span><i class="fa fa-user"></i> {{currentUser.name}}</span>
                 </button>
-                <!-- Profile Modal -->
-                <div id="profile-modal" class="modal" tabindex="-1" role="dialog" *ngIf="currentUser">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Profile</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body d-flex">
-                                <div class="col-xs-3 col-md-3">
-                                    <img src="{{currentUser.pic}}" alt="{{currentUser.name}}">
-                                </div>
-                                <div class="col-xs-9 col-md-9">
-                                    <h5>{{currentUser.name}}</h5>
-                                    <p>{{currentUser.email}}</p>
-                                </div>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                    <a class="text-white" routerLink="/settings/" i18n><i class="fa fa-cog"></i> Edit Profile</a>
-                                </button>
-                                <div>
-                                    <button type="button" class="btn btn-secondary mx-1" data-dismiss="modal">
-                                        <a class="text-white" routerLink="/home/" i18n><i class="fa fa-home"></i> My Tests</a>
-                                    </button>
-                                    <button type="button" class="btn btn-primary mx-1" data-dismiss="modal">
-                                        <a (click)="logout()" i18n><i class="fa fa-sign-out"></i> Logout</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Sign up button -->
                 <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
                     <li class="nav-item">
@@ -77,12 +43,13 @@
             <!-- Language dropdown -->
             <div class="dropdown" id="language-picker">
                 <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#en"><img class="mr-2" src="http://i64.tinypic.com/fd60km.png"/>EN</a>
+                    <a routerLink="/" id="locale-link-current"><img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png"/>{{ this.locale.toUpperCase() }}</a>
                 </button>
                 <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#ru"><img class="mr-2" src="http://i43.tinypic.com/34t5wl3.jpg">RU</a>
-                    <a class="dropdown-item" href="#de"><img class="mr-2" src="http://i63.tinypic.com/10zmzyb.png"/>DE</a>
-                    <a class="dropdown-item" href="#es"><img class="mr-2" src="http://i68.tinypic.com/avo5ky.png"/>ES</a>
+                    <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com" *ngIf="this.locale != 'en'"><img class="mr-2" src="/assets/img/flag/en.png"/>EN</a>
+                    <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com" *ngIf="this.locale != 'ru'"><img class="mr-2" src="/assets/img/flag/ru.png"/>RU</a>
+                    <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com" *ngIf="this.locale != 'de'"><img class="mr-2" src="/assets/img/flag/de.png"/>DE</a>
+                    <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com" *ngIf="this.locale != 'es'"><img class="mr-2" src="/assets/img/flag/es.png"/>ES</a>
                 </div>
             </div>
         </nav>
