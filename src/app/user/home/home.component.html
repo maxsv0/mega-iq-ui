@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-    <h1>Hi, {{currentUser.name}}!</h1>
+    <h1><span i18n>Hi</span>, {{currentUser.name}}!</h1>
   </div>
   <div class="col-sm-6 text-right">
     <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">

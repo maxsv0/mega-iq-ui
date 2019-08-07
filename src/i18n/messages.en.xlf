@@ -274,6 +274,13 @@
       <segment state="final">
         <source>Cancel</source>
       <target>Cancel</target></segment>
+    </unit><unit id="5573521891741907372">
+      <notes>
+        <note category="location">app/user/home/home.component.html:3</note>
+      </notes>
+      <segment state="final">
+        <source>Hi</source>
+      <target>Hi</target></segment>
     </unit>
     <unit id="1819424728751166535">
       <notes>
@@ -300,8 +307,8 @@
       <target>Progress</target></segment>
     </unit><unit id="3326877877555410533">
       <notes>
-        <note category="location">app/user/home/home.component.html:39</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:39</note><note category="location">app/classroom/classroom.component.html:89</note></notes>
       <segment state="final">
         <source>Started</source>
       <target>Started</target></segment>
@@ -436,6 +443,69 @@
       <segment state="final">
         <source>Start Test</source>
       <target>Start Test</target></segment>
+    </unit><unit id="5320870651003627043">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:5</note>
+      </notes>
+      <segment state="final">
+        <source>Question</source>
+      <target>Question</target></segment>
+    </unit><unit id="6803050435766824928">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:28</note>
+      </notes>
+      <segment state="final">
+        <source>Click to submit the answer</source>
+      <target>Click to submit the answer</target></segment>
+    </unit><unit id="1847384773580767337">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:32</note>
+      </notes>
+      <segment state="final">
+        <source>Submitting your answer, please wait</source>
+      <target>Submitting your answer, please wait</target></segment>
+    </unit><unit id="2111634770914259121">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:36</note>
+      </notes>
+      <segment state="final">
+        <source>Answer submitted</source>
+      <target>Answer submitted</target></segment>
+    </unit><unit id="1473171196585331987">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:47</note>
+      </notes>
+      <segment state="final">
+        <source>Previous Question</source>
+      <target>Previous Question</target></segment>
+    </unit><unit id="2067260738522363442">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:53</note>
+      </notes>
+      <segment state="final">
+        <source>Next Question</source>
+      <target>Next Question</target></segment>
+    </unit><unit id="8538201418531541683">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:74</note>
+      </notes>
+      <segment state="final">
+        <source>Click to navigate questions</source>
+      <target>Click to navigate questions</target></segment>
+    </unit><unit id="2525230676386818985">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:92</note>
+      </notes>
+      <segment state="final">
+        <source>Result</source>
+      <target>Result</target></segment>
+    </unit><unit id="4440205593100213861">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:99</note>
+      </notes>
+      <segment state="final">
+        <source>Submit test</source>
+      <target>Submit test</target></segment>
     </unit>
     <unit id="361469352814485355">
       <notes>

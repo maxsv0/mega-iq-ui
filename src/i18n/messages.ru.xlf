@@ -77,7 +77,7 @@
       </notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
-      <target>Перейти к Айкю тесту</target></segment>
+      <target>Перейти к Мега-Айкю тестам</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
         <note category="location">app/index/index.component.html:14</note>
@@ -92,7 +92,7 @@
       </notes>
       <segment state="translated">
         <source>User</source>
-      <target>Пользователь</target></segment>
+      <target>Имя</target></segment>
     </unit><unit id="2454050363478003966">
       <notes>
         
@@ -201,14 +201,14 @@
       </notes>
       <segment state="translated">
         <source>Total Score</source>
-      <target>Общая оценка</target></segment>
+      <target>Cчет</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
         <note category="location">app/index/index.component.html:38</note>
       </notes>
       <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Лучшие Айкю за сегодня</target></segment>
+      <target>Топ айкю за сегодня</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
@@ -274,6 +274,13 @@
       <segment state="translated">
         <source>Cancel</source>
       <target>Отменить</target></segment>
+    </unit><unit id="5573521891741907372">
+      <notes>
+        <note category="location">app/user/home/home.component.html:3</note>
+      </notes>
+      <segment state="translated">
+        <source>Hi</source>
+      <target>Привет</target></segment>
     </unit>
     <unit id="1819424728751166535">
       <notes>
@@ -300,8 +307,8 @@
       <target>Прогресс</target></segment>
     </unit><unit id="3326877877555410533">
       <notes>
-        <note category="location">app/user/home/home.component.html:39</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:39</note><note category="location">app/classroom/classroom.component.html:89</note></notes>
       <segment state="translated">
         <source>Started</source>
       <target>Старт</target></segment>
@@ -436,6 +443,69 @@
       <segment state="translated">
         <source>Start Test</source>
       <target>Начать тест</target></segment>
+    </unit><unit id="5320870651003627043">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:5</note>
+      </notes>
+      <segment state="translated">
+        <source>Question</source>
+      <target>Вопрос</target></segment>
+    </unit><unit id="6803050435766824928">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:28</note>
+      </notes>
+      <segment state="translated">
+        <source>Click to submit the answer</source>
+      <target>Нажмите, чтобы отправить ответ</target></segment>
+    </unit><unit id="1847384773580767337">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:32</note>
+      </notes>
+      <segment state="translated">
+        <source>Submitting your answer, please wait</source>
+      <target>Посылаем ваш ответ, пожалуйста, подождите</target></segment>
+    </unit><unit id="2111634770914259121">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:36</note>
+      </notes>
+      <segment state="translated">
+        <source>Answer submitted</source>
+      <target>Ответ отправлен</target></segment>
+    </unit><unit id="1473171196585331987">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:47</note>
+      </notes>
+      <segment state="translated">
+        <source>Previous Question</source>
+      <target>Предыдущий вопрос</target></segment>
+    </unit><unit id="2067260738522363442">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:53</note>
+      </notes>
+      <segment state="translated">
+        <source>Next Question</source>
+      <target>Следующий вопрос</target></segment>
+    </unit><unit id="8538201418531541683">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:74</note>
+      </notes>
+      <segment state="translated">
+        <source>Click to navigate questions</source>
+      <target>Нажмите для перехода между вопросам</target></segment>
+    </unit><unit id="2525230676386818985">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:92</note>
+      </notes>
+      <segment state="translated">
+        <source>Result</source>
+      <target>Результат</target></segment>
+    </unit><unit id="4440205593100213861">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:99</note>
+      </notes>
+      <segment state="translated">
+        <source>Submit test</source>
+      <target>Получить результат</target></segment>
     </unit>
     <unit id="361469352814485355">
       <notes>

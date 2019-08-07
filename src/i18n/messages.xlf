@@ -298,6 +298,14 @@
         <source>Cancel</source>
       </segment>
     </unit>
+    <unit id="5573521891741907372">
+      <notes>
+        <note category="location">app/user/home/home.component.html:3</note>
+      </notes>
+      <segment>
+        <source>Hi</source>
+      </segment>
+    </unit>
     <unit id="1819424728751166535">
       <notes>
         <note category="location">app/user/home/home.component.html:10</note>
@@ -326,6 +334,7 @@
     <unit id="3326877877555410533">
       <notes>
         <note category="location">app/user/home/home.component.html:39</note>
+        <note category="location">app/classroom/classroom.component.html:89</note>
       </notes>
       <segment>
         <source>Started</source>
@@ -465,6 +474,78 @@
       </notes>
       <segment>
         <source>Start Test</source>
+      </segment>
+    </unit>
+    <unit id="5320870651003627043">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:5</note>
+      </notes>
+      <segment>
+        <source>Question</source>
+      </segment>
+    </unit>
+    <unit id="6803050435766824928">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:28</note>
+      </notes>
+      <segment>
+        <source>Click to submit the answer</source>
+      </segment>
+    </unit>
+    <unit id="1847384773580767337">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:32</note>
+      </notes>
+      <segment>
+        <source>Submitting your answer, please wait</source>
+      </segment>
+    </unit>
+    <unit id="2111634770914259121">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:36</note>
+      </notes>
+      <segment>
+        <source>Answer submitted</source>
+      </segment>
+    </unit>
+    <unit id="1473171196585331987">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:47</note>
+      </notes>
+      <segment>
+        <source>Previous Question</source>
+      </segment>
+    </unit>
+    <unit id="2067260738522363442">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:53</note>
+      </notes>
+      <segment>
+        <source>Next Question</source>
+      </segment>
+    </unit>
+    <unit id="8538201418531541683">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:74</note>
+      </notes>
+      <segment>
+        <source>Click to navigate questions</source>
+      </segment>
+    </unit>
+    <unit id="2525230676386818985">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:92</note>
+      </notes>
+      <segment>
+        <source>Result</source>
+      </segment>
+    </unit>
+    <unit id="4440205593100213861">
+      <notes>
+        <note category="location">app/classroom/classroom.component.html:99</note>
+      </notes>
+      <segment>
+        <source>Submit test</source>
       </segment>
     </unit>
     <unit id="361469352814485355">
