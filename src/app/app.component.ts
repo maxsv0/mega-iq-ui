@@ -31,12 +31,11 @@ export class AppComponent {
 		this.authenticationService.currentUser.subscribe(
 		user => {
 			this.currentUser = user;
-		}
+		});
 
 		if (this.locale.includes('-')) {
       this.locale = this.locale.substring(0, this.locale.indexOf('-'));
     }
-);
 
 	// load iq tests
     this.loadIqTest();
