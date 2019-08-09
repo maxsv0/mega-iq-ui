@@ -67,7 +67,7 @@
 
 <section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
   <div class="card-container d-flex flex-column px-5" *ngFor="let item of testTypes | keyvalue"
-       [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+       [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
     <div class="course-title text-white">
       <h1>{{item.value.name}}</h1>
     </div>

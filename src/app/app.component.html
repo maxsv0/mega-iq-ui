@@ -18,7 +18,7 @@
                 <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                 <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
-                  <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
+                  <a *ngFor="let test of testTypes" class="dropdown-item" routerLink="{{test.url}}">{{ test.name }}</a>
                 </div>
               </div>
             </div>
@@ -71,13 +71,7 @@
 <!-- /loader -->
 
 <!-- main app container -->
-<main *ngIf="!loading" id="bgMain" class="mt-6"
-      [ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
-                'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
-                'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
-                'bg-math': backgroundClass === 'math',
-                'bg-grammar': backgroundClass === 'grammar',
-                'home-image': backgroundClass === 'home-image'}">
+<main *ngIf="!loading" id="bgMain" class="mt-6 {{ backgroundClass }}">
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12">

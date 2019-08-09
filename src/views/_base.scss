@@ -117,6 +117,8 @@ a, a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
+  background-size: cover;
+  background-position: center;
 }
 
 .course-code {

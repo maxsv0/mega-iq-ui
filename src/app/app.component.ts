@@ -39,8 +39,20 @@ export class AppComponent {
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         switch (event.url) {
-          case '/iqtest/':
-            this.backgroundClass = event.url.substr(8);
+          case '/iqtest/iq-practice':
+            this.backgroundClass = 'bg-iq-practice';
+            break;
+          case '/iqtest/iq-standard':
+            this.backgroundClass = 'bg-iq-standard';
+            break;
+          case '/iqtest/mega-iq':
+            this.backgroundClass = 'bg-mega-iq';
+            break;
+          case '/iqtest/math':
+            this.backgroundClass = 'bg-math';
+            break;
+          case '/iqtest/grammar':
+            this.backgroundClass = 'bg-grammar';
             break;
           case '/classroom/':
             this.backgroundClass = '';
