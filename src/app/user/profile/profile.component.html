@@ -1,6 +1,6 @@
-<div id="iq-user" class="grid-col-row d-flex justify-content-center" *ngIf="user">
-  <div class="grid-col grid-col-4">
-    <div class="profile-example">
+<div id="iq-user" *ngIf="user">
+  <div class="grid-col-row d-flex justify-content-center">
+    <div class="grid-col grid-col-4 m-1">
       <div class="profile-hover">
         <img src="{{user.pic}}=s300-c" class="img-avatar float-right w-100">
         <div class="hover-bg bg-color-1"></div>
@@ -14,6 +14,9 @@
         <p class="text-white m-0">Age: {{user.age}}</p>
         <p class="text-white m-0">{{user.location}}</p>
       </div>
+    </div>
+    <div class="grid-col grid-col-6 m-1">
+      <img class="img-fluid" *ngIf="user.certificate" src="{{user.certificate}}">
     </div>
   </div>
 </div>

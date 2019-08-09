@@ -19,6 +19,16 @@
   </div>
 </div>
 
+<section id="my-profile" class="container my-2">
+  <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
+</section>
+
+<div class="row mt-5">
+  <div class="col-sm-12">
+    <h1>{{currentUser.name}}, <span i18n>your tests</span></h1>
+  </div>
+</div>
+
 <section class="d-flex flex-wrap" *ngIf="testTypes">
   <div class="card-container" *ngFor="let test of userTests"
        [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
@@ -31,9 +41,11 @@
     <div class="course-title text-white">
       <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
     </div>
-    <div class="course-progress text-white">
-      <p i18n>Progress</p>
-      <progress value="50" max="100" role="progressbar"></progress>
+    <div *ngIf="test.finishDate" class="course-progress">
+      <div class="text-white">
+        <p i18n>Progress</p>
+        <progress value="{{test.progress}}" max="100" role="progressbar"></progress>
+      </div>
     </div>
     <div class="course-starts text-white">
       <span i18n>Started</span>: {{test.createDate | date:'medium'}}
@@ -41,7 +53,7 @@
     <div class="course-ends text-white" *ngIf="test.finishDate">
       <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
     </div>
-    <div class="course-call-to-action-btn pt-1 mt-3">
+    <div class="course-call-to-action-btn pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED">
       <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span i18n>Share</span></a>
     </div>
     <div class="test-action-btn mt-3">
