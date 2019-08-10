@@ -1,7 +1,7 @@
 <div id="iq-user" class="grid-col-row d-flex justify-content-center mt-5" *ngIf="user">
-    <div class="badge iq-badge position-relative">IQ {{user.iq}}</div>
     <div class="grid-col grid-col-4">
         <div class="profile-example">
+            <div class="badge iq-badge position-absolute">IQ {{user.iq}}</div>
             <div class="profile-hover">
                 <a routerLink="/user/{{user.id}}">
                     <img src="{{user.pic}}=s300-c" class="img-avatar float-right w-100">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="grid-col grid-col-6 m-1">
-      <img class="img-fluid" *ngIf="user.certificate" src="{{user.certificate}}">
+    <div class="grid-col grid-col-6 m-1" *ngIf="user.certificate">
+      <img class="img-fluid" src="{{user.certificate}}">
     </div>
 </div>

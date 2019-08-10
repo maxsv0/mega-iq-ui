@@ -32,12 +32,15 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss",
-              "src/assets/static/styles.css"
+              "src/assets/static/styles.css",
+              "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/assets/js/flipclock.js"
+              "src/assets/js/flipclock.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.js"
             ]
           },
           "configurations": {

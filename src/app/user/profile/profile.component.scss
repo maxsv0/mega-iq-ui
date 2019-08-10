@@ -3,7 +3,6 @@
 #iq-user {
 
   .grid-col-4 {
-    width: calc(100% / 3.5);
     @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
   }
 
@@ -18,8 +17,8 @@
         line-height: inherit;
         text-align: center;
         color: #fff;
-        left: 65px;
-        bottom: 35px;
+        left: 0;
+        top: 0;
         border: 2px solid #eee;
     }
 

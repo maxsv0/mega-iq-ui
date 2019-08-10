@@ -1,21 +1,13 @@
 <section id="home">
-  <div class="container-fluid d-flex flex-column align-items-center">
-    <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
-    <div class="test-start-btn position-relative align-self-center">
-      <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
+    <div class="container-fluid d-flex flex-column align-items-center">
+        <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
+        <div class="test-start-btn position-relative align-self-center">
+            <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
+        </div>
+        <div id="counter" class="px-4 d-flex justify-content-center"></div>
     </div>
-    <div id="counter" class="px-4 d-flex justify-content-center"></div>
-  </div>
 </section>
 
-<!-- <div class="col-md-4">
-    <p>
-    <a routerLink="/" class="btn btn-link">index</a>
-    <a routerLink="/home" class="btn btn-link">user home</a>
-    <a routerLink="/login" class="btn btn-link">login</a>
-    <a routerLink="/register" class="btn btn-link">register</a>
-    </p>
-</div> -->
 <section id="iq-scores" class="container d-flex justify-content-between my-5">
 
     <div>
@@ -74,9 +66,11 @@
     <div class="clearfix">
         <h2 class="text-center">Example profile</h2>
     </div>
-    <div *ngFor="let userExample of userExamples">
-        <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
-    </div>
+    <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+        <div *ngFor="let userExample of userExamples">
+            <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+        </div>
+    </owl-carousel>
 </section>
 
 <section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
