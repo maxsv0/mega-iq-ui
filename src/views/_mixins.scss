@@ -1,20 +1,20 @@
 @mixin background-size($background-size) {
-    -webkit-background-size: $background-size;
-    -moz-background-size: $background-size;
-    -o-background-size: $background-size;
-    background-size: $background-size;
+  -webkit-background-size: $background-size;
+  -moz-background-size: $background-size;
+  -o-background-size: $background-size;
+  background-size: $background-size;
 }
 
 @mixin border-radius($radius) {
-	border-radius: $radius;
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
 }
 
 @mixin transition($property, $duration, $easing: linear) {
-	transition: $property $duration $easing;
-	-webkit-transition: $property $duration $easing;
-	-moz-transition: $property $duration $easing;
+  transition: $property $duration $easing;
+  -webkit-transition: $property $duration $easing;
+  -moz-transition: $property $duration $easing;
 }
 
 @mixin box-shadow($left, $top, $radius, $color) {

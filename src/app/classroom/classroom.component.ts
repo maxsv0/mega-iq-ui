@@ -59,17 +59,17 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   setQuestion(questionId: number) {
-	this.activeQuestionId = questionId;
-	this.updateActiveTest(this.activeTest);
+    this.activeQuestionId = questionId;
+    this.updateActiveTest(this.activeTest);
   }
 
   submitAllRandom(code: string) {
     let index = 1;
     this.activeTest.questionSet.forEach(
-        (question) => {
-          this.submitAnswer(code, index++, question.answers[0].id);
-        }
-      );
+      (question) => {
+        this.submitAnswer(code, index++, question.answers[0].id);
+      }
+    );
   }
 
   submitAnswer(code: string, question: number, answer: number) {
@@ -110,38 +110,37 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
-	private async updateActiveTest(test: TestResult) {
-		this.updating = true;
-		this.activeTest = test;
-		this.activeQuestionIdPrev = this.activeQuestionId - 1;
+  private async updateActiveTest(test: TestResult) {
+    this.updating = true;
+    this.activeTest = test;
+    this.activeQuestionIdPrev = this.activeQuestionId - 1;
 
-		try {
-			if (this.activeTest && this.activeQuestionId) {
-				await this.testTypes.forEach(
-					(testData) => {
-						if (this.activeTest.type === testData.type) {
-							this.activeTestName = testData.name;
-						}
-						this.updating = false;
-					}
-				);
-				this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
-				this.activeQuestionIdNext = this.activeQuestionId + 1;
-				if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
-					this.activeQuestionIdNext = 0;
-					this.updating = false;
-				}
-			} else {
-				this.activeQuestionIdNext = 0;
-				this.activeQuestion = null;
-				this.updating = false;
-			}
-		}
-		catch (err) {
-			this.alertService.error(`API Service Unavailable. ${err}`);
-		}
+    try {
+      if (this.activeTest && this.activeQuestionId) {
+        await this.testTypes.forEach(
+          (testData) => {
+            if (this.activeTest.type === testData.type) {
+              this.activeTestName = testData.name;
+            }
+            this.updating = false;
+          }
+        );
+        this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+        this.activeQuestionIdNext = this.activeQuestionId + 1;
+        if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
+          this.activeQuestionIdNext = 0;
+          this.updating = false;
+        }
+      } else {
+        this.activeQuestionIdNext = 0;
+        this.activeQuestion = null;
+        this.updating = false;
+      }
+    } catch (err) {
+      this.alertService.error(`API Service Unavailable. ${err}`);
+    }
 
-	}
+  }
 
   private initTestByCode(testCode: string) {
     this.iqTestService.getByCode(testCode)

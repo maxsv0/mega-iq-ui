@@ -1,16 +1,17 @@
 <div class="col-sm-12" *ngIf="testTypes">
 
-  	<div *ngIf="testSelected">
-    	<h2>{{testSelected.name}}</h2>
+  <div *ngIf="testSelected">
+    <h2>{{testSelected.name}}</h2>
 
-		<div class="form-group">
-			<button [disabled]="loading" id="start-test-btn" class="btn btn-primary btn-lg" (click)="startTest(testSelected.type)">
-				<span *ngIf="!loading" i18n>Start Test</span>
-				<span *ngIf="loading" class="actn-loader"></span>
-			</button>
-				<span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
-		</div>
-	</div>
+    <div class="form-group">
+      <button [disabled]="loading" id="start-test-btn" class="btn btn-primary btn-lg"
+              (click)="startTest(testSelected.type)">
+        <span *ngIf="!loading" i18n>Start Test</span>
+        <span *ngIf="loading" class="actn-loader"></span>
+      </button>
+      <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
+    </div>
+  </div>
 
   <div *ngIf="!testSelected">
     <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue"

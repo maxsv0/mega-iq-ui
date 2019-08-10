@@ -62,7 +62,7 @@ export class AuthenticationService {
 
   private socialSignIn(provider) {
     return this.firebaseAuth.auth.signInWithPopup(provider)
-      .then((credential) =>  {
+      .then((credential) => {
         this.storeFirebaseUser(credential.user);
       })
       .catch(error => console.log(error));

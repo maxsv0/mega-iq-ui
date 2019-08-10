@@ -22,10 +22,10 @@
         </div>
         <div class="form-group">
 
-		<button [disabled]="loading" id="login-btn" class="btn btn-primary">
-			<span *ngIf="loading" class="actn-loader"></span>
-			<span *ngIf="!loading">Login</span>
-		</button>
+          <button [disabled]="loading" id="login-btn" class="btn btn-primary">
+            <span *ngIf="loading" class="actn-loader"></span>
+            <span *ngIf="!loading">Login</span>
+          </button>
           <a routerLink="/register" class="btn btn-link" i18n>Register</a>
           <a routerLink="/forget" class="btn btn-link" i18n>Forget Password?</a>
         </div>
@@ -38,13 +38,14 @@
       <h2 i18n>Login with Google</h2>
 
       <button type="button" class="btn btn-link" (click)="loginGoogle()">
-       <img src="/assets/img/btn_google_signin_light_normal_web.png" srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">
+        <img src="/assets/img/btn_google_signin_light_normal_web.png"
+             srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">
       </button>
 
       <!--
       <button type="button" class="btn btn-block" (click)="loginFacebook()">-->
-        <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
-        <!--Login with Facebook-->
+      <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
+      <!--Login with Facebook-->
       <!--</button>
       -->
     </div>

@@ -2,10 +2,10 @@
 
 #iq-user {
 
-    .grid-col-4 {
-        width: calc(100% / 3.5);
-        @include box-shadow(0, 3px, 6px, rgba(0,0,0,0.16));
-    }
+  .grid-col-4 {
+    width: calc(100% / 3.5);
+    @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
+  }
 
     .iq-badge {
         z-index: 1;

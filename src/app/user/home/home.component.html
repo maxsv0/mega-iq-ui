@@ -1,64 +1,81 @@
 <div class="row">
-  <div class="col-sm-6">
-    <h1>Hi, {{currentUser.name}}!</h1>
-  </div>
-  <div class="col-sm-6 text-right">
-    <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
-      <svg class="feather">
-        <use xlink:href="/assets/feather-sprite.svg#home"/>
-      </svg>
-      <span i18n>Open profile page</span>
-    </button>
+    <div class="col-sm-6">
+        <h1><span i18n>Hi</span>, {{currentUser.name}}!</h1>
+    </div>
+    <div class="col-sm-6 text-right">
+        <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
+            <svg class="feather">
+                <use xlink:href="/assets/feather-sprite.svg#home"/>
+            </svg>
+            <span i18n>Open profile page</span>
+        </button>
 
-    <button routerLink="/settings" class="btn btn-outline-primary">
-      <svg class="feather">
-        <use xlink:href="/assets/feather-sprite.svg#settings"/>
-      </svg>
-      <span i18n>Edit profile</span>
-    </button>
-  </div>
+        <button routerLink="/settings" class="btn btn-outline-primary">
+            <svg class="feather">
+                <use xlink:href="/assets/feather-sprite.svg#settings"/>
+            </svg>
+            <span i18n>Edit profile</span>
+        </button>
+    </div>
+</div>
+
+<section id="my-profile" class="container my-2">
+    <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
+</section>
+
+<div class="row mt-5" *ngIf="testTypes">
+    <div class="col-sm-12">
+        <h1>{{currentUser.name}}, <span i18n>your tests</span></h1>
+    </div>
 </div>
 
 <section class="d-flex flex-wrap" *ngIf="testTypes">
-    <div class="card-container" *ngFor="let test of userTests" [ngStyle]="{'background': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
-        <div class="badge px-2 pt-2 w-50 text-white"
-            [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED, 
-                         'badge-primary': test.status === testStatus.ACTIVE, 
-                         'badge-secondary': test.status === testStatus.EXPIRED }">
+    <div class="card-container" *ngFor="let test of userTests"
+        [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
+        <div class="badge px-2 py-2 w-25 text-white d-flex justify-content-center"
+            [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+                            'badge-primary': test.status === testStatus.ACTIVE, 
+                            'badge-secondary': test.status === testStatus.EXPIRED }">
             <span>{{test.status}}</span>
         </div>
-        <div class="course-title text-white">
+        <div class="text-white my-3">
             <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
         </div>
-        <div class="course-progress text-white">
-            <p>Progress</p>
-            <progress value="50" max="100" role="progressbar"></progress>
+        <div *ngIf="test.finishDate && test.progress < 100" class="test-progress">
+            <div class="text-white">
+                <span i18n>Progress:</span>
+                <div class="text-center">{{test.progress}} %</div>
+                <progress value="{{test.progress}}" max="100" role="progressbar"></progress>
+            </div>
         </div>
-        <div class="course-starts text-white">
-            <span>Started: {{test.createDate | date:'medium'}}</span>
-        </div>
-        <div class="course-ends text-white" *ngIf="test.finishDate">
-            <span>Finished: {{test.finishDate | date:'medium'}}</span>
-        </div>
-        <div class="course-call-to-action-btn pt-1 mt-3">
-            <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> Share</a>
+        <div class="d-flex justify-content-between">
+            <div class="test-starts text-white w-50 d-flex justify-content-start">
+                <span i18n>Started</span>: {{test.createDate | date:'medium'}}
+            </div>
+            <div class="test-ends text-white w-50 d-flex justify-content-end" *ngIf="test.finishDate ">
+                <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
+            </div>
         </div>
         <div class="test-action-btn mt-3">
             <button routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg"
-                *ngIf="test.status === testStatus.ACTIVE">Continue test
+                *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test
             </button>
 
             <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
-                *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
+                    *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
                 <svg class="feather">
                     <use xlink:href="/assets/feather-sprite.svg#sun"/>
                 </svg>
                 <span i18n>Check results</span>
             </button>
-
-            <button class="btn btn-danger btn-block btn-lg" (click)="deleteTestResult(test.code)"
+        </div>
+        <div class="d-flex justify-content-between pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED || test.status === testStatus.EXPIRED">
+            <button class="btn btn-secondary btn-lg w-50 mr-1" *ngIf="test.status === testStatus.FINISHED">
+                <a routerLink="{{test.url}}" target="_blank" class="text-white"><i class="fa fa-link"></i> <span i18n> Share</span></a>
+            </button>
+            <button class="btn btn-danger btn-lg ml-1" [ngClass]="{'w-50': test.status === testStatus.FINISHED, 'w-100': test.status === testStatus.EXPIRED}" (click)="deleteTestResult(test.code)"
                 *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
-                <span *ngIf="!loading" i18n><i class="fa fa-trash" aria-hidden="true"></i> Delete</span>
+                <span *ngIf="!loading"><i class="fa fa-trash" aria-hidden="true"></i> <span i18n> Delete</span></span>
                 <span *ngIf="loading" class="actn-loader"></span>
             </button>
         </div>

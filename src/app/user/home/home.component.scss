@@ -17,9 +17,9 @@
 }
 
 .jumbotron {
-  padding-top: 1.5em
+  padding-top: 1.5em;
 }
 
 .badge {
-    @include border-radius(2em);
+  @include border-radius(2em);
 }

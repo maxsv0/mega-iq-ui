@@ -1,122 +1,122 @@
 @media (min-width: 500px) and (max-width: 992px) {
-    .team, .names {
-        flex-direction: column;
-        align-items: center;
-    }
+  .team, .names {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .team img {
-        margin-bottom: 2rem;
-    }
+  .team img {
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 960px) {
-    .col-lg-12 {
-        position: relative;
-        min-height: 1px;
-        padding-right: 10px;
-        padding-left: 10px;
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
+  .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
 }
 
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1200px !important;
-    }
+  .container {
+    max-width: 1200px !important;
+  }
 }
 
 .navbar-brand {
-    color: #fff !important;
+  color: #fff !important;
 }
 
 .navbar a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .bg-dark {
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
 }
 
-.page-about, 
+.page-about,
 .page-privacy-policy {
-    background: #f8f9fa;
+  background: #f8f9fa;
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .our-mission {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .our-mission .row {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  width: 100%;
 }
 
 #about.card {
-    background: #fff;
-    margin-bottom: 2rem;
+  background: #fff;
+  margin-bottom: 2rem;
 }
 
 #about.card-lg {
-    padding: 4rem;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  padding: 4rem;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
 }
 
 #about h1, #about h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 #about .about-text {
-    text-align: justify;
+  text-align: justify;
 }
 
 .team .col {
-    justify-content: space-between;
-    margin-top: 25px;
+  justify-content: space-between;
+  margin-top: 25px;
 }
 
 .team img {
-    height: 230px;
-    width: 230px;
-    border-radius: 50%;
-    transition: transform .3s ease-in-out;
+  height: 230px;
+  width: 230px;
+  border-radius: 50%;
+  transition: transform .3s ease-in-out;
 }
 
 .team img:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.09);
+  transform: translateY(-10px);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.09);
 }
 
 .names .col {
-    justify-content: space-between;
-    padding-top: 2rem;
-    text-align: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  text-align: center;
 }
 
 .page-privacy-policy .container, .terms-conditions .container {
-    padding: 20px;
+  padding: 20px;
 }
 
 .page-privacy-policy h1,
 .page-privacy-policy h2,
 .page-privacy-policy p,
-.terms-conditions p, 
-.terms-conditions li, 
-.terms-conditions ol, 
+.terms-conditions p,
+.terms-conditions li,
+.terms-conditions ol,
 .terms-conditions h1 {
-    text-align: justify;
+  text-align: justify;
 }

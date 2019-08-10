@@ -6,6 +6,7 @@ export class User {
   isUnsubscribed: boolean;
   name: string;
   pic: string;
+  certificate: string;
   url: string;
   age: string;
   iq: number;

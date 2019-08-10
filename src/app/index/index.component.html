@@ -1,12 +1,11 @@
-
 <section id="home">
-    <div class="container-fluid d-flex flex-column align-items-center">
-        <h1 class="text-center position-relative pt-10 text-white">Join the Mega IQ Tests Passed</h1>
-        <div class="test-start-btn position-relative align-self-center">
-            <a routerLink="/iqtest/">Start Test</a>
-        </div>
-        <div id="counter" class="px-4 d-flex justify-content-center"></div>
+  <div class="container-fluid d-flex flex-column align-items-center">
+    <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
+    <div class="test-start-btn position-relative align-self-center">
+      <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
     </div>
+    <div id="counter" class="px-4 d-flex justify-content-center"></div>
+  </div>
 </section>
 
 <!-- <div class="col-md-4">
@@ -81,15 +80,16 @@
 </section>
 
 <section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
-    <div class="card-container d-flex flex-column px-5" *ngFor="let item of testTypes | keyvalue" [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
-        <div class="course-title text-white">
-            <h1>{{item.value.name}}</h1>
-        </div>
-        <div class="course-title text-white">
-            <p>{{item.value.description}}</p>
-        </div>
-        <button class="btn btn-success w-50 align-self-center">
-            <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
-        </button>
+  <div class="card-container d-flex flex-column px-5" *ngFor="let item of testTypes | keyvalue"
+       [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
+    <div class="course-title text-white">
+      <h1>{{item.value.name}}</h1>
     </div>
+    <div class="course-title text-white">
+      <p>{{item.value.description}}</p>
+    </div>
+    <button class="btn btn-success w-50 align-self-center mt-3">
+      <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
+    </button>
+  </div>
 </section>

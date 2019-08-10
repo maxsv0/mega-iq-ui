@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
-import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
             this.userTests = apiResponseTestResultList.tests;
+            console.log(this.userTests);
             this.currentUser = apiResponseTestResultList.user;
-            console.log(apiResponseTestResultList.user);
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
