@@ -50,6 +50,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   deleteTestResult(code: string) {
+    if (!confirm('Are you sure you want to delete the test?')) {
+      return false;
+    }
+
     this.loading = true;
     this.deletedId = code;
 
