@@ -51,7 +51,7 @@
 
     td, th {
         padding: 1em 1.5em;
-        text-align: left;
+        text-align: center;
     }
 
     tbody {
@@ -61,6 +61,10 @@
         }
 
         tr {
+
+            .img-avatar-small {
+                @include border-radius(50%);
+            }
 
             &:nth-child(2n-1) {
                 background-color: #f5f5f5;

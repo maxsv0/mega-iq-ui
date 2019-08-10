@@ -34,10 +34,10 @@
             <tbody>
                 <tr *ngFor="let user of usersTop">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-                    <td>{{user.age}}</td>
-                    <td>{{user.location}}</td>
-                    <td>{{user.iq}}</td>
-                    <td>{{user.totalScore}}</td>
+                    <td>{{user.age || '-'}}</td>
+                    <td>{{user.location || '-'}}</td>
+                    <td>{{user.iq || '-'}}</td>
+                    <td>{{user.totalScore || '-'}}</td>
                 </tr>
             </tbody>
         </table>
@@ -58,17 +58,19 @@
             <tbody>
                 <tr *ngFor="let user of usersList">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-                    <td>{{user.age}}</td>
-                    <td>{{user.location}}</td>
-                    <td>{{user.iq}}</td>
-                    <td>{{user.totalScore}}</td>
+                    <td>{{user.age || '-'}}</td>
+                    <td>{{user.location || '-'}}</td>
+                    <td>{{user.iq || '-'}}</td>
+                    <td>{{user.totalScore || '-'}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
 </section>
-
+<!-- Todo:
+-Fix dropdown for longer titles
+-Create simple carousel for example profile list -->
 <section id="user-example" class="container my-5">
     <div class="clearfix">
         <h2 class="text-center">Example profile</h2>
