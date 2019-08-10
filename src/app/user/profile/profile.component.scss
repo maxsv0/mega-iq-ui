@@ -1,12 +1,6 @@
 @import 'src/styles';
 
 #iq-user {
-
-  .grid-col-4 {
-    width: calc(100% / 3.5);
-    @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
-  }
-
   .profile-example {
     @include border-radius(4px);
     overflow: hidden;

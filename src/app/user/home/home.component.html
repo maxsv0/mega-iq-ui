@@ -32,16 +32,15 @@
 <section class="d-flex flex-wrap" *ngIf="testTypes">
   <div class="card-container" *ngFor="let test of userTests"
        [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
-    <div class="badge px-2 py-2 w-50 text-white"
-         [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
-                         'badge-primary': test.status === testStatus.ACTIVE, 
-                         'badge-secondary': test.status === testStatus.EXPIRED }">
-      <span>{{test.status}}</span>
+    <div class="text-white">
+      <span class="w-50 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+                         'badge-primary': test.status === testStatus.ACTIVE,
+                         'badge-secondary': test.status === testStatus.EXPIRED }">{{test.status}}</span>
     </div>
     <div class="course-title text-white">
       <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
     </div>
-    <div *ngIf="test.finishDate" class="course-progress">
+    <div *ngIf="!test.finishDate" class="course-progress">
       <div class="text-white">
         <p i18n>Progress</p>
         <progress value="{{test.progress}}" max="100" role="progressbar"></progress>
@@ -57,7 +56,7 @@
       <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span i18n>Share</span></a>
     </div>
     <div class="test-action-btn mt-3">
-      <button routerLink="{{test.url}}" class="btn btn-primary btn-block btn-lg"
+      <button routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg"
               *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test</button>
 
       <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
