@@ -1,67 +1,77 @@
 <header id="header-mega-iq" class="position-fixed w-100 bg-light">
-  <div class="container py-2 position-relative">
-    <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Start Test Dropdwon -->
-      <div class="collapse navbar-collapse" id="start-test-dropdown">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-              <button type="button" class="btn btn-primary l-radius">
-                <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
-              </button>
-              <div class="btn-group dropdown" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
-                  <a *ngFor="let test of testTypes" class="dropdown-item" routerLink="{{test.url}}">{{ test.name }}</a>
-                </div>
-              </div>
+    <div class="container py-2 position-relative">
+        <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Start Test Dropdwon -->
+            <div class="collapse navbar-collapse" id="start-test-dropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-primary l-radius">
+                                <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
+                            </button>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
+                                    <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" routerLink="/iqtest/results" i18n>Best Results</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Sign up button -->
+                <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
+                    </li>
+                </ul>
+                <!-- Profile Button -->
+                <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser">
+                    <span><i class="fa fa-user"></i> {{currentUser.name}}</span>
+                </button>
+                <!-- Sign up button -->
+                <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+                    </li>
+                </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
-          </li>
-        </ul>
-        <!-- Profile Button -->
-        <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser">
-          <span><i class="fa fa-user"></i> {{currentUser.name}}</span>
-        </button>
-        <!-- Sign up button -->
-        <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login/" i18n>Log In</a>
-          </li>
-        </ul>
-      </div>
-      <!-- Language dropdown -->
-      <div class="dropdown" id="language-picker">
-        <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-          <a routerLink="/" id="locale-link-current"><img class="mr-2"
-                                                          src="/assets/img/flag/{{ this.locale }}.png"/>{{ this.locale.toUpperCase() }}
-          </a>
-        </button>
-        <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com" *ngIf="this.locale != 'en'"><img
-            class="mr-2" src="/assets/img/flag/en.png"/>EN</a>
-          <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com" *ngIf="this.locale != 'ru'"><img
-            class="mr-2" src="/assets/img/flag/ru.png"/>RU</a>
-          <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com" *ngIf="this.locale != 'de'"><img
-            class="mr-2" src="/assets/img/flag/de.png"/>DE</a>
-          <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com" *ngIf="this.locale != 'es'"><img
-            class="mr-2" src="/assets/img/flag/es.png"/>ES</a>
-        </div>
-      </div>
-    </nav>
-  </div>
+            <!-- Language dropdown -->
+            <div class="dropdown" id="language-picker">
+                <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                <a routerLink="/" id="locale-link-current">
+                    <img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png"/>{{ this.locale.toUpperCase() }}
+                </a>
+                </button>
+                <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com" *ngIf="this.locale != 'en'"><img
+                        class="mr-2" src="/assets/img/flag/en.png"/>EN</a>
+                    <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com" *ngIf="this.locale != 'ru'"><img
+                        class="mr-2" src="/assets/img/flag/ru.png"/>RU</a>
+                    <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com" *ngIf="this.locale != 'de'"><img
+                        class="mr-2" src="/assets/img/flag/de.png"/>DE</a>
+                    <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com" *ngIf="this.locale != 'es'"><img
+                        class="mr-2" src="/assets/img/flag/es.png"/>ES</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <!-- loader -->
@@ -71,28 +81,34 @@
 <!-- /loader -->
 
 <!-- main app container -->
-<main *ngIf="!loading" id="bgMain" class="mt-6 {{ backgroundClass }}">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12">
-        <alert></alert>
-        <router-outlet></router-outlet>
-      </div>
+<main *ngIf="!loading" id="bgMain" class="mt-6"
+    [ngClass]="{'bg-mega-iq': backgroundClass === 'mega' || backgroundClass === 'mega-iq',
+                'bg-iq-practice': backgroundClass === 'practice' || backgroundClass === 'iq-practice',
+                'bg-iq-standard': backgroundClass === 'standard' || backgroundClass === 'iq-standard',
+                'bg-math': backgroundClass === 'math',
+                'bg-grammar': backgroundClass === 'grammar',
+                'home-image': backgroundClass === 'home-image'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <alert></alert>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
     <div class="row">
-      <!-- credits -->
-      <footer *ngIf="!loading" class="text-center col-12 col-sm-12 col-md-12">
-        <br>
-        <ul class="list-inline text-muted">
-          <li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>
-          <li class="list-inline-item"><a href="/assets/static/about.html" i18n>About</a></li>
-          <li class="list-inline-item"><a href="/assets/static/privacy-policy.html" i18n>Privacy Policy</a></li>
-          <li class="list-inline-item"><a href="/assets/static/terms-conditions.html" i18n>Terms and Conditions</a></li>
-        </ul>
-        <p class="text-center text-muted small">Build info</p>
-      </footer>
+        <!-- credits -->
+        <footer *ngIf="!loading" class="text-center col-12 col-sm-12 col-md-12">
+            <br>
+                <ul class="list-inline text-muted">
+                <li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>
+                <li class="list-inline-item"><a href="/assets/static/about.html" i18n>About</a></li>
+                <li class="list-inline-item"><a href="/assets/static/privacy-policy.html" i18n>Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="/assets/static/terms-conditions.html" i18n>Terms and Conditions</a></li>
+            </ul>
+            <p class="text-center text-muted small">Build info</p>
+        </footer>
     </div>
-  </div>
 </main>
 
 

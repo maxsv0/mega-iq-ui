@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
   usersList: User[] = [];
   usersTop: User[] = [];
-  userExample: User;
+  userExamples: User[];
   clock: any;
   clockTimerSubscription: Subscription;
   clockSpeed: number;
@@ -56,7 +56,8 @@ export class IndexComponent implements OnInit, OnDestroy {
         if (apiResponseUsersTop.ok) {
           this.usersTop = apiResponseUsersTop.usersTop;
           this.usersList = apiResponseUsersTop.users;
-          this.userExample = apiResponseUsersTop.exampleProfile;
+          this.userExamples = apiResponseUsersTop.exampleProfiles;
+          console.log(this.userExamples);
         } else {
           this.alertService.error(apiResponseUsersTop.msg);
         }
@@ -102,4 +103,31 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+    carouselOptions = {
+        margin: 25,
+        nav: true,
+        navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 1,
+                nav: true
+            },
+            1000: {
+                items: 2,
+                nav: true,
+                loop: false
+            },
+            1500: {
+                items: 3,
+                nav: true,
+                loop: false
+            }
+        }
+    }
 }

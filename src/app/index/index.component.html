@@ -1,68 +1,76 @@
 <section id="home">
-  <div class="container-fluid d-flex flex-column align-items-center">
-    <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
-    <div class="test-start-btn position-relative align-self-center">
-      <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
+    <div class="container-fluid d-flex flex-column align-items-center">
+        <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
+        <div class="test-start-btn position-relative align-self-center">
+            <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
+        </div>
+        <div id="counter" class="px-4 d-flex justify-content-center"></div>
     </div>
-    <div id="counter" class="px-4 d-flex justify-content-center"></div>
-  </div>
 </section>
 
-<section id="iq-scores" class="container d-flex my-5">
+<section id="iq-scores" class="container d-flex justify-content-between my-5">
 
-  <div class="col-md-6">
-    <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
-    <table class="w-100 bg-white">
-      <thead>
-      <tr>
-        <th i18n>User</th>
-        <th i18n>Age</th>
-        <th i18n>Location</th>
-        <th i18n>IQ</th>
-        <th i18n>Total Score</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td>{{user.age}}</td>
-        <td>{{user.location}}</td>
-        <td>{{user.iq}}</td>
-        <td>{{user.totalScore}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div>
+        <h3 class="text-center mb-3">Mega IQ Ever</h3>
+        <table class="w-100 bg-white">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>IQ</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersTop">
+                    <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+                    <td>{{user.age || '-'}}</td>
+                    <td>{{user.location || '-'}}</td>
+                    <td>{{user.iq || '-'}}</td>
+                    <td>{{user.totalScore || '-'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="col-md-6">
-    <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
-    <table class="w-100 bg-white">
-      <thead>
-      <tr>
-        <th i18n>User</th>
-        <th i18n>Age</th>
-        <th i18n>Location</th>
-        <th i18n>IQ</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td>{{user.age}}</td>
-        <td>{{user.location}}</td>
-        <td>{{user.iq}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div>
+        <h3 class="text-center mb-3">Best IQ Today</h3>
+        <table class="w-100 bg-white">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>IQ</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersList">
+                    <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+                    <td>{{user.age || '-'}}</td>
+                    <td>{{user.location || '-'}}</td>
+                    <td>{{user.iq || '-'}}</td>
+                    <td>{{user.totalScore || '-'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </section>
-
+<!-- Todo:
+-Fix dropdown for longer titles
+-Create simple carousel for example profile list -->
 <section id="user-example" class="container my-5">
-  <div class="clearfix">
-    <h2 class="text-center">Example profile</h2>
-  </div>
-  <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+    <div class="clearfix">
+        <h2 class="text-center">Example profile</h2>
+    </div>
+    <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+        <div *ngFor="let userExample of userExamples">
+            <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+        </div>
+    </owl-carousel>
 </section>
 
 <section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
@@ -74,7 +82,7 @@
     <div class="course-title text-white">
       <p>{{item.value.description}}</p>
     </div>
-    <button class="btn btn-success w-50 align-self-center">
+    <button class="btn btn-success w-50 align-self-center mt-3">
       <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
     </button>
   </div>

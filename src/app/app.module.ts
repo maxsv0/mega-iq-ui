@@ -23,6 +23,7 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {AuthenticationService} from '@/_services';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase, 'Mega-IQ'),
     AngularFireAuthModule,
-    routing
+    routing,
+    OwlModule
   ],
   declarations: [
     AppComponent,

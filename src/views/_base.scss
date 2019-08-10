@@ -108,103 +108,16 @@ a, a:hover {
 
 .card-container {
   width: 500px;
-  height: 400px;
   padding: 30px;
   margin: 30px auto;
   border-radius: 10px;
   @include box-shadow(3px, 3px, 0, rgba(0, 0, 0, .10));
   background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
   background-size: cover;
   background-position: center;
 }
 
-.course-code {
-  grid-column: 1/2;
-  min-width: 120px;
-  max-width: 170px;
-  height: 35px;
-  padding: 10px;
-  background-color: #FDB735;
-  color: #FFF;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.course-category {
-  max-width: 120px;
-  text-align: right;
-  font-size: 13px;
-  grid-column: 2/4;
-  justify-self: end;
-  display: grid;
-  grid-template-columns: 1fr 40px;
-  grid-template-rows: 8px 16px 1fr;
-  grid-column-gap: 10px;
-
-  span:nth-of-type(1) {
-    grid-row: 2/3;
-  }
-
-  span:nth-of-type(2) {
-    font-weight: bold;
-    line-height: 14px;
-    grid-row: 3/4;
-  }
-
-  img {
-    grid-row: 1/4;
-    width: auto;
-    height: 40px;
-  }
-}
-
-.course-title {
-  align-self: center;
-  grid-column: 1/4;
-  font-size: 25px;
-  text-transform: none;
-
-  h1 {
-    margin: 15px 0;
-  }
-}
-
-.course-teacher {
-  font-size: 13px;
-  grid-column: 1/2;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-template-rows: 10px 16px 1fr;
-  grid-column-gap: 20px;
-
-  span:nth-of-type(1) {
-    grid-row: 2/3;
-  }
-
-  span:nth-of-type(2) {
-    font-weight: bold;
-    line-height: 14px;
-    grid-row: 3/4;
-  }
-
-  img {
-    grid-row: 1/4;
-    width: auto;
-    height: 45px;
-    border-radius: 50em;
-    border: 2px solid #FDB735;
-  }
-}
-
-.course-credits {
-  @extend .course-category;
-}
-
-.course-progress {
-  grid-column: 1/4;
+.test-progress {
 
   progress {
     width: 100%;
@@ -224,51 +137,8 @@ a, a:hover {
   }
 }
 
-.course-starts {
-  grid-column: 1/2;
-  padding-left: 22px;
-  background-image: url("http://i66.tinypic.com/30thunt.png");
-  background-size: 15px;
-  background-repeat: no-repeat;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.course-ends {
-  grid-column: 2/4;
-  justify-self: end;
-  padding-right: 22px;
-  background-image: url("http://i66.tinypic.com/30thunt.png");
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position: top right;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.course-call-to-action-btn {
-  grid-column: 1/2;
-  width: 200px;
-  height: 45px;
-  margin-top: 20px;
-  padding-top: 12px;
-  background-color: #414241;
-  color: #FFF;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.course-more-details-btn {
-  justify-self: end;
-  grid-column: 2/4;
-  width: 200px;
-  height: 45px;
-  margin-top: 20px;
-  padding-top: 10px;
-  background-color: #fff;
-  border: 3px solid #414241;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
+.test-starts,
+.test-ends {
+    font-size: 13px;
+    font-weight: bold;
 }

@@ -49,12 +49,10 @@
     white-space: nowrap;
   }
 
-  td, th {
-    padding: 1em 1.5em;
-    text-align: left;
-  }
-
-  tbody {
+    td, th {
+        padding: 1em 1.5em;
+        text-align: center;
+    }
 
     th {
       background-color: #2ea879;
@@ -67,21 +65,46 @@
         @include transition(all, .125s, ease-in-out);
       }
 
-      &:hover {
-        background-color: rgba(50, 98, 149, .3);
-      }
-    }
-  }
+            .img-avatar-small {
+                @include border-radius(50%);
+            }
 
-}
+            &:nth-child(2n-1) {
+                background-color: #f5f5f5;
+                @include transition(all, .125s, ease-in-out);
+            }
+            
+            &:hover {
+                background-color: rgba(50,98,149,.3);
+            }
+        }
+    }
 
 #test-section {
-  .card-container {
-    width: 30em;
-    height: 17em;
-  }
+//   .card-container {
+//     width: 30em;
+//     height: 17em;
+//   }
 
   a {
     vertical-align: middle;
   }
+}
+
+/** Responsive **/
+
+/** Mobile (xs-l) **/
+
+@include mobile {
+    #iq-scores {
+        flex-direction: column;
+    }
+
+    #home {
+
+        .flip-clock-wrapper {
+            margin-bottom: 14rem;
+        }
+        
+    }
 }
