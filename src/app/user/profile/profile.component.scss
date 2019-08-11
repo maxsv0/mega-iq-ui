@@ -21,12 +21,7 @@
         top: 0;
         border: 2px solid #eee;
     }
-
-    .profile-example {
-        @include border-radius(4px);
-        overflow: hidden;
-        position: relative;
-    }
+  
   .profile-example {
     @include border-radius(4px);
     overflow: hidden;

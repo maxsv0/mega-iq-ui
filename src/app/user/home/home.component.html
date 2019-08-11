@@ -52,7 +52,7 @@
     <div class="course-ends text-white" *ngIf="test.finishDate">
       <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
     </div>
-    <div class="course-call-to-action-btn pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED">
+    <div class="col-6 pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED">
       <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span i18n>Share</span></a>
     </div>
     <div class="test-action-btn mt-3">
