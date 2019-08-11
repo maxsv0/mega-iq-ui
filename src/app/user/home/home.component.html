@@ -37,43 +37,53 @@
   <div class="card-container" *ngFor="let test of userTests"
        [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
     <div class="text-white">
-      <span class="w-50 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+      <span class="w-25 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
                          'badge-primary': test.status === testStatus.ACTIVE,
                          'badge-secondary': test.status === testStatus.EXPIRED }">{{test.status}}</span>
     </div>
     <div class="course-title text-white">
       <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
     </div>
+
+    <div class="row">
+      <div class="col-6" *ngIf="test.status === testStatus.FINISHED">
+        <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-3"><i class="fa fa-link"></i> <span
+          i18n>Test Details</span></a>
+      </div>
+
+      <div class="col-6">
+        <button routerLink="/classroom/{{test.code}}" class="btn btn-warning btn-block btn-lg mt-3"
+                *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
+          <svg class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#sun"/>
+          </svg>
+          <span i18n>Show Answers</span>
+        </button>
+      </div>
+    </div>
+
     <div *ngIf="!test.finishDate" class="course-progress">
       <div class="text-white">
-        <p i18n>Progress</p>
-        <progress value="{{test.progress}}" max="100" role="progressbar"></progress>
+        <span i18n>Current test progress</span>: {{test.progress}}%
+        <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
       </div>
     </div>
     <div class="course-starts text-white">
-      <span i18n>Started</span>: {{test.createDate | date:'medium'}}
+      <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
     </div>
     <div class="course-ends text-white" *ngIf="test.finishDate">
-      <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
+      <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
     </div>
-    <div class="col-6 pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED">
-      <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span
-        i18n>Share</span></a>
+    <div class="row">
+      <div class="col-12">
+        <button routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg mt-3"
+                *ngIf="test.status === testStatus.ACTIVE" i18n>Continue Test
+        </button>
+      </div>
     </div>
-    <div class="test-action-btn mt-3">
-      <button routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg"
-              *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test
-      </button>
 
-      <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
-              *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
-        <svg class="feather">
-          <use xlink:href="/assets/feather-sprite.svg#sun"/>
-        </svg>
-        <span i18n>Check results</span>
-      </button>
-
-      <button class="btn btn-danger" (click)="deleteTestResult(test.code)"
+    <div class="text-right">
+      <button class="w-25 btn btn-danger" (click)="deleteTestResult(test.code)"
               *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
         <span *ngIf="!loading"><i class="fa fa-trash" aria-hidden="true"></i> <span i18n>Delete</span></span>
         <span *ngIf="loading" class="actn-loader"></span>
