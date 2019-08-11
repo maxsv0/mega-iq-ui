@@ -126,3 +126,19 @@
     }
 }
 
+/** Responsive **/
+
+@include mobile {
+    // .home-image {
+    //     min-width: 24rem;
+    //     max-height: 42rem;
+    //     background-attachment: initial;
+    // }
+
+    #bgMain {
+        min-width: 22rem;
+        background-image: none;
+        min-width: initial;
+    }
+}
+
