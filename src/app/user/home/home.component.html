@@ -10,11 +10,15 @@
       <span i18n>Open profile page</span>
     </button>
 
-    <button routerLink="/settings" class="btn btn-outline-primary">
+    <button routerLink="/settings" class="btn btn-outline-primary mr-2">
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#settings"/>
       </svg>
       <span i18n>Edit profile</span>
+    </button>
+
+    <button (click)="logout()" class="btn btn-outline-primary">
+      <span i18n>Logout</span>
     </button>
   </div>
 </div>
@@ -53,11 +57,13 @@
       <span i18n>Finished</span>: {{test.finishDate | date:'medium'}}
     </div>
     <div class="col-6 pt-1 mt-3" *ngIf="test.status === testStatus.FINISHED">
-      <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span i18n>Share</span></a>
+      <a routerLink="{{test.url}}" target="_blank" class="btn btn-link text-white"><i class="fa fa-link"></i> <span
+        i18n>Share</span></a>
     </div>
     <div class="test-action-btn mt-3">
       <button routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg"
-              *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test</button>
+              *ngIf="test.status === testStatus.ACTIVE" i18n>Continue test
+      </button>
 
       <button routerLink="/classroom/{{test.code}}" class="btn btn-success btn-block btn-lg"
               *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">

@@ -5,6 +5,7 @@ import {first} from 'rxjs/operators';
 import {IqTest, TestResult, User} from '@/_models';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public testStatus = TestStatusEnum;
 
   constructor(
+    private router: Router,
     private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService
@@ -91,5 +93,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
         });
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
