@@ -110,35 +110,6 @@
   }
 }
 
-#start-test-dropdown {
-  .l-radius {
-    border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
-  }
-
-  .r-radius {
-    border-top-right-radius: 2em;
-    border-bottom-right-radius: 2em;
-  }
-
-  .dropdown {
-    .dropdown-menu {
-      left: -8em;
-      @include transition(all, .1s);
-      overflow: hidden;
-      transform-origin: top center;
-      transform: scale(1, 0);
-      display: block;
-    }
-
-    &:hover {
-      .dropdown-menu {
-        transform: scale(1);
-      }
-    }
-  }
-}
-
 /** Responsive **/
 
 @include mobile {

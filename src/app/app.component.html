@@ -6,25 +6,21 @@
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Start Test Dropdwon -->
-            <div class="collapse navbar-collapse" id="start-test-dropdown">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <button type="button" class="btn btn-primary l-radius">
-                                <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
-                            </button>
-                            <div class="btn-group" role="group">
-                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
-                                    <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="/iqtest/results" i18n>Best Results</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse justify-content-between">
+                <!-- Start Test Dropdwon -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success btn-lg">
+                        <a class="text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
+                    </button>
+                    <button type="button" class="btn btn-success btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/iqtest/results" i18n>Best Results</a>
+                    </div>
+                </div>
                 <!-- Sign up button -->
                 <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
                     <li class="nav-item">
