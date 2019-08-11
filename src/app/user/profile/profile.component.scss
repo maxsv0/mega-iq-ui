@@ -6,22 +6,22 @@
     @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
   }
 
-  .iq-badge {
-      z-index: 10000;
-      background: orange;
-      border-radius: 50%;
-      width: 7rem;
-      height: 7rem;
-      padding: 2rem 0;
-      font-size: 1.8em;
-      line-height: inherit;
-      text-align: center;
-      color: #fff;
-      left: 0;
-      top: 0;
-      border: 2px solid #eee;
-  }
-
+    .iq-badge {
+        z-index: 1;
+        background: orange;
+        border-radius: 50%;
+        width: 7rem;
+        height: 7rem;
+        padding: 2rem 0;
+        font-size: 1.8em;
+        line-height: inherit;
+        text-align: center;
+        color: #fff;
+        left: 0;
+        top: 0;
+        border: 2px solid #eee;
+    }
+  
   .profile-example {
     @include border-radius(4px);
     overflow: hidden;
