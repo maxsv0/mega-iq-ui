@@ -7,14 +7,14 @@
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#home"/>
       </svg>
-      <span i18n>Open profile page</span>
+      <span i18n>Open Profile</span>
     </button>
 
     <button routerLink="/settings" class="btn btn-outline-primary mr-2">
       <svg class="feather">
         <use xlink:href="/assets/feather-sprite.svg#settings"/>
       </svg>
-      <span i18n>Edit profile</span>
+      <span i18n>Edit Profile</span>
     </button>
 
     <button (click)="logout()" class="btn btn-outline-primary">
@@ -29,7 +29,7 @@
 
 <div class="row mt-5">
   <div class="col-sm-12">
-    <h1>{{currentUser.name}}, <span i18n>your tests</span></h1>
+    <h1>{{currentUser.name}}, <span i18n> your tests are displayed below</span>.</h1>
   </div>
 </div>
 
@@ -47,8 +47,11 @@
 
     <div class="row">
       <div class="col-6" *ngIf="test.status === testStatus.FINISHED">
-        <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-3"><i class="fa fa-link"></i> <span
-          i18n>Test Details</span></a>
+        <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-3">
+          <svg class="feather">
+            <use xlink:href="/assets/feather-sprite.svg#share-2"/>
+          </svg>
+          <span i18n>Open Details</span></a>
       </div>
 
       <div class="col-6">
@@ -57,14 +60,13 @@
           <svg class="feather">
             <use xlink:href="/assets/feather-sprite.svg#sun"/>
           </svg>
-          <span i18n>Show Answers</span>
-        </button>
+          <span i18n>Show Answers</span></button>
       </div>
     </div>
 
     <div *ngIf="!test.finishDate" class="course-progress">
       <div class="text-white">
-        <span i18n>Current test progress</span>: {{test.progress}}%
+        <span i18n>Overall test progress</span>: {{test.progress}}%
         <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
       </div>
     </div>
@@ -91,3 +93,12 @@
     </div>
   </div>
 </section>
+
+<div
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()"
+></div>

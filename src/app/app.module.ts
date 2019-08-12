@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
@@ -23,7 +24,7 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
-import { OwlModule } from 'ngx-owl-carousel';
+import {OwlModule} from 'ngx-owl-carousel';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     AngularFireModule.initializeApp(environment.firebase, 'Mega-IQ'),
     AngularFireAuthModule,
     routing,
-    OwlModule
+    OwlModule,
+    InfiniteScrollModule
   ],
   declarations: [
     AppComponent,

@@ -31,6 +31,7 @@
     "feather-icons": "^4.24.0",
     "firebase": "^5.11.1",
     "jquery": "^3.4.1",
+    "ngx-infinite-scroll": "^8.0.0",
     "ngx-owl-carousel": "^2.0.7",
     "node-sass": "^4.12.0",
     "popper": "^1.0.1",
