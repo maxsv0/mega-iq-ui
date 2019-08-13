@@ -20,7 +20,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   submitted = false;
   avatarsDefault = [];
   uploadPic = '';
-  isLoading: boolean = false;
+  isLoading = false;
 
   currentUser: User;
   currentUserSubscription: Subscription;
