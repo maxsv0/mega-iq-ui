@@ -60,7 +60,6 @@ export class IqTestService {
   }
 
   getMyAll(page: number) {
-    console.log("page ", page );
     return this.http.get<ApiResponseTestResultList>(environment.apiUrl + `/list-my?page=${page}`);
   }
 

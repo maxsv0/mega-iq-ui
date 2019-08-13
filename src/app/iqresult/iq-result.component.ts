@@ -12,6 +12,7 @@ import {TestStatusEnum} from '@/_models/enum';
 })
 export class IqResultComponent implements OnInit {
   test: TestResult;
+  isLoading = false;
 
   constructor(
     private iqTestService: IqTestService,
@@ -23,6 +24,8 @@ export class IqResultComponent implements OnInit {
 
   ngOnInit() {
     const testCode = this.route.snapshot.params['testCode'];
+
+    this.isLoading = true;
 
     this.iqTestService.getByCode(testCode)
       .pipe(first())
@@ -37,9 +40,11 @@ export class IqResultComponent implements OnInit {
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
+          this.isLoading = false;
         },
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
+          this.isLoading = false;
         });
   }
 
