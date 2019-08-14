@@ -72,19 +72,15 @@
 <!-- /loader -->
 
 <!-- main app container -->
-<main *ngIf="!loading" id="bgMain" class="mt-6 {{backgroundClass}}">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12">
-        <alert></alert>
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
+<main *ngIf="!loading" id="bgMain" class="mt-6 pt-2 {{backgroundClass}}">
+
+  <alert></alert>
+  <router-outlet></router-outlet>
+
   <div class="container">
     <!-- credits -->
     <div class="row">
-      <footer *ngIf="!loading" class="text-center col-12 col-sm-12 col-md-12">
+      <footer *ngIf="!loading" class="text-center col-12">
         <br>
         <ul class="list-inline text-muted">
           <li class="list-inline-item">&copy; Mega-IQ 2008-2019</li>
