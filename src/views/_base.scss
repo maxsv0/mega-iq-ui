@@ -107,7 +107,8 @@ a, a:hover {
 /** Test list layout styles **/
 
 .card-container {
-  width: 500px;
+  min-width: 500px;
+  min-height: 250px;
   padding: 30px;
   margin: 30px auto;
   border-radius: 10px;
@@ -141,4 +142,36 @@ a, a:hover {
 .test-ends {
     font-size: 13px;
     font-weight: bold;
+}
+
+.iq-badge-test {
+  z-index: 1;
+  background: orange;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  padding: 1.5rem 0;
+  font-size: 1.8em;
+  line-height: inherit;
+  text-align: center;
+  color: #fff;
+  right: 5px;
+  top: 5px;
+  border: 2px solid #eee;
+}
+
+.iq-badge {
+  z-index: 1;
+  background: orange;
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  padding: 2rem 0;
+  font-size: 1.8em;
+  line-height: inherit;
+  text-align: center;
+  color: #fff;
+  left: 0;
+  top: 0;
+  border: 2px solid #eee;
 }
