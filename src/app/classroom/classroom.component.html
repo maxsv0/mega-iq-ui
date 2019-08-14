@@ -86,7 +86,7 @@
               [ngClass]="{ 'badge-success': activeTest.status === testStatus.FINISHED, 'badge-primary': activeTest.status === testStatus.ACTIVE, 'badge-secondary': activeTest.status === testStatus.EXPIRED}">{{activeTest.status}}</span>
       </h4>
       <div class="text-muted">
-        <p i18n>Test Progress</p>
+        <p i18n>Current test progress</p>
         <progress class="w-100" value="{{activeTest.progress}}" max="100" role="progressbar"></progress>
       </div>
       <p>

@@ -5,6 +5,7 @@ import {first} from 'rxjs/operators';
 import {IqTest, TestResult, User} from '@/_models';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {TestStatusEnum} from '@/_models/enum';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -15,12 +16,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   testTypesKeys: [] = [];
   currentUser: User;
   currentUserSubscription: Subscription;
-  userTests: TestResult[];
+  userTests: TestResult[] = [];
   loading = false;
   deletedId = null;
+  userTestsPage = 0;
   public testStatus = TestStatusEnum;
 
   constructor(
+    private router: Router,
     private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService
@@ -39,8 +42,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.testTypesKeys[test.type] = key;
         }
       );
-
-      this.loadMyResult();
     });
   }
 
@@ -66,22 +67,30 @@ export class HomeComponent implements OnInit, OnDestroy {
           } else {
             this.alertService.error(apiResponseBase.msg);
           }
-          this.loadMyResult();
         },
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 
+  onScrollDown() {
+    console.log('Load page ' + this.userTestsPage + '  scrolled down!!');
+
+    this.loadMyResult();
+  }
+
+
   private loadMyResult() {
-    this.iqTestService.getMyAll()
+    this.iqTestService.getMyAll(this.userTestsPage)
       .pipe(first())
       .subscribe(
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
-            this.userTests = apiResponseTestResultList.tests;
-            console.log(this.userTests);
+            this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
             this.currentUser = apiResponseTestResultList.user;
+
+            console.log('Load page ' + this.userTestsPage + '  load done!');
+            this.userTestsPage++;
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
@@ -91,5 +100,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
         });
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
