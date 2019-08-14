@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentUserSubscription: Subscription;
   userTests: TestResult[] = [];
   loading = false;
+  isLoading = false;
+  isLastLoaded = false;
   deletedId = null;
   userTestsPage = 0;
   public testStatus = TestStatusEnum;
@@ -43,6 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       );
     });
+
+    this.loadMyResult();
   }
 
   ngOnDestroy() {
@@ -69,7 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(error);
         });
   }
 
@@ -81,11 +85,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   private loadMyResult() {
+    if (this.isLastLoaded) {
+      return true;
+    }
+
+    this.isLoading = true;
+
     this.iqTestService.getMyAll(this.userTestsPage)
       .pipe(first())
       .subscribe(
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
+            if (apiResponseTestResultList.tests.length < 8) {
+              this.isLastLoaded = true;
+            }
+
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
             this.currentUser = apiResponseTestResultList.user;
 
@@ -95,10 +109,11 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.alertService.error(apiResponseTestResultList.msg);
           }
 
-          this.loading = false;
+          this.isLoading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(error);
+          this.isLoading = false;
         });
   }
 
