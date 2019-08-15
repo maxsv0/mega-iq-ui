@@ -1,7 +1,9 @@
-<div class="container pt-5">
+<div class="container pt-5" *ngIf="!isLoading">
   <div class="row">
-    <div class="col-9 offset-1 jumbotron" *ngIf="!isLoading">
-
+    <div class="col-4">
+      <app-avatar *ngIf="user" [user]="user"></app-avatar>
+    </div>
+    <div class="col-8 jumbotron">
       <div class="card">
         <div class="card-body">
           Test URL: <a href="{{test.url}}" target="_blank">www.mega-iq.com{{test.url}}</a>

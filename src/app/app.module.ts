@@ -26,6 +26,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
+import { AvatarComponent } from './user/avatar/avatar.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import {PublicComponent} from './user/public/public.component';
     IqTestComponent,
     ClassroomComponent,
     IqResultComponent,
-    PublicComponent
+    PublicComponent,
+    AvatarComponent
   ],
   providers: [
     AuthenticationService,

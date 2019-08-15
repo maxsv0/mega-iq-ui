@@ -1,19 +1,23 @@
-<div id="iq-user" class="grid-col-row d-flex justify-content-center mt-5" *ngIf="user">
-    <div class="grid-col grid-col-4">
-        <div class="profile-example">
-            <div class="badge iq-badge position-absolute">IQ {{user.iq}}</div>
-            <div class="profile-hover">
-                <a routerLink="/user/{{user.id}}">
-                    <img src="{{user.pic}}=s300-c" class="img-avatar float-right w-100">
-                </a>
-            </div>
-            <div class="profile-data d-flex justify-content-between bg-primary px-3 py-4">
-                <h3 class="m-0 text-white">{{user.name}}</h3>
-                <h3 class="text-white m-0">{{user.location}}</h3>
-            </div>
-        </div>
+<div id="iq-user" class="row" *ngIf="user">
+  <div class="col-md-5">
+    <div class="iq-user-body">
+      <div class="badge iq-badge position-absolute">IQ {{user.iq}}</div>
+      <div class="profile-hover">
+        <a routerLink="/user/{{user.id}}">
+          <img src="{{user.pic}}=s300-c" class="img-avatar">
+        </a>
+      </div>
+      <div class="profile-data d-flex justify-content-between bg-primary px-3 py-4">
+        <h3 class="m-0 text-white">{{user.name}}</h3>
+        <h3 class="text-white m-0">{{user.location}}</h3>
+      </div>
     </div>
-    <div class="grid-col grid-col-6 m-1" *ngIf="user.certificate">
-      <img class="img-fluid" src="{{user.certificate}}">
-    </div>
+  </div>
+  <div class="col-md-7" *ngIf="user.certificate">
+    <img class="img-fluid" src="{{user.certificate}}">
+  </div>
+  <div class="col-md-7" *ngIf="user && !user.certificate">
+    <img class="img-fluid" src="/assets/img/iq-certificate-example.jpg">
+  </div>
 </div>
+

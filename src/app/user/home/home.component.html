@@ -53,7 +53,11 @@
           <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
         </div>
 
-        <div class="badge iq-badge-test position-absolute" *ngIf="test.points && test.points > 50">{{test.points}}</div>
+        <div class="badge iq-badge-test test-mega position-absolute" *ngIf="test.type == testTypeEnum.MEGA_IQ">{{test.points}}</div>
+        <div class="badge iq-badge-test test-standard position-absolute" *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
+        <div class="badge iq-badge-test test-grammar position-absolute" *ngIf="test.type == testTypeEnum.GRAMMAR">{{test.points}} / 10</div>
+        <div class="badge iq-badge-test test-math position-absolute" *ngIf="test.type == testTypeEnum.MATH">{{test.points}} / 10</div>
+        <div class="badge iq-badge-test test-practice position-absolute" *ngIf="test.type == testTypeEnum.PRACTICE_IQ">{{test.points}} / 5</div>
 
         <div class="row">
           <div class="col-6" *ngIf="test.status === testStatus.FINISHED">

@@ -145,8 +145,8 @@ a, a:hover {
 }
 
 .iq-badge-test {
-  z-index: 1;
-  background: orange;
+  z-index: 1000;
+  background: #7d8ac0;
   border-radius: 50%;
   width: 6rem;
   height: 6rem;
@@ -157,11 +157,11 @@ a, a:hover {
   color: #fff;
   right: 5px;
   top: 5px;
-  border: 2px solid #eee;
+  border: 2px solid #eee !important;
 }
 
 .iq-badge {
-  z-index: 1;
+  z-index: 1000;
   background: orange;
   border-radius: 50%;
   width: 7rem;

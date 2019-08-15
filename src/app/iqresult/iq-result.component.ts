@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';
-import {TestResult} from '@/_models';
+import {TestResult, User} from '@/_models';
 import {TestStatusEnum} from '@/_models/enum';
 
 @Component({
@@ -12,6 +12,7 @@ import {TestStatusEnum} from '@/_models/enum';
 })
 export class IqResultComponent implements OnInit {
   test: TestResult;
+  user: User;
   isLoading = false;
 
   constructor(
@@ -36,6 +37,7 @@ export class IqResultComponent implements OnInit {
               this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
             } else {
               this.test = apiResponseTestResult.test;
+              this.user = apiResponseTestResult.user;
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);

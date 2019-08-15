@@ -4,6 +4,7 @@ import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
 import {first} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
+import {TestTypeEnum} from '@/_models/enum';
 
 @Component({
   selector: 'app-public',
@@ -19,6 +20,7 @@ export class PublicComponent implements OnInit {
   isLoading = false;
   isLastLoaded = false;
   userTestsPage = 0;
+  testTypeEnum = TestTypeEnum;
 
   constructor(
     private titleService: Title,

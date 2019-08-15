@@ -4,7 +4,7 @@ import {first} from 'rxjs/operators';
 
 import {IqTest, TestResult, User} from '@/_models';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
-import {TestStatusEnum} from '@/_models/enum';
+import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Router} from '@angular/router';
 
 @Component({
@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   deletedId = null;
   userTestsPage = 0;
   public testStatus = TestStatusEnum;
+  public testTypeEnum = TestTypeEnum;
 
   constructor(
     private router: Router,

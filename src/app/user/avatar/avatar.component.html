@@ -1,0 +1,14 @@
+<div id="iq-user" *ngIf="user">
+  <div class="iq-user-body">
+    <div class="badge iq-badge position-absolute">IQ {{user.iq}}</div>
+    <div class="profile-hover">
+      <a routerLink="/user/{{user.id}}">
+        <img src="{{user.pic}}=s300-c" class="img-avatar">
+      </a>
+    </div>
+    <div class="profile-data d-flex justify-content-between bg-primary px-3 py-4">
+      <h3 class="m-0 text-white">{{user.name}}</h3>
+      <h3 class="text-white m-0">{{user.location}}</h3>
+    </div>
+  </div>
+</div>

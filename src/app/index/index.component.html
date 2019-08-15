@@ -68,7 +68,7 @@
     </div>
     <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
         <div *ngFor="let userExample of userExamples">
-            <app-profile *ngIf="userExample" [user]="userExample"></app-profile>
+            <app-avatar *ngIf="userExample" [user]="userExample"></app-avatar>
         </div>
     </owl-carousel>
 </section>
@@ -82,7 +82,7 @@
     <div class="course-title text-white">
       <p>{{item.value.description}}</p>
     </div>
-    <button class="btn btn-success w-50 align-self-center mt-3">
+    <button class="btn btn-lg btn-{{item.value.styleName}} w-50 align-self-center mt-3">
       <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
     </button>
   </div>
