@@ -4,14 +4,15 @@ import {IndexComponent} from './index/index.component';
 import {LoginComponent} from './user/login/login.component';
 import {RegisterComponent} from './user/register/register.component';
 import {HomeComponent} from './user/home/home.component';
-import {ProfileComponent} from './user/profile/profile.component';
 import {SettingsComponent} from './user/settings/settings.component';
 import {ForgetComponent} from './user/forget/forget.component';
+import {PublicComponent} from './user/public/public.component';
 import {ResultsComponent} from './results/results.component';
 import {IqTestComponent} from './iqtest/iq-test.component';
 import {IqResultComponent} from './iqresult/iq-result.component';
 import {ClassroomComponent} from './classroom/classroom.component';
 import {AuthGuard} from './_guards';
+
 
 const appRoutes: Routes = [
   {path: '', component: IndexComponent},
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
   {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
   {path: 'settings/:verifyCode', component: SettingsComponent, canActivate: [AuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'user/:userId', component: ProfileComponent},
+  {path: 'user/:userId', component: PublicComponent},
 
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
