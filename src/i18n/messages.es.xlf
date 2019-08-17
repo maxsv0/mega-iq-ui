@@ -83,7 +83,7 @@
     <unit id="2454050363478003966">
       <notes>
         
-      <note category="location">app/user/login/login.component.html:5</note></notes>
+      <note category="location">app/user/login/login.component.html:5</note><note category="location">app/user/login/login.component.html:28</note></notes>
       <segment state="initial">
         <source>Login</source>
       <target>Login</target></segment>
@@ -458,14 +458,55 @@
       <segment state="initial">
         <source>Reset Password</source>
       <target>Reset Password</target></segment>
+    </unit><unit id="2650269401046048840">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:11</note>
+        <note category="location">app/iqtest/iq-test.component.html:41</note>
+      </notes>
+      <segment state="initial">
+        <source>questions</source>
+      <target>questions</target></segment>
+    </unit><unit id="7422678012467593770">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:13</note>
+        <note category="location">app/iqtest/iq-test.component.html:43</note>
+      </notes>
+      <segment state="initial">
+        <source>Average testing time is</source>
+      <target>Average testing time is</target></segment>
+    </unit><unit id="3901733599428143571">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:13</note>
+        <note category="location">app/iqtest/iq-test.component.html:14</note>
+        <note category="location">app/iqtest/iq-test.component.html:43</note>
+        <note category="location">app/iqtest/iq-test.component.html:44</note>
+      </notes>
+      <segment state="initial">
+        <source>min</source>
+      <target>min</target></segment>
+    </unit><unit id="5653531963388315526">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:14</note>
+        <note category="location">app/iqtest/iq-test.component.html:44</note>
+      </notes>
+      <segment state="initial">
+        <source>limit</source>
+      <target>limit</target></segment>
     </unit>
     <unit id="6611630004208902126">
       <notes>
         
-      <note category="location">app/iqtest/iq-test.component.html:11</note></notes>
+      <note category="location">app/iqtest/iq-test.component.html:24</note></notes>
       <segment state="initial">
         <source>Start Test</source>
       <target>Start Test</target></segment>
+    </unit><unit id="7593555694782789615">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:48</note>
+      </notes>
+      <segment state="initial">
+        <source>Open</source>
+      <target>Open</target></segment>
     </unit><unit id="5320870651003627043">
       <notes>
         

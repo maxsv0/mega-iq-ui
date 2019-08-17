@@ -82,7 +82,7 @@
       <notes>
         
         
-      <note category="location">app/user/login/login.component.html:5</note></notes>
+      <note category="location">app/user/login/login.component.html:5</note><note category="location">app/user/login/login.component.html:28</note></notes>
       <segment state="translated">
         <source>Login</source>
       <target>Войти</target></segment>
@@ -117,7 +117,7 @@
       <note category="location">app/user/login/login.component.html:8</note><note category="location">app/user/register/register.component.html:8</note><note category="location">app/user/settings/settings.component.html:9</note><note category="location">app/user/forget/forget.component.html:8</note></notes>
       <segment state="translated">
         <source>Email</source>
-      <target>Email</target></segment>
+      <target>Эл. адрес</target></segment>
     </unit>
     <unit id="8552587679160911578">
       <notes>
@@ -126,7 +126,7 @@
       <note category="location">app/user/login/login.component.html:12</note><note category="location">app/user/register/register.component.html:12</note><note category="location">app/user/settings/settings.component.html:31</note><note category="location">app/user/forget/forget.component.html:12</note></notes>
       <segment state="translated">
         <source>Email is required</source>
-      <target>Email обязательное поле</target></segment>
+      <target>Эл. адрес обязательное поле</target></segment>
     </unit>
     <unit id="6166496530300942880">
       <notes>
@@ -135,7 +135,7 @@
       <note category="location">app/user/login/login.component.html:13</note><note category="location">app/user/register/register.component.html:13</note><note category="location">app/user/settings/settings.component.html:32</note><note category="location">app/user/forget/forget.component.html:13</note></notes>
       <segment state="translated">
         <source>Email is not valid</source>
-      <target>Email введен неправильно</target></segment>
+      <target>Эл. адрес введен неправильно</target></segment>
     </unit>
     <unit id="8953033926734869941">
       <notes>
@@ -257,7 +257,7 @@
       </notes>
       <segment state="translated">
         <source>Edit Profile</source>
-      <target>Редактировать Профиль</target></segment>
+      <target>Редактировать профиль</target></segment>
     </unit><unit id="3797778920049399855">
       <notes>
         <note category="location">app/user/home/home.component.html:22</note>
@@ -279,7 +279,7 @@
       </notes>
       <segment state="translated">
         <source>Open Details</source>
-      <target>Показать подробнее</target></segment>
+      <target>Подробнее</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
         <note category="location">app/user/home/home.component.html:79</note>
@@ -312,7 +312,7 @@
       </notes>
       <segment state="translated">
         <source>Finished at</source>
-      <target>Тест закончен</target></segment>
+      <target>Конец тестирования</target></segment>
     </unit><unit id="3856509348648011303">
       <notes>
         <note category="location">app/user/home/home.component.html:98,99</note>
@@ -442,13 +442,54 @@
       <segment state="translated">
         <source>Reset Password</source>
       <target>Восстановить пароль</target></segment>
+    </unit><unit id="2650269401046048840">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:11</note>
+        <note category="location">app/iqtest/iq-test.component.html:41</note>
+      </notes>
+      <segment state="translated">
+        <source>questions</source>
+      <target>вопросов</target></segment>
+    </unit><unit id="7422678012467593770">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:13</note>
+        <note category="location">app/iqtest/iq-test.component.html:43</note>
+      </notes>
+      <segment state="translated">
+        <source>Average testing time is</source>
+      <target>Среднее время тестирования</target></segment>
+    </unit><unit id="3901733599428143571">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:13</note>
+        <note category="location">app/iqtest/iq-test.component.html:14</note>
+        <note category="location">app/iqtest/iq-test.component.html:43</note>
+        <note category="location">app/iqtest/iq-test.component.html:44</note>
+      </notes>
+      <segment state="translated">
+        <source>min</source>
+      <target>минут</target></segment>
+    </unit><unit id="5653531963388315526">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:14</note>
+        <note category="location">app/iqtest/iq-test.component.html:44</note>
+      </notes>
+      <segment state="translated">
+        <source>limit</source>
+      <target>лимит</target></segment>
     </unit><unit id="6611630004208902126">
       <notes>
         
-      <note category="location">app/iqtest/iq-test.component.html:11</note></notes>
+      <note category="location">app/iqtest/iq-test.component.html:24</note></notes>
       <segment state="translated">
         <source>Start Test</source>
       <target>Начать тест</target></segment>
+    </unit><unit id="7593555694782789615">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:48</note>
+      </notes>
+      <segment state="translated">
+        <source>Open</source>
+      <target>Открыть</target></segment>
     </unit><unit id="5320870651003627043">
       <notes>
         
@@ -559,9 +600,9 @@
       <notes>
         <note category="location">app/user/public/public.component.html:16</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>latest passed iq tests</source>
-      <target>latest passed iq tests</target></segment>
+      <target>последние пройденные айкю тесты</target></segment>
     </unit>
   </file>
 </xliff>
