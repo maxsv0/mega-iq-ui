@@ -2,11 +2,24 @@
   <div class="row">
     <div class="col-12">
 
-      <div *ngIf="testSelected">
-        <h2>{{testSelected.name}}</h2>
+      <div class="test" *ngIf="testSelected">
+        <div class="test-{{testSelected.styleName}}">
+          <h1 class="mx-5 my-3">{{testSelected.name}}</h1>
+        </div>
+        <div class="row mx-1">
+          <div class="col-md-7 text-white">
+            <h2>{{testSelected.name}}<br>{{testSelected.questions}} <span i18n>questions</span></h2>
+            <h3 class="mt-5">{{testSelected.description}}</h3>
+            <h4 class="mt-4"><span i18n>Average testing time is</span> {{testSelected.time}} <span i18n>min</span>,
+              <span i18n>limit</span> {{testSelected.expire}} <span i18n>min</span></h4>
+          </div>
+          <div class="col-md-5">
+<!--            ad placeholder-->
+          </div>
+        </div>
 
-        <div class="form-group">
-          <button [disabled]="loading" id="start-test-btn" class="btn btn-primary btn-lg"
+        <div class="col-4 offset-4">
+          <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}}"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
             <span *ngIf="loading" class="actn-loader"></span>
@@ -25,13 +38,14 @@
               </div>
               <div class="row mx-1">
                 <div class="col-md-7">
-                  <h2>{{item.value.name}}<br>{{item.value.questions}} questions</h2>
+                  <h2>{{item.value.name}}<br>{{item.value.questions}} <span i18n>questions</span></h2>
                   <h3 class="mt-5">{{item.value.description}}</h3>
-                  <h4 class="mt-4">Average testing time is {{item.value.time}} min, limit {{item.value.expire}} min</h4>
+                  <h4 class="mt-4"><span i18n>Average testing time is</span> {{item.value.time}} <span i18n>min</span>,
+                    <span i18n>limit</span> {{item.value.expire}} <span i18n>min</span></h4>
                 </div>
                 <div class="col-md-5">
                   <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">
-                    Go to the {{item.value.name}}
+                    <span i18n>Open</span> {{item.value.name}}
                   </a>
                 </div>
               </div>
