@@ -11,15 +11,15 @@
 <section id="iq-scores" class="container d-flex justify-content-between my-5">
 
     <div>
-        <h3 class="text-center mb-3">Mega IQ Ever</h3>
+        <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
         <table class="w-100 bg-white">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Age</th>
-                    <th>Location</th>
-                    <th>IQ</th>
-                    <th>Total Score</th>
+                    <th i18n>User</th>
+                    <th i18n>Age</th>
+                    <th i18n>Location</th>
+                    <th i18n>IQ</th>
+                    <th i18n>Total Score</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,15 +35,14 @@
     </div>
 
     <div>
-        <h3 class="text-center mb-3">Best IQ Today</h3>
+        <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
         <table class="w-100 bg-white">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Age</th>
-                    <th>Location</th>
-                    <th>IQ</th>
-                    <th>Total Score</th>
+                    <th i18n>User</th>
+                    <th i18n>Age</th>
+                    <th i18n>Location</th>
+                    <th i18n>IQ</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,7 +51,6 @@
                     <td>{{user.age || '-'}}</td>
                     <td>{{user.location || '-'}}</td>
                     <td>{{user.iq || '-'}}</td>
-                    <td>{{user.totalScore || '-'}}</td>
                 </tr>
             </tbody>
         </table>
@@ -62,7 +60,7 @@
 
 <section id="user-example" class="container my-5">
     <div class="clearfix">
-        <h2 class="text-center">Example profile</h2>
+        <h2 class="text-center" i18n>Example profile</h2>
     </div>
     <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
         <div *ngFor="let userExample of userExamples">
@@ -81,7 +79,7 @@
       <p>{{item.value.description}}</p>
     </div>
     <button class="btn btn-lg btn-{{item.value.styleName}} w-50 align-self-center mt-3">
-      <a class="text-white" routerLink="{{item.value.url}}">Start Test</a>
+      <a class="text-white" routerLink="{{item.value.url}}" i18n>Start Test</a>
     </button>
   </div>
 </section>

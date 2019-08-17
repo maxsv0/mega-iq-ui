@@ -78,6 +78,21 @@
       <segment state="translated">
         <source>Start The IQ Test</source>
       <target>Перейти к Мега-Айкю тестам</target></segment>
+    </unit><unit id="9003106289724138956">
+      <notes>
+        <note category="location">app/index/index.component.html:14</note>
+      </notes>
+      <segment state="initial">
+        <source>Mega IQ Ever</source>
+      <target>Mega IQ Ever</target></segment>
+    </unit><unit id="2392488717875840729">
+      <notes>
+        <note category="location">app/index/index.component.html:18</note>
+        <note category="location">app/index/index.component.html:42</note>
+      </notes>
+      <segment state="initial">
+        <source>User</source>
+      <target>User</target></segment>
     </unit><unit id="2454050363478003966">
       <notes>
         
@@ -159,7 +174,7 @@
       <notes>
         
         
-      <note category="location">app/user/register/register.component.html:25</note><note category="location">app/user/settings/settings.component.html:44</note></notes>
+      <note category="location">app/index/index.component.html:19</note><note category="location">app/index/index.component.html:43</note><note category="location">app/user/register/register.component.html:25</note><note category="location">app/user/settings/settings.component.html:44</note></notes>
       <segment state="translated">
         <source>Age</source>
       <target>Возраст</target></segment>
@@ -168,10 +183,39 @@
       <notes>
         
         
-      <note category="location">app/user/register/register.component.html:29</note><note category="location">app/user/settings/settings.component.html:48</note></notes>
+      <note category="location">app/index/index.component.html:20</note><note category="location">app/index/index.component.html:44</note><note category="location">app/user/register/register.component.html:29</note><note category="location">app/user/settings/settings.component.html:48</note></notes>
       <segment state="translated">
         <source>Location</source>
       <target>Регион</target></segment>
+    </unit><unit id="3151050103772729215">
+      <notes>
+        <note category="location">app/index/index.component.html:21</note>
+        <note category="location">app/index/index.component.html:45</note>
+      </notes>
+      <segment state="translated">
+        <source>IQ</source>
+      <target>Айкю</target></segment>
+    </unit><unit id="5263690784228037855">
+      <notes>
+        <note category="location">app/index/index.component.html:22</note>
+      </notes>
+      <segment state="translated">
+        <source>Total Score</source>
+      <target>Всего</target></segment>
+    </unit><unit id="1551462023299745992">
+      <notes>
+        <note category="location">app/index/index.component.html:38</note>
+      </notes>
+      <segment state="translated">
+        <source>Best IQ Today</source>
+      <target>Лучше айкю сегодн</target></segment>
+    </unit><unit id="735510670641180511">
+      <notes>
+        <note category="location">app/index/index.component.html:63</note>
+      </notes>
+      <segment state="translated">
+        <source>Example profile</source>
+      <target>Пример профиля</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
@@ -479,7 +523,7 @@
     </unit><unit id="6611630004208902126">
       <notes>
         
-      <note category="location">app/iqtest/iq-test.component.html:24</note></notes>
+      <note category="location">app/index/index.component.html:82</note><note category="location">app/iqtest/iq-test.component.html:24</note></notes>
       <segment state="translated">
         <source>Start Test</source>
       <target>Начать тест</target></segment>

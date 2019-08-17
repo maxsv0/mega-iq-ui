@@ -81,6 +81,87 @@
         <source>Start The IQ Test</source>
       </segment>
     </unit>
+    <unit id="9003106289724138956">
+      <notes>
+        <note category="location">app/index/index.component.html:14</note>
+      </notes>
+      <segment>
+        <source>Mega IQ Ever</source>
+      </segment>
+    </unit>
+    <unit id="2392488717875840729">
+      <notes>
+        <note category="location">app/index/index.component.html:18</note>
+        <note category="location">app/index/index.component.html:42</note>
+      </notes>
+      <segment>
+        <source>User</source>
+      </segment>
+    </unit>
+    <unit id="1130652265542107236">
+      <notes>
+        <note category="location">app/index/index.component.html:19</note>
+        <note category="location">app/index/index.component.html:43</note>
+        <note category="location">app/user/register/register.component.html:25</note>
+        <note category="location">app/user/settings/settings.component.html:44</note>
+      </notes>
+      <segment>
+        <source>Age</source>
+      </segment>
+    </unit>
+    <unit id="471816275243265264">
+      <notes>
+        <note category="location">app/index/index.component.html:20</note>
+        <note category="location">app/index/index.component.html:44</note>
+        <note category="location">app/user/register/register.component.html:29</note>
+        <note category="location">app/user/settings/settings.component.html:48</note>
+      </notes>
+      <segment>
+        <source>Location</source>
+      </segment>
+    </unit>
+    <unit id="3151050103772729215">
+      <notes>
+        <note category="location">app/index/index.component.html:21</note>
+        <note category="location">app/index/index.component.html:45</note>
+      </notes>
+      <segment>
+        <source>IQ</source>
+      </segment>
+    </unit>
+    <unit id="5263690784228037855">
+      <notes>
+        <note category="location">app/index/index.component.html:22</note>
+      </notes>
+      <segment>
+        <source>Total Score</source>
+      </segment>
+    </unit>
+    <unit id="1551462023299745992">
+      <notes>
+        <note category="location">app/index/index.component.html:38</note>
+      </notes>
+      <segment>
+        <source>Best IQ Today</source>
+      </segment>
+    </unit>
+    <unit id="735510670641180511">
+      <notes>
+        <note category="location">app/index/index.component.html:63</note>
+      </notes>
+      <segment>
+        <source>Example profile</source>
+      </segment>
+    </unit>
+    <unit id="6611630004208902126">
+      <notes>
+        <note category="location">app/index/index.component.html:82</note>
+        <note category="location">app/iqtest/iq-test.component.html:24</note>
+      </notes>
+      <segment>
+        <source>Start Test</source>
+      </segment>
+    </unit>
     <unit id="2454050363478003966">
       <notes>
         <note category="location">app/user/login/login.component.html:5</note>
@@ -184,24 +265,6 @@
       </notes>
       <segment>
         <source>Name is required</source>
-      </segment>
-    </unit>
-    <unit id="1130652265542107236">
-      <notes>
-        <note category="location">app/user/register/register.component.html:25</note>
-        <note category="location">app/user/settings/settings.component.html:44</note>
-      </notes>
-      <segment>
-        <source>Age</source>
-      </segment>
-    </unit>
-    <unit id="471816275243265264">
-      <notes>
-        <note category="location">app/user/register/register.component.html:29</note>
-        <note category="location">app/user/settings/settings.component.html:48</note>
-      </notes>
-      <segment>
-        <source>Location</source>
       </segment>
     </unit>
     <unit id="8547747030242972664">
@@ -498,14 +561,6 @@
       </notes>
       <segment>
         <source>limit</source>
-      </segment>
-    </unit>
-    <unit id="6611630004208902126">
-      <notes>
-        <note category="location">app/iqtest/iq-test.component.html:24</note>
-      </notes>
-      <segment>
-        <source>Start Test</source>
       </segment>
     </unit>
     <unit id="7593555694782789615">
