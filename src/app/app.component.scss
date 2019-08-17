@@ -110,33 +110,20 @@
   }
 }
 
-#start-test-dropdown {
-  .l-radius {
-    border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
-  }
+/** Responsive **/
 
-  .r-radius {
-    border-top-right-radius: 2em;
-    border-bottom-right-radius: 2em;
-  }
+@include mobile {
+    // .home-image {
+    //     min-width: 24rem;
+    //     max-height: 42rem;
+    //     background-attachment: initial;
+    // }
 
-  .dropdown {
-    .dropdown-menu {
-      left: -8em;
-      @include transition(all, .1s);
-      overflow: hidden;
-      transform-origin: top center;
-      transform: scale(1, 0);
-      display: block;
+    #bgMain {
+        min-width: 22rem;
+        background-image: none;
+        min-width: initial;
     }
-
-    &:hover {
-      .dropdown-menu {
-        transform: scale(1);
-      }
-    }
-  }
 }
 
 /** Responsive **/
