@@ -303,14 +303,15 @@
       <target>Hola</target></segment>
     </unit><unit id="2606712855106855414">
       <notes>
-        <note category="location">app/user/home/home.component.html:11</note>
+        <note category="location">app/user/home/home.component.html:10</note>
       </notes>
       <segment state="translated">
         <source>Open Profile</source>
       <target>Abrir página de mi perfil</target></segment>
     </unit><unit id="2984628903434675339">
       <notes>
-        <note category="location">app/user/home/home.component.html:18</note>
+        <note category="location">app/user/home/home.component.html:17</note>
+        <note category="location">app/user/settings/settings.component.html:5</note>
       </notes>
       <segment state="translated">
         <source>Edit Profile</source>
@@ -324,7 +325,7 @@
       <target>Logout</target></segment>
     </unit><unit id="6205220545163020073">
       <notes>
-        <note category="location">app/user/home/home.component.html:41</note>
+        <note category="location">app/user/home/home.component.html:35</note>
       </notes>
       <segment state="initial">
         <source> your iq tests are displayed below</source>
@@ -339,15 +340,14 @@
       <target>Open Details</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
-        <note category="location">app/user/home/home.component.html:79</note>
+        <note category="location">app/user/home/home.component.html:42</note>
       </notes>
       <segment state="initial">
         <source>Show Answers</source>
       <target>Show Answers</target></segment>
     </unit><unit id="2479829772667496101">
       <notes>
-        <note category="location">app/user/home/home.component.html:85</note>
-        <note category="location">app/iqresult/iq-result.component.html:14</note>
+        <note category="location">app/user/home/home.component.html:45</note>
       </notes>
       <segment state="translated">
         <source>Overall test progress</source>
@@ -372,7 +372,7 @@
       <target>Completado</target></segment>
     </unit><unit id="3856509348648011303">
       <notes>
-        <note category="location">app/user/home/home.component.html:98,99</note>
+        <note category="location">app/user/home/home.component.html:49</note>
       </notes>
       <segment state="initial">
         <source>Continue Test
@@ -398,7 +398,7 @@
       <target>Empezado</target></segment>
     </unit>
     
-    <unit id="7022070615528435141">
+    <unit id="61627423335000084">
       <notes>
         
       <note category="location">app/user/home/home.component.html:106</note></notes>
