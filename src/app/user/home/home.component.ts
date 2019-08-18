@@ -102,7 +102,9 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
 
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
+            console.log(this.userTests);
             this.currentUser = apiResponseTestResultList.user;
+            console.log(this.currentUser);
 
             console.log('Load page ' + this.userTestsPage + '  load done!');
             this.userTestsPage++;

@@ -1,7 +1,5 @@
-<div class="page-loader" *ngIf="isLoading && !user"></div>
-
-<div class="bg-user">
-  <div class="container py-4">
+<div class="bg-user" *ngIf="!isLoading">
+  <div class="container py-5">
     <div class="row">
       <div class="col-8 offset-2">
         <app-profile *ngIf="user" [user]="user"></app-profile>
@@ -10,7 +8,17 @@
   </div>
 </div>
 
-<div class="container mt-4" *ngIf="user && userTests">
+<div class="py-5" *ngIf="isLoading">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <div class="page-loader"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" *ngIf="user && userTests && !isLoading">
   <div class="row">
     <div class="col-12">
       <h1>{{user.name}} <span i18n>latest passed iq tests</span></h1>
@@ -63,5 +71,3 @@
   [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()"
 ></div>
-
-<div class="page-loader" *ngIf="isLoading && userTests"></div>

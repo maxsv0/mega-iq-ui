@@ -10,6 +10,7 @@ import {User} from '@/_models';
 })
 export class ResultsComponent implements OnInit {
   users: User[] = [];
+  isLoading = false;
 
   constructor(
     private userService: UserService,
@@ -18,6 +19,7 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.loadUsersAll();
   }
 
@@ -26,12 +28,15 @@ export class ResultsComponent implements OnInit {
       apiResponseUsersList => {
         if (apiResponseUsersList.ok) {
           this.users = apiResponseUsersList.users;
+          this.isLoading = false;
         } else {
           this.alertService.error(apiResponseUsersList.msg);
+          this.isLoading = false;
         }
       },
       error => {
         this.alertService.error('API Service Unavailable. ' + error);
+        this.isLoading = false;
       });
   }
 }
