@@ -9,7 +9,7 @@
 // }
 
 .home-image {
-  background-image: url('../assets/img/bg6.jpg');
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg);
   @include background-size(cover);
   min-width: 1024px;
   width: 100%;
@@ -22,7 +22,7 @@
 .bg-iq-practice {
   background-size: 100%;
   background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/novice_init_bg.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg);
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -30,7 +30,7 @@
 .bg-iq-standard {
   background-size: 100%;
   background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/normal_init_bg.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg);
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -38,7 +38,7 @@
 .bg-mega-iq {
   background-size: 100%;
   background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/mega_init_bg.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg);
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -46,7 +46,7 @@
 .bg-math {
   background-size: 100%;
   background-color: #c5bdb4 !important;
-  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/math_init_bg.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg);
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -54,7 +54,7 @@
 .bg-grammar {
   background-size: 100%;
   background-color: #d1cdc2 !important;
-  background-image: url(https://storage.googleapis.com/msvhost.appspot.com/mega-iq/iqtest/picture-big/grammar_init_bg.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-grammar.jpg);
   background-position: center top;
   background-repeat: no-repeat;
 }

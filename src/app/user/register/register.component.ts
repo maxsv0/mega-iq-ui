@@ -115,4 +115,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       });
   }
 
+  loginGoogle() {
+    this.authenticationService.googleLogin()
+      .then(data => {
+        this.loading = false;
+        this.router.navigate(['/home']);
+      })
+      .catch(data => {
+        this.alertService.error(data.message);
+        this.loading = false;
+      });
+  }
 }

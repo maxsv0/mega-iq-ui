@@ -1,0 +1,67 @@
+<div class="page-loader" *ngIf="isLoading && !user"></div>
+
+<div class="bg-user">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <app-profile *ngIf="user" [user]="user"></app-profile>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="user && userTests">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{user.name}} <span i18n>latest passed iq tests</span></h1>
+    </div>
+  </div>
+
+  <section class="row" *ngIf="testTypes">
+    <div class="col-6" *ngFor="let test of userTests">
+      <div class="card-container"
+           [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
+
+        <div class="text-white">
+          <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
+        </div>
+
+        <div class="badge iq-badge-test test-megaiq position-absolute" *ngIf="test.type == testTypeEnum.MEGA_IQ">{{test.points}}</div>
+        <div class="badge iq-badge-test test-standard position-absolute" *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
+
+        <div class="row">
+          <div class="col-6">
+            <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-2">
+              <svg class="feather">
+                <use xlink:href="/assets/feather-sprite.svg#share-2"/>
+              </svg>
+              <span i18n>Open Details</span></a>
+          </div>
+        </div>
+
+        <div class="course-starts text-white pt-2">
+          <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
+        </div>
+        <div class="course-ends text-white" *ngIf="test.finishDate">
+          <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row" *ngIf="isLastLoaded">
+    <div class="col-8 offset-2">
+      <div class="alert alert-info" i18n>All results were loaded successfully.</div>
+    </div>
+  </div>
+</div>
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="4"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()"
+></div>
+
+<div class="page-loader" *ngIf="isLoading && userTests"></div>

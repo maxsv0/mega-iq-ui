@@ -35,7 +35,7 @@ body {
 }
 
 .test-practice {
-  border-color: $colorPractice;
+  border-color: $colorPracticeDark;
   background-color: $colorPractice;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 .test-standard {
-  border-color: $colorStandard;
+  border-color: $colorStandardDark;
   background-color: $colorStandard;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .test-megaiq {
-  border-color: $colorMegaIq;
+  border-color: $colorMegaIqDark;
   background-color: $colorMegaIq;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 .test-math {
-  border-color: $colorMath;
+  border-color: $colorMathDark;
   background-color: $colorMath;
 }
 
@@ -99,7 +99,7 @@ body {
 }
 
 .test-grammar {
-  border-color: $colorGrammar;
+  border-color: $colorGrammarDark;
   background-color: $colorGrammar;
 }
 
@@ -113,5 +113,11 @@ body {
   background-color: $colorGrammarLight;
   border-bottom: 5px $colorGrammarDark solid;
 }
-  
 
+.bg-user {
+  background-size: 100%;
+  background-color: #000 !important;;
+  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-user.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+}

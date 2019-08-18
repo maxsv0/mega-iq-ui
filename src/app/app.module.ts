@@ -25,6 +25,8 @@ import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
+import {PublicComponent} from './user/public/public.component';
+import { AvatarComponent } from './user/avatar/avatar.component';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import {OwlModule} from 'ngx-owl-carousel';
     ResultsComponent,
     IqTestComponent,
     ClassroomComponent,
-    IqResultComponent
+    IqResultComponent,
+    PublicComponent,
+    AvatarComponent
   ],
   providers: [
     AuthenticationService,
