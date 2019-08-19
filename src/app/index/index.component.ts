@@ -4,6 +4,8 @@ import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, User} from '@/_models';
 import * as $ from 'jquery';
 import {interval, Subscription} from 'rxjs';
+import {I18n} from '@ngx-translate/i18n-polyfill';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   templateUrl: './index.component.html',
@@ -19,14 +21,45 @@ export class IndexComponent implements OnInit, OnDestroy {
   clockTimerSubscription: Subscription;
   clockSpeed: number;
 
+  carouselOptions = {
+    margin: 25,
+    nav: true,
+    navText: ['<div class=\'nav-btn prev-slide\'></div>', '<div class=\'nav-btn next-slide\'></div>'],
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true
+      },
+      600: {
+        items: 1,
+        nav: true
+      },
+      1000: {
+        items: 2,
+        nav: true,
+        loop: false
+      },
+      1500: {
+        items: 3,
+        nav: true,
+        loop: false
+      }
+    }
+  };
+
   constructor(
+    private titleService: Title,
     private iqTestService: IqTestService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
     });
+
+    this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
   }
 
   ngOnInit() {
@@ -104,30 +137,4 @@ export class IndexComponent implements OnInit, OnDestroy {
     );
   }
 
-    carouselOptions = {
-        margin: 25,
-        nav: true,
-        navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            600: {
-                items: 1,
-                nav: true
-            },
-            1000: {
-                items: 2,
-                nav: true,
-                loop: false
-            },
-            1500: {
-                items: 3,
-                nav: true,
-                loop: false
-            }
-        }
-    }
 }

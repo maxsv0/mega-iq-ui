@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AlertService, AuthenticationService} from '@/_services';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -16,11 +18,13 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(
+    private titleService: Title,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
@@ -29,6 +33,8 @@ export class LoginComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate([this.returnUrl]);
     }
+
+    this.titleService.setTitle(this.i18n('Log In to Mega-IQ'));
   }
 
   // convenience getter for easy access to form fields

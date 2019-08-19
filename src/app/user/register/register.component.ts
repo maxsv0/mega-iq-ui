@@ -5,6 +5,8 @@ import {first} from 'rxjs/operators';
 
 import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   templateUrl: 'register.component.html',
@@ -17,17 +19,21 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   uploadPic = '';
 
   constructor(
+    private titleService: Title,
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
     }
+
+    this.titleService.setTitle(this.i18n('Register on Mega-IQ'));
   }
 
   ngOnInit() {

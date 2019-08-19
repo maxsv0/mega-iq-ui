@@ -1,9 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule, TRANSLATIONS} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-
+import {I18n} from '@ngx-translate/i18n-polyfill';
 import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
 
@@ -26,7 +26,13 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
-import { AvatarComponent } from './user/avatar/avatar.component';
+import {AvatarComponent} from './user/avatar/avatar.component';
+
+declare const require; // Use the require method provided by webpack
+
+export function localeFactory(): string {
+  return (window.clientInformation && window.clientInformation.language) || window.navigator.language;
+}
 
 @NgModule({
   imports: [
@@ -60,7 +66,20 @@ import { AvatarComponent } from './user/avatar/avatar.component';
   providers: [
     AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {
+      provide: TRANSLATIONS,
+      useFactory: (locale) => {
+        locale = locale || 'en';
+        return require(`raw-loader!../i18n/messages.${locale}.xlf`);
+      },
+      deps: [LOCALE_ID]
+    },
+    {
+      provide: LOCALE_ID,
+      useFactory: localeFactory
+    },
+    I18n
   ],
   bootstrap: [AppComponent]
 })

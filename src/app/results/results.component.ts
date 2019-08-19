@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AlertService, UserService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {User} from '@/_models';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-results',
@@ -13,9 +15,12 @@ export class ResultsComponent implements OnInit {
   isLoading = false;
 
   constructor(
+    private titleService: Title,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n('IQ test results on Mega-IQ'));
   }
 
   ngOnInit() {

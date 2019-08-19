@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {StorageService} from '@/_services/storage.service';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-settings',
@@ -26,6 +28,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   currentUserSubscription: Subscription;
 
   constructor(
+    private titleService: Title,
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,8 +36,11 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     private authenticationService: AuthenticationService,
     private userService: UserService,
     private storageService: StorageService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
+
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
     });
@@ -70,6 +76,8 @@ export class SettingsComponent implements OnInit, AfterViewInit {
             this.alertService.error(apiResponseUser.msg);
           }
           this.isLoading = false;
+
+          this.titleService.setTitle(this.i18n('Edit Profile {{name}}', {name: this.currentUser.name}));
         },
         error => {
           this.alertService.error('API Service Unavailable. ' + error);

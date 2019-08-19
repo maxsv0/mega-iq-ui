@@ -5,7 +5,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {TestStatusEnum} from '@/_models/enum';
+import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-classroom',
@@ -14,6 +16,7 @@ import {TestStatusEnum} from '@/_models/enum';
 })
 export class ClassroomComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
+  testTypesKeys: [] = [];
   loading = false;
   updating: boolean = false;
   public testStatus = TestStatusEnum;
@@ -29,13 +32,17 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   currentUserSubscription: Subscription;
 
   constructor(
+    private titleService: Title,
     private formBuilder: FormBuilder,
     private iqTestService: IqTestService,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
+
     this.activeQuestionId = 1;
     const testCode = this.route.snapshot.params['testCode'];
     if (testCode) {
@@ -44,6 +51,12 @@ export class ClassroomComponent implements OnInit, OnDestroy {
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
+
+      Object.entries(this.testTypes).forEach(
+        ([key, test]) => {
+          this.testTypesKeys[test.type] = key;
+        }
+      );
     });
 
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -153,10 +166,24 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
+
+          this.setTitle(
+            this.activeTest.type,
+            this.activeTest.toString()
+            );
+          this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         },
         error => {
           this.alertService.error('API Service Unavailable. ' + error);
         });
   }
 
+  public setTitle(type: TestTypeEnum, date: string) {
+    const testName = this.testTypes[this.testTypesKeys[type]].name;
+
+    this.titleService.setTitle(this.i18n('{{test}} {{date}}', {
+      test: testName,
+      date: date
+    }));
+  }
 }
