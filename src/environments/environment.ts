@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://de.mega-iq.com/api/v1',
+  apiUrl: 'https://es.mega-iq.com/api/v1',
   apiGeoIpUrl: 'https://geoip.mega-iq.com',
   firebase: {
-    apiKey: '',
+    apiKey: 'AIzaSyA2DRW5ImkUR8C7wg27B8ooCexjDZcCrqw',
     authDomain: 'megaiq637.firebaseapp.com',
     databaseURL: 'https://megaiq637.firebaseio.com',
     projectId: 'megaiq637',
