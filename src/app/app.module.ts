@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {LOCALE_ID, NgModule, TRANSLATIONS} from '@angular/core';
+import {LOCALE_ID, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
@@ -27,16 +27,13 @@ import {AuthenticationService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
 import {AvatarComponent} from './user/avatar/avatar.component';
+import {APP_LOCALE_ID} from '../environments/app-locale';
 
 declare const require; // Use the require method provided by webpack
 
-export function localeFactory(): string {
-  return (window.clientInformation && window.clientInformation.language) || window.navigator.language;
-}
-
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -77,8 +74,9 @@ export function localeFactory(): string {
     },
     {
       provide: LOCALE_ID,
-      useFactory: localeFactory
+      useValue: APP_LOCALE_ID
     },
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf2'},
     I18n
   ],
   bootstrap: [AppComponent]
