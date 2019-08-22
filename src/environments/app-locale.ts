@@ -1,1 +1,1 @@
-export const APP_LOCALE_ID = 'ru';
+export const APP_LOCALE_ID = 'en';
