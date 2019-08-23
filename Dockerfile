@@ -19,7 +19,7 @@ RUN npm install
 RUN npm install -g pm2
 
 # Expose the app port
-EXPOSE 4000
+EXPOSE 80
 
 # Run the app
 CMD ["pm2-docker", "/app/dist/server.js"]
