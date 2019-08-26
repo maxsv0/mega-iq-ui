@@ -44,9 +44,7 @@
               <div class="col-sm-6">
                 <div class="btn btn-link" (click)="setQuestion(activeQuestionIdPrev)"
                      [ngClass]="{'disabled': activeQuestionIdPrev === 0}" [class.disabled]="updating">
-                  <svg class="feather">
-                    <use xlink:href="/assets/feather-sprite.svg#chevron-left"/>
-                  </svg>
+                  <fa-icon [icon]="['fas', 'chevronRight']" class="mr-1"></fa-icon>
                   <span i18n>Previous Question</span>
                 </div>
               </div>
@@ -54,16 +52,12 @@
                 <div class="btn btn-link" (click)="setQuestion(activeQuestionIdNext)"
                      [ngClass]="{'disabled': activeQuestionIdNext === 0}" [class.disabled]="updating">
                   <span i18n>Next Question</span>
-                  <svg class="feather">
-                    <use xlink:href="/assets/feather-sprite.svg#chevron-right"/>
-                  </svg>
+                  <fa-icon [icon]="['fas', 'chevronLeft']" class="ml-1"></fa-icon>
                 </div>
               </div>
               <div class="col-sm-12 card mt-3" *ngIf="activeQuestion.description">
                 <p class="my-3">
-                  <svg class="feather">
-                    <use xlink:href="/assets/feather-sprite.svg#message-circle"/>
-                  </svg>
+                  <fa-icon [icon]="['fas', 'question']" class="mr-1"></fa-icon>
                   {{activeQuestion.description}}
                 </p>
               </div>
@@ -100,26 +94,20 @@
         </p>
         <p *ngIf="!activeTest.finishDate">
           <button class="btn btn-primary btn-block" (click)="submitFinish(activeTest.code)" [disabled]="loading">
-            <svg *ngIf="!loading" class="feather">
-              <use xlink:href="/assets/feather-sprite.svg#zap"/>
-            </svg>
+            <fa-icon *ngIf="!loading" [icon]="['fas', 'xRay']" class="mr-1"></fa-icon>
             <span *ngIf="!loading" i18n>Submit test</span>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
 
           <button class="btn btn-info btn-block" (click)="submitAllRandom(activeTest.code)" [disabled]="loading">
-            <svg *ngIf="!loading" class="feather">
-              <use xlink:href="/assets/feather-sprite.svg#zap"/>
-            </svg>
+            <fa-icon *ngIf="!loading" [icon]="['fas', 'xRay']" class="mr-1"></fa-icon>
             <span *ngIf="!loading">Submit ALL</span>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
         </p>
         <div *ngIf="activeTest.finishDate" class="text-muted">
           <h4>
-            <svg class="feather">
-              <use xlink:href="/assets/feather-sprite.svg#check"/>
-            </svg>
+            <fa-icon [icon]="['fas', 'check']" class="mr-1"></fa-icon>
             <span i18n>Test finished</span>
           </h4>
           <h4 class="text-info">
