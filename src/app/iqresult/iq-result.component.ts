@@ -6,6 +6,8 @@ import {IqTest, TestResult, User} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 @Component({
   selector: 'app-iq-result',
@@ -25,6 +27,8 @@ export class IqResultComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService,
+    private httpClientModule: HttpClientModule,
+    private shareButtonsModule: ShareButtonsModule,
     private i18n: I18n
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
@@ -58,7 +62,7 @@ export class IqResultComponent implements OnInit {
 
               this.setTitle(this.user.name,
                 this.test.points,
-                this.test.createDate.toString(),
+                this.test.finishDate.toString(),
                 this.test.type);
             }
           } else {

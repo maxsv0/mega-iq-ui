@@ -6,6 +6,8 @@ import {first} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
 import {TestTypeEnum} from '@/_models/enum';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 @Component({
   selector: 'app-public',
@@ -29,6 +31,8 @@ export class PublicComponent implements OnInit {
     private iqTestService: IqTestService,
     private userService: UserService,
     private alertService: AlertService,
+    private httpClientModule: HttpClientModule,
+    private shareButtonsModule: ShareButtonsModule,
     private i18n: I18n
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));

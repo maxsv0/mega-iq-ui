@@ -1,5 +1,15 @@
 <div class="container" *ngIf="testTypes">
   <div class="row">
+
+    <div class="col-12 py-3">
+      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
+                     [exclude]="['google','mix','tumblr','print']"
+                     [show]="11"
+                     [autoSetMeta]="true"
+                     [theme]="'modern-dark'"
+      ></share-buttons>
+    </div>
+
     <div class="col-12">
 
       <div class="test" *ngIf="testSelected">

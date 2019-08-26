@@ -6,6 +6,8 @@ import {AlertService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 @Component({
   selector: 'app-iq-test',
@@ -23,6 +25,8 @@ export class IqTestComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService,
+    private httpClientModule: HttpClientModule,
+    private shareButtonsModule: ShareButtonsModule,
     private i18n: I18n
   ) {
   }
