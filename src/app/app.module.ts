@@ -28,6 +28,9 @@ import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
 import {AvatarComponent} from './user/avatar/avatar.component';
 import {APP_LOCALE_ID} from '../environments/app-locale';
+import {ShareButtonsModule} from '@ngx-share/buttons';
+import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
+import {shareButtonsIcons} from '@/icons';
 
 declare const require; // Use the require method provided by webpack
 
@@ -41,7 +44,8 @@ declare const require; // Use the require method provided by webpack
     AngularFireAuthModule,
     routing,
     OwlModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ShareButtonsModule
   ],
   declarations: [
     AppComponent,
@@ -83,4 +87,7 @@ declare const require; // Use the require method provided by webpack
 })
 
 export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(...shareButtonsIcons);
+  }
 }
