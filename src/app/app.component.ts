@@ -1,9 +1,10 @@
-import {Component, Inject, LOCALE_ID} from '@angular/core';
+import {Component} from '@angular/core';
 
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 
 import {AuthenticationService, IqTestService} from './_services';
 import {IqTest, User} from './_models';
+import {APP_LOCALE_ID} from '../environments/app-locale';
 
 @Component({
   selector: 'app-root',
@@ -16,22 +17,18 @@ export class AppComponent {
   backgroundClass: string;
   testTypes: IqTest[] = [];
   loading = false;
+  locale = APP_LOCALE_ID;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private iqTestService: IqTestService,
-    private authenticationService: AuthenticationService,
-    @Inject(LOCALE_ID) public locale: string
+    private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(
       user => {
         this.currentUser = user;
       });
-
-    if (this.locale.includes('-')) {
-      this.locale = this.locale.substring(0, this.locale.indexOf('-'));
-    }
 
     // load iq tests
     this.loadIqTest();
