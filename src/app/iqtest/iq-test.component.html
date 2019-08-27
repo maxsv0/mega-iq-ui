@@ -32,6 +32,7 @@
           <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}}"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
+            <fa-icon *ngIf="!loading" [icon]="['fas', 'brain']" class="ml-2"></fa-icon>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
           <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>

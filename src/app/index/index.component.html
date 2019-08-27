@@ -20,7 +20,7 @@
 
     <div>
         <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
-        <table class="w-100 bg-white">
+        <table class="w-100 bg-white table-hover">
             <thead>
                 <tr>
                     <th i18n>User</th>
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usersTop">
+                <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
                     <td>{{user.age || '-'}}</td>
                     <td>{{user.location || '-'}}</td>
@@ -44,7 +44,7 @@
 
     <div>
         <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
-        <table class="w-100 bg-white">
+        <table class="w-100 bg-white table-hover">
             <thead>
                 <tr>
                     <th i18n>User</th>
@@ -54,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usersList">
+                <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
                     <td>{{user.age || '-'}}</td>
                     <td>{{user.location || '-'}}</td>

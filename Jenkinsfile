@@ -35,7 +35,7 @@ pipeline {
                     sh "sed -i \"s/Build info/Build ${containerTag}/g\" src/app/app.component.html"
                     sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
                     sh "sed -i \"s/'en'/'${locale}'/g\" src/environments/app-locale.ts"
-                    sh "sed -i 's/"en"/"${locale}"/g' src/index.html"
+                    sh "sed -i 's/\"en\"/\"${locale}\"/g' src/index.html"
                 }
                 script {
                     sh "npm run build:ssr:${locale}"
@@ -72,7 +72,7 @@ pipeline {
                     sh "sed -i \"s/Build info/Build ${containerTag}/g\" src/app/app.component.html"
                     sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
                     sh "sed -i \"s/'en'/'${locale}'/g\" src/environments/app-locale.ts"
-                    sh "sed -i 's/"en"/"${locale}"/g' src/index.html"
+                    sh "sed -i 's/\"en\"/\"${locale}\"/g' src/index.html"
                 }
                 script {
                     sh "npm run build:ssr:${locale}"
