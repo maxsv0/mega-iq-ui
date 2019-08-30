@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AlertService, AuthenticationService, UserService} from '@/_services';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-forget',
@@ -16,16 +18,20 @@ export class ForgetComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private titleService: Title,
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
     }
+
+    this.titleService.setTitle(this.i18n('Reset password for Mega-IQ account'));
   }
 
   ngOnInit() {

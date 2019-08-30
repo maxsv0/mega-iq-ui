@@ -11,12 +11,10 @@
 .home-image {
   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg);
   @include background-size(cover);
-  min-width: 1024px;
   width: 100%;
   max-height: 41em;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .bg-iq-practice {
@@ -112,33 +110,21 @@
 
 /** Responsive **/
 
-@include mobile {
-    // .home-image {
-    //     min-width: 24rem;
-    //     max-height: 42rem;
-    //     background-attachment: initial;
-    // }
-
-    #bgMain {
-        min-width: 22rem;
-        background-image: none;
-        min-width: initial;
+@include tablet {
+    header {
+        width: 768px !important;
+    }
+    .home-image {
+        min-width: 768px;
     }
 }
 
-/** Responsive **/
-
 @include mobile {
-    // .home-image {
-    //     min-width: 24rem;
-    //     max-height: 42rem;
-    //     background-attachment: initial;
-    // }
 
     #bgMain {
         min-width: 22rem;
         background-image: none;
-        min-width: initial;
+        min-width: 490px;
     }
 }
 

@@ -5,16 +5,12 @@
     </div>
     <div class="col-sm-6 text-right">
       <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
-        <svg class="feather">
-          <use xlink:href="/assets/feather-sprite.svg#home"/>
-        </svg>
+        <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
       </button>
 
       <button routerLink="/settings" class="btn btn-outline-primary mr-2">
-        <svg class="feather">
-          <use xlink:href="/assets/feather-sprite.svg#settings"/>
-        </svg>
+        <fa-icon [icon]="['fas', 'cog']" class="mr-1"></fa-icon>
         <span i18n>Edit Profile</span>
       </button>
 
@@ -74,18 +70,14 @@
         <div class="row">
           <div class="col-6" *ngIf="test.status === testStatus.FINISHED">
             <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-2">
-              <svg class="feather">
-                <use xlink:href="/assets/feather-sprite.svg#share-2"/>
-              </svg>
+              <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
               <span i18n>Open Details</span></a>
           </div>
 
           <div class="col-6">
             <button routerLink="/classroom/{{test.code}}" class="btn btn-warning btn-block btn-lg mt-2"
                     *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
-              <svg class="feather">
-                <use xlink:href="/assets/feather-sprite.svg#sun"/>
-              </svg>
+              <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
               <span i18n>Show Answers</span></button>
           </div>
         </div>
@@ -113,7 +105,7 @@
         <div class="text-right">
           <button class="w-25 btn btn-danger" (click)="deleteTestResult(test.code)"
                   *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
-            <span *ngIf="!loading"><i class="fa fa-trash" aria-hidden="true"></i> <span i18n>Delete</span></span>
+            <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span i18n>Delete</span></span>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
         </div>

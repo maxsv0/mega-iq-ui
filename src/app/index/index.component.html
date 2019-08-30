@@ -1,5 +1,13 @@
 <section id="home">
-    <div class="container-fluid d-flex flex-column align-items-center">
+    <div class="container-fluid d-flex flex-column">
+        <div class="container mt-2 text-left">
+          <share-buttons [include]="['facebook','twitter','vk','telegram','messenger','whatsapp','pinterest','reddit','line','sms','email','copy']"
+                         [exclude]="['google','mix','tumblr','linkedin','xing','print']"
+                         [show]="6"
+                         [autoSetMeta]="true"
+                         [theme]="'modern-light'"
+          ></share-buttons>
+        </div>
         <h1 class="text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
         <div class="test-start-btn position-relative align-self-center">
             <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
@@ -10,9 +18,9 @@
 
 <section id="iq-scores" class="container d-flex justify-content-between my-5">
 
-    <div>
+    <div class="mt-2">
         <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
-        <table class="w-100 bg-white">
+        <table class="w-100 bg-white table-hover">
             <thead>
                 <tr>
                     <th i18n>User</th>
@@ -23,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usersTop">
+                <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
                     <td>{{user.age || '-'}}</td>
                     <td>{{user.location || '-'}}</td>
@@ -34,9 +42,9 @@
         </table>
     </div>
 
-    <div>
+    <div class="mt-2">
         <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
-        <table class="w-100 bg-white">
+        <table class="w-100 bg-white table-hover">
             <thead>
                 <tr>
                     <th i18n>User</th>
@@ -46,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usersList">
+                <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
                     <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
                     <td>{{user.age || '-'}}</td>
                     <td>{{user.location || '-'}}</td>

@@ -5,6 +5,9 @@ import {IqTest, TestResult, User} from '@/_models';
 import {first} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
 import {TestTypeEnum} from '@/_models/enum';
+import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 @Component({
   selector: 'app-public',
@@ -27,8 +30,12 @@ export class PublicComponent implements OnInit {
     private route: ActivatedRoute,
     private iqTestService: IqTestService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private httpClientModule: HttpClientModule,
+    private shareButtonsModule: ShareButtonsModule,
+    private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
   }
 
   ngOnInit() {
@@ -66,7 +73,7 @@ export class PublicComponent implements OnInit {
           if (apiResponseTestResultList.ok) {
             if (!this.user) {
               this.user = apiResponseTestResultList.user;
-              this.setTitle(this.user.name);
+              this.setTitle(this.user.name, this.user.iq, this.user.location);
             }
 
             if (apiResponseTestResultList.tests.length < 8) {
@@ -94,8 +101,19 @@ export class PublicComponent implements OnInit {
     this.loadUserResult();
   }
 
-  public setTitle( newTitle: string) {
-    this.titleService.setTitle( newTitle );
+  public setTitle(name: string, iq: number, location: string) {
+    if (iq != null) {
+      this.titleService.setTitle(this.i18n('IQ {{iq}} {{name}} {{location}}', {
+        name: name,
+        iq: iq,
+        location: location
+      }));
+    } else {
+      this.titleService.setTitle(this.i18n('{{name}} {{location}}', {
+        name: name,
+        location: location
+      }));
+    }
   }
 
 }

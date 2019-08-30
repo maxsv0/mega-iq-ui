@@ -3,7 +3,7 @@ export const environment = {
   apiUrl: 'https://www.mega-iq.com/api/v1',
   apiGeoIpUrl: 'https://geoip.mega-iq.com',
   firebase: {
-    apiKey: '',
+    apiKey: 'firebase_api_token',
     authDomain: 'megaiq637.firebaseapp.com',
     databaseURL: 'https://megaiq637.firebaseio.com',
     projectId: 'megaiq637',

@@ -1,9 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-
+import {I18n} from '@ngx-translate/i18n-polyfill';
 import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
 
@@ -26,11 +26,17 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthenticationService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
-import { AvatarComponent } from './user/avatar/avatar.component';
+import {AvatarComponent} from './user/avatar/avatar.component';
+import {APP_LOCALE_ID} from '../environments/app-locale';
+import {ShareButtonsModule} from '@ngx-share/buttons';
+import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
+import {shareButtonsIcons} from '@/icons';
+
+declare const require; // Use the require method provided by webpack
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -38,7 +44,8 @@ import { AvatarComponent } from './user/avatar/avatar.component';
     AngularFireAuthModule,
     routing,
     OwlModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ShareButtonsModule
   ],
   declarations: [
     AppComponent,
@@ -60,10 +67,27 @@ import { AvatarComponent } from './user/avatar/avatar.component';
   providers: [
     AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {
+      provide: TRANSLATIONS,
+      useFactory: (locale) => {
+        locale = locale || 'en';
+        return require(`raw-loader!../i18n/messages.${locale}.xlf`);
+      },
+      deps: [LOCALE_ID]
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: APP_LOCALE_ID
+    },
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf2'},
+    I18n
   ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(...shareButtonsIcons);
+  }
 }

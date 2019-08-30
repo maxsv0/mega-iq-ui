@@ -17,9 +17,7 @@
                 <p class="text-danger" i18n>Email not verified</p>
                 <p>
                   <button [disabled]="loading || uploading" class="btn btn-outline-info btn-sm" (click)="sendVerifyEmail()">
-                    <svg class="feather">
-                      <use xlink:href="/assets/feather-sprite.svg#mail"/>
-                    </svg>
+                    <fa-icon [icon]="['fas', 'envelope']" class="mr-1"></fa-icon>
                     <span i18n>Send Verification Email</span>
                   </button>
                   <img *ngIf="loading" class="pl-3"
@@ -50,9 +48,7 @@
                 <input type="text" id="location" formControlName="location" placeholder="Location" class="form-control"/>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" (click)="detectLocation()">
-                    <svg class="feather">
-                      <use xlink:href="/assets/feather-sprite.svg#target"/>
-                    </svg>
+                    <fa-icon [icon]="['fas', 'circle']"></fa-icon>
                   </button>
                 </div>
               </div>
@@ -75,9 +71,7 @@
 
             <div class="form-group">
               <button [disabled]="loading || uploading" class="btn btn-primary" id="save-changes">
-                <svg *ngIf="!loading" class="feather">
-                  <use xlink:href="/assets/feather-sprite.svg#save"/>
-                </svg>
+                <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
                 <span *ngIf="!loading" i18n>Save changes</span>
                 <span *ngIf="loading" class="actn-loader"></span>
               </button>

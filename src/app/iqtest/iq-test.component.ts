@@ -4,6 +4,10 @@ import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 @Component({
   selector: 'app-iq-test',
@@ -16,10 +20,14 @@ export class IqTestComponent implements OnInit {
   loading = false;
 
   constructor(
+    private titleService: Title,
     private iqTestService: IqTestService,
     private route: ActivatedRoute,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private httpClientModule: HttpClientModule,
+    private shareButtonsModule: ShareButtonsModule,
+    private i18n: I18n
   ) {
   }
 
@@ -29,10 +37,16 @@ export class IqTestComponent implements OnInit {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
 
+      this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
+
       this.testTypes.forEach(
         (test) => {
           if (test.url === '/iqtest/' + testType) {
             this.testSelected = test;
+
+            this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
+              name: this.testSelected.name,
+            }));
           }
         }
       );

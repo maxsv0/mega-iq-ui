@@ -1,5 +1,15 @@
 <div class="container" *ngIf="testTypes">
   <div class="row">
+
+    <div class="col-12 py-3">
+      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
+                     [exclude]="['google','mix','tumblr','print']"
+                     [show]="11"
+                     [autoSetMeta]="true"
+                     [theme]="'modern-dark'"
+      ></share-buttons>
+    </div>
+
     <div class="col-12">
 
       <div class="test" *ngIf="testSelected">
@@ -22,6 +32,7 @@
           <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}}"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
+            <fa-icon *ngIf="!loading" [icon]="['fas', 'brain']" class="ml-2"></fa-icon>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
           <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>

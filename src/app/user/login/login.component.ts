@@ -4,39 +4,39 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AlertService, AuthenticationService} from '@/_services';
+import {Title} from '@angular/platform-browser';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   templateUrl: 'login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
 
   constructor(
+    private titleService: Title,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private i18n: I18n
   ) {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
 
+    console.log(this.authenticationService.currentUserValue);
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate([this.returnUrl]);
     }
-  }
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.loginForm.controls;
-  }
+    this.titleService.setTitle(this.i18n('Log In to Mega-IQ'));
 
-  ngOnInit() {
     const token = this.route.snapshot.queryParams['token'];
     if (token) {
       this.loading = true;
@@ -61,6 +61,11 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+  }
+
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.loginForm.controls;
   }
 
   loginGoogle() {
@@ -88,7 +93,6 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       });
   }
-
 
   onSubmit() {
     this.submitted = true;

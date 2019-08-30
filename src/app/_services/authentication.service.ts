@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {createLocalStorage} from 'localstorage-ponyfill';
 
 import {User} from '@/_models';
 import {environment} from '../../environments/environment';
@@ -12,12 +13,15 @@ import * as firebase from 'firebase/app';
 export class AuthenticationService {
   public currentUser: Observable<User>;
   private currentUserSubject: BehaviorSubject<User>;
+  private localStorage: any;
 
   constructor(
     private http: HttpClient,
-    private firebaseAuth: AngularFireAuth,
+    private firebaseAuth: AngularFireAuth
   ) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.localStorage = createLocalStorage();
+
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(this.localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
 
     firebaseAuth.authState.subscribe(
@@ -28,7 +32,7 @@ export class AuthenticationService {
 
     this.firebaseAuth.idToken.subscribe(
       token => {
-        const user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(this.localStorage.getItem('currentUser'));
         if (user !== null && Object.entries(user).length !== 0) {
           user.token = token;
           this.update(user);
@@ -97,7 +101,7 @@ export class AuthenticationService {
 
   update(user: User) {
     console.log('update storage with user: ' + user.uid);
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
 
@@ -105,7 +109,7 @@ export class AuthenticationService {
     this.firebaseAuth
       .auth
       .signOut();
-    localStorage.removeItem('currentUser');
+    this.localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 }

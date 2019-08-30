@@ -36,7 +36,7 @@
     <unit id="8520023152129279437">
       <notes>
         
-      <note category="location">app/app.component.html:41</note></notes>
+      <note category="location">app/app.component.html:41</note><note category="location">app/user/login/login.component.html:28</note></notes>
       <segment state="translated">
         <source>Log In</source>
       <target>Войти</target></segment>
@@ -97,7 +97,7 @@
       <notes>
         
         
-      <note category="location">app/user/login/login.component.html:5</note><note category="location">app/user/login/login.component.html:28</note></notes>
+      <note category="location">app/user/login/login.component.html:5</note></notes>
       <segment state="translated">
         <source>Login</source>
       <target>Войти</target></segment>
@@ -110,13 +110,13 @@
       <segment state="translated">
         <source>Register</source>
       <target>Регистрация</target></segment>
-    </unit><unit id="2680737621537987649">
+    </unit><unit id="7993400168408015259">
       <notes>
-        
-      <note category="location">app/user/login/login.component.html:31</note></notes>
-      <segment state="translated">
-        <source>Forget Password?</source>
-      <target>Забыли пароль?</target></segment>
+        <note category="location">app/user/login/login.component.html:31</note>
+      </notes>
+      <segment state="initial">
+        <source>Forgot Password?</source>
+      <target>Forgot Password?</target></segment>
     </unit><unit id="8999284073934392732">
       <notes>
         
@@ -208,7 +208,7 @@
       </notes>
       <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Лучше айкю сегодн</target></segment>
+      <target>Лучше айкю сегодня</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
         <note category="location">app/index/index.component.html:63</note>
@@ -311,56 +311,56 @@
       <target>Выйти</target></segment>
     </unit><unit id="6205220545163020073">
       <notes>
-        <note category="location">app/user/home/home.component.html:41</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:51</note></notes>
       <segment state="translated">
         <source> your iq tests are displayed below</source>
       <target>ваши айкю тесты отображаются ниже</target></segment>
     </unit><unit id="7604457930521531705">
       <notes>
-        <note category="location">app/user/home/home.component.html:70</note>
-        <note category="location">app/user/public/public.component.html:38</note>
-      </notes>
+        
+        
+      <note category="location">app/user/home/home.component.html:80</note><note category="location">app/user/public/public.component.html:46</note></notes>
       <segment state="translated">
         <source>Open Details</source>
       <target>Подробнее</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
-        <note category="location">app/user/home/home.component.html:79</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:89</note></notes>
       <segment state="translated">
         <source>Show Answers</source>
       <target>Показать ответы</target></segment>
     </unit><unit id="2479829772667496101">
       <notes>
-        <note category="location">app/user/home/home.component.html:85</note>
-        <note category="location">app/iqresult/iq-result.component.html:14</note>
-      </notes>
+        
+        
+      <note category="location">app/user/home/home.component.html:95</note><note category="location">app/iqresult/iq-result.component.html:14</note></notes>
       <segment state="translated">
         <source>Overall test progress</source>
       <target>Прогресс теста</target></segment>
     </unit><unit id="37788114767831354">
       <notes>
-        <note category="location">app/user/home/home.component.html:90</note>
-        <note category="location">app/iqresult/iq-result.component.html:19</note>
-        <note category="location">app/user/public/public.component.html:43</note>
-      </notes>
+        
+        
+        
+      <note category="location">app/user/home/home.component.html:100</note><note category="location">app/iqresult/iq-result.component.html:19</note><note category="location">app/user/public/public.component.html:51</note></notes>
       <segment state="translated">
         <source>Started at</source>
       <target>Начало тестирования</target></segment>
     </unit><unit id="599874826031482666">
       <notes>
-        <note category="location">app/user/home/home.component.html:93</note>
-        <note category="location">app/iqresult/iq-result.component.html:23</note>
-        <note category="location">app/user/public/public.component.html:46</note>
-      </notes>
+        
+        
+        
+      <note category="location">app/user/home/home.component.html:103</note><note category="location">app/iqresult/iq-result.component.html:23</note><note category="location">app/user/public/public.component.html:54</note></notes>
       <segment state="translated">
         <source>Finished at</source>
       <target>Конец тестирования</target></segment>
     </unit><unit id="3856509348648011303">
       <notes>
-        <note category="location">app/user/home/home.component.html:98,99</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:108</note></notes>
       <segment state="translated">
         <source>Continue Test
             </source>
@@ -387,15 +387,15 @@
     <unit id="7022070615528435141">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:106</note></notes>
+      <note category="location">app/user/home/home.component.html:116</note></notes>
       <segment state="translated">
         <source>Delete</source>
       <target>Удалить</target></segment>
     </unit><unit id="2515826609292720294">
       <notes>
-        <note category="location">app/user/home/home.component.html:116</note>
-        <note category="location">app/user/public/public.component.html:54</note>
-      </notes>
+        
+        
+      <note category="location">app/user/home/home.component.html:126</note><note category="location">app/user/public/public.component.html:62</note></notes>
       <segment state="translated">
         <source>All results were loaded successfully.</source>
       <target>Все результаты были успешно загружены.</target></segment>
@@ -642,11 +642,127 @@
       <target>Horizons</target></segment>
     </unit><unit id="5879741663972722968">
       <notes>
-        <note category="location">app/user/public/public.component.html:16</note>
-      </notes>
+        
+      <note category="location">app/user/public/public.component.html:24</note></notes>
       <segment state="translated">
         <source>latest passed iq tests</source>
       <target>последние пройденные айкю тесты</target></segment>
+    </unit><unit id="3495792873445212740">
+      <notes>
+        
+        
+        
+        
+        
+      <note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/iqresult/iq-result.component.ts:1</note><note category="location">src/app/user/home/home.component.ts:1</note><note category="location">src/app/user/public/public.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note></notes>
+      <segment state="translated">
+        <source>Mega-IQ is loading..</source>
+      <target>Мега-Айкю загружается..</target></segment>
+    </unit><unit id="164535864791925829">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></target></segment>
+    </unit><unit id="6114899825059152260">
+      <notes>
+        <note category="location">src/app/index/index.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Mega-IQ free online IQ test</source>
+      <target>Мега-Айкю тест на айкю, бесплатный онлайн айкю тест</target></segment>
+    </unit><unit id="4832398608673712538">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{name}}"/></source>
+      <target>Айкю <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/><ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/><ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/><ph id="3" equiv="INTERPOLATION_3" disp="{{name}}"/></target></segment>
+    </unit><unit id="3528708573877541661">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/> <ph id="4" equiv="INTERPOLATION_4" disp="{{name}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/> <ph id="4" equiv="INTERPOLATION_4" disp="{{name}}"/></target></segment>
+    </unit><unit id="2519431576919863231">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{name}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{name}}"/></target></segment>
+    </unit><unit id="6918087724127868060">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Free IQ test on Mega-IQ</source>
+      <target>Пройти тест на айкю онлайн бесплатно. Бесплатный IQ тест Айзенка</target></segment>
+    </unit><unit id="429949191312178475">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> на Мега-Айкю</target></segment>
+    </unit><unit id="7302982475078949047">
+      <notes>
+        <note category="location">src/app/results/results.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>IQ test results on Mega-IQ</source>
+      <target>Рейтинг результатов айкю тестирования на Мега-Айкю</target></segment>
+    </unit><unit id="1493967136692480194">
+      <notes>
+        <note category="location">src/app/user/forget/forget.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Reset password for Mega-IQ account</source>
+      <target>Сбросить пароль для аккаунта Мега-Айкю</target></segment>
+    </unit><unit id="4740215929714132313">
+      <notes>
+        <note category="location">src/app/user/home/home.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> personal account</source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> персональный аккаунт</target></segment>
+    </unit><unit id="2184209554581120801">
+      <notes>
+        <note category="location">src/app/user/login/login.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Log In to Mega-IQ</source>
+      <target>Вход в Мега-Айкю</target></segment>
+    </unit><unit id="4705920552996038958">
+      <notes>
+        <note category="location">src/app/user/public/public.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></source>
+      <target>Айкю <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/><ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/><ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></target></segment>
+    </unit><unit id="4769716070289642970">
+      <notes>
+        <note category="location">src/app/user/public/public.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
+    </unit><unit id="3898617878162339498">
+      <notes>
+        <note category="location">src/app/user/register/register.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Register on Mega-IQ</source>
+      <target>Регистрация на сайте Мега-Айкю</target></segment>
+    </unit><unit id="1025469907696587992">
+      <notes>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>Edit Profile <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></source>
+      <target>Редактировать профиль <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></target></segment>
     </unit>
   </file>
 </xliff>
