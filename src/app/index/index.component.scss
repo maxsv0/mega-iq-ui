@@ -2,16 +2,15 @@
 
 #home {
 
-  min-height: 15em;
+  min-height: 650px;
 
   .flip-clock-wrapper {
-    margin: 10em 0 35em;
+    margin: 10em 0 5em;
   }
 }
 
 .test-start-btn {
   font-weight: 500;
-  border-width: 2px;
   font-style: normal;
   letter-spacing: 1px;
   margin: .4rem .8rem;
@@ -73,7 +72,7 @@
                 background-color: #f5f5f5;
                 @include transition(all, .125s, ease-in-out);
             }
-            
+
             &:hover {
                 background-color: rgba(50,98,149,.3);
             }
