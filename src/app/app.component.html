@@ -2,10 +2,11 @@
   <div class="py-2 position-relative">
     <nav class="navbar navbar-expand-md">
       <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" (click)="expandMenu()">
+        <fa-icon *ngIf="!isExpanded" [icon]="['fas', 'bars']"></fa-icon>
+        <fa-icon *ngIf="isExpanded" [icon]="['fas', 'times']"></fa-icon>
       </button>
+
       <!-- Start Test Dropdwon -->
       <div class="collapse navbar-collapse" id="start-test-dropdown">
         <ul class="navbar-nav mr-auto">
@@ -43,7 +44,7 @@
         </ul>
       </div>
       <!-- Language dropdown -->
-      <div class="dropdown" id="language-picker">
+      <div class="dropdown d-block" id="language-picker">
         <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
           <a routerLink="/" id="locale-link-current">
@@ -62,6 +63,31 @@
         </div>
       </div>
     </nav>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+        <div class="btn-group dropdown" role="group">
+            <button type="button" id="mobileTest" class="btn btn-primary dropdown-toggle mx-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" i18n>
+                Start IQ Test
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="mobileTest"> 
+                <li><a class="dropdown-item" *ngFor="let test of testTypes" routerLink="{{test.url}}">{{ test.name }}</a></li>
+            </ul>
+        </div>
+        <!-- Profile Button -->
+        <button type="button" class="btn btn-primary mx-5" routerLink="/home/" *ngIf="currentUser">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon> {{currentUser.name}}
+        </button>
+        <!-- Sign up button -->
+        <ul class="navbar-nav mt-2 mt-md-0 mx-5" *ngIf="!currentUser">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Collapsible content -->
   </div>
 </header>
 
