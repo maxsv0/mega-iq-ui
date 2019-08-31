@@ -109,8 +109,8 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
 
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
-
             this.currentUser = apiResponseTestResultList.user;
+            console.log(this.currentUser);
 
             this.titleService.setTitle(this.i18n('{{name}} personal account', {name: this.currentUser.name}));
 

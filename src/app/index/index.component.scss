@@ -93,6 +93,13 @@
 
 /** Responsive **/
 
+@include tablet {
+    #iq-scores {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
 /** Mobile (xs-l) **/
 
 @include mobile {
@@ -101,10 +108,14 @@
     }
 
     #home {
-
         .flip-clock-wrapper {
             margin-bottom: 14rem;
         }
-        
+    }
+
+    #iq-scores {
+        td, th {
+            padding: 10px;
+        }
     }
 }
