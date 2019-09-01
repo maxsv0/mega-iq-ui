@@ -11,7 +11,7 @@
     </unit><unit id="3854501539966213538">
       <notes>
         
-      <note category="location">app/app.component.html:15</note></notes>
+      <note category="location">app/app.component.html:16</note><note category="location">app/app.component.html:70</note></notes>
       <segment state="final">
         <source>Start IQ Test</source>
       <target>Start IQ Test</target></segment>
@@ -19,7 +19,7 @@
     <unit id="3242997623282735515">
       <notes>
         
-      <note category="location">app/app.component.html:28</note></notes>
+      <note category="location">app/app.component.html:29</note></notes>
       <segment state="final">
         <source>Best Results</source>
       <target>Best Results</target></segment>
@@ -28,7 +28,7 @@
     <unit id="7028204981963450021">
       <notes>
         
-      <note category="location">app/app.component.html:38</note></notes>
+      <note category="location">app/app.component.html:39</note><note category="location">app/app.component.html:84</note></notes>
       <segment state="final">
         <source>Sign up</source>
       <target>Sign up</target></segment>
@@ -36,7 +36,7 @@
     <unit id="8520023152129279437">
       <notes>
         
-      <note category="location">app/app.component.html:41</note><note category="location">app/user/login/login.component.html:29</note></notes>
+      <note category="location">app/app.component.html:42</note><note category="location">app/app.component.html:87</note><note category="location">app/user/login/login.component.html:29</note></notes>
       <segment state="final">
         <source>Log In</source>
       <target>Log In</target></segment>
@@ -44,7 +44,7 @@
     <unit id="1726363342938046830">
       <notes>
         
-      <note category="location">app/app.component.html:86</note></notes>
+      <note category="location">app/app.component.html:113</note></notes>
       <segment state="final">
         <source>About</source>
       <target>About</target></segment>
@@ -52,7 +52,7 @@
     <unit id="8439955599488894226">
       <notes>
         
-      <note category="location">app/app.component.html:87</note></notes>
+      <note category="location">app/app.component.html:114</note></notes>
       <segment state="final">
         <source>Privacy Policy</source>
       <target>Privacy Policy</target></segment>
@@ -60,7 +60,7 @@
     <unit id="664573589261423471">
       <notes>
         
-      <note category="location">app/app.component.html:88</note></notes>
+      <note category="location">app/app.component.html:115</note></notes>
       <segment state="final">
         <source>Terms and Conditions</source>
       <target>Terms and Conditions</target></segment>

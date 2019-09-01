@@ -10,28 +10,31 @@
       </segment>
     </unit><unit id="3854501539966213538">
       <notes>
-        <note category="location">app/app.component.html:15</note>
+        <note category="location">app/app.component.html:16</note>
+        <note category="location">app/app.component.html:70</note>
       </notes>
       <segment>
         <source>Start IQ Test</source>
       </segment>
     </unit><unit id="3242997623282735515">
       <notes>
-        <note category="location">app/app.component.html:28</note>
+        <note category="location">app/app.component.html:29</note>
       </notes>
       <segment>
         <source>Best Results</source>
       </segment>
     </unit><unit id="7028204981963450021">
       <notes>
-        <note category="location">app/app.component.html:38</note>
+        <note category="location">app/app.component.html:39</note>
+        <note category="location">app/app.component.html:84</note>
       </notes>
       <segment>
         <source>Sign up</source>
       </segment>
     </unit><unit id="8520023152129279437">
       <notes>
-        <note category="location">app/app.component.html:41</note>
+        <note category="location">app/app.component.html:42</note>
+        <note category="location">app/app.component.html:87</note>
         <note category="location">app/user/login/login.component.html:29</note>
       </notes>
       <segment>
@@ -39,21 +42,21 @@
       </segment>
     </unit><unit id="1726363342938046830">
       <notes>
-        <note category="location">app/app.component.html:86</note>
+        <note category="location">app/app.component.html:113</note>
       </notes>
       <segment>
         <source>About</source>
       </segment>
     </unit><unit id="8439955599488894226">
       <notes>
-        <note category="location">app/app.component.html:87</note>
+        <note category="location">app/app.component.html:114</note>
       </notes>
       <segment>
         <source>Privacy Policy</source>
       </segment>
     </unit><unit id="664573589261423471">
       <notes>
-        <note category="location">app/app.component.html:88</note>
+        <note category="location">app/app.component.html:115</note>
       </notes>
       <segment>
         <source>Terms and Conditions</source>
