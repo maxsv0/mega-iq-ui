@@ -11,7 +11,7 @@
     </unit><unit id="3854501539966213538">
       <notes>
         
-      <note category="location">app/app.component.html:15</note></notes>
+      <note category="location">app/app.component.html:16</note><note category="location">app/app.component.html:70</note></notes>
       <segment state="final">
         <source>Start IQ Test</source>
       <target>Start IQ Test</target></segment>
@@ -19,7 +19,7 @@
     <unit id="3242997623282735515">
       <notes>
         
-      <note category="location">app/app.component.html:28</note></notes>
+      <note category="location">app/app.component.html:29</note></notes>
       <segment state="final">
         <source>Best Results</source>
       <target>Best Results</target></segment>
@@ -28,7 +28,7 @@
     <unit id="7028204981963450021">
       <notes>
         
-      <note category="location">app/app.component.html:38</note></notes>
+      <note category="location">app/app.component.html:39</note><note category="location">app/app.component.html:84</note></notes>
       <segment state="final">
         <source>Sign up</source>
       <target>Sign up</target></segment>
@@ -36,7 +36,7 @@
     <unit id="8520023152129279437">
       <notes>
         
-      <note category="location">app/app.component.html:41</note><note category="location">app/user/login/login.component.html:28</note></notes>
+      <note category="location">app/app.component.html:42</note><note category="location">app/app.component.html:87</note><note category="location">app/user/login/login.component.html:29</note></notes>
       <segment state="final">
         <source>Log In</source>
       <target>Log In</target></segment>
@@ -44,7 +44,7 @@
     <unit id="1726363342938046830">
       <notes>
         
-      <note category="location">app/app.component.html:86</note></notes>
+      <note category="location">app/app.component.html:113</note></notes>
       <segment state="final">
         <source>About</source>
       <target>About</target></segment>
@@ -52,7 +52,7 @@
     <unit id="8439955599488894226">
       <notes>
         
-      <note category="location">app/app.component.html:87</note></notes>
+      <note category="location">app/app.component.html:114</note></notes>
       <segment state="final">
         <source>Privacy Policy</source>
       <target>Privacy Policy</target></segment>
@@ -60,36 +60,36 @@
     <unit id="664573589261423471">
       <notes>
         
-      <note category="location">app/app.component.html:88</note></notes>
+      <note category="location">app/app.component.html:115</note></notes>
       <segment state="final">
         <source>Terms and Conditions</source>
       <target>Terms and Conditions</target></segment>
     </unit><unit id="5329546516669101200">
       <notes>
-        <note category="location">app/index/index.component.html:3</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:11</note></notes>
       <segment state="final">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
       <target>Join the Mega IQ now! IQ Tests Passed</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
-        <note category="location">app/index/index.component.html:5</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:13</note></notes>
       <segment state="final">
         <source>Start The IQ Test</source>
       <target>Start The IQ Test</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
-        <note category="location">app/index/index.component.html:14</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:22</note></notes>
       <segment state="final">
         <source>Mega IQ Ever</source>
       <target>Mega IQ Ever</target></segment>
     </unit><unit id="2392488717875840729">
       <notes>
-        <note category="location">app/index/index.component.html:18</note>
-        <note category="location">app/index/index.component.html:42</note>
-      </notes>
+        
+        
+      <note category="location">app/index/index.component.html:26</note><note category="location">app/index/index.component.html:50</note></notes>
       <segment state="final">
         <source>User</source>
       <target>User</target></segment>
@@ -106,21 +106,21 @@
       <notes>
         
         
-      <note category="location">app/user/login/login.component.html:30</note><note category="location">app/user/register/register.component.html:5</note><note category="location">app/user/register/register.component.html:75</note></notes>
+      <note category="location">app/user/login/login.component.html:31</note><note category="location">app/user/register/register.component.html:5</note><note category="location">app/user/register/register.component.html:71</note></notes>
       <segment state="final">
         <source>Register</source>
       <target>Register</target></segment>
     </unit><unit id="7993400168408015259">
       <notes>
-        <note category="location">app/user/login/login.component.html:31</note>
-      </notes>
+        
+      <note category="location">app/user/login/login.component.html:32</note></notes>
       <segment state="final">
         <source>Forgot Password?</source>
       <target>Forgot Password?</target></segment>
     </unit><unit id="8999284073934392732">
       <notes>
         
-      <note category="location">app/user/login/login.component.html:39</note><note category="location">app/user/register/register.component.html:85</note></notes>
+      <note category="location">app/user/login/login.component.html:40</note><note category="location">app/user/register/register.component.html:81</note></notes>
       <segment state="final">
         <source>Login with Google</source>
       <target>Login with Google</target></segment>
@@ -138,7 +138,7 @@
       <notes>
         
         
-      <note category="location">app/user/login/login.component.html:12</note><note category="location">app/user/register/register.component.html:12</note><note category="location">app/user/settings/settings.component.html:31</note><note category="location">app/user/forget/forget.component.html:12</note></notes>
+      <note category="location">app/user/login/login.component.html:12</note><note category="location">app/user/register/register.component.html:12</note><note category="location">app/user/settings/settings.component.html:29</note><note category="location">app/user/forget/forget.component.html:12</note></notes>
       <segment state="final">
         <source>Email is required</source>
       <target>Email is required</target></segment>
@@ -147,7 +147,7 @@
       <notes>
         
         
-      <note category="location">app/user/login/login.component.html:13</note><note category="location">app/user/register/register.component.html:13</note><note category="location">app/user/settings/settings.component.html:32</note><note category="location">app/user/forget/forget.component.html:13</note></notes>
+      <note category="location">app/user/login/login.component.html:13</note><note category="location">app/user/register/register.component.html:13</note><note category="location">app/user/settings/settings.component.html:30</note><note category="location">app/user/forget/forget.component.html:13</note></notes>
       <segment state="final">
         <source>Email is not valid</source>
       <target>Email is not valid</target></segment>
@@ -156,7 +156,7 @@
       <notes>
         
         
-      <note category="location">app/user/register/register.component.html:17</note><note category="location">app/user/settings/settings.component.html:36</note></notes>
+      <note category="location">app/user/register/register.component.html:17</note><note category="location">app/user/settings/settings.component.html:34</note></notes>
       <segment state="final">
         <source>Name</source>
       <target>Name</target></segment>
@@ -165,7 +165,7 @@
       <notes>
         
         
-      <note category="location">app/user/register/register.component.html:21</note><note category="location">app/user/settings/settings.component.html:40</note></notes>
+      <note category="location">app/user/register/register.component.html:21</note><note category="location">app/user/settings/settings.component.html:38</note></notes>
       <segment state="final">
         <source>Name is required</source>
       <target>Name is required</target></segment>
@@ -174,7 +174,7 @@
       <notes>
         
         
-      <note category="location">app/index/index.component.html:19</note><note category="location">app/index/index.component.html:43</note><note category="location">app/user/register/register.component.html:25</note><note category="location">app/user/settings/settings.component.html:44</note></notes>
+      <note category="location">app/index/index.component.html:27</note><note category="location">app/index/index.component.html:51</note><note category="location">app/user/register/register.component.html:25</note><note category="location">app/user/settings/settings.component.html:42</note></notes>
       <segment state="final">
         <source>Age</source>
       <target>Age</target></segment>
@@ -183,44 +183,58 @@
       <notes>
         
         
-      <note category="location">app/index/index.component.html:20</note><note category="location">app/index/index.component.html:44</note><note category="location">app/user/register/register.component.html:29</note><note category="location">app/user/settings/settings.component.html:48</note></notes>
+      <note category="location">app/index/index.component.html:28</note><note category="location">app/index/index.component.html:52</note><note category="location">app/user/register/register.component.html:29</note><note category="location">app/user/settings/settings.component.html:46</note></notes>
       <segment state="final">
         <source>Location</source>
       <target>Location</target></segment>
     </unit><unit id="3151050103772729215">
       <notes>
-        <note category="location">app/index/index.component.html:21</note>
-        <note category="location">app/index/index.component.html:45</note>
-      </notes>
+        
+        
+      <note category="location">app/index/index.component.html:29</note><note category="location">app/index/index.component.html:53</note></notes>
       <segment state="final">
         <source>IQ</source>
       <target>IQ</target></segment>
     </unit><unit id="5263690784228037855">
       <notes>
-        <note category="location">app/index/index.component.html:22</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:30</note></notes>
       <segment state="final">
         <source>Total Score</source>
       <target>Total Score</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
-        <note category="location">app/index/index.component.html:38</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:46</note></notes>
       <segment state="final">
         <source>Best IQ Today</source>
       <target>Best IQ Today</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
-        <note category="location">app/index/index.component.html:63</note>
-      </notes>
+        
+      <note category="location">app/index/index.component.html:71</note></notes>
       <segment state="final">
         <source>Example profile</source>
       <target>Example profile</target></segment>
+    </unit><unit id="399495303521601536">
+      <notes>
+        
+      <note category="location">app/index/index.component.html:83</note></notes>
+      <segment state="final">
+        <source>Mega-iq tests</source>
+      <target>Mega-iq tests</target></segment>
+    </unit><unit id="5162686434580248853">
+      <notes>
+        
+      <note category="location">app/index/index.component.html:89</note></notes>
+      <segment state="final">
+        <source>Start</source>
+      <target>Start</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
         
-      <note category="location">app/user/login/login.component.html:17</note><note category="location">app/user/register/register.component.html:43</note></notes>
+      <note category="location">app/user/login/login.component.html:17</note><note category="location">app/user/register/register.component.html:41</note></notes>
       <segment state="final">
         <source>Password</source>
       <target>Password</target></segment>
@@ -228,7 +242,7 @@
     <unit id="205044832662301680">
       <notes>
         
-      <note category="location">app/user/login/login.component.html:21</note><note category="location">app/user/register/register.component.html:47</note></notes>
+      <note category="location">app/user/login/login.component.html:21</note><note category="location">app/user/register/register.component.html:45</note></notes>
       <segment state="final">
         <source>Password is required</source>
       <target>Password is required</target></segment>
@@ -236,7 +250,7 @@
     <unit id="8547747030242972664">
       <notes>
         
-      <note category="location">app/user/register/register.component.html:52</note></notes>
+      <note category="location">app/user/register/register.component.html:50</note></notes>
       <segment state="final">
         <source>Password Confirmation</source>
       <target>Password Confirmation</target></segment>
@@ -244,7 +258,7 @@
     <unit id="6042936940683833037">
       <notes>
         
-      <note category="location">app/user/register/register.component.html:56</note></notes>
+      <note category="location">app/user/register/register.component.html:54</note></notes>
       <segment state="final">
         <source>Password confirmation is required</source>
       <target>Password confirmation is required</target></segment>
@@ -252,7 +266,7 @@
     <unit id="7215971708512983557">
       <notes>
         
-      <note category="location">app/user/register/register.component.html:57</note></notes>
+      <note category="location">app/user/register/register.component.html:55</note></notes>
       <segment state="final">
         <source>Password confirmation must be at least 6 characters</source>
       <target>Password confirmation must be at least 6 characters</target></segment>
@@ -260,7 +274,7 @@
     <unit id="5258473985829185568">
       <notes>
         
-      <note category="location">app/user/register/register.component.html:64</note></notes>
+      <note category="location">app/user/register/register.component.html:62</note></notes>
       <segment state="final">
         <source>Accept terms and conditions and privacy policy.</source>
       <target>Accept terms and conditions and privacy policy.</target></segment>
@@ -268,7 +282,7 @@
     <unit id="8733077627528624313">
       <notes>
         
-      <note category="location">app/user/register/register.component.html:66</note></notes>
+      <note category="location">app/user/register/register.component.html:64</note></notes>
       <segment state="final">
         <source>You must agree before submitting.</source>
       <target>You must agree before submitting.</target></segment>
@@ -277,7 +291,7 @@
       <notes>
         
         
-      <note category="location">app/user/register/register.component.html:78</note><note category="location">app/user/settings/settings.component.html:84</note><note category="location">app/user/forget/forget.component.html:21</note></notes>
+      <note category="location">app/user/register/register.component.html:74</note><note category="location">app/user/settings/settings.component.html:78</note><note category="location">app/user/forget/forget.component.html:21</note></notes>
       <segment state="final">
         <source>Cancel</source>
       <target>Cancel</target></segment>
@@ -290,29 +304,29 @@
       <target>Hi</target></segment>
     </unit><unit id="2606712855106855414">
       <notes>
-        <note category="location">app/user/home/home.component.html:11</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:9</note></notes>
       <segment state="final">
         <source>Open Profile</source>
       <target>Open Profile</target></segment>
     </unit><unit id="2984628903434675339">
       <notes>
-        <note category="location">app/user/home/home.component.html:18</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:14</note></notes>
       <segment state="final">
         <source>Edit Profile</source>
       <target>Edit Profile</target></segment>
     </unit><unit id="3797778920049399855">
       <notes>
-        <note category="location">app/user/home/home.component.html:22</note>
-      </notes>
+        
+      <note category="location">app/user/home/home.component.html:18</note></notes>
       <segment state="final">
         <source>Logout</source>
       <target>Logout</target></segment>
     </unit><unit id="6205220545163020073">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:51</note></notes>
+      <note category="location">app/user/home/home.component.html:47</note></notes>
       <segment state="final">
         <source> your iq tests are displayed below</source>
       <target> your iq tests are displayed below</target></segment>
@@ -320,14 +334,14 @@
       <notes>
         
         
-      <note category="location">app/user/home/home.component.html:80</note><note category="location">app/user/public/public.component.html:46</note></notes>
+      <note category="location">app/user/home/home.component.html:74</note><note category="location">app/user/public/public.component.html:60</note></notes>
       <segment state="final">
         <source>Open Details</source>
       <target>Open Details</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:89</note></notes>
+      <note category="location">app/user/home/home.component.html:81</note></notes>
       <segment state="final">
         <source>Show Answers</source>
       <target>Show Answers</target></segment>
@@ -335,7 +349,7 @@
       <notes>
         
         
-      <note category="location">app/user/home/home.component.html:95</note><note category="location">app/iqresult/iq-result.component.html:14</note></notes>
+      <note category="location">app/user/home/home.component.html:87</note><note category="location">app/iqresult/iq-result.component.html:24</note></notes>
       <segment state="final">
         <source>Overall test progress</source>
       <target>Overall test progress</target></segment>
@@ -344,7 +358,7 @@
         
         
         
-      <note category="location">app/user/home/home.component.html:100</note><note category="location">app/iqresult/iq-result.component.html:19</note><note category="location">app/user/public/public.component.html:51</note></notes>
+      <note category="location">app/user/home/home.component.html:92</note><note category="location">app/iqresult/iq-result.component.html:29</note><note category="location">app/user/public/public.component.html:65</note></notes>
       <segment state="final">
         <source>Started at</source>
       <target>Started at</target></segment>
@@ -353,14 +367,14 @@
         
         
         
-      <note category="location">app/user/home/home.component.html:103</note><note category="location">app/iqresult/iq-result.component.html:23</note><note category="location">app/user/public/public.component.html:54</note></notes>
+      <note category="location">app/user/home/home.component.html:95</note><note category="location">app/iqresult/iq-result.component.html:33</note><note category="location">app/user/public/public.component.html:68</note></notes>
       <segment state="final">
         <source>Finished at</source>
       <target>Finished at</target></segment>
     </unit><unit id="3856509348648011303">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:108</note></notes>
+      <note category="location">app/user/home/home.component.html:100</note></notes>
       <segment state="final">
         <source>Continue Test
             </source>
@@ -379,7 +393,7 @@
     </unit><unit id="3326877877555410533">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:96</note></notes>
+      <note category="location">app/classroom/classroom.component.html:90</note></notes>
       <segment state="final">
         <source>Started</source>
       <target>Started</target></segment>
@@ -388,7 +402,7 @@
     <unit id="7022070615528435141">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:116</note></notes>
+      <note category="location">app/user/home/home.component.html:108</note></notes>
       <segment state="final">
         <source>Delete</source>
       <target>Delete</target></segment>
@@ -396,7 +410,7 @@
       <notes>
         
         
-      <note category="location">app/user/home/home.component.html:126</note><note category="location">app/user/public/public.component.html:62</note></notes>
+      <note category="location">app/user/home/home.component.html:118</note><note category="location">app/user/public/public.component.html:76</note></notes>
       <segment state="final">
         <source>All results were loaded successfully.</source>
       <target>All results were loaded successfully.</target></segment>
@@ -421,7 +435,7 @@
     <unit id="514060533210330102">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:23</note></notes>
+      <note category="location">app/user/settings/settings.component.html:21</note></notes>
       <segment state="final">
         <source>Send Verification Email</source>
       <target>Send Verification Email</target></segment>
@@ -429,7 +443,7 @@
     <unit id="1925257283213222352">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:64</note></notes>
+      <note category="location">app/user/settings/settings.component.html:60</note></notes>
       <segment state="final">
         <source>Profile is public</source>
       <target>Profile is public</target></segment>
@@ -437,7 +451,7 @@
     <unit id="8253818393183514086">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:72</note></notes>
+      <note category="location">app/user/settings/settings.component.html:68</note></notes>
       <segment state="final">
         <source>Disable all email notifications</source>
       <target>Disable all email notifications</target></segment>
@@ -445,7 +459,7 @@
     <unit id="7000649363168371045">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:81</note></notes>
+      <note category="location">app/user/settings/settings.component.html:75</note></notes>
       <segment state="final">
         <source>Save changes</source>
       <target>Save changes</target></segment>
@@ -453,7 +467,7 @@
     <unit id="7650624232624154748">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:91</note></notes>
+      <note category="location">app/user/settings/settings.component.html:85</note></notes>
       <segment state="final">
         <source>Current image</source>
       <target>Current image</target></segment>
@@ -461,7 +475,7 @@
     <unit id="3012906865384504293">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:97</note></notes>
+      <note category="location">app/user/settings/settings.component.html:91</note></notes>
       <segment state="final">
         <source>Image</source>
       <target>Image</target></segment>
@@ -469,7 +483,7 @@
     <unit id="6973948056639772089">
       <notes>
         
-      <note category="location">app/user/settings/settings.component.html:112</note></notes>
+      <note category="location">app/user/settings/settings.component.html:106</note></notes>
       <segment state="final">
         <source>Upload new image</source>
       <target>Upload new image</target></segment>
@@ -489,49 +503,49 @@
       <target>Reset Password</target></segment>
     </unit><unit id="2650269401046048840">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:11</note>
-        <note category="location">app/iqtest/iq-test.component.html:41</note>
-      </notes>
+        
+        
+      <note category="location">app/iqtest/iq-test.component.html:21</note><note category="location">app/iqtest/iq-test.component.html:52</note></notes>
       <segment state="final">
         <source>questions</source>
       <target>questions</target></segment>
     </unit><unit id="7422678012467593770">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:13</note>
-        <note category="location">app/iqtest/iq-test.component.html:43</note>
-      </notes>
+        
+        
+      <note category="location">app/iqtest/iq-test.component.html:23</note><note category="location">app/iqtest/iq-test.component.html:54</note></notes>
       <segment state="final">
         <source>Average testing time is</source>
       <target>Average testing time is</target></segment>
     </unit><unit id="3901733599428143571">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:13</note>
-        <note category="location">app/iqtest/iq-test.component.html:14</note>
-        <note category="location">app/iqtest/iq-test.component.html:43</note>
-        <note category="location">app/iqtest/iq-test.component.html:44</note>
-      </notes>
+        
+        
+        
+        
+      <note category="location">app/iqtest/iq-test.component.html:23</note><note category="location">app/iqtest/iq-test.component.html:24</note><note category="location">app/iqtest/iq-test.component.html:54</note><note category="location">app/iqtest/iq-test.component.html:55</note></notes>
       <segment state="final">
         <source>min</source>
       <target>min</target></segment>
     </unit><unit id="5653531963388315526">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:14</note>
-        <note category="location">app/iqtest/iq-test.component.html:44</note>
-      </notes>
+        
+        
+      <note category="location">app/iqtest/iq-test.component.html:24</note><note category="location">app/iqtest/iq-test.component.html:55</note></notes>
       <segment state="final">
         <source>limit</source>
       <target>limit</target></segment>
     </unit><unit id="6611630004208902126">
       <notes>
         
-      <note category="location">app/index/index.component.html:82</note><note category="location">app/iqtest/iq-test.component.html:24</note></notes>
+      <note category="location">app/index/index.component.html:96</note><note category="location">app/iqtest/iq-test.component.html:34</note></notes>
       <segment state="final">
         <source>Start Test</source>
       <target>Start Test</target></segment>
     </unit><unit id="7593555694782789615">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:48</note>
-      </notes>
+        
+      <note category="location">app/iqtest/iq-test.component.html:59</note></notes>
       <segment state="final">
         <source>Open</source>
       <target>Open</target></segment>
@@ -566,42 +580,42 @@
     </unit><unit id="1473171196585331987">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:50</note></notes>
+      <note category="location">app/classroom/classroom.component.html:48</note></notes>
       <segment state="final">
         <source>Previous Question</source>
       <target>Previous Question</target></segment>
     </unit><unit id="2067260738522363442">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:56</note></notes>
+      <note category="location">app/classroom/classroom.component.html:54</note></notes>
       <segment state="final">
         <source>Next Question</source>
       <target>Next Question</target></segment>
     </unit><unit id="8538201418531541683">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:77</note></notes>
+      <note category="location">app/classroom/classroom.component.html:71</note></notes>
       <segment state="final">
         <source>Click to navigate questions</source>
       <target>Click to navigate questions</target></segment>
     </unit><unit id="8922168210464314649">
       <notes>
-        <note category="location">app/classroom/classroom.component.html:92</note>
-      </notes>
+        
+      <note category="location">app/classroom/classroom.component.html:86</note></notes>
       <segment state="final">
         <source>Current test progress</source>
       <target>Current test progress</target></segment>
     </unit><unit id="2525230676386818985">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:99</note></notes>
+      <note category="location">app/classroom/classroom.component.html:93</note></notes>
       <segment state="final">
         <source>Result</source>
       <target>Result</target></segment>
     </unit><unit id="4440205593100213861">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:106</note></notes>
+      <note category="location">app/classroom/classroom.component.html:98</note></notes>
       <segment state="final">
         <source>Submit test</source>
       <target>Submit test</target></segment>
@@ -609,42 +623,42 @@
     <unit id="361469352814485355">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:123</note></notes>
+      <note category="location">app/classroom/classroom.component.html:111</note></notes>
       <segment state="final">
         <source>Test finished</source>
       <target>Test finished</target></segment>
     </unit><unit id="3080099711511142058">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:31</note>
-      </notes>
+        
+      <note category="location">app/iqresult/iq-result.component.html:41</note></notes>
       <segment state="final">
         <source>Math</source>
       <target>Math</target></segment>
     </unit><unit id="194955646686156927">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:37</note>
-      </notes>
+        
+      <note category="location">app/iqresult/iq-result.component.html:47</note></notes>
       <segment state="final">
         <source>Grammar</source>
       <target>Grammar</target></segment>
     </unit><unit id="1628460947800854030">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:43</note>
-      </notes>
+        
+      <note category="location">app/iqresult/iq-result.component.html:53</note></notes>
       <segment state="final">
         <source>Logic</source>
       <target>Logic</target></segment>
     </unit><unit id="7033391752809569769">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:49</note>
-      </notes>
+        
+      <note category="location">app/iqresult/iq-result.component.html:59</note></notes>
       <segment state="final">
         <source>Horizons</source>
       <target>Horizons</target></segment>
     </unit><unit id="5879741663972722968">
       <notes>
         
-      <note category="location">app/user/public/public.component.html:24</note></notes>
+      <note category="location">app/user/public/public.component.html:40</note></notes>
       <segment state="final">
         <source>latest passed iq tests</source>
       <target>latest passed iq tests</target></segment>
