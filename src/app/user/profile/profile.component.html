@@ -1,5 +1,5 @@
 <div id="iq-user" class="row" *ngIf="user">
-  <div class="col-md-5">
+  <div class="col-md-6 offset-md-0 col-4 offset-2 my-2">
     <div class="iq-user-body">
       <div class="badge iq-badge position-absolute">IQ {{user.iq}}</div>
       <div class="profile-hover">
@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-7" *ngIf="user.certificate">
+  <div class="col-md-6 my-2" *ngIf="user.certificate">
     <img class="img-fluid" src="{{user.certificate}}">
   </div>
   <div class="col-md-7" *ngIf="user && !user.certificate">

@@ -17,44 +17,64 @@
   background-repeat: no-repeat;
 }
 
+// .bg-iq-practice {
+//   background-size: 100%;
+//   background-color: #000 !important;
+//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg);
+//   background-position: center top;
+//   background-repeat: no-repeat;
+// }
+
+// .bg-iq-standard {
+//   background-size: 100%;
+//   background-color: #000 !important;
+//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg);
+//   background-position: center top;
+//   background-repeat: no-repeat;
+// }
+
+// .bg-mega-iq {
+//   background-size: 100%;
+//   background-color: #000 !important;
+//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg);
+//   background-position: center top;
+//   background-repeat: no-repeat;
+// }
+
+// .bg-math {
+//   background-size: 100%;
+//   background-color: #c5bdb4 !important;
+//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg);
+//   background-position: center top;
+//   background-repeat: no-repeat;
+// }
+
+// .bg-grammar {
+//   background-size: 100%;
+//   background-color: #d1cdc2 !important;
+//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-grammar.jpg);
+//   background-position: center top;
+//   background-repeat: no-repeat;
+// }
+
 .bg-iq-practice {
-  background-size: 100%;
-  background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
+    @include gradient(#22c1c3, #fdbb2d, horizontal);
 }
 
 .bg-iq-standard {
-  background-size: 100%;
-  background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
+    @include gradient(#642b73, #c6426e, horizontal);
 }
 
 .bg-mega-iq {
-  background-size: 100%;
-  background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
+    @include gradient(#283c86, #45a247, horizontal);
 }
 
 .bg-math {
-  background-size: 100%;
-  background-color: #c5bdb4 !important;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
+    @include gradient(#c0392b, #8e44ad, horizontal);
 }
 
 .bg-grammar {
-  background-size: 100%;
-  background-color: #d1cdc2 !important;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-grammar.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
+    @include gradient(#000046, #1cb5e0, horizontal);
 }
 
 #header-mega-iq {
@@ -64,11 +84,7 @@
   right: 0;
   top: 0;
 
-  &.stickNav {
-    background: #f8f9fa;
-    @include transition(all, .3s, ease-in-out);
     @include box-shadow(0, 2px, 2px, -2px rgba(0, 0, 0, .2));
-  }
 
   .navbar-brand {
     color: var(--primary) !important;

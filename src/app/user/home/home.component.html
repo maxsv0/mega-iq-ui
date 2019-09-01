@@ -1,9 +1,9 @@
 <div class="container pt-3 pb-2">
   <div class="row">
-    <div class="col-sm-6">
-      <h1><span i18n>Hi</span>, {{currentUser.name}}!</h1>
+    <div class="col-sm-5">
+      <h2><span i18n>Hi</span>, {{currentUser.name}}!</h2>
     </div>
-    <div class="col-sm-6 text-right">
+    <div class="col-sm-7 text-right">
       <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
@@ -24,7 +24,7 @@
 <div class="bg-user" *ngIf="!isLoading">
   <div class="container py-4">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-xl-8 offset-xl-2 col-lg-11 offset-lg-1 col-md-12 offset-md-0">
         <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
       </div>
     </div>

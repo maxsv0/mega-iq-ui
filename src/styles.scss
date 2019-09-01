@@ -119,7 +119,7 @@ body {
 .bg-user {
   background-size: 100%;
   background-color: #000 !important;;
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-user.jpg);
+    @include gradient(#fc4a1a, #f7b733, horizontal);
   background-position: center top;
   background-repeat: no-repeat;
 }

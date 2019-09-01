@@ -73,6 +73,7 @@
                 <li><a class="dropdown-item" *ngFor="let test of testTypes" routerLink="{{test.url}}">{{ test.name }}</a></li>
             </ul>
         </div>
+
         <!-- Profile Button -->
         <button type="button" class="btn btn-primary mx-5" routerLink="/home/" *ngIf="currentUser">
             <fa-icon [icon]="['fas', 'user']"></fa-icon> {{currentUser.name}}
