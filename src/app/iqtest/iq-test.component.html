@@ -1,4 +1,4 @@
-<div class="container" *ngIf="testTypes">
+<div class="container" *ngIf="testTypes" id="iq-test-list">
   <div class="row">
 
     <div class="col-12 py-3">
@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="col-4 offset-4">
+        <div class="start-iq-test-btn col-4 offset-4">
           <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}}"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>

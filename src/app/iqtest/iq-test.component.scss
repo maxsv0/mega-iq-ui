@@ -1,3 +1,5 @@
+@import 'src/views/_mixins';
+
 .test {
   height: 400px;
   padding: 0;
@@ -35,4 +37,24 @@
 
 #start-test-btn {
   min-width: 114px;
+}
+
+/** Responsive **/
+
+@include tablet {
+    #iq-test-list {
+        .start-iq-test-btn {
+            margin-left: 0;
+            max-width: initial;
+        }
+    }
+}
+
+@include mobile {
+    #iq-test-list {
+        .start-iq-test-btn {
+            margin-left: 0;
+            max-width: initial;
+        }
+    }
 }
