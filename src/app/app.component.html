@@ -1,6 +1,6 @@
 <header id="header-mega-iq" class="position-fixed w-100 bg-light">
   <div class="py-2 position-relative">
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-light navbar-expand-md">
       <a class="navbar-brand" routerLink="/" i18n>Mega-IQ</a>
       <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" (click)="expandMenu()">
         <fa-icon *ngIf="!isExpanded" [icon]="['fas', 'bars']"></fa-icon>
@@ -64,28 +64,25 @@
       </div>
     </nav>
     <!-- Collapsible content -->
-    <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+    <div class="row collapse navbar-collapse p-3" id="navbarCollapse">
         <div class="btn-group dropdown" role="group">
-            <button type="button" id="mobileTest" class="btn btn-primary dropdown-toggle mx-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" i18n>
+            <button type="button" id="mobileTest" class="btn btn-primary dropdown-toggle ml-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" i18n>
                 Start IQ Test
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="mobileTest"> 
                 <li><a class="dropdown-item" *ngFor="let test of testTypes" routerLink="{{test.url}}">{{ test.name }}</a></li>
             </ul>
         </div>
+        <a class="nav-link mt-2" routerLink="/iqtest/results" i18n>Best Results</a>
         <!-- Profile Button -->
-        <button type="button" class="btn btn-primary mx-5" routerLink="/home/" *ngIf="currentUser">
+        <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser">
             <fa-icon [icon]="['fas', 'user']"></fa-icon> {{currentUser.name}}
         </button>
         <!-- Sign up button -->
-        <ul class="navbar-nav mt-2 mt-md-0 mx-5" *ngIf="!currentUser">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/login/" i18n>Log In</a>
-            </li>
-        </ul>
+        <div class="mt-2 mt-md-0 ml-4" *ngIf="!currentUser">
+            <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+            <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+        </div>
     </div>
     <!-- Collapsible content -->
   </div>
