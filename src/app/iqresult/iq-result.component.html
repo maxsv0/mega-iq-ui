@@ -1,6 +1,6 @@
 <div class="container" *ngIf="!isLoading">
   <div class="row">
-    <div class="col-8 offset-2 py-3">
+    <div class="col-8 offset-2 py-3" *ngIf="isBrowser">
       <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
                      [exclude]="['google','mix','tumblr']"
                      [show]="11"

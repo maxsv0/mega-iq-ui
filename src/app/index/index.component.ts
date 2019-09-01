@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, User} from '@/_models';
@@ -6,6 +6,7 @@ import * as $ from 'jquery';
 import {interval, Subscription} from 'rxjs';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Title} from '@angular/platform-browser';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   templateUrl: './index.component.html',
@@ -20,6 +21,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   clock: any;
   clockTimerSubscription: Subscription;
   clockSpeed: number;
+  isBrowser: boolean;
 
   carouselOptions = {
     margin: 25,
@@ -53,7 +55,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     private iqTestService: IqTestService,
     private userService: UserService,
     private alertService: AlertService,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -63,8 +66,13 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
     this.loadUsersTop();
-    this.initJs();
+
+    if (this.isBrowser) {
+      this.initJs();
+    }
   }
 
   ngOnDestroy() {
@@ -103,6 +111,9 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   private scrollToValue(value: number) {
     if (value == null) {
+      return;
+    }
+    if (this.clock == null) {
       return;
     }
 

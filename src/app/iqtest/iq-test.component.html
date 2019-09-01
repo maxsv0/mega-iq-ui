@@ -1,7 +1,7 @@
 <div class="container" *ngIf="testTypes" id="iq-test-list">
   <div class="row">
 
-    <div class="col-12 py-3">
+    <div class="col-12 py-3" *ngIf="isBrowser">
       <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
                      [exclude]="['google','mix','tumblr','print']"
                      [show]="11"

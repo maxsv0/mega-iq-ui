@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
@@ -8,6 +8,7 @@ import {TestTypeEnum} from '@/_models/enum';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-public',
@@ -24,6 +25,7 @@ export class PublicComponent implements OnInit {
   isLastLoaded = false;
   userTestsPage = 0;
   testTypeEnum = TestTypeEnum;
+  isBrowser: boolean;
 
   constructor(
     private titleService: Title,
@@ -33,7 +35,8 @@ export class PublicComponent implements OnInit {
     private alertService: AlertService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
   }
@@ -45,6 +48,8 @@ export class PublicComponent implements OnInit {
     }
 
     this.userId = userId;
+
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
     this.loadUserResult();
 

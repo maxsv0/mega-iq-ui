@@ -1,6 +1,6 @@
 <section id="home">
     <div class="container-fluid d-flex flex-column">
-        <div class="container mt-2 text-left">
+        <div class="container mt-2 text-left" *ngIf="isBrowser">
           <share-buttons [include]="['facebook','twitter','vk','telegram','messenger','whatsapp','pinterest','reddit','line','sms','email','copy']"
                          [exclude]="['google','mix','tumblr','linkedin','xing','print']"
                          [show]="6"
