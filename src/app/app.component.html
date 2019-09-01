@@ -66,10 +66,10 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse p-3" id="navbarCollapse">
         <div class="btn-group dropdown" role="group">
-            <button type="button" id="mobileTest" class="btn btn-primary dropdown-toggle mx-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" i18n>
-                Start IQ Test
+            <button type="button" id="mobileTest" class="btn btn-primary dropdown-toggle mx-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span i18n>Start IQ Test</span>
             </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="mobileTest"> 
+            <ul class="dropdown-menu" role="menu" aria-labelledby="mobileTest">
                 <li><a class="dropdown-item" *ngFor="let test of testTypes" routerLink="{{test.url}}">{{ test.name }}</a></li>
             </ul>
         </div>
