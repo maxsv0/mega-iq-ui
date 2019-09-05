@@ -86,6 +86,7 @@
       <notes>
         <note category="location">app/index/index.component.html:26</note>
         <note category="location">app/index/index.component.html:50</note>
+        <note category="location">app/results/results.component.html:14</note>
       </notes>
       <segment>
         <source>User</source>
@@ -96,6 +97,7 @@
         <note category="location">app/index/index.component.html:51</note>
         <note category="location">app/user/register/register.component.html:25</note>
         <note category="location">app/user/settings/settings.component.html:42</note>
+        <note category="location">app/results/results.component.html:17</note>
       </notes>
       <segment>
         <source>Age</source>
@@ -106,6 +108,7 @@
         <note category="location">app/index/index.component.html:52</note>
         <note category="location">app/user/register/register.component.html:29</note>
         <note category="location">app/user/settings/settings.component.html:46</note>
+        <note category="location">app/results/results.component.html:16</note>
       </notes>
       <segment>
         <source>Location</source>
@@ -114,6 +117,7 @@
       <notes>
         <note category="location">app/index/index.component.html:29</note>
         <note category="location">app/index/index.component.html:53</note>
+        <note category="location">app/results/results.component.html:18</note>
       </notes>
       <segment>
         <source>IQ</source>
@@ -242,6 +246,7 @@
       <notes>
         <note category="location">app/user/register/register.component.html:17</note>
         <note category="location">app/user/settings/settings.component.html:34</note>
+        <note category="location">app/results/results.component.html:15</note>
       </notes>
       <segment>
         <source>Name</source>
@@ -480,6 +485,27 @@
       </notes>
       <segment>
         <source>Reset Password</source>
+      </segment>
+    </unit><unit id="8828602631473114559">
+      <notes>
+        <note category="location">app/results/results.component.html:5</note>
+      </notes>
+      <segment>
+        <source>Mega-iq test online</source>
+      </segment>
+    </unit><unit id="8663760052070214835">
+      <notes>
+        <note category="location">app/results/results.component.html:6</note>
+      </notes>
+      <segment>
+        <source>Every day thousands pass the online Mega-IQ test for free worldwide!</source>
+      </segment>
+    </unit><unit id="4832375157049886617">
+      <notes>
+        <note category="location">app/results/results.component.html:9</note>
+      </notes>
+      <segment>
+        <source>Top users this month</source>
       </segment>
     </unit><unit id="2650269401046048840">
       <notes>
