@@ -34,10 +34,6 @@ export class IqResultComponent implements OnInit {
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
-  }
-
-  ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     this.iqTestService.getIqTest().subscribe(tests => {
@@ -79,6 +75,9 @@ export class IqResultComponent implements OnInit {
           this.alertService.error('API Service Unavailable. ' + error);
           this.isLoading = false;
         });
+  }
+
+  ngOnInit() {
   }
 
   public setTitle(name: string, score: number, date: string, type: TestTypeEnum) {

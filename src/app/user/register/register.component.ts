@@ -34,9 +34,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
 
     this.titleService.setTitle(this.i18n('Register on Mega-IQ'));
-  }
 
-  ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
@@ -46,6 +44,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       password2: ['', [Validators.required, Validators.minLength(6)]],
       terms: [true, Validators.required]
     });
+  }
+
+  ngOnInit() {
   }
 
   // convenience getter for easy access to form fields

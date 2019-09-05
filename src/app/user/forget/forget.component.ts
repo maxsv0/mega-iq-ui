@@ -32,12 +32,13 @@ export class ForgetComponent implements OnInit {
     }
 
     this.titleService.setTitle(this.i18n('Reset password for Mega-IQ account'));
-  }
 
-  ngOnInit() {
     this.forgetForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
     });
+  }
+
+  ngOnInit() {
   }
 
   // convenience getter for easy access to form fields

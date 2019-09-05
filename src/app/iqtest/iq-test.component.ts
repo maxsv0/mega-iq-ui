@@ -32,9 +32,6 @@ export class IqTestComponent implements OnInit {
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-  }
-
-  ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     const testType = this.route.snapshot.params['testType'];
@@ -56,6 +53,9 @@ export class IqTestComponent implements OnInit {
         }
       );
     });
+  }
+
+  ngOnInit() {
   }
 
   startTest(type: TestTypeEnum) {

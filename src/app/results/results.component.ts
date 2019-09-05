@@ -20,12 +20,11 @@ export class ResultsComponent implements OnInit {
     private alertService: AlertService,
     private i18n: I18n
   ) {
-    this.titleService.setTitle(this.i18n('IQ test results on Mega-IQ'));
+    this.isLoading = true;
+    this.loadUsersAll();
   }
 
   ngOnInit() {
-    this.isLoading = true;
-    this.loadUsersAll();
   }
 
   private loadUsersAll() {

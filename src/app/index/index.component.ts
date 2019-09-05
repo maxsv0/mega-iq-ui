@@ -61,15 +61,14 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
     });
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
+
+    this.loadUsersTop();
   }
 
   ngOnInit() {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-
-    this.loadUsersTop();
-
     if (this.isBrowser) {
       this.initJs();
     }
