@@ -668,7 +668,7 @@
         
         
         
-      <note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/iqresult/iq-result.component.ts:1</note><note category="location">src/app/user/home/home.component.ts:1</note><note category="location">src/app/user/public/public.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note></notes>
+      <note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/user/home/home.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note></notes>
       <segment state="translated">
         <source>Mega-IQ is loading..</source>
       <target>Мега-Айкю загружается..</target></segment>
@@ -721,13 +721,6 @@
       <segment state="translated">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
       <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> на Мега-Айкю</target></segment>
-    </unit><unit id="7302982475078949047">
-      <notes>
-        <note category="location">src/app/results/results.component.ts:1</note>
-      </notes>
-      <segment state="translated">
-        <source>IQ test results on Mega-IQ</source>
-      <target>Рейтинг результатов айкю тестирования на Мега-Айкю</target></segment>
     </unit><unit id="1493967136692480194">
       <notes>
         <note category="location">src/app/user/forget/forget.component.ts:1</note>

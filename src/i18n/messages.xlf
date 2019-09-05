@@ -646,9 +646,7 @@
       <notes>
         <note category="location">src/app/classroom/classroom.component.ts:1</note>
         <note category="location">src/app/classroom/classroom.component.ts:1</note>
-        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
         <note category="location">src/app/user/home/home.component.ts:1</note>
-        <note category="location">src/app/user/public/public.component.ts:1</note>
         <note category="location">src/app/user/settings/settings.component.ts:1</note>
       </notes>
       <segment>
@@ -709,14 +707,6 @@
       </notes>
       <segment>
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
-      </segment>
-    </unit>
-    <unit id="7302982475078949047">
-      <notes>
-        <note category="location">src/app/results/results.component.ts:1</note>
-      </notes>
-      <segment>
-        <source>IQ test results on Mega-IQ</source>
       </segment>
     </unit>
     <unit id="1493967136692480194">
