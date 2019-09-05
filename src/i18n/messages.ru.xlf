@@ -14,7 +14,7 @@
       <note category="location">app/app.component.html:16</note><note category="location">app/app.component.html:70</note></notes>
       <segment state="translated">
         <source>Start IQ Test</source>
-      <target>Начать тест на айкю</target></segment>
+      <target>Пройти тест на iq</target></segment>
     </unit>
     <unit id="3242997623282735515">
       <notes>
@@ -22,7 +22,7 @@
       <note category="location">app/app.component.html:29</note></notes>
       <segment state="translated">
         <source>Best Results</source>
-      <target>Рейтинг лучших айкю</target></segment>
+      <target>Рейтинг IQ теста</target></segment>
     </unit>
     
     <unit id="7028204981963450021">
@@ -70,14 +70,14 @@
       <note category="location">app/index/index.component.html:11</note></notes>
       <segment state="translated">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
-      <target>Миллионы уже прошли тест на iq онлайн!</target></segment>
+      <target>Пройти тест на iq онлайн сейчас!</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
         
       <note category="location">app/index/index.component.html:13</note></notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
-      <target>Пройти Мега-Айкю iq тест онлайн</target></segment>
+      <target>Пройти Мега-Айкю тест онлайн</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
         
@@ -215,7 +215,7 @@
       <note category="location">app/index/index.component.html:71</note></notes>
       <segment state="translated">
         <source>Example profile</source>
-      <target>Соревнуйся с теми кто уже прошел бесплатный онлайн тест на iq</target></segment>
+      <target>Соревнуйся с теми кто смог пройти бесплатный онлайн тест на iq</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
         
