@@ -104,7 +104,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.scrollToValue(apiResponseUsersTop.count + 1481181 + 1000);
       },
       error => {
-        this.alertService.error('API Service Unavailable. ' + error);
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
       });
   }
 

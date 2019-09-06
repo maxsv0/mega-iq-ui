@@ -39,7 +39,7 @@ export class ResultsComponent implements OnInit {
         }
       },
       error => {
-        this.alertService.error('API Service Unavailable. ' + error);
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         this.isLoading = false;
       });
   }

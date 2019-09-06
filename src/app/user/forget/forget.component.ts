@@ -65,7 +65,7 @@ export class ForgetComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }

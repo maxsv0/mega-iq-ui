@@ -14,7 +14,7 @@
 
       <div class="test" *ngIf="testSelected">
         <div class="test-{{testSelected.styleName}}">
-          <h1 class="mx-5 my-3">{{testSelected.name}}</h1>
+          <h1 class="mx-5 my-3 py-2">{{testSelected.name}}</h1>
         </div>
         <div class="row mx-1">
           <div class="col-md-7 text-white">
@@ -45,14 +45,14 @@
           <div class="media mb-2">
             <div class="media-body">
               <div class="test-{{item.value.styleName}}">
-                <h1 class="mx-5 my-3">{{item.value.name}}</h1>
+                <h2 class="mx-5 my-3 py-2">{{item.value.name}} <span i18n>free online</span></h2>
               </div>
               <div class="row mx-1">
-                <div class="col-md-7">
-                  <h2>{{item.value.name}}<br>{{item.value.questions}} <span i18n>questions</span></h2>
-                  <h3 class="mt-5">{{item.value.description}}</h3>
-                  <h4 class="mt-4"><span i18n>Average testing time is</span> {{item.value.time}} <span i18n>min</span>,
-                    <span i18n>limit</span> {{item.value.expire}} <span i18n>min</span></h4>
+                <div class="col-md-7 text-white">
+                  <h3 class="mt-3">{{item.value.description}}</h3>
+                  <p class="mt-3">{{item.value.name}} {{item.value.questions}} <span i18n>questions</span></p>
+                  <p class="mt-4"><span i18n>Average testing time is</span> {{item.value.time}} <span i18n>min</span>,
+                    <span i18n>limit</span> {{item.value.expire}} <span i18n>min</span></p>
                 </div>
                 <div class="col-md-5">
                   <a class="btn btn-block btn-lg btn-{{item.value.styleName}}" routerLink="{{item.value.url}}">

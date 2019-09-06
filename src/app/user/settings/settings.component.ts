@@ -80,7 +80,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.titleService.setTitle(this.i18n('Edit Profile {{name}}', {name: this.currentUser.name}));
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
         });
   }
@@ -141,7 +141,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           }
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -180,7 +180,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
             this.uploading = false;
           },
           error => {
-            this.alertService.error('API Service Unavailable. ' + error);
+            this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
             this.uploading = false;
           });
     }
@@ -200,7 +200,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -220,7 +220,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }

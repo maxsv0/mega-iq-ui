@@ -22,6 +22,7 @@ export class IqResultComponent implements OnInit {
   user: User;
   isLoading = false;
   isBrowser: boolean;
+  public testTypeEnum = TestTypeEnum;
 
   constructor(
     private titleService: Title,
@@ -61,7 +62,7 @@ export class IqResultComponent implements OnInit {
               this.test = apiResponseTestResult.test;
               this.user = apiResponseTestResult.user;
 
-              this.setTitle(this.user.name,
+              this.setTitle(
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
@@ -72,7 +73,7 @@ export class IqResultComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
         });
   }
@@ -80,7 +81,7 @@ export class IqResultComponent implements OnInit {
   ngOnInit() {
   }
 
-  public setTitle(name: string, score: number, date: string, type: TestTypeEnum) {
+  public setTitle(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
     const testQuestions = this.testTypes[this.testTypesKeys[type]].questions;
 
@@ -88,9 +89,8 @@ export class IqResultComponent implements OnInit {
       switch (type) {
         case TestTypeEnum.MEGA_IQ:
         case TestTypeEnum.STANDARD_IQ:
-          this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} {{date}} {{name}}', {
+          this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} passed on {{date}}', {
             test: testName,
-            name: name,
             score: score,
             date: date,
             location: location
@@ -99,9 +99,8 @@ export class IqResultComponent implements OnInit {
         case TestTypeEnum.PRACTICE_IQ:
         case TestTypeEnum.MATH:
         case TestTypeEnum.GRAMMAR:
-          this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} {{date}} {{name}}', {
+          this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} passed on {{date}}', {
             test: testName,
-            name: name,
             score: score,
             date: date,
             questions: testQuestions,
@@ -110,9 +109,8 @@ export class IqResultComponent implements OnInit {
           break;
       }
     } else {
-      this.titleService.setTitle(this.i18n('{{test}} {{date}} {{name}}', {
+      this.titleService.setTitle(this.i18n('{{test}} {{date}}', {
         test: testName,
-        name: name,
         date: date
       }));
     }

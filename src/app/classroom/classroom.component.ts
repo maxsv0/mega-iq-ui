@@ -99,7 +99,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -118,7 +118,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -150,7 +150,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         this.updating = false;
       }
     } catch (err) {
-      this.alertService.error(`API Service Unavailable. ${err}`);
+      this.alertService.error(this.i18n('API Service Unavailable') + '. ' + err);
     }
 
   }
@@ -174,7 +174,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         });
   }
 
