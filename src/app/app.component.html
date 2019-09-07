@@ -19,7 +19,7 @@
                 <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                 <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
-                  <a *ngFor="let test of testTypes" class="dropdown-item" routerLink="{{test.url}}">{{ test.name }}</a>
+                  <a *ngFor="let test of testTypes" class="dropdown-item" href="{{test.url}}">{{ test.name }}</a>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
                 Start IQ Test
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="mobileTest"> 
-                <li><a class="dropdown-item" *ngFor="let test of testTypes" routerLink="{{test.url}}">{{ test.name }}</a></li>
+                <li><a class="dropdown-item" *ngFor="let test of testTypes" href="{{test.url}}">{{ test.name }}</a></li>
             </ul>
         </div>
         <a class="nav-link mt-2" routerLink="/iqtest/results" i18n>Best Results</a>
