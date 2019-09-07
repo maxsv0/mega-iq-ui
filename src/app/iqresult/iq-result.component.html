@@ -1,9 +1,9 @@
 <div class="container" *ngIf="!isLoading">
   <div class="row">
-    <div class="col-8 offset-2 py-3" *ngIf="isBrowser">
+    <div class="col-10 offset-1 py-3" *ngIf="isBrowser">
       <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
                      [exclude]="['google','mix','tumblr']"
-                     [show]="11"
+                     [show]="7"
                      [showText]="true"
                      [autoSetMeta]="true"
                      [theme]="'modern-dark'"
@@ -13,55 +13,56 @@
     <div class="col-4">
       <app-avatar *ngIf="user" [user]="user"></app-avatar>
     </div>
-    <div class="col-8 jumbotron">
-      <div class="card">
-        <div class="card-body">
-          Test URL: <a href="{{test.url}}" target="_blank">www.mega-iq.com{{test.url}}</a>
+    <div class="col-8">
+      <div class="jumbotron p-4">
+        <h2>{{user.name}}
+          <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
+        </h2>
+
+        <h2 *ngIf="test.type == testTypeEnum.MEGA_IQ || test.type == testTypeEnum.STANDARD_IQ"><span i18n>IQ test result:</span> {{test.points}}</h2>
+        <h2 *ngIf="!(test.type == testTypeEnum.MEGA_IQ || test.type == testTypeEnum.STANDARD_IQ)"><span i18n>IQ test result:</span> {{test.points}} / {{this.testTypes[this.testTypesKeys[test.type]].questions}}</h2>
+
+        <div class="course-progress">
+          <span i18n>Overall test progress</span>: {{test.progress}}%
+          <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
         </div>
+
+        <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} {{this.testTypes[this.testTypesKeys[test.type]].questions}}
+          <span i18n>questions</span></h3>
+        <p *ngIf="test.finishDate">
+          <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
+        </p>
+
+        <section *ngIf="test.groupsGraph">
+          <h2>Progress by area</h2>
+          <div class="row">
+            <div class="col-3">
+              <div class="course-progress">
+                <span i18n>Math</span>: {{test.groupsGraph.math}}%
+                <progress class="w-100" value="{{test.groupsGraph.math}}" max="100" role="progressbar"></progress>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="course-progress">
+                <span i18n>Grammar</span>: {{test.groupsGraph.grammar}}%
+                <progress class="w-100" value="{{test.groupsGraph.grammar}}" max="100" role="progressbar"></progress>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="course-progress">
+                <span i18n>Logic</span>: {{test.groupsGraph.logic}}%
+                <progress class="w-100" value="{{test.groupsGraph.logic}}" max="100" role="progressbar"></progress>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="course-progress">
+                <span i18n>Horizons</span>: {{test.groupsGraph.horizons}}%
+                <progress class="w-100" value="{{test.groupsGraph.horizons}}" max="100" role="progressbar"></progress>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <div class="course-progress">
-        <span i18n>Overall test progress</span>: {{test.progress}}%
-        <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
-      </div>
-
-      <p>
-        <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
-      </p>
-
-      <p *ngIf="test.finishDate">
-        <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
-      </p>
-
-      <section *ngIf="test.groupsGraph">
-        <h2>Progress by area</h2>
-        <div class="row">
-          <div class="col-3">
-            <div class="course-progress">
-              <span i18n>Math</span>: {{test.groupsGraph.math}}%
-              <progress class="w-100" value="{{test.groupsGraph.math}}" max="100" role="progressbar"></progress>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="course-progress">
-              <span i18n>Grammar</span>: {{test.groupsGraph.grammar}}%
-              <progress class="w-100" value="{{test.groupsGraph.grammar}}" max="100" role="progressbar"></progress>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="course-progress">
-              <span i18n>Logic</span>: {{test.groupsGraph.logic}}%
-              <progress class="w-100" value="{{test.groupsGraph.logic}}" max="100" role="progressbar"></progress>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="course-progress">
-              <span i18n>Horizons</span>: {{test.groupsGraph.horizons}}%
-              <progress class="w-100" value="{{test.groupsGraph.horizons}}" max="100" role="progressbar"></progress>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </div>
 </div>

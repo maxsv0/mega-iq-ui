@@ -61,15 +61,14 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
     });
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
+
+    this.loadUsersTop();
   }
 
   ngOnInit() {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-
-    this.loadUsersTop();
-
     if (this.isBrowser) {
       this.initJs();
     }
@@ -105,7 +104,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.scrollToValue(apiResponseUsersTop.count + 1481181 + 1000);
       },
       error => {
-        this.alertService.error('API Service Unavailable. ' + error);
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
       });
   }
 

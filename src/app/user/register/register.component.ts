@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
@@ -7,16 +7,18 @@ import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   templateUrl: 'register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements AfterViewInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
   uploadPic = '';
+  isBrowser: boolean;
 
   constructor(
     private titleService: Title,
@@ -26,17 +28,18 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private authenticationService: AuthenticationService,
     private userService: UserService,
     private alertService: AlertService,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
     }
 
     this.titleService.setTitle(this.i18n('Register on Mega-IQ'));
-  }
 
-  ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
@@ -96,13 +99,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
           }
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
 
   ngAfterViewInit() {
-    this.detectLocation();
+    if (this.isBrowser) {
+      this.detectLocation();
+    }
   }
 
   detectLocation() {

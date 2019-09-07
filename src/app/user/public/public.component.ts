@@ -38,10 +38,6 @@ export class PublicComponent implements OnInit {
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
-  }
-
-  ngOnInit() {
     const userId = this.route.snapshot.params['userId'];
     if (userId == null) {
       return;
@@ -62,6 +58,9 @@ export class PublicComponent implements OnInit {
         }
       );
     });
+  }
+
+  ngOnInit() {
   }
 
   private loadUserResult() {
