@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
@@ -7,16 +7,18 @@ import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {HttpClient} from '@angular/common/http';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   templateUrl: 'register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements AfterViewInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
   uploadPic = '';
+  isBrowser: boolean;
 
   constructor(
     private titleService: Title,
@@ -26,8 +28,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private authenticationService: AuthenticationService,
     private userService: UserService,
     private alertService: AlertService,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
@@ -44,9 +49,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       password2: ['', [Validators.required, Validators.minLength(6)]],
       terms: [true, Validators.required]
     });
-  }
-
-  ngOnInit() {
   }
 
   // convenience getter for easy access to form fields
@@ -103,7 +105,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.detectLocation();
+    if (this.isBrowser) {
+      this.detectLocation();
+    }
   }
 
   detectLocation() {

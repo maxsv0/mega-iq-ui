@@ -111,7 +111,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.updateActiveTest(apiResponseTestResult.test);
+            this.router.navigate(['/iqtest/result/' + apiResponseTestResult.test.code]);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }

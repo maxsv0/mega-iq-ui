@@ -4,7 +4,7 @@
     <unit id="2586312104569557204">
       <notes>
         
-      <note category="location">app/app.component.html:4</note></notes>
+      <note category="location">app/app.component.html:3</note></notes>
       <segment state="initial">
         <source>Mega-IQ</source>
       <target>Mega-IQ</target></segment>
@@ -12,7 +12,7 @@
     <unit id="3854501539966213538">
       <notes>
         
-      <note category="location">app/app.component.html:16</note><note category="location">app/app.component.html:70</note></notes>
+      <note category="location">app/app.component.html:14</note></notes>
       <segment state="translated">
         <source>Start IQ Test</source>
       <target>Empieza Test CI</target></segment>
@@ -20,7 +20,7 @@
     <unit id="3242997623282735515">
       <notes>
         
-      <note category="location">app/app.component.html:29</note></notes>
+      <note category="location">app/app.component.html:26</note></notes>
       <segment state="translated">
         <source>Best Results</source>
       <target>Top Resultados</target></segment>
@@ -29,7 +29,7 @@
     <unit id="7028204981963450021">
       <notes>
         
-      <note category="location">app/app.component.html:39</note><note category="location">app/app.component.html:84</note></notes>
+      <note category="location">app/app.component.html:38</note></notes>
       <segment state="translated">
         <source>Sign up</source>
       <target>Regístrate</target></segment>
@@ -37,7 +37,7 @@
     <unit id="8520023152129279437">
       <notes>
         
-      <note category="location">app/app.component.html:42</note><note category="location">app/app.component.html:87</note><note category="location">app/user/login/login.component.html:29</note></notes>
+      <note category="location">app/app.component.html:41</note><note category="location">app/user/login/login.component.html:29</note></notes>
       <segment state="translated">
         <source>Log In</source>
       <target>Iniciar sesión</target></segment>
@@ -45,7 +45,7 @@
     <unit id="1726363342938046830">
       <notes>
         
-      <note category="location">app/app.component.html:113</note></notes>
+      <note category="location">app/app.component.html:87</note></notes>
       <segment state="translated">
         <source>About</source>
       <target>Sobre Mega-IQ</target></segment>
@@ -53,7 +53,7 @@
     <unit id="8439955599488894226">
       <notes>
         
-      <note category="location">app/app.component.html:114</note></notes>
+      <note category="location">app/app.component.html:88</note></notes>
       <segment state="translated">
         <source>Privacy Policy</source>
       <target>Información legal</target></segment>
@@ -61,7 +61,7 @@
     <unit id="664573589261423471">
       <notes>
         
-      <note category="location">app/app.component.html:115</note></notes>
+      <note category="location">app/app.component.html:89</note></notes>
       <segment state="translated">
         <source>Terms and Conditions</source>
       <target>Términos de uso</target></segment>
@@ -362,7 +362,7 @@
     </unit><unit id="2479829772667496101">
       <notes>
         
-      <note category="location">app/user/home/home.component.html:87</note><note category="location">app/iqresult/iq-result.component.html:24</note></notes>
+      <note category="location">app/user/home/home.component.html:87</note><note category="location">app/iqresult/iq-result.component.html:26</note></notes>
       <segment state="translated">
         <source>Overall test progress</source>
       <target>Progreso</target></segment>
@@ -371,7 +371,7 @@
         
         
         
-      <note category="location">app/user/home/home.component.html:92</note><note category="location">app/iqresult/iq-result.component.html:29</note><note category="location">app/user/public/public.component.html:65</note></notes>
+      <note category="location">app/user/home/home.component.html:92</note><note category="location">app/user/public/public.component.html:65</note></notes>
       <segment state="translated">
         <source>Started at</source>
       <target>Empezado</target></segment>
@@ -413,7 +413,7 @@
     </unit><unit id="3326877877555410533">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:90</note></notes>
+      <note category="location">app/classroom/classroom.component.html:80</note></notes>
       <segment state="translated">
         <source>Started</source>
       <target>Empezado</target></segment>
@@ -541,7 +541,7 @@
       <notes>
         
         
-      <note category="location">app/iqtest/iq-test.component.html:21</note><note category="location">app/iqtest/iq-test.component.html:52</note></notes>
+      <note category="location">app/iqtest/iq-test.component.html:21</note><note category="location">app/iqtest/iq-test.component.html:53</note><note category="location">app/iqresult/iq-result.component.html:31</note></notes>
       <segment state="initial">
         <source>questions</source>
       <target>questions</target></segment>
@@ -571,6 +571,13 @@
       <segment state="initial">
         <source>limit</source>
       <target>limit</target></segment>
+    </unit><unit id="6812374314162236933">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:48</note>
+      </notes>
+      <segment state="initial">
+        <source>free online</source>
+      <target>free online</target></segment>
     </unit><unit id="7593555694782789615">
       <notes>
         
@@ -631,28 +638,28 @@
     </unit><unit id="8538201418531541683">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:71</note></notes>
+      <note category="location">app/classroom/classroom.component.html:104</note></notes>
       <segment state="translated">
         <source>Click to navigate questions</source>
       <target>Haz click para navegar preguntas</target></segment>
     </unit><unit id="8922168210464314649">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:86</note></notes>
+      <note category="location">app/classroom/classroom.component.html:76</note></notes>
       <segment state="translated">
         <source>Current test progress</source>
       <target>Progreso</target></segment>
     </unit><unit id="2525230676386818985">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:93</note></notes>
+      <note category="location">app/classroom/classroom.component.html:83</note></notes>
       <segment state="translated">
         <source>Result</source>
       <target>Resultado</target></segment>
     </unit><unit id="4440205593100213861">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:98</note></notes>
+      <note category="location">app/classroom/classroom.component.html:88</note></notes>
       <segment state="translated">
         <source>Submit test</source>
       <target>Entregar test</target></segment>
@@ -660,10 +667,25 @@
     <unit id="361469352814485355">
       <notes>
         
-      <note category="location">app/classroom/classroom.component.html:111</note></notes>
+      <note category="location">app/classroom/classroom.component.html:95</note></notes>
       <segment state="translated">
         <source>Test finished</source>
       <target>Test completado</target></segment>
+    </unit><unit id="2124672565465036433">
+      <notes>
+        <note category="location">app/iqresult/iq-result.component.html:19</note>
+      </notes>
+      <segment state="initial">
+        <source>passed</source>
+      <target>passed</target></segment>
+    </unit><unit id="8430867556310314373">
+      <notes>
+        <note category="location">app/iqresult/iq-result.component.html:22</note>
+        <note category="location">app/iqresult/iq-result.component.html:23</note>
+      </notes>
+      <segment state="initial">
+        <source>IQ test result:</source>
+      <target>IQ test result:</target></segment>
     </unit><unit id="3080099711511142058">
       <notes>
         
@@ -710,10 +732,32 @@
       <segment state="initial">
         <source>Mega-IQ is loading..</source>
       <target>Mega-IQ is loading..</target></segment>
-    </unit><unit id="164535864791925829">
+    </unit><unit id="7621426683557637403">
       <notes>
         <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/index/index.component.ts:1</note>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+        <note category="location">src/app/results/results.component.ts:1</note>
+        <note category="location">src/app/user/forget/forget.component.ts:1</note>
+        <note category="location">src/app/user/login/login.component.ts:1</note>
+        <note category="location">src/app/user/register/register.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
       </notes>
+      <segment state="initial">
+        <source>API Service Unavailable</source>
+      <target>API Service Unavailable</target></segment>
+    </unit><unit id="164535864791925829">
+      <notes>
+        
+      <note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/iqresult/iq-result.component.ts:1</note></notes>
       <segment state="initial">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
       <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></target></segment>
@@ -724,27 +768,20 @@
       <segment state="initial">
         <source>Mega-IQ free online IQ test</source>
       <target>Mega-IQ free online IQ test</target></segment>
-    </unit><unit id="4832398608673712538">
+    </unit><unit id="2174699020890542276">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment state="initial">
-        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{name}}"/></source>
-      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{name}}"/></target></segment>
-    </unit><unit id="3528708573877541661">
+        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
+      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
+    </unit><unit id="5201126520440031540">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment state="initial">
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/> <ph id="4" equiv="INTERPOLATION_4" disp="{{name}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/> <ph id="4" equiv="INTERPOLATION_4" disp="{{name}}"/></target></segment>
-    </unit><unit id="2519431576919863231">
-      <notes>
-        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
-      </notes>
-      <segment state="initial">
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{name}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{name}}"/></target></segment>
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
     </unit><unit id="6918087724127868060">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
