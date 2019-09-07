@@ -161,7 +161,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.activeTest = apiResponseTestResult.test;
             this.updateActiveTest(apiResponseTestResult.test);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -171,6 +170,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
             this.activeTest.type,
             this.activeTest.toString()
             );
+
           this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         },
         error => {

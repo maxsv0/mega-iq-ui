@@ -17,64 +17,24 @@
   background-repeat: no-repeat;
 }
 
-// .bg-iq-practice {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-iq-standard {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-mega-iq {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-math {
-//   background-size: 100%;
-//   background-color: #c5bdb4 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-grammar {
-//   background-size: 100%;
-//   background-color: #d1cdc2 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-grammar.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
 .bg-iq-practice {
-    @include gradient(#22c1c3, #fdbb2d, horizontal);
+  @include gradient(#000046, #1cb5e0, horizontal);
 }
 
 .bg-iq-standard {
-    @include gradient(#642b73, #c6426e, horizontal);
+  @include gradient(#283c86, #45a247, horizontal);
 }
 
 .bg-mega-iq {
-    @include gradient(#283c86, #45a247, horizontal);
+  @include gradient(#642b73, #e62968, horizontal);
 }
 
 .bg-math {
-    @include gradient(#c0392b, #8e44ad, horizontal);
+    @include gradient(#c0392b, #cd9144, horizontal);
 }
 
 .bg-grammar {
-    @include gradient(#000046, #1cb5e0, horizontal);
+    @include gradient(#c02b74, #c19a15, horizontal);
 }
 
 #header-mega-iq {
