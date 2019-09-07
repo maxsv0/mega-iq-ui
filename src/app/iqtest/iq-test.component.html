@@ -4,7 +4,7 @@
     <div class="col-12 py-3" *ngIf="isBrowser">
       <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
                      [exclude]="['google','mix','tumblr','print']"
-                     [show]="11"
+                     [show]="15"
                      [autoSetMeta]="true"
                      [theme]="'modern-dark'"
       ></share-buttons>
@@ -14,14 +14,14 @@
 
       <div class="test" *ngIf="testSelected">
         <div class="test-{{testSelected.styleName}}">
-          <h1 class="mx-5 my-3 py-2">{{testSelected.name}}</h1>
+          <h1 class="mx-5 my-3 py-2">{{testSelected.name}} <span i18n>free online</span></h1>
         </div>
         <div class="row mx-1">
           <div class="col-md-7 text-white">
-            <h2>{{testSelected.name}}<br>{{testSelected.questions}} <span i18n>questions</span></h2>
-            <h3 class="mt-5">{{testSelected.description}}</h3>
-            <h4 class="mt-4"><span i18n>Average testing time is</span> {{testSelected.time}} <span i18n>min</span>,
-              <span i18n>limit</span> {{testSelected.expire}} <span i18n>min</span></h4>
+            <h2 class="mt-1">{{testSelected.description}}</h2>
+            <p class="mt-2 lead">{{testSelected.name}} {{testSelected.questions}} <span i18n>questions</span></p>
+            <p class="mt-2"><span i18n>Average testing time is</span> {{testSelected.time}} <span i18n>min</span>,
+              <span i18n>limit</span> {{testSelected.expire}} <span i18n>min</span></p>
           </div>
           <div class="col-md-5">
 <!--            ad placeholder-->
@@ -41,11 +41,11 @@
 
       <div *ngIf="!testSelected">
         <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue"
-             [ngStyle]="{'background': 'url(' + item.value.pic + ')'}">
+             [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
           <div class="media mb-2">
             <div class="media-body">
               <div class="test-{{item.value.styleName}}">
-                <h2 class="mx-5 my-3 py-2">{{item.value.name}} <span i18n>free online</span></h2>
+                <h2 class="mx-4 my-3 py-2">{{item.value.name}} <span i18n>online</span></h2>
               </div>
               <div class="row mx-1">
                 <div class="col-md-7 text-white">
@@ -54,7 +54,7 @@
                   <p class="mt-4"><span i18n>Average testing time is</span> {{item.value.time}} <span i18n>min</span>,
                     <span i18n>limit</span> {{item.value.expire}} <span i18n>min</span></p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5 pr-3">
                   <a class="btn btn-block btn-lg btn-{{item.value.styleName}} py-3 px-4" routerLink="{{item.value.url}}">
                     <span i18n>Open</span> {{item.value.name}}
                   </a>

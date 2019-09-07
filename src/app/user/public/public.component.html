@@ -61,10 +61,7 @@
           </div>
         </div>
 
-        <div class="course-starts text-white pt-2">
-          <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
-        </div>
-        <div class="course-ends text-white" *ngIf="test.finishDate">
+        <div class="text-white mt-4" *ngIf="test.finishDate">
           <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
         </div>
       </div>
