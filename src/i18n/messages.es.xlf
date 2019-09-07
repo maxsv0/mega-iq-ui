@@ -371,7 +371,7 @@
         
         
         
-      <note category="location">app/user/home/home.component.html:92</note><note category="location">app/user/public/public.component.html:65</note></notes>
+      <note category="location">app/user/home/home.component.html:92</note></notes>
       <segment state="translated">
         <source>Started at</source>
       <target>Empezado</target></segment>
@@ -380,7 +380,7 @@
         
         
         
-      <note category="location">app/user/home/home.component.html:95</note><note category="location">app/iqresult/iq-result.component.html:33</note><note category="location">app/user/public/public.component.html:68</note></notes>
+      <note category="location">app/user/home/home.component.html:95</note><note category="location">app/iqresult/iq-result.component.html:33</note><note category="location">app/user/public/public.component.html:65</note></notes>
       <segment state="translated">
         <source>Finished at</source>
       <target>Completado</target></segment>
@@ -423,7 +423,7 @@
       <notes>
         
         
-      <note category="location">app/user/home/home.component.html:118</note><note category="location">app/user/public/public.component.html:76</note></notes>
+      <note category="location">app/user/home/home.component.html:118</note><note category="location">app/user/public/public.component.html:73</note></notes>
       <segment state="initial">
         <source>All results were loaded successfully.</source>
       <target>All results were loaded successfully.</target></segment>
@@ -541,7 +541,7 @@
       <notes>
         
         
-      <note category="location">app/iqtest/iq-test.component.html:21</note><note category="location">app/iqtest/iq-test.component.html:53</note><note category="location">app/iqresult/iq-result.component.html:31</note></notes>
+      <note category="location">app/iqtest/iq-test.component.html:22</note><note category="location">app/iqtest/iq-test.component.html:53</note><note category="location">app/iqresult/iq-result.component.html:31</note></notes>
       <segment state="initial">
         <source>questions</source>
       <target>questions</target></segment>
@@ -571,10 +571,17 @@
       <segment state="initial">
         <source>limit</source>
       <target>limit</target></segment>
-    </unit><unit id="6812374314162236933">
+    </unit><unit id="180949385590118498">
       <notes>
         <note category="location">app/iqtest/iq-test.component.html:48</note>
       </notes>
+      <segment state="initial">
+        <source>online</source>
+      <target>online</target></segment>
+    </unit><unit id="6812374314162236933">
+      <notes>
+        
+      <note category="location">app/iqtest/iq-test.component.html:17</note></notes>
       <segment state="initial">
         <source>free online</source>
       <target>free online</target></segment>
@@ -796,6 +803,13 @@
       <segment state="initial">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
       <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</target></segment>
+    </unit><unit id="7322074626709578366">
+      <notes>
+        <note category="location">src/app/results/results.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Top scores of IQ test on Mega-IQ</source>
+      <target>Top scores of IQ test on Mega-IQ</target></segment>
     </unit><unit id="1493967136692480194">
       <notes>
         <note category="location">src/app/user/forget/forget.component.ts:1</note>

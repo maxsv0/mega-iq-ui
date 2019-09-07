@@ -20,6 +20,8 @@ export class ResultsComponent implements OnInit {
     private alertService: AlertService,
     private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
+
     this.isLoading = true;
     this.loadUsersAll();
   }

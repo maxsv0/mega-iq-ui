@@ -361,7 +361,6 @@
     </unit><unit id="37788114767831354">
       <notes>
         <note category="location">app/user/home/home.component.html:92</note>
-        <note category="location">app/user/public/public.component.html:65</note>
       </notes>
       <segment>
         <source>Started at</source>
@@ -370,7 +369,7 @@
       <notes>
         <note category="location">app/user/home/home.component.html:95</note>
         <note category="location">app/iqresult/iq-result.component.html:33</note>
-        <note category="location">app/user/public/public.component.html:68</note>
+        <note category="location">app/user/public/public.component.html:65</note>
       </notes>
       <segment>
         <source>Finished at</source>
@@ -393,7 +392,7 @@
     </unit><unit id="2515826609292720294">
       <notes>
         <note category="location">app/user/home/home.component.html:118</note>
-        <note category="location">app/user/public/public.component.html:76</note>
+        <note category="location">app/user/public/public.component.html:73</note>
       </notes>
       <segment>
         <source>All results were loaded successfully.</source>
@@ -503,9 +502,16 @@
       <segment>
         <source>Top users this month</source>
       </segment>
+    </unit><unit id="6812374314162236933">
+      <notes>
+        <note category="location">app/iqtest/iq-test.component.html:17</note>
+      </notes>
+      <segment>
+        <source>free online</source>
+      </segment>
     </unit><unit id="2650269401046048840">
       <notes>
-        <note category="location">app/iqtest/iq-test.component.html:21</note>
+        <note category="location">app/iqtest/iq-test.component.html:22</note>
         <note category="location">app/iqtest/iq-test.component.html:53</note>
         <note category="location">app/iqresult/iq-result.component.html:31</note>
       </notes>
@@ -538,12 +544,12 @@
       <segment>
         <source>limit</source>
       </segment>
-    </unit><unit id="6812374314162236933">
+    </unit><unit id="180949385590118498">
       <notes>
         <note category="location">app/iqtest/iq-test.component.html:48</note>
       </notes>
       <segment>
-        <source>free online</source>
+        <source>online</source>
       </segment>
     </unit><unit id="7593555694782789615">
       <notes>
@@ -768,6 +774,14 @@
       </notes>
       <segment>
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
+      </segment>
+    </unit>
+    <unit id="7322074626709578366">
+      <notes>
+        <note category="location">src/app/results/results.component.ts:1</note>
+      </notes>
+      <segment>
+        <source>Top scores of IQ test on Mega-IQ</source>
       </segment>
     </unit>
     <unit id="1493967136692480194">
