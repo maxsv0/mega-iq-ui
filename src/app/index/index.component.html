@@ -1,6 +1,6 @@
 <section id="home">
     <div class="container-fluid d-flex flex-column">
-        <div class="container mt-2 text-left">
+        <div class="container mt-2 text-left" *ngIf="isBrowser">
           <share-buttons [include]="['facebook','twitter','vk','telegram','messenger','whatsapp','pinterest','reddit','line','sms','email','copy']"
                          [exclude]="['google','mix','tumblr','linkedin','xing','print']"
                          [show]="6"
@@ -77,17 +77,25 @@
     </owl-carousel>
 </section>
 
-<section id="test-section" class="d-flex flex-wrap" *ngIf="testTypes">
-  <div class="card-container d-flex flex-column px-5" *ngFor="let item of testTypes | keyvalue"
-       [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
-    <div class="course-title text-white">
-      <h1>{{item.value.name}}</h1>
+<section id="test-section" class="container" *ngIf="testTypes">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2 i18n>Mega-iq tests</h2>
     </div>
-    <div class="course-title text-white">
-      <p>{{item.value.description}}</p>
+
+    <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypes | keyvalue"
+         [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
+      <div class="course-title text-white">
+        <h2><span i18n>Start</span> {{item.value.name}}</h2>
+      </div>
+      <div class="course-title text-white">
+        <p>{{item.value.description}}</p>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-lg btn-{{item.value.styleName}} w-50">
+          <a class="text-white" routerLink="{{item.value.url}}" i18n>Start Test</a>
+        </button>
+      </div>
     </div>
-    <button class="btn btn-lg btn-{{item.value.styleName}} w-50 align-self-center mt-3">
-      <a class="text-white" routerLink="{{item.value.url}}" i18n>Start Test</a>
-    </button>
   </div>
 </section>

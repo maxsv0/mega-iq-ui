@@ -52,7 +52,7 @@ export class LoginComponent {
             }
           },
           error => {
-            this.alertService.error('API Service Unavailable. ' + error);
+            this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
             this.loading = false;
           });
     }

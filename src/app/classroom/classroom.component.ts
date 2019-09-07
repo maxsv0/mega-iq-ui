@@ -99,7 +99,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -111,14 +111,14 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.updateActiveTest(apiResponseTestResult.test);
+            this.router.navigate(['/iqtest/result/' + apiResponseTestResult.test.code]);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
           this.loading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }
@@ -150,7 +150,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         this.updating = false;
       }
     } catch (err) {
-      this.alertService.error(`API Service Unavailable. ${err}`);
+      this.alertService.error(this.i18n('API Service Unavailable') + '. ' + err);
     }
 
   }
@@ -161,7 +161,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.activeTest = apiResponseTestResult.test;
             this.updateActiveTest(apiResponseTestResult.test);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -171,10 +170,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
             this.activeTest.type,
             this.activeTest.toString()
             );
+
           this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         });
   }
 

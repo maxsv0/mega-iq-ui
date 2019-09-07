@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {TestTypeEnum} from '@/_models/enum';
 import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -8,6 +8,7 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-iq-test',
@@ -18,6 +19,7 @@ export class IqTestComponent implements OnInit {
   testTypes: IqTest[] = [];
   testSelected: IqTest;
   loading = false;
+  isBrowser: boolean;
 
   constructor(
     private titleService: Title,
@@ -27,11 +29,11 @@ export class IqTestComponent implements OnInit {
     private alertService: AlertService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
-  }
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
-  ngOnInit() {
     const testType = this.route.snapshot.params['testType'];
 
     this.iqTestService.getIqTest().subscribe(tests => {
@@ -53,6 +55,9 @@ export class IqTestComponent implements OnInit {
     });
   }
 
+  ngOnInit() {
+  }
+
   startTest(type: TestTypeEnum) {
     this.loading = true;
     this.iqTestService.startTest(type)
@@ -67,7 +72,7 @@ export class IqTestComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
   }

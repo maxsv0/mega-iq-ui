@@ -1,26 +1,39 @@
-<div class="jumbotron" [ngClass]="{'load-results': isLoading}">
+<div class="container">
+  <div class="row">
+    <div class="col-12 pt-3">
 
-<div *ngIf="!isLoading">
-    <h3>Top users this month:</h3>
-    <div class="media" *ngFor="let user of users">
-        <div class="mr-3 mb-3">
-            <img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}">
-        </div>
-        <div class="media-body">
-            <h5 class="mt-0"><a routerLink="{{user.url}}">{{user.name}}</a></h5>
-            <p>{{user.location}}</p>
-        </div>
-        <div class="ml-3">
-            {{user.age}}
-        </div>
-        <div class="ml-3">
-            {{user.iq}}
-        </div>
+      <h1 i18n>Mega-iq test online</h1>
+      <h4 i18n>Every day thousands pass the online Mega-IQ test for free worldwide!</h4>
+
+      <section id="iq-scores">
+        <h2 i18n>Top users this month</h2>
+
+        <table class="w-100 bg-white table-hover" *ngIf="!isLoading">
+          <thead>
+          <tr>
+            <th width="20%" i18n>User</th>
+            <th width="30%" i18n>Name</th>
+            <th width="30%" i18n>Location</th>
+            <th width="10%" i18n>Age</th>
+            <th width="10%" i18n>IQ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users" routerLink="{{user.url}}">
+            <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+            <td>{{user.name || '-'}}</td>
+            <td>{{user.location || '-'}}</td>
+            <td>{{user.age || '-'}}</td>
+            <td>{{user.iq || '-'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+
     </div>
+  </div>
 </div>
 
-<div class="py-5">
-    <div class="page-loader" *ngIf="isLoading"></div>
-</div>
-
+<div *ngIf="isLoading">
+  <div class="page-loader"></div>
 </div>

@@ -3,6 +3,9 @@
 .test {
   height: 400px;
   padding: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size:cover;
 }
 
 .test h1 {
@@ -29,10 +32,9 @@
 }
 
 .test .btn {
-  color: #fff;
-  font-size: 30px;
+  color: white;
+  font-size: xx-large;
   font-weight: bold;
-  line-height: 65px;
 }
 
 #start-test-btn {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';
@@ -8,6 +8,7 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-iq-result',
@@ -20,6 +21,8 @@ export class IqResultComponent implements OnInit {
   test: TestResult;
   user: User;
   isLoading = false;
+  isBrowser: boolean;
+  public testTypeEnum = TestTypeEnum;
 
   constructor(
     private titleService: Title,
@@ -29,12 +32,11 @@ export class IqResultComponent implements OnInit {
     private alertService: AlertService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
-  }
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
-  ngOnInit() {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
 
@@ -60,7 +62,7 @@ export class IqResultComponent implements OnInit {
               this.test = apiResponseTestResult.test;
               this.user = apiResponseTestResult.user;
 
-              this.setTitle(this.user.name,
+              this.setTitle(
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
@@ -71,12 +73,15 @@ export class IqResultComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          this.alertService.error('API Service Unavailable. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
         });
   }
 
-  public setTitle(name: string, score: number, date: string, type: TestTypeEnum) {
+  ngOnInit() {
+  }
+
+  public setTitle(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
     const testQuestions = this.testTypes[this.testTypesKeys[type]].questions;
 
@@ -84,9 +89,8 @@ export class IqResultComponent implements OnInit {
       switch (type) {
         case TestTypeEnum.MEGA_IQ:
         case TestTypeEnum.STANDARD_IQ:
-          this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} {{date}} {{name}}', {
+          this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} passed on {{date}}', {
             test: testName,
-            name: name,
             score: score,
             date: date,
             location: location
@@ -95,9 +99,8 @@ export class IqResultComponent implements OnInit {
         case TestTypeEnum.PRACTICE_IQ:
         case TestTypeEnum.MATH:
         case TestTypeEnum.GRAMMAR:
-          this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} {{date}} {{name}}', {
+          this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} passed on {{date}}', {
             test: testName,
-            name: name,
             score: score,
             date: date,
             questions: testQuestions,
@@ -106,9 +109,8 @@ export class IqResultComponent implements OnInit {
           break;
       }
     } else {
-      this.titleService.setTitle(this.i18n('{{test}} {{date}} {{name}}', {
+      this.titleService.setTitle(this.i18n('{{test}} {{date}}', {
         test: testName,
-        name: name,
         date: date
       }));
     }

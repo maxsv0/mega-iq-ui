@@ -39,9 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.currentUser = user;
     });
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
-  }
 
-  ngOnInit() {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
 
@@ -53,6 +51,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     this.loadMyResult();
+  }
+
+  ngOnInit() {
   }
 
   ngOnDestroy() {
