@@ -6,13 +6,13 @@
           <h3><span class="text-muted mr-3"><span
             i18n>Question</span> #{{activeQuestionId}}</span>{{activeQuestion.title}}</h3>
           <div class="text-center my-3">
-            <img *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470"
+            <img class="w-100" *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x" width="470"
                  height="370">
             <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
           </div>
           <div class="container card my-3">
             <div *ngIf="!updating" class="row text-center">
-              <div class="col-md-2 col-sm-3 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
+              <div class="col-md-4 col-sm-3 col-6 px-0 py-2" *ngFor="let answer of activeQuestion.answers"
                    [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
                 <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
                      *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0">
@@ -41,14 +41,14 @@
             </div>
 
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 col-6 px-0">
                 <div class="btn btn-link" (click)="setQuestion(activeQuestionIdPrev)"
                      [ngClass]="{'disabled': activeQuestionIdPrev === 0}" [class.disabled]="updating">
                   <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
                   <span i18n>Previous Question</span>
                 </div>
               </div>
-              <div class="col-sm-6 text-right">
+              <div class="col-sm-6 col-6 px-0 text-right">
                 <div class="btn btn-link" (click)="setQuestion(activeQuestionIdNext)"
                      [ngClass]="{'disabled': activeQuestionIdNext === 0}" [class.disabled]="updating">
                   <span i18n>Next Question</span>

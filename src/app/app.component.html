@@ -11,14 +11,13 @@
         <li class="nav-item active">
           <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <button type="button" class="btn btn-primary l-radius">
-              <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
+                <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
             </button>
-            <div class="btn-group dropdown" role="group">
-              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-              <div class="dropdown-menu dropdown-menu-right test-types" aria-labelledby="btnGroupDrop1">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle r-radius pr-3"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu position-absolute" role="group">
                 <a *ngFor="let test of testTypes" class="dropdown-item" routerLink="{{test.url}}">{{ test.name }}</a>
-              </div>
             </div>
           </div>
         </li>

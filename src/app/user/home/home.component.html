@@ -49,11 +49,11 @@
   </div>
 
   <section class="row" *ngIf="testTypes && userTests">
-    <div class="col-md-6" *ngFor="let test of userTests">
+    <div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-0 col-md-6 offset-md-2" *ngFor="let test of userTests">
       <div class="card-container test-{{this.testTypes[this.testTypesKeys[test.type]].styleName}}"
            [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}"
       >
-        <div class="text-white">
+        <div class="text-white mb-3">
       <span class="w-25 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
                          'badge-primary': test.status === testStatus.ACTIVE,
                          'badge-secondary': test.status === testStatus.EXPIRED }">{{test.status}}</span>
@@ -103,7 +103,7 @@
         </div>
 
         <div class="text-right">
-          <button class="w-25 btn btn-danger" (click)="deleteTestResult(test.code)"
+          <button class="w-100 btn btn-danger btn-lg mt-3" (click)="deleteTestResult(test.code)"
                   *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
             <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span i18n>Delete</span></span>
             <span *ngIf="loading" class="actn-loader"></span>
