@@ -4,10 +4,6 @@
   padding-top: 25px;
 }
 
-// #bgMain {
-//   background-color: #f8f9fa;
-// }
-
 .home-image {
   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg);
   @include background-size(cover);
@@ -16,46 +12,6 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-
-// .bg-iq-practice {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-practice.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-iq-standard {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-standard.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-mega-iq {
-//   background-size: 100%;
-//   background-color: #000 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-mega.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-math {
-//   background-size: 100%;
-//   background-color: #c5bdb4 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-math.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
-
-// .bg-grammar {
-//   background-size: 100%;
-//   background-color: #d1cdc2 !important;
-//   background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-big-grammar.jpg);
-//   background-position: center top;
-//   background-repeat: no-repeat;
-// }
 
 .bg-iq-practice {
   @include gradient(#000046, #1cb5e0, horizontal);
@@ -139,8 +95,11 @@
 
     #bgMain {
         min-width: 22rem;
-        background-image: none;
         min-width: 490px;
+    }
+
+    .home-image {
+        background-image: url(assets/img/bg-index-sm.png);
     }
 
     #header-mega-iq {
