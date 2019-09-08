@@ -74,7 +74,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseBase => {
           if (apiResponseBase.ok) {
-            // this.alertService.success(apiResponseBase.msg);
+              for(let i = 0; i < this.userTests.length; i++) {
+                if(this.userTests[i].code === code) {
+                    this.userTests.splice(i, 1);
+                }
+              }
+            this.alertService.success(apiResponseBase.msg);
           } else {
             this.alertService.error(apiResponseBase.msg);
           }
@@ -110,6 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
 
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
+            console.log(this.userTests);
             this.currentUser = apiResponseTestResultList.user;
             console.log(this.currentUser);
 
