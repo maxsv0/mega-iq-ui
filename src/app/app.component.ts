@@ -5,8 +5,6 @@ import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 import {AuthenticationService, IqTestService} from './_services';
 import {IqTest, User} from './_models';
 import {APP_LOCALE_ID} from '../environments/app-locale';
-import * as $ from 'jquery';
-declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -84,11 +82,6 @@ export class AppComponent {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
-  }
-
-  expandMenu() {
-      this.isExpanded = !this.isExpanded;
-      $('#navbarCollapse').collapse('toggle');
   }
 
 }
