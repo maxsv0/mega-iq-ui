@@ -18,7 +18,6 @@ export class AppComponent {
   testTypes: IqTest[] = [];
   loading = false;
   locale = APP_LOCALE_ID;
-  isExpanded = false;
 
   constructor(
     private route: ActivatedRoute,
