@@ -118,8 +118,7 @@ body {
 
 .bg-user {
   background-size: 100%;
-  background-color: #000 !important;;
-    @include gradient(#fc4a1a, #f7b733, horizontal);
+  background-color: #000 !important;
   background-position: center top;
   background-repeat: no-repeat;
 }

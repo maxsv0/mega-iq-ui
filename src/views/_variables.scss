@@ -19,9 +19,61 @@ $colorGrammar: #d3c1a9;
 $colorGrammarLight: lighten($colorMath, 10%);
 $colorGrammarDark: darken($colorMath, 15%);
 
-$spacer: 1rem !default;
+// gradient picker for profile settings
+$gradients: (
+  "0": (
+    fallback: #00F260,
+    gradient: (to top, #00F260, #0575E6)
+  ),
+  "1": (
+    fallback: #636363,
+    gradient: (to top, #636363, #a2ab58)
+  ),
+  "2": (
+      fallback: #ad5389,
+      gradient: (to right, #ad5389, #3c1053)
+  ),
+  "3": (
+      fallback: #fc4a1a,
+      gradient: (to right, #fc4a1a, #f7b733)
+  ),
+  "4": (
+      fallback: #800080,
+      gradient: (to bottom, #800080, #ffc0cb)
+  ),
+  "5": (
+    fallback: #CAC531,
+    gradient: (to bottom, #CAC531, #F3F9A7)
+  ),
+  "6": (
+      fallback: #ff9966,
+      gradient: (to left, #ff9966, #ff5e62)
+  ),
+  "7": (
+      fallback: #74ebd5,
+      gradient: (to left, #74ebd5, #ACB6E5)
+  ),
+  "8": (
+      fallback: #e1eec3,
+      gradient: (to top, #e1eec3, #f05053)
+  ),
+  "9": (
+      fallback: #22c1c3,
+      gradient: (to bottom, #22c1c3, #fdbb2d)
+  )
+);
+
+@each $i, $gradient in $gradients {
+    .custom-bg#{$i} {
+        background: map-get($gradient, fallback); /* fallback for old browsers */
+        background: -webkit-linear-gradient(map-get($gradient, gradient)) !important;
+        background: linear-gradient(map-get($gradient, gradient)) !important;
+    }
+}
 
 /** Custom margins **/
+$spacer: 1rem !default;
+
 .mt-6 {
   margin-top: ($spacer * 5);
 }

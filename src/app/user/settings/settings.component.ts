@@ -23,6 +23,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   avatarsDefault = [];
   uploadPic = '';
   isLoading = false;
+  bgPicker = [];
 
   currentUser: User;
   currentUserSubscription: Subscription;
@@ -98,6 +99,19 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       pic: [this.currentUser.pic]
     });
     console.log('Build form done');
+
+    this.bgPicker = [
+        'custom-bg0', 
+        'custom-bg1', 
+        'custom-bg2', 
+        'custom-bg3',
+        'custom-bg4',
+        'custom-bg5', 
+        'custom-bg6', 
+        'custom-bg7', 
+        'custom-bg8',
+        'custom-bg9'
+    ];
 
     this.loadUserProfile();
   }
@@ -224,4 +238,9 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.loading = false;
         });
   }
+
+  pickBG(color: string) {
+      console.log(color);
+  }
+  
 }
