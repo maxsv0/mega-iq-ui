@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {User} from '@/_models';
@@ -9,6 +9,7 @@ import {HttpClient} from '@angular/common/http';
 import {StorageService} from '@/_services/storage.service';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-settings',
@@ -23,6 +24,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   avatarsDefault = [];
   uploadPic = '';
   isLoading = false;
+  isBrowser: boolean;
 
   currentUser: User;
   currentUserSubscription: Subscription;
@@ -37,8 +39,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private storageService: StorageService,
     private alertService: AlertService,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
 
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -93,6 +97,8 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       name: [this.currentUser.name, Validators.required],
       age: [this.currentUser.age],
       location: [this.currentUser.location],
+      country: [this.currentUser.country],
+      cityLatLong: [this.currentUser.cityLatLong],
       isPublic: [this.currentUser.isPublic],
       isUnsubscribed: [this.currentUser.isUnsubscribed],
       pic: [this.currentUser.pic]
@@ -103,8 +109,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('location: ' + this.currentUser.location);
-    if (this.currentUser.location == null) {
+    if (this.isBrowser && this.currentUser.location == null) {
       this.detectLocation();
     }
   }
@@ -149,16 +154,18 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   detectLocation() {
     this.loading = true;
     this.userService.detectLocation().subscribe(
-      apiResponseBase => {
-        if (apiResponseBase.ok) {
-          this.profileForm.controls['location'].setValue(apiResponseBase.msg);
+      apiResponseGeoIp => {
+        if (apiResponseGeoIp.ok) {
+          this.profileForm.controls['location'].setValue(apiResponseGeoIp.location);
+          this.profileForm.controls['country'].setValue(apiResponseGeoIp.country);
+          this.profileForm.controls['cityLatLong'].setValue(apiResponseGeoIp.cityLatLong);
         } else {
-          this.alertService.error(apiResponseBase.msg);
+          this.alertService.error(apiResponseGeoIp.msg);
         }
         this.loading = false;
       },
       error => {
-        console.log('API error: ' + error);
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         this.loading = false;
       });
   }

@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 
 import {ApiResponseBase, ApiResponseTestResultList, ApiResponseUser, ApiResponseUsersList, ApiResponseUsersTop, User} from '@/_models';
 import {environment} from '../../environments/environment';
+import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
+import {APP_LOCALE_ID} from '../../environments/app-locale';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -46,7 +48,7 @@ export class UserService {
   }
 
   detectLocation() {
-    return this.http.get<ApiResponseBase>(environment.apiGeoIpUrl + '/ip');
+    return this.http.get<ApiResponseGeoIp>(environment.apiGeoIpUrl + '/ip?locale=' + APP_LOCALE_ID.toUpperCase());
   }
 
   getAvatarsDefault() {

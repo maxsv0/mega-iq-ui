@@ -45,6 +45,8 @@ export class RegisterComponent implements AfterViewInit {
       name: ['', Validators.required],
       age: [''],
       location: [''],
+      country: [''],
+      cityLatLong: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
       terms: [true, Validators.required]
@@ -112,16 +114,18 @@ export class RegisterComponent implements AfterViewInit {
 
   detectLocation() {
     this.userService.detectLocation().subscribe(
-      apiResponseBase => {
-        if (apiResponseBase.ok) {
-          this.registerForm.controls['location'].setValue(apiResponseBase.msg);
+      apiResponseGeoIp => {
+        if (apiResponseGeoIp.ok) {
+          this.registerForm.controls['location'].setValue(apiResponseGeoIp.location);
+          this.registerForm.controls['country'].setValue(apiResponseGeoIp.country);
+          this.registerForm.controls['cityLatLong'].setValue(apiResponseGeoIp.cityLatLong);
         } else {
-          this.alertService.error(apiResponseBase.msg);
+          this.alertService.error(apiResponseGeoIp.msg);
         }
         this.loading = false;
       },
       error => {
-        console.log('API Service Unavailable. ' + error);
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         this.loading = false;
       });
   }

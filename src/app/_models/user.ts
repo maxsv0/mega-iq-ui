@@ -11,6 +11,8 @@ export class User {
   age: string;
   iq: number;
   location: string;
+  country: string;
+  cityLatLong: string;
   token: string;
   uid: string;
   password: string;
