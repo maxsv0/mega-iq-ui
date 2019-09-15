@@ -57,3 +57,21 @@
         }
     }
 }
+
+/** Responsive **/
+
+@include tablet {
+    .box {
+        padding: 26px;
+    }
+}
+
+@include mobile {
+    .box {
+        padding: 30px !important;
+    }
+
+    .img-avatar-small {
+        width: 63px;
+    }
+}

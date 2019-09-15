@@ -122,3 +122,7 @@ body {
   background-position: center top;
   background-repeat: no-repeat;
 }
+
+.bg-standard {
+    @include gradient(#fc4a1a, #f7b733, horizontal);
+}

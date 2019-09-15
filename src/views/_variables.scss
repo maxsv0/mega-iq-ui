@@ -21,43 +21,43 @@ $colorGrammarDark: darken($colorMath, 15%);
 
 // gradient picker for profile settings
 $gradients: (
-  "0": (
+  "1": (
     fallback: #00F260,
     gradient: (to top, #00F260, #0575E6)
   ),
-  "1": (
+  "2": (
     fallback: #636363,
     gradient: (to top, #636363, #a2ab58)
   ),
-  "2": (
+  "3": (
       fallback: #ad5389,
       gradient: (to right, #ad5389, #3c1053)
   ),
-  "3": (
+  "4": (
       fallback: #fc4a1a,
       gradient: (to right, #fc4a1a, #f7b733)
   ),
-  "4": (
+  "5": (
       fallback: #800080,
       gradient: (to bottom, #800080, #ffc0cb)
   ),
-  "5": (
+  "6": (
     fallback: #CAC531,
     gradient: (to bottom, #CAC531, #F3F9A7)
   ),
-  "6": (
+  "7": (
       fallback: #ff9966,
       gradient: (to left, #ff9966, #ff5e62)
   ),
-  "7": (
+  "8": (
       fallback: #74ebd5,
       gradient: (to left, #74ebd5, #ACB6E5)
   ),
-  "8": (
+  "9": (
       fallback: #e1eec3,
       gradient: (to top, #e1eec3, #f05053)
   ),
-  "9": (
+  "10": (
       fallback: #22c1c3,
       gradient: (to bottom, #22c1c3, #fdbb2d)
   )

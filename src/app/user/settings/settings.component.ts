@@ -62,6 +62,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         apiResponseUser => {
           if (apiResponseUser.ok) {
             this.currentUser = apiResponseUser.user;
+            console.log(this.currentUser);
 
             // in case data is loaded after page init
             this.profileForm.controls['id'].setValue(this.currentUser.id);
@@ -73,6 +74,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
             }
             this.profileForm.controls['isPublic'].setValue(this.currentUser.isPublic);
             this.profileForm.controls['pic'].setValue(this.currentUser.pic);
+            this.profileForm.controls['background'].setValue(this.currentUser.background);
           } else {
             this.alertService.error(apiResponseUser.msg);
           }
@@ -96,21 +98,23 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       location: [this.currentUser.location],
       isPublic: [this.currentUser.isPublic],
       isUnsubscribed: [this.currentUser.isUnsubscribed],
-      pic: [this.currentUser.pic]
+      pic: [this.currentUser.pic],
+      background: [this.currentUser.background]
     });
+    console.log(this.profileForm, 'profile form');
     console.log('Build form done');
 
     this.bgPicker = [
-        'custom-bg0', 
         'custom-bg1', 
         'custom-bg2', 
-        'custom-bg3',
+        'custom-bg3', 
         'custom-bg4',
-        'custom-bg5', 
+        'custom-bg5',
         'custom-bg6', 
         'custom-bg7', 
-        'custom-bg8',
-        'custom-bg9'
+        'custom-bg8', 
+        'custom-bg9',
+        'custom-bg10'
     ];
 
     this.loadUserProfile();
@@ -139,6 +143,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     if (this.uploadPic) {
       this.profileForm.controls['pic'].setValue(this.uploadPic);
     }
+    console.log(this.profileForm, 'updating...');
 
     this.loading = true;
     this.userService.update(this.profileForm.value)
@@ -237,10 +242,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
-  }
-
-  pickBG(color: string) {
-      console.log(color);
   }
   
 }
