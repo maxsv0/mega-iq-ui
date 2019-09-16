@@ -50,6 +50,7 @@
 
         .box {
             cursor: pointer;
+            @include border-radius(2px);
         }
 
         input[type=radio]:focus + label {

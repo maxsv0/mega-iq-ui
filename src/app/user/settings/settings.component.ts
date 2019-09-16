@@ -101,7 +101,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       pic: [this.currentUser.pic],
       background: [this.currentUser.background]
     });
-    console.log(this.profileForm, 'profile form');
+
     console.log('Build form done');
 
     this.bgPicker = [
@@ -143,7 +143,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     if (this.uploadPic) {
       this.profileForm.controls['pic'].setValue(this.uploadPic);
     }
-    console.log(this.profileForm, 'updating...');
 
     this.loading = true;
     this.userService.update(this.profileForm.value)
