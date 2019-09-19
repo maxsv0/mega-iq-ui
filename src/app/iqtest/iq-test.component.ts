@@ -9,6 +9,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
+import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
 @Component({
   selector: 'app-iq-test',
@@ -27,6 +28,7 @@ export class IqTestComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService,
+    private googleAnalyticsService: GoogleAnalyticsService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
     private i18n: I18n,
@@ -56,6 +58,11 @@ export class IqTestComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.testSelected != null) {
+      this.googleAnalyticsService.sendEvent('iq-test', 'open-test', this.testSelected.type);
+    } else {
+      this.googleAnalyticsService.sendEvent('iq-test', 'open-test', 'all');
+    }
   }
 
   startTest(type: TestTypeEnum) {
@@ -66,14 +73,20 @@ export class IqTestComponent implements OnInit {
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
             this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
+
+            this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
             this.loading = false;
+
+            this.googleAnalyticsService.sendEvent('iq-test', 'start-test-fail', type);
           }
         },
         error => {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
+
+    this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
   }
 }

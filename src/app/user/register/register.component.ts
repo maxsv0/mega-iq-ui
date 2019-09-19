@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {isPlatformBrowser} from '@angular/common';
+import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
 @Component({
   templateUrl: 'register.component.html',
@@ -28,6 +29,7 @@ export class RegisterComponent implements AfterViewInit {
     private authenticationService: AuthenticationService,
     private userService: UserService,
     private alertService: AlertService,
+    private googleAnalyticsService: GoogleAnalyticsService,
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -85,6 +87,8 @@ export class RegisterComponent implements AfterViewInit {
                     .then(data => {
                       this.authenticationService.storeFirebaseUser(data.user);
                       this.router.navigate(['/home']);
+
+                      this.googleAnalyticsService.sendEvent('user', 'register');
                     })
                     .catch(data => {
                       this.alertService.error(data.message);
