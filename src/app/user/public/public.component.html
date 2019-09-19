@@ -1,4 +1,4 @@
-<div *ngIf="isBrowser && !isLoading">
+<div *ngIf="isBrowser && !isLoadingPage">
   <div class="container py-2">
     <div class="row">
       <div class="col-10 offset-1">
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div class="bg-user" *ngIf="!isLoading">
+<div class="bg-user" *ngIf="!isLoadingPage">
   <div class="container py-5">
     <div class="row">
       <div class="col-8 offset-2">
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div class="py-5" *ngIf="isLoading">
+<div class="py-5" *ngIf="isLoadingPage">
     <div class="container py-5">
         <div class="row">
             <div class="col-8 offset-2">
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<div class="container mt-4" *ngIf="user && userTests && !isLoading">
+<div class="container mt-4" *ngIf="user && userTests && !isLoadingPage">
   <div class="row">
     <div class="col-12">
       <h1>{{user.name}} <span i18n>latest passed iq tests</span></h1>

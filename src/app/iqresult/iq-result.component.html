@@ -23,8 +23,8 @@
         <h2 *ngIf="!(test.type == testTypeEnum.MEGA_IQ || test.type == testTypeEnum.STANDARD_IQ)"><span i18n>IQ test result:</span> {{test.points}} / {{this.testTypes[this.testTypesKeys[test.type]].questions}}</h2>
 
         <div class="course-progress">
-          <span i18n>Overall test progress</span>: {{test.progress}}%
-          <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
+          <span i18n>Iq test score progress</span>: {{test.points / this.testTypes[this.testTypesKeys[test.type]].questions}}%
+          <progress class="w-100" value="{{test.points / this.testTypes[this.testTypesKeys[test.type]].questions}}" max="{{this.testTypes[this.testTypesKeys[test.type]].questions}}" role="progressbar"></progress>
         </div>
 
         <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} {{this.testTypes[this.testTypesKeys[test.type]].questions}}
