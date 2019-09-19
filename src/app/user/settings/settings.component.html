@@ -70,12 +70,18 @@
             </div>
 
             <div class="form-group">
-              <button [disabled]="loading || uploading" class="btn btn-primary" id="save-changes">
-                <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
-                <span *ngIf="!loading" i18n>Save changes</span>
-                <span *ngIf="loading" class="actn-loader"></span>
-              </button>
-              <a routerLink="/user/{{currentUser.id}}" class="btn btn-link" i18n>Cancel</a>
+                <label>Profile Background:
+                    <span class="text-secondary" *ngIf="currentUser.background != null">{{currentUser.background.replace('custom-bg', '')}}</span>
+                    <span class="text-secondary" *ngIf="currentUser.background == null">Standard</span>
+                </label>
+                <div class="custom-bg-grid w-100">
+                    <ul class="row m-0 p-1 justify-content-around">
+                        <li *ngFor="let color of bgPicker; index as i">
+                            <input type="radio" formControlName="background" id="bg-{{i}}" value="{{color}}">
+                            <label for="bg-{{i}}" class="box p-4 m-1 position-relative {{color}}"></label>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <input type="hidden" id="id" formControlName="id"/>
@@ -84,22 +90,7 @@
             <div class="form-group" *ngIf="currentUser.pic">
               <label i18n>Current image</label>
               <div class="input-group mb-3">
-                <img src="{{currentUser.pic}}=s300-c" class="img-thumbnail">
-              </div>
-            </div>
-            <div class="form-group">
-              <label i18n>Image</label>
-              <div class="input-group mb-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row no-gutters">
-                      <label class="col" *ngFor="let avatar of avatarsDefault">
-                        <input type="radio" formControlName="pic" value="{{avatar}}">
-                        <img src="{{avatar}}=s60-c" class="img-avatar-small">
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                <img src="{{currentUser.pic}}=s300-c" class="img-thumbnail mx-auto my-0">
               </div>
             </div>
             <div class="form-group">
@@ -108,6 +99,29 @@
               <span *ngIf="uploading" class="uploader"></span>
               <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
               <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
+            </div>
+            <div class="form-group">
+                <label i18n>Image</label>
+                <div class="input-group mb-3">
+                    <div class="card">
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                        <label class="col" *ngFor="let avatar of avatarsDefault">
+                            <input type="radio" formControlName="pic" value="{{avatar}}">
+                            <img src="{{avatar}}=s60-c" class="img-avatar-small">
+                        </label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-5">
+                <button [disabled]="loading || uploading" class="btn btn-primary float-right" id="save-changes">
+                    <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
+                    <span *ngIf="!loading" i18n>Save changes</span>
+                    <span *ngIf="loading" class="actn-loader"></span>
+                </button>
+                <a routerLink="/user/{{currentUser.id}}" class="btn btn-link float-right" i18n>Cancel</a>
             </div>
           </div>
         </div>

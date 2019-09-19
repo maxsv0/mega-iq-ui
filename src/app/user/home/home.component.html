@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="bg-user" *ngIf="!isLoading">
+<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-standard'}}" *ngIf="!isLoading">
   <div class="container py-4">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-11 offset-lg-1 col-md-12 offset-md-0">

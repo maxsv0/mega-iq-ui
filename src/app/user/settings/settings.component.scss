@@ -1,3 +1,5 @@
+@import 'src/views/_mixins';
+
 [type=radio] {
   position: absolute;
   opacity: 0;
@@ -37,4 +39,40 @@
 .loader-placeholder {
   padding: 20rem 2rem;
   min-height: 600px;
+}
+
+.custom-bg-grid {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    @include border-radius(5px);
+
+    li {
+        list-style: none;
+
+        .box {
+            cursor: pointer;
+            @include border-radius(2px);
+        }
+
+        input[type=radio]:focus + label {
+            border: 2px solid var(--primary);
+        }
+    }
+}
+
+/** Responsive **/
+
+@include tablet {
+    .box {
+        padding: 26px;
+    }
+}
+
+@include mobile {
+    .box {
+        padding: 30px !important;
+    }
+
+    .img-avatar-small {
+        width: 63px;
+    }
 }
