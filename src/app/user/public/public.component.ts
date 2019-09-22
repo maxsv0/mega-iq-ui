@@ -21,6 +21,7 @@ export class PublicComponent implements OnInit {
   userTests: TestResult[] = [];
   testTypes: IqTest[];
   testTypesKeys: [] = [];
+  isLoadingPage = false;
   isLoading = false;
   isLastLoaded = false;
   userTestsPage = 0;
@@ -46,8 +47,6 @@ export class PublicComponent implements OnInit {
     this.userId = userId;
 
     this.isBrowser = isPlatformBrowser(this.platformId);
-
-    this.loadUserResult();
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;

@@ -8,6 +8,7 @@ import {first} from 'rxjs/operators';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
 @Component({
   selector: 'app-classroom',
@@ -39,6 +40,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
+    private googleAnalyticsService: GoogleAnalyticsService,
     private i18n: I18n
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
@@ -74,6 +76,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   setQuestion(questionId: number) {
     this.activeQuestionId = questionId;
     this.updateActiveTest(this.activeTest);
+
+    this.googleAnalyticsService.sendEvent('classroom', 'question-open', questionId.toString());
   }
 
   submitAllRandom(code: string) {
@@ -102,6 +106,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
+
+    this.googleAnalyticsService.sendEvent('classroom', 'question-submit', question.toString(), answer);
   }
 
   submitFinish(code: string) {
@@ -112,6 +118,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
             this.router.navigate(['/iqtest/result/' + apiResponseTestResult.test.code]);
+
+            this.googleAnalyticsService.sendEvent('iq-test', 'finish-test', this.activeTest.type);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
@@ -124,6 +132,8 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   private async updateActiveTest(test: TestResult) {
+    this.googleAnalyticsService.sendEvent('classroom', 'open-test', test.type);
+
     this.updating = true;
     this.activeTest = test;
     this.activeQuestionIdPrev = this.activeQuestionId - 1;

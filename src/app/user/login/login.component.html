@@ -25,7 +25,7 @@
 
             <button [disabled]="loading" id="login-btn" class="btn btn-primary">
               <span *ngIf="loading" class="actn-loader"></span>
-              <fa-icon *ngIf="!loading" [icon]="['fas', 'signInAlt']" class="mr-1"></fa-icon>
+              <fa-icon *ngIf="!loading" [icon]="['fas', 'sign-in-alt']" class="mr-1"></fa-icon>
               <span *ngIf="!loading" i18n>Log In</span>
             </button>
             <a routerLink="/register" class="btn btn-link" i18n>Register</a>

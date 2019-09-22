@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 
-import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 
 import {AuthenticationService, IqTestService} from './_services';
 import {IqTest, User} from './_models';
 import {APP_LOCALE_ID} from '../environments/app-locale';
+import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -23,8 +24,11 @@ export class AppComponent {
     private route: ActivatedRoute,
     private router: Router,
     private iqTestService: IqTestService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private googleAnalyticsService: GoogleAnalyticsService
   ) {
+    googleAnalyticsService.appendGaTrackingCode();
+
     this.authenticationService.currentUser.subscribe(
       user => {
         this.currentUser = user;
@@ -62,6 +66,10 @@ export class AppComponent {
             break;
         }
       }
+
+      if (event instanceof NavigationEnd) {
+        this.googleAnalyticsService.sendPageView(event.urlAfterRedirects);
+      }
     });
   }
 
@@ -73,7 +81,6 @@ export class AppComponent {
       });
       this.loading = false;
     } catch (err) {
-      alert(`An error occurred:${err}`);
       this.loading = false;
     }
   }
