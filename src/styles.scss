@@ -2,10 +2,12 @@
 @import 'views/mixins';
 @import 'views/variables';
 @import 'views/base';
+@import 'views/typography';
 @import '~@ngx-share/button/themes/modern/modern-light-theme';
 @import '~@ngx-share/button/themes/modern/modern-dark-theme';
 
 body {
+    font-family: 'Roboto', sans-serif;
 }
 
 .feather {
