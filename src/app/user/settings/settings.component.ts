@@ -249,5 +249,4 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           this.loading = false;
         });
   }
-
 }

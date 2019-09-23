@@ -65,3 +65,18 @@ $desktop-width: 1024px;
         @content;
     }
 }
+
+@mixin font-face($font-family, $url, $font-weight, $font-style) {
+    /* #{$font-family}-#{$font-weight} */
+    @font-face {
+        font-family: quote($font-family);
+        src: url('#{$url}.eot'); /* IE9 Compat Modes */
+        src: url('#{$url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('#{$url}.woff2') format('woff2'), /* Super Modern Browsers */
+            url('#{$url}.woff') format('woff'), /* Modern Browsers */
+            url('#{$url}.ttf') format('truetype'), /* Safari, Android, iOS */
+            url('#{$url}.svg') format('svg'); /* Legacy iOS */
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}
