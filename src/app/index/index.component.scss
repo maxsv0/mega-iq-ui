@@ -64,7 +64,16 @@
 
   #home {
     .flip-clock-wrapper {
-      margin-bottom: 14rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .join-iq {
+        top: 4rem;
+    }
+  
+    .test-start-btn {
+      top: 15rem;
     }
   }
 
@@ -73,6 +82,7 @@
       padding: 10px;
     }
   }
+
 }
 
 .owl-carousel .owl-stage-outer {
