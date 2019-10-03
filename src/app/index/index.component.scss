@@ -85,6 +85,12 @@
 
 }
 
-.owl-carousel .owl-stage-outer {
-  overflow: visible;
+#user-example {
+
+    overflow-x: hidden;
+    
+    .owl-carousel .owl-stage-outer {
+      overflow: visible;
+    }
 }
+
