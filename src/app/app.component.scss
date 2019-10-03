@@ -83,29 +83,17 @@
 /** Responsive **/
 
 @include tablet {
-    header {
-        width: 768px !important;
-    }
-    .home-image {
-        min-width: 768px;
-    }
+
 }
 
 @include mobile {
 
-    #bgMain {
-        min-width: 22rem;
-        min-width: 490px;
+    .site-wrapper {
+        overflow-x: hidden;
     }
 
     .home-image {
         background-image: url(assets/img/bg-index-sm.png);
-    }
-
-    #header-mega-iq {
-        nav, #navbarCollapse {
-            width: 500px;
-        }
     }
 
 }
