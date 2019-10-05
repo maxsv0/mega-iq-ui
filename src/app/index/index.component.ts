@@ -29,20 +29,20 @@ export class IndexComponent implements OnInit, OnDestroy {
     navText: ['<div class=\'nav-btn prev-slide\'></div>', '<div class=\'nav-btn next-slide\'></div>'],
     responsiveClass: true,
     responsive: {
-      0: {
+      320: {
         items: 1,
         nav: true
       },
-      600: {
+      425: {
         items: 1,
         nav: true
       },
-      1000: {
+      768: {
         items: 2,
         nav: true,
         loop: false
       },
-      1500: {
+      1024: {
         items: 3,
         nav: true,
         loop: false

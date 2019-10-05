@@ -38,8 +38,12 @@
 #user-example {
     overflow-x: hidden;
     
-    .owl-carousel .owl-stage-outer {
-      overflow: visible;
+    .owl-carousel {
+        margin: 0;
+        padding: 0;
+        .owl-stage-outer {
+            overflow: visible;
+        }
     }
 }
 
@@ -87,7 +91,6 @@
     }
   }
 
-
     #test-section {
         .card-container {
             min-width: 100%;
@@ -98,13 +101,9 @@
 
 }
 
-#user-example {
-
-    overflow-x: hidden;
-    
-    .owl-carousel .owl-stage-outer {
-      overflow: visible;
+@include mobile-sm {
+    .flip-clock-wrapper ul {
+        margin: 2px !important;
     }
-
 }
 
