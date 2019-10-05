@@ -87,12 +87,23 @@
     }
   }
 
+
     #test-section {
         .card-container {
             min-width: 100%;
             min-height: 100%;
         }
 
+    }
+
+}
+
+#user-example {
+
+    overflow-x: hidden;
+    
+    .owl-carousel .owl-stage-outer {
+      overflow: visible;
     }
 
 }
