@@ -37,13 +37,27 @@
     }
 }
 
-$mobile-width: 426px;
+$mobile-width-xs: 320px;
+$mobile-width-sm: 375px;
+$mobile-width-lg: 426px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
 
-@mixin mobile {
-    @media (max-width: #{$mobile-width}) {
+@mixin mobile-xs {
+    @media (max-width: #{$mobile-width-xs}) {
+        @content;
+    }
+}
+
+@mixin mobile-sm {
+    @media (max-width: #{$mobile-width-sm}) {
+        @content;
+    }
+}
+
+@mixin mobile-lg {
+    @media (max-width: #{$mobile-width-lg}) {
         @content;
     }
 }
