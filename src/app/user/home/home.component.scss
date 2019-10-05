@@ -24,7 +24,7 @@
   @include border-radius(2em);
 }
 
-@include mobile {
+@include mobile-lg {
     .card-container {
         min-width: 100%;
     }

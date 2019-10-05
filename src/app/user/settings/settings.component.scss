@@ -67,7 +67,7 @@
     }
 }
 
-@include mobile {
+@include mobile-lg {
     .box {
         padding: 30px !important;
     }
