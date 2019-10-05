@@ -35,11 +35,15 @@
   }
 }
 
+#user-example {
+    overflow-x: hidden;
+    
+    .owl-carousel .owl-stage-outer {
+      overflow: visible;
+    }
+}
+
 #test-section {
-  //   .card-container {
-  //     width: 30em;
-  //     height: 17em;
-  //   }
 
   a {
     vertical-align: middle;
@@ -79,18 +83,17 @@
 
   #iq-scores {
     td, th {
-      padding: 10px;
+      padding: 10px 2px;
     }
   }
 
-}
+    #test-section {
+        .card-container {
+            min-width: 100%;
+            min-height: 100%;
+        }
 
-#user-example {
-
-    overflow-x: hidden;
-    
-    .owl-carousel .owl-stage-outer {
-      overflow: visible;
     }
+
 }
 

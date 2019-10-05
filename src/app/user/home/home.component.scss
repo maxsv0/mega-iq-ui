@@ -23,3 +23,9 @@
 .badge {
   @include border-radius(2em);
 }
+
+@include mobile {
+    .card-container {
+        min-width: 100%;
+    }
+}
