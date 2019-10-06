@@ -1,0 +1,8 @@
+@import 'src/views/_mixins';
+
+@include mobile-sm {
+    #iq-user > div {
+        margin: 0;
+        padding: 0;
+    }
+}

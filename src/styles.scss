@@ -129,3 +129,11 @@ body {
 .bg-standard {
     @include gradient(#fc4a1a, #f7b733, horizontal);
 }
+
+@include mobile-lg {
+    .sb-group {
+        button {
+            font-size: 9px !important;
+        }
+    }
+}

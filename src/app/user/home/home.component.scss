@@ -1,5 +1,9 @@
 @import 'src/styles';
 
+.card-container{
+    padding: 20px;
+}
+
 .test {
   height: 250px;
   padding: 0;
@@ -24,8 +28,29 @@
   @include border-radius(2em);
 }
 
+/**Responsive**/
+
 @include mobile-lg {
     .card-container {
         min-width: 100%;
+    }
+
+    #home-actions {
+        text-align: left !important;
+    }
+}
+
+@include mobile-md {
+    #home-actions {
+        button {
+            font-size: .8rem;
+            padding: 5px 8px;
+        }
+    }
+}
+
+@include mobile-sm {
+    .badge {
+        padding: .5em .4em;
     }
 }

@@ -3,7 +3,7 @@
     <div class="col-sm-5">
       <h2><span i18n>Hi</span>, {{currentUser.name}}!</h2>
     </div>
-    <div class="col-sm-7 text-right">
+    <div id="home-actions" class="col-sm-7 text-right">
       <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
@@ -68,13 +68,13 @@
              *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
 
         <div class="row">
-          <div class="col-6" *ngIf="test.status === testStatus.FINISHED">
+          <div class="col-sm-6 col-12" *ngIf="test.status === testStatus.FINISHED">
             <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-2">
               <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
               <span i18n>Open Details</span></a>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6 col-12">
             <button routerLink="/classroom/{{test.code}}" class="btn btn-warning btn-block btn-lg mt-2"
                     *ngIf="test.status === testStatus.FINISHED" [disabled]="loading && test.code === deletedId">
               <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
