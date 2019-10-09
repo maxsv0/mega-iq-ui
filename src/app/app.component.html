@@ -9,7 +9,7 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
+        <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
           <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <button type="button" class="btn btn-primary l-radius">
                 <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
@@ -22,22 +22,22 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
         </li>
       </ul>
 
       <!-- Profile Button -->
-      <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser">
+      <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser"  data-toggle="collapse" data-target=".navbar-collapse.show">
         <fa-icon [icon]="['fas', 'user']"></fa-icon>
         {{currentUser.name}}
       </button>
       <!-- Sign up button -->
       <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link" routerLink="/login/" i18n>Log In</a>
         </li>
       </ul>

@@ -42,7 +42,12 @@
   </div>
 
   <section class="row" *ngIf="testTypes">
-    <div class="col-6" *ngFor="let test of userTests">
+    <div class="col-6"
+         infiniteScroll
+         [infiniteScrollDistance]="4"
+         [infiniteScrollUpDistance]="1.5"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScrollDown()" *ngFor="let test of userTests">
       <div class="card-container"
            [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
 
@@ -74,11 +79,3 @@
     </div>
   </div>
 </div>
-
-<div
-  infiniteScroll
-  [infiniteScrollDistance]="4"
-  [infiniteScrollUpDistance]="1.5"
-  [infiniteScrollThrottle]="50"
-  (scrolled)="onScrollDown()"
-></div>

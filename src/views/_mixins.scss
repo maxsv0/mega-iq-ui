@@ -53,9 +53,14 @@ $desktop-width: 1024px;
 
 @mixin mobile-sm {
     @media (max-width: #{$mobile-width-sm}) {
-
         @content;
     }
+}
+
+@mixin mobile-md {
+  @media (max-width: #{$mobile-width-md}) {
+    @content;
+  }
 }
 
 @mixin mobile-lg {

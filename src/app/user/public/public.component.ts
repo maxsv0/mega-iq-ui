@@ -57,6 +57,9 @@ export class PublicComponent implements OnInit {
         }
       );
     });
+
+    this.isLoadingPage = true;
+    this.loadUserResult();
   }
 
   ngOnInit() {
@@ -91,10 +94,12 @@ export class PublicComponent implements OnInit {
             this.alertService.error(apiResponseTestResultList.msg);
           }
           this.isLoading = false;
+          this.isLoadingPage = false;
         },
         error => {
           this.alertService.error(error);
           this.isLoading = false;
+          this.isLoadingPage = false;
         });
   }
 
