@@ -47,13 +47,13 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         switch (event.url) {
           case '/iqtest/iq-practice':
-            this.backgroundClass = 'bg-iq-practice';
+            this.backgroundClass = 'bg-practice';
             break;
           case '/iqtest/iq-standard':
-            this.backgroundClass = 'bg-iq-standard';
+            this.backgroundClass = 'bg-standard';
             break;
           case '/iqtest/mega-iq':
-            this.backgroundClass = 'bg-mega-iq';
+            this.backgroundClass = 'bg-megaiq';
             break;
           case '/iqtest/math':
             this.backgroundClass = 'bg-math';

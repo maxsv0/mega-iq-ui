@@ -1,4 +1,4 @@
-<div class="container" *ngIf="testTypes" id="iq-test-list">
+<div class="container" id="iq-test-details">
   <div class="row">
 
     <div class="col-12 py-3" *ngIf="isBrowser">
@@ -10,9 +10,13 @@
       ></share-buttons>
     </div>
 
-    <div class="col-12">
+  </div>
+</div>
 
-      <div class="test" *ngIf="testSelected">
+<div class="container" *ngIf="testTypes && testSelected" id="iq-test-list">
+  <div class="row">
+    <div class="col-12">
+      <div class="test">
         <div class="test-{{testSelected.styleName}}">
           <h1 class="mx-5 my-3 py-2">{{testSelected.name}} <span i18n>free online</span></h1>
         </div>
@@ -38,9 +42,17 @@
           <span *ngIf="loading" class="pl-3 text-muted">Loading... please wait</span>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div *ngIf="!testSelected">
-        <div class="jumbotron test mb-4" *ngFor="let item of testTypes | keyvalue"
+<section *ngIf="testTypes && !testSelected">
+
+  <div *ngFor="let item of testTypes | keyvalue" [ngClass]="'bg-' + item.value.styleName">
+    <div class="container pt-1 pb-5">
+      <div class="row">
+
+        <div class="col-12 test"
              [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
           <div class="media mb-2">
             <div class="media-body">
@@ -62,8 +74,10 @@
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

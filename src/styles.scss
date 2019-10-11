@@ -130,6 +130,27 @@ body {
     @include gradient(#fc4a1a, #f7b733, horizontal);
 }
 
+
+.bg-practice {
+  @include gradient(#000046, #1cb5e0, horizontal);
+}
+
+.bg-standard {
+  @include gradient(#283c86, #45a247, horizontal);
+}
+
+.bg-megaiq {
+  @include gradient(#642b73, #e62968, horizontal);
+}
+
+.bg-math {
+  @include gradient(#c0392b, #cd9144, horizontal);
+}
+
+.bg-grammar {
+  @include gradient(#c02b74, #c19a15, horizontal);
+}
+
 @include mobile-lg {
     .sb-group {
         button {
