@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
-  logout() {
+  async logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

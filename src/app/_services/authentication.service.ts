@@ -54,7 +54,7 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password);
   }
 
-  googleLogin() {
+  async googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.socialSignIn(provider);
   }
