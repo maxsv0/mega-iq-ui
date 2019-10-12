@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 
@@ -6,6 +6,7 @@ import {AuthenticationService, IqTestService} from './_services';
 import {IqTest, User} from './_models';
 import {APP_LOCALE_ID} from '../environments/app-locale';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +20,20 @@ export class AppComponent {
   testTypes: IqTest[] = [];
   loading = false;
   locale = APP_LOCALE_ID;
+  isBrowser: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
-    private googleAnalyticsService: GoogleAnalyticsService
+    private googleAnalyticsService: GoogleAnalyticsService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    googleAnalyticsService.appendGaTrackingCode();
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    if (this.isBrowser) {
+      googleAnalyticsService.appendGaTrackingCode();
+    }
 
     this.authenticationService.currentUser.subscribe(
       user => {
@@ -41,13 +47,13 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         switch (event.url) {
           case '/iqtest/iq-practice':
-            this.backgroundClass = 'bg-iq-practice';
+            this.backgroundClass = 'bg-practice';
             break;
           case '/iqtest/iq-standard':
-            this.backgroundClass = 'bg-iq-standard';
+            this.backgroundClass = 'bg-standard';
             break;
           case '/iqtest/mega-iq':
-            this.backgroundClass = 'bg-mega-iq';
+            this.backgroundClass = 'bg-megaiq';
             break;
           case '/iqtest/math':
             this.backgroundClass = 'bg-math';
