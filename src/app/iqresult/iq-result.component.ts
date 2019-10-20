@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';
@@ -9,19 +9,24 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-iq-result',
   templateUrl: './iq-result.component.html',
   styleUrls: ['./iq-result.component.scss']
 })
-export class IqResultComponent implements OnInit {
+export class IqResultComponent implements AfterViewInit {
+    @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+    public ctx: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
   user: User;
   isLoading = false;
   isBrowser: boolean;
+  chart: any;
+  testQuestions = null;
   public testTypeEnum = TestTypeEnum;
 
   constructor(
@@ -80,6 +85,63 @@ export class IqResultComponent implements OnInit {
 
   ngOnInit() {
   }
+
+    ngAfterViewInit() {
+        const self = this;
+        setTimeout(() => {
+            for(let i = 0; i < self.testTypes.length; i++) {
+                if(self.testTypes[i].type === self.test.type) {
+                    self.testQuestions = self.testTypes[i].questions;
+                }
+            }
+            self.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
+            self.chart = new Chart(self.ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [
+                        {
+                            data: [
+                                Number(self.test.groupsGraph.math.toFixed(2)),
+                                Number(self.test.groupsGraph.grammar.toFixed(2)),
+                                Number(self.test.groupsGraph.logic.toFixed(2)), 
+                                Number(self.test.groupsGraph.horizons.toFixed(2)),
+                                Number((self.test.points / (self.testQuestions / 10)).toFixed(2))
+                            ],
+                            backgroundColor: [
+                                '#6fb4b3',
+                                '#87d987', 
+                                '#7d8ac0', 
+                                '#d3c1a9', 
+                                '#e8c865'
+                            ]
+                        }
+                    ],
+                    labels: [
+                        'Math',
+                        'Grammar',
+                        'Logic',
+                        'Horizons',
+                        'IQ Test Score Progress'
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        callbacks: {
+                            label: (tooltipItem, data) => {
+                                return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+                            }
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            fontFamily: 'Roboto'
+                        }
+                    }
+                }
+            });
+        },4000);
+    }
 
   public setTitle(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;

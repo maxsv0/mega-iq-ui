@@ -9,60 +9,18 @@
                      [theme]="'modern-dark'"
       ></share-buttons>
     </div>
-
-    <div class="col-4">
-      <app-avatar *ngIf="user" [user]="user"></app-avatar>
-    </div>
-    <div class="col-8">
-      <div class="jumbotron p-4">
-        <h2>{{user.name}}
-          <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
-        </h2>
-
-        <h2 *ngIf="test.type == testTypeEnum.MEGA_IQ || test.type == testTypeEnum.STANDARD_IQ"><span i18n>IQ test result:</span> {{test.points}}</h2>
-        <h2 *ngIf="!(test.type == testTypeEnum.MEGA_IQ || test.type == testTypeEnum.STANDARD_IQ)"><span i18n>IQ test result:</span> {{test.points}} / {{this.testTypes[this.testTypesKeys[test.type]].questions}}</h2>
-
-        <div class="course-progress">
-          <span i18n>Iq test score progress</span>: {{test.points / this.testTypes[this.testTypesKeys[test.type]].questions}}%
-          <progress class="w-100" value="{{test.points / this.testTypes[this.testTypesKeys[test.type]].questions}}" max="{{this.testTypes[this.testTypesKeys[test.type]].questions}}" role="progressbar"></progress>
+    <div class="jumbotron m-auto">
+        <h4 class="text-center">{{user.name}}
+            <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
+        </h4>
+        <div id="results-section" class="d-flex p-5">
+            <div class="result-profile px-5">
+                <app-avatar *ngIf="user" [user]="user"></app-avatar>
+            </div>
+            <div class="result-stats px-5">
+                <canvas #myCanvas width="380" height="380"></canvas>
+            </div>
         </div>
-
-        <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} {{this.testTypes[this.testTypesKeys[test.type]].questions}}
-          <span i18n>questions</span></h3>
-        <p *ngIf="test.finishDate">
-          <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
-        </p>
-
-        <section *ngIf="test.groupsGraph">
-          <h2>Progress by area</h2>
-          <div class="row">
-            <div class="col-3">
-              <div class="course-progress">
-                <span i18n>Math</span>: {{test.groupsGraph.math}}%
-                <progress class="w-100" value="{{test.groupsGraph.math}}" max="100" role="progressbar"></progress>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="course-progress">
-                <span i18n>Grammar</span>: {{test.groupsGraph.grammar}}%
-                <progress class="w-100" value="{{test.groupsGraph.grammar}}" max="100" role="progressbar"></progress>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="course-progress">
-                <span i18n>Logic</span>: {{test.groupsGraph.logic}}%
-                <progress class="w-100" value="{{test.groupsGraph.logic}}" max="100" role="progressbar"></progress>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="course-progress">
-                <span i18n>Horizons</span>: {{test.groupsGraph.horizons}}%
-                <progress class="w-100" value="{{test.groupsGraph.horizons}}" max="100" role="progressbar"></progress>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
     </div>
   </div>
 </div>
