@@ -138,7 +138,23 @@ export class IqResultComponent implements AfterViewInit {
                             fontFamily: 'Roboto'
                         }
                     }
-                }
+                },
+                plugins: [{
+                    beforeDraw: chart => {
+                        const width = chart.width;
+                        const height = chart.height;
+                        const ctx = chart.ctx;
+                        ctx.restore();
+                        const fontSize = (height / 120).toFixed(2);
+                        ctx.font = `${fontSize}em Roboto`;
+                        ctx.textBaseline = 'middle';
+                        const text = (self.user.iq != null) ? self.user.iq.toString() + 'IQ' : '0IQ',
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 1.7;  
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
             });
         },4000);
     }
