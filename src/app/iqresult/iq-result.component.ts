@@ -16,9 +16,9 @@ import {Chart} from 'chart.js';
   templateUrl: './iq-result.component.html',
   styleUrls: ['./iq-result.component.scss']
 })
-export class IqResultComponent implements AfterViewInit {
-    @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
-    public ctx: CanvasRenderingContext2D;
+export class IqResultComponent {
+  @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+  public ctx: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
@@ -71,6 +71,12 @@ export class IqResultComponent implements AfterViewInit {
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
+
+              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+                setTimeout(() => {
+                  this.drawResultGraph();
+                }, 1000);
+              }
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -83,81 +89,67 @@ export class IqResultComponent implements AfterViewInit {
         });
   }
 
-  ngOnInit() {
-  }
+  drawResultGraph() {
+    this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
 
-    ngAfterViewInit() {
-        const self = this;
-        setTimeout(() => {
-            for(let i = 0; i < self.testTypes.length; i++) {
-                if(self.testTypes[i].type === self.test.type) {
-                    self.testQuestions = self.testTypes[i].questions;
-                }
+    this.chart = new Chart(this.ctx, {
+      type: 'radar',
+      data: {
+        datasets: [
+          {
+            data: [
+              Number(this.test.groupsGraph.math.toFixed(2)),
+              Number(this.test.groupsGraph.grammar.toFixed(2)),
+              Number(this.test.groupsGraph.logic.toFixed(2)),
+              Number(this.test.groupsGraph.horizons.toFixed(2))
+            ]
+          }
+        ],
+        labels: [
+          'Math',
+          'Grammar',
+          'Logic',
+          'Horizons',
+        ]
+      },
+      options: {
+        scale: {
+          ticks: {
+            stepSize: 10,
+            beginAtZero: true,
+            max: 100
+          }
+        },
+        responsive: true,
+        tooltips: {
+          callbacks: {
+            label: (tooltipItem, data) => {
+              return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
             }
-            self.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
-            self.chart = new Chart(self.ctx, {
-                type: 'doughnut',
-                data: {
-                    datasets: [
-                        {
-                            data: [
-                                Number(self.test.groupsGraph.math.toFixed(2)),
-                                Number(self.test.groupsGraph.grammar.toFixed(2)),
-                                Number(self.test.groupsGraph.logic.toFixed(2)), 
-                                Number(self.test.groupsGraph.horizons.toFixed(2)),
-                                Number((self.test.points / (self.testQuestions / 10)).toFixed(2))
-                            ],
-                            backgroundColor: [
-                                '#6fb4b3',
-                                '#87d987', 
-                                '#7d8ac0', 
-                                '#d3c1a9', 
-                                '#e8c865'
-                            ]
-                        }
-                    ],
-                    labels: [
-                        'Math',
-                        'Grammar',
-                        'Logic',
-                        'Horizons',
-                        'IQ Test Score Progress'
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    tooltips: {
-                        callbacks: {
-                            label: (tooltipItem, data) => {
-                                return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
-                            }
-                        }
-                    },
-                    legend: {
-                        labels: {
-                            fontFamily: 'Roboto'
-                        }
-                    }
-                },
-                plugins: [{
-                    beforeDraw: chart => {
-                        const width = chart.width;
-                        const height = chart.height;
-                        const ctx = chart.ctx;
-                        ctx.restore();
-                        const fontSize = (height / 120).toFixed(2);
-                        ctx.font = `${fontSize}em Roboto`;
-                        ctx.textBaseline = 'middle';
-                        const text = (self.user.iq != null) ? self.user.iq.toString() + 'IQ' : '0IQ',
-                        textX = Math.round((width - ctx.measureText(text).width) / 2),
-                        textY = height / 1.7;  
-                        ctx.fillText(text, textX, textY);
-                        ctx.save();
-                    }
-                }]
-            });
-        },4000);
-    }
+          }
+        },
+        legend: {
+          display: false
+        }
+      },
+      plugins: [{
+        beforeDraw: chart => {
+          const width = chart.width;
+          const height = chart.height;
+          const ctx = chart.ctx;
+          ctx.restore();
+          ctx.font = '48px Roboto';
+          ctx.textBaseline = 'middle';
+          const textIQ = (this.test.points != null) ? 'IQ ' + this.test.points.toString() : '';
+          const textX = Math.round(width - ctx.measureText(textIQ).width);
+          const textY = 50;
+
+          ctx.fillText(textIQ, textX, textY);
+          ctx.save();
+        }
+      }]
+    });
+  }
 
   public setTitle(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;

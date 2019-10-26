@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div class="bg-user" *ngIf="!isLoadingPage">
+<div class="bg-user {{user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
   <div class="container py-5">
     <div class="row">
       <div class="col-8 offset-2">
