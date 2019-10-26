@@ -126,10 +126,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.bg-standard {
+.bg-default {
     @include gradient(#fc4a1a, #f7b733, horizontal);
 }
-
 
 .bg-practice {
   @include gradient(#000046, #1cb5e0, horizontal);

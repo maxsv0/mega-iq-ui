@@ -1,0 +1,31 @@
+@import 'src/views/_mixins';
+
+@include tablet {
+    #results-section,
+    .result-profile,
+    .result-stats {
+        padding: 0 !important;
+    }
+
+    .jumbotron {
+        padding: 4rem 15px !important;
+    }
+}
+
+@include mobile-lg {
+    #results-section {
+        flex-direction: column;
+
+        .result-profile {
+            margin: 0 auto;
+        }
+
+        .result-stats {
+            margin-top: 2rem;
+        }
+    }
+
+    .jumbotron {
+        max-width: 100%;
+    }
+}

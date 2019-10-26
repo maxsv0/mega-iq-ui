@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';
@@ -9,19 +9,24 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-iq-result',
   templateUrl: './iq-result.component.html',
   styleUrls: ['./iq-result.component.scss']
 })
-export class IqResultComponent implements OnInit {
+export class IqResultComponent {
+  @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+  public ctx: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
   user: User;
   isLoading = false;
   isBrowser: boolean;
+  chart: any;
+  testQuestions = null;
   public testTypeEnum = TestTypeEnum;
 
   constructor(
@@ -66,6 +71,12 @@ export class IqResultComponent implements OnInit {
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
+
+              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+                setTimeout(() => {
+                  this.drawResultGraph();
+                }, 1000);
+              }
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -78,7 +89,66 @@ export class IqResultComponent implements OnInit {
         });
   }
 
-  ngOnInit() {
+  drawResultGraph() {
+    this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
+
+    this.chart = new Chart(this.ctx, {
+      type: 'radar',
+      data: {
+        datasets: [
+          {
+            data: [
+              Number(this.test.groupsGraph.math.toFixed(2)),
+              Number(this.test.groupsGraph.grammar.toFixed(2)),
+              Number(this.test.groupsGraph.logic.toFixed(2)),
+              Number(this.test.groupsGraph.horizons.toFixed(2))
+            ]
+          }
+        ],
+        labels: [
+          'Math',
+          'Grammar',
+          'Logic',
+          'Horizons',
+        ]
+      },
+      options: {
+        scale: {
+          ticks: {
+            stepSize: 10,
+            beginAtZero: true,
+            max: 100
+          }
+        },
+        responsive: true,
+        tooltips: {
+          callbacks: {
+            label: (tooltipItem, data) => {
+              return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+            }
+          }
+        },
+        legend: {
+          display: false
+        }
+      },
+      plugins: [{
+        beforeDraw: chart => {
+          const width = chart.width;
+          const height = chart.height;
+          const ctx = chart.ctx;
+          ctx.restore();
+          ctx.font = '48px Roboto';
+          ctx.textBaseline = 'middle';
+          const textIQ = (this.test.points != null) ? 'IQ ' + this.test.points.toString() : '';
+          const textX = Math.round(width - ctx.measureText(textIQ).width);
+          const textY = 50;
+
+          ctx.fillText(textIQ, textX, textY);
+          ctx.save();
+        }
+      }]
+    });
   }
 
   public setTitle(score: number, date: string, type: TestTypeEnum) {
