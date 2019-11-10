@@ -22,7 +22,6 @@ export class PublicComponent implements OnInit {
   testTypes: IqTest[];
   testTypesKeys: [] = [];
   isLoadingPage = false;
-  isLoading = false;
   isLastLoaded = false;
   userTestsPage = 0;
   testTypeEnum = TestTypeEnum;
@@ -70,8 +69,6 @@ export class PublicComponent implements OnInit {
       return true;
     }
 
-    this.isLoading = true;
-
     this.userService.getById(this.userId, this.userTestsPage)
       .pipe(first())
       .subscribe(
@@ -93,12 +90,10 @@ export class PublicComponent implements OnInit {
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
-          this.isLoading = false;
           this.isLoadingPage = false;
         },
         error => {
           this.alertService.error(error);
-          this.isLoading = false;
           this.isLoadingPage = false;
         });
   }

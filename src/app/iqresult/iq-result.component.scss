@@ -1,5 +1,10 @@
 @import 'src/views/_mixins';
 
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
 @include tablet {
     #results-section,
     .result-profile,
