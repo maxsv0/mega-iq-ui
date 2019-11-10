@@ -1,5 +1,9 @@
 import {TestTypeEnum} from '@/_models/enum';
 
+/**
+ * @class IqTest
+ * @description Model for a single test
+ */
 export class IqTest {
   type: TestTypeEnum;
   name: string;
