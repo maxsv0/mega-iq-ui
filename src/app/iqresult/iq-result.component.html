@@ -17,10 +17,14 @@
             <div class="result-profile px-5">
                 <app-avatar *ngIf="user" [user]="user"></app-avatar>
             </div>
-            <div class="result-stats px-5">
-                <canvas #myCanvas width="380" height="380"></canvas>
+            <div class="result-stats px-5" *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
+                <canvas #myCanvas width="800" height="800"></canvas>
+            </div>
+            <div class="result-stats px-5" *ngIf="this.test.type !== testTypeEnum.MEGA_IQ && this.test.type !== testTypeEnum.STANDARD_IQ">
+                <img src="/assets/img/iqresult-groups-example.jpg" width="380" height="380">
             </div>
         </div>
+        <p>Result code: {{test.code}}</p>
     </div>
   </div>
 </div>

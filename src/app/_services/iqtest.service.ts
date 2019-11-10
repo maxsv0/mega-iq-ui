@@ -59,6 +59,10 @@ export class IqTestService {
     return this.http.get<ApiResponseTestResult>(environment.apiUrl + `/test/${id}`);
   }
 
+  getClassroomTestByCode(id: string) {
+    return this.http.get<ApiResponseTestResult>(environment.apiUrl + `/classroom/${id}`);
+  }
+
   getMyAll(page: number) {
     return this.http.get<ApiResponseTestResultList>(environment.apiUrl + `/list-my?page=${page}`);
   }

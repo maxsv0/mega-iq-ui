@@ -166,7 +166,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   private initTestByCode(testCode: string) {
-    this.iqTestService.getByCode(testCode)
+    this.iqTestService.getClassroomTestByCode(testCode)
       .pipe(first())
       .subscribe(
         apiResponseTestResult => {

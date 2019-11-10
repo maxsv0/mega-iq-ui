@@ -16,9 +16,9 @@ import {Chart} from 'chart.js';
   templateUrl: './iq-result.component.html',
   styleUrls: ['./iq-result.component.scss']
 })
-export class IqResultComponent implements AfterViewInit {
-    @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
-    public ctx: CanvasRenderingContext2D;
+export class IqResultComponent {
+  @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+  public ctx: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
@@ -71,6 +71,12 @@ export class IqResultComponent implements AfterViewInit {
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
+
+              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+                setTimeout(() => {
+                  this.drawResultGraph();
+                }, 1000);
+              }
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -83,7 +89,66 @@ export class IqResultComponent implements AfterViewInit {
         });
   }
 
-  ngOnInit() {
+  drawResultGraph() {
+    this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
+
+    this.chart = new Chart(this.ctx, {
+      type: 'radar',
+      data: {
+        datasets: [
+          {
+            data: [
+              Number(this.test.groupsGraph.math.toFixed(2)),
+              Number(this.test.groupsGraph.grammar.toFixed(2)),
+              Number(this.test.groupsGraph.logic.toFixed(2)),
+              Number(this.test.groupsGraph.horizons.toFixed(2))
+            ]
+          }
+        ],
+        labels: [
+          'Math',
+          'Grammar',
+          'Logic',
+          'Horizons',
+        ]
+      },
+      options: {
+        scale: {
+          ticks: {
+            stepSize: 10,
+            beginAtZero: true,
+            max: 100
+          }
+        },
+        responsive: true,
+        tooltips: {
+          callbacks: {
+            label: (tooltipItem, data) => {
+              return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+            }
+          }
+        },
+        legend: {
+          display: false
+        }
+      },
+      plugins: [{
+        beforeDraw: chart => {
+          const width = chart.width;
+          const height = chart.height;
+          const ctx = chart.ctx;
+          ctx.restore();
+          ctx.font = '48px Roboto';
+          ctx.textBaseline = 'middle';
+          const textIQ = (this.test.points != null) ? 'IQ ' + this.test.points.toString() : '';
+          const textX = Math.round(width - ctx.measureText(textIQ).width);
+          const textY = 50;
+
+          ctx.fillText(textIQ, textX, textY);
+          ctx.save();
+        }
+      }]
+    });
   }
 
     ngAfterViewInit() {
