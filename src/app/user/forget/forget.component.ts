@@ -7,6 +7,11 @@ import {AlertService, AuthenticationService, UserService} from '@/_services';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 
+/**
+ * @class ForgetComponent
+ * @implements OnInit
+ * @description Forget password form
+ */
 @Component({
   selector: 'app-forget',
   templateUrl: './forget.component.html',
@@ -46,6 +51,10 @@ export class ForgetComponent implements OnInit {
     return this.forgetForm.controls;
   }
 
+  /**
+   * @function onSubmit
+   * @description Sumbit new user data and update user data 
+   */
   onSubmit() {
     this.submitted = true;
 

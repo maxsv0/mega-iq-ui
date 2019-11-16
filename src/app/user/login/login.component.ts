@@ -7,6 +7,10 @@ import {AlertService, AuthenticationService} from '@/_services';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 
+/**
+ * @class LoginComponent
+ * @description Login page
+ */
 @Component({
   templateUrl: 'login.component.html',
   styleUrls: ['./login.component.scss']
@@ -68,6 +72,10 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
+  /**
+   * @function loginGoogle
+   * @description Logs in with google
+   */
   loginGoogle() {
     this.authenticationService.googleLogin()
       .then(data => {
@@ -81,6 +89,10 @@ export class LoginComponent {
       });
   }
 
+  /**
+   * @function loginFacebook
+   * @description Log in with facebook
+   */
   loginFacebook() {
     this.authenticationService.facebookLogin()
       .then(data => {
@@ -94,6 +106,10 @@ export class LoginComponent {
       });
   }
 
+  /**
+   * @function onSubmit
+   * @description Authenticates user via firebase and redirects to user home
+   */
   onSubmit() {
     this.submitted = true;
 

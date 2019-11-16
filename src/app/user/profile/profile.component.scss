@@ -1,5 +1,6 @@
 @import 'src/views/_mixins';
 
+/** Responsive **/
 @include mobile-sm {
     #iq-user > div {
         margin: 0;

@@ -1,6 +1,8 @@
+<!-- Home hero-->
 <section id="home">
     <div class="container-fluid d-flex flex-column">
         <div class="container mt-2 text-left" *ngIf="isBrowser">
+            <!-- Social media share -->
           <share-buttons [include]="['facebook','twitter','vk','telegram','messenger','whatsapp','pinterest','reddit','line','sms','email','copy']"
                          [exclude]="['google','mix','tumblr','linkedin','xing','print']"
                          [show]="6"
@@ -8,14 +10,17 @@
                          [theme]="'modern-light'"
           ></share-buttons>
         </div>
+        <!-- Home image -->
         <h1 class="join-iq text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
         <div class="test-start-btn position-relative align-self-center">
             <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
         </div>
+        <!-- Flipclock -->
         <div id="counter" class="px-4 d-flex justify-content-center"></div>
     </div>
 </section>
 
+<!-- Top iq users tables -->
 <section id="iq-scores" class="container d-flex justify-content-between my-5">
 
     <div class="mt-2">
@@ -66,6 +71,7 @@
 
 </section>
 
+<!-- Public users carousel -->
 <section id="user-example" class="container my-5">
     <div class="clearfix mb-5">
         <h2 class="text-center" i18n>Example profile</h2>
@@ -77,6 +83,7 @@
     </owl-carousel>
 </section>
 
+<!-- IQ tests collection -->
 <section id="test-section" class="container" *ngIf="testTypes">
   <div class="row">
     <div class="col-12 text-center">

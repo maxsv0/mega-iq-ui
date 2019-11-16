@@ -8,6 +8,11 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 
+/**
+ * @class IndexComponent
+ * @implements Oninit, OnDestroy
+ * @description Home page controller
+ */
 @Component({
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss', './flipclock.css'],
@@ -23,6 +28,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   clockSpeed: number;
   isBrowser: boolean;
 
+  /** Owl carousel config **/
   carouselOptions = {
     margin: 25,
     nav: true,
@@ -68,18 +74,30 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.loadUsersTop();
   }
 
+  /**
+   * @function ngOnInit
+   * @description Initialize Flipclock
+   */
   ngOnInit() {
     if (this.isBrowser) {
       this.initJs();
     }
   }
 
+  /**
+   * @function ngOnDestroy
+   * @description Unsubscribes from Flipclock
+   */
   ngOnDestroy() {
     if (this.clockTimerSubscription) {
       this.clockTimerSubscription.unsubscribe();
     }
   }
 
+  /**
+   * @function initJs
+   * @description Initialize Flipclock
+   */
   private initJs() {
     // @ts-ignore
     this.clock = new FlipClock($('#counter'), 1481181, {
@@ -90,6 +108,10 @@ export class IndexComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * @function loadUsersTop
+   * @description Loads data for top users tables
+   */
   private loadUsersTop() {
     this.userService.getTop().pipe(first()).subscribe(
       apiResponseUsersTop => {
@@ -108,6 +130,11 @@ export class IndexComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * @function scrollToValue
+   * @param value Scrolls to correct value of users who passed tests
+   * @description Scrolls to correct value of flipclock after initializing
+   */
   private scrollToValue(value: number) {
     if (value == null) {
       return;

@@ -11,6 +11,10 @@ import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
 
+/**
+ * @class IqResultComponent
+ * @description Controller for IQ test results to be accessed via a completed test
+ */
 @Component({
   selector: 'app-iq-result',
   templateUrl: './iq-result.component.html',
@@ -56,6 +60,7 @@ export class IqResultComponent {
 
     this.isLoading = true;
 
+    /** Get a selected test by test code **/
     this.iqTestService.getByCode(testCode)
       .pipe(first())
       .subscribe(
@@ -72,6 +77,7 @@ export class IqResultComponent {
                 this.test.finishDate.toString(),
                 this.test.type);
 
+                /** Draw chart js canvas **/
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
                 setTimeout(() => {
                   this.drawResultGraph();
@@ -89,6 +95,10 @@ export class IqResultComponent {
         });
   }
 
+  /**
+   * @function drawResultGraph
+   * @description Creates chart and config
+   */
   drawResultGraph() {
     this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
 
@@ -151,6 +161,13 @@ export class IqResultComponent {
     });
   }
 
+  /**
+   * @function setTitle
+   * @param score Test score
+   * @param date Test date
+   * @param type Test type
+   * @description Sets title for completed test result and i18n
+   */
   public setTitle(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
     const testQuestions = this.testTypes[this.testTypesKeys[type]].questions;

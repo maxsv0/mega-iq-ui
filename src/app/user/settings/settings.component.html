@@ -1,5 +1,7 @@
+<!-- User profile settings -->
 <div class="container pt-3">
   <div class="row">
+      <!-- Profile form -->
     <form class="col" *ngIf="!isLoading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
       <div class="jumbotron">
         <div class="row">
@@ -9,7 +11,7 @@
               <label for="email" i18n>Email</label>
               <input type="text" id="email" formControlName="email" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-
+                <!-- Email verification -->
               <div *ngIf="currentUser.isEmailVerified; else elseIsEmailVerified">
                 <p class="text-success" i18n>Email is verified</p>
               </div>
@@ -30,6 +32,7 @@
                 <div *ngIf="f.email.errors.email" i18n>Email is not valid</div>
               </div>
             </div>
+            <!-- User details -->
             <div class="form-group required">
               <label for="name" i18n>Name</label>
               <input type="text" id="name" formControlName="name" class="form-control"
@@ -69,6 +72,7 @@
               </div>
             </div>
 
+            <!-- User background banner -->
             <div class="form-group">
                 <label>Profile Background:
                     <span class="text-secondary" *ngIf="currentUser.background != null">{{currentUser.background.replace('custom-bg', '')}}</span>
@@ -86,6 +90,7 @@
 
             <input type="hidden" id="id" formControlName="id"/>
           </div>
+          <!-- User profile image -->
           <div class="col-lg-5">
             <div class="form-group" *ngIf="currentUser.pic">
               <label i18n>Current image</label>
@@ -93,6 +98,7 @@
                 <img src="{{currentUser.pic}}=s300-c" class="img-thumbnail mx-auto my-0">
               </div>
             </div>
+            <!-- Upload new -->
             <div class="form-group">
               <label for="uploadPic" i18n>Upload new image</label>
               <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
@@ -100,6 +106,7 @@
               <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
               <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
             </div>
+            <!-- Image select -->
             <div class="form-group">
                 <label i18n>Image</label>
                 <div class="input-group mb-3">
@@ -115,6 +122,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Save / cancel -->
             <div class="form-group mt-5">
                 <button [disabled]="loading || uploading" class="btn btn-primary float-right" id="save-changes">
                     <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
@@ -130,6 +138,7 @@
   </div>
 </div>
 
+<!-- Loader -->
 <div class="container" *ngIf="isLoading">
   <div class="row">
     <div class="col">

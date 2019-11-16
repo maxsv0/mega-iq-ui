@@ -1,3 +1,4 @@
+<!-- Individual test page -->
 <div class="container" id="iq-test-details">
   <div class="row">
 
@@ -13,6 +14,7 @@
   </div>
 </div>
 
+<!-- Test details -->
 <div class="container" *ngIf="testTypes && testSelected" id="iq-test-list">
   <div class="row">
     <div class="col-12">
@@ -32,6 +34,7 @@
           </div>
         </div>
 
+        <!-- Start test -->
         <div class="start-iq-test-btn col-4 offset-4">
           <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} py-3 px-4"
                   (click)="startTest(testSelected.type)">
@@ -46,12 +49,14 @@
   </div>
 </div>
 
+<!-- List of all iq tests -->
 <section *ngIf="testTypes && !testSelected">
 
   <div *ngFor="let item of testTypes | keyvalue" [ngClass]="'bg-' + item.value.styleName">
     <div class="container pt-1 pb-5">
       <div class="row">
 
+        <!-- Test detials of test list -->
         <div class="col-12 test"
              [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
           <div class="media mb-2">
@@ -74,9 +79,8 @@
               </div>
             </div>
           </div>
-
-
         </div>
+        
       </div>
     </div>
   </div>

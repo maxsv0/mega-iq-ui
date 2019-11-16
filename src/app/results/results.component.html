@@ -1,3 +1,4 @@
+<!-- Top users -->
 <div class="container">
   <div class="row">
     <div class="col-12 pt-3">
@@ -8,6 +9,7 @@
       <section id="iq-scores">
         <h2 i18n>Top users this month</h2>
 
+        <!-- Top users table details -->
         <table class="w-100 bg-white table-hover" *ngIf="!isLoading">
           <thead>
           <tr>
@@ -34,6 +36,7 @@
   </div>
 </div>
 
+<!-- Loader -->
 <div *ngIf="isLoading">
   <div class="page-loader"></div>
 </div>
