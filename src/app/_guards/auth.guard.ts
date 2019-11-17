@@ -3,6 +3,11 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 
 import {AuthenticationService} from '@/_services';
 
+/**
+ * @class AuthGuard
+ * @implements CanActivate
+ * @description Interface that a class can implement to be a guard deciding if a route can be activated
+ */
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
   constructor(
@@ -11,6 +16,12 @@ export class AuthGuard implements CanActivate {
   ) {
   }
 
+  /**
+   * @function canActivate
+   * @param route 
+   * @param state 
+   * @description Decides if a user can access this route
+   */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authenticationService.currentUserValue;
     if (currentUser) {

@@ -9,6 +9,10 @@ import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 
+/**
+ * @class HomeComponent
+ * @implements OnInit, OnDestroy
+ */
 @Component({
   templateUrl: 'home.component.html',
   styleUrls: ['./home.component.scss']
@@ -56,11 +60,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
+  /**
+   * @function ngOnDestroy
+   * @description Unsubscribe from current user on destroy
+   */
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.currentUserSubscription.unsubscribe();
   }
 
+  /**
+   * @function deleteTestResult
+   * @param code Test code
+   * @description Deletes test from user home
+   */
   deleteTestResult(code: string) {
     if (!confirm('Are you sure you want to delete the test?')) {
       return false;
@@ -91,6 +104,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
+  /**
+   * @function onScrollDown
+   * @description Loads more tests on scroll down
+   */
   onScrollDown() {
     console.log('Load page ' + this.userTestsPage + '  scrolled down!!');
 
@@ -98,6 +115,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 
+  /**
+   * @function loadMyResult
+   * @description Loads tests from user test API and sets title of user home
+   */
   private loadMyResult() {
     if (this.isLastLoaded) {
       return true;
@@ -135,6 +156,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
+  /**
+   * @function logout
+   * @description Logs out user
+   */
   async logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);

@@ -1,5 +1,6 @@
 @import 'src/views/_mixins';
 
+/** Responsive **/
 @include mobile-lg {
     #iq-scores {
         table {

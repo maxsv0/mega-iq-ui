@@ -8,6 +8,10 @@ import {APP_LOCALE_ID} from '../environments/app-locale';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 import {isPlatformBrowser} from '@angular/common';
 
+/**
+ * @class AppComponent
+ * @description Main app component controller
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -43,6 +47,7 @@ export class AppComponent {
     // load iq tests
     this.loadIqTest();
 
+    /** Shows background color or image on respective route **/
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         switch (event.url) {
@@ -73,12 +78,17 @@ export class AppComponent {
         }
       }
 
+      /** Send GA page view event */
       if (event instanceof NavigationEnd) {
         this.googleAnalyticsService.sendPageView(event.urlAfterRedirects);
       }
     });
   }
 
+  /**
+   * @function loadIqTest
+   * @description Loads alls tests
+   */
   async loadIqTest() {
     this.loading = true;
     try {
@@ -91,6 +101,10 @@ export class AppComponent {
     }
   }
 
+  /**
+   * @function logout
+   * @description Logs out current user
+   */
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);

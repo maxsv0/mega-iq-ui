@@ -1,5 +1,12 @@
 @import 'src/views/_mixins';
 
+/** chart js canvas **/
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/** Responsive **/
 @include tablet {
     #results-section,
     .result-profile,

@@ -1,6 +1,8 @@
+<!-- IQ Test Result -->
 <div class="container" *ngIf="!isLoading">
   <div class="row">
     <div class="col-10 offset-1 py-3" *ngIf="isBrowser">
+        <!-- Social media share -->
       <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
                      [exclude]="['google','mix','tumblr']"
                      [show]="7"
@@ -10,16 +12,20 @@
       ></share-buttons>
     </div>
     <div class="jumbotron m-auto">
+        <!-- Title -->
         <h4 class="text-center">{{user.name}}
             <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
         <div id="results-section" class="d-flex p-5">
+            <!-- User profile card -->
             <div class="result-profile px-5">
                 <app-avatar *ngIf="user" [user]="user"></app-avatar>
             </div>
+            <!-- Chart js results -->
             <div class="result-stats px-5" *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
                 <canvas #myCanvas width="800" height="800"></canvas>
             </div>
+            <!-- Standard results for practice test -->
             <div class="result-stats px-5" *ngIf="this.test.type !== testTypeEnum.MEGA_IQ && this.test.type !== testTypeEnum.STANDARD_IQ">
                 <img src="/assets/img/iqresult-groups-example.jpg" width="380" height="380">
             </div>
@@ -29,6 +35,7 @@
   </div>
 </div>
 
+<!-- Loader -->
 <form *ngIf="isLoading">
   <div class="loader-placeholder">
     <div class="page-loader"></div>

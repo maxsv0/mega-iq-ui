@@ -1,3 +1,7 @@
+/**
+ * @class User
+ * @description Model containing info of user to be used i.e. user home or user settings
+ */
 export class User {
   id: number;
   email: string;

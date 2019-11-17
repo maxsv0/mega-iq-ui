@@ -6,51 +6,104 @@ import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
 
+/**
+ * @class UserService
+ * @description Gets different type of users
+ */
 @Injectable({providedIn: 'root'})
 export class UserService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * @function getTop
+   * @description Gets users for top ranking
+   */
   getTop() {
     return this.http.get<ApiResponseUsersTop>(environment.apiUrl + '/user/top');
   }
 
+  /**
+   * @function getAll
+   * @description Gets all users
+   */
   getAll() {
     return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/list');
   }
 
+  /**
+   * @function getById
+   * @param id User id
+   * @param page Pagination page nr.
+   * @description Gets a user by user Id
+   */
   getById(id: number, page: number) {
     return this.http.get<ApiResponseTestResultList>(environment.apiUrl + `/user/${id}?page=${page}`);
   }
 
+  /**
+   * @function getMyInfo
+   * @description Gets a user's info
+   */
   getMyInfo() {
     return this.http.get<ApiResponseUser>(environment.apiUrl + `/user`);
   }
 
+  /**
+   * @function register
+   * @param user User model
+   * @description Registers a new user
+   */
   register(user: User) {
     return this.http.post<ApiResponseUser>(environment.apiUrl + '/user/new', user);
   }
 
+  /**
+   * @function forget
+   * @param user User model
+   * @description
+   */
   forget(user: User) {
     return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/forget', user);
   }
 
+  /**
+   * @function update
+   * @param user User model
+   * @description Updates user after i.e. saving to settings
+   */
   update(user: User) {
     return this.http.post<ApiResponseUser>(environment.apiUrl + `/user/${user.id}`, user);
   }
 
+  /**
+   * @function verifyEmail
+   * @description Verifies user email in user settings
+   */
   verifyEmail() {
     return this.http.get<ApiResponseBase>(environment.apiUrl + '/user/verify');
   }
 
+  /**
+   * @function verifyEmailCheck
+   * @param code 
+   */
   verifyEmailCheck(code: string) {
     return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/verify', code);
   }
 
+  /**
+   * @function detectLocation
+   * @description Detects location of user in user settings
+   */
   detectLocation() {
     return this.http.get<ApiResponseGeoIp>(environment.apiGeoIpUrl + '/ip?locale=' + APP_LOCALE_ID.toUpperCase());
   }
 
+  /**
+   * @function getAvatarsDefault
+   * @description Shows default avatars that user can use in user settings
+   */
   getAvatarsDefault() {
     return [
       'https://lh3.googleusercontent.com/INTuvwHpiXTigV8UQWi5MpSaRt-0mimAQL_eyfGMOynRK_USId0_Z45KFIrKI3tp21J_q6panwRUfrDOBAqHbA',

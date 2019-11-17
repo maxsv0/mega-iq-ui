@@ -11,6 +11,11 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {isPlatformBrowser} from '@angular/common';
 
+/**
+ * @class SettingsComponent
+ * @implements OnInit, AfterViewInit
+ * @description User profile settings controller
+ */
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -58,6 +63,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     this.avatarsDefault = this.userService.getAvatarsDefault();
   }
 
+  /**
+   * @function loadUserProfile
+   * @description Loads user profile from user API and builds user profile form
+   */
   private async loadUserProfile() {
     this.isLoading = true;
     await this.userService.getMyInfo()
@@ -92,6 +101,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         });
   }
 
+  /**
+   * @function ngOnInit
+   * @description Builds user profile details form after DOM is attached
+   */
   ngOnInit() {
     console.log('Build form for user ID ' + this.currentUser.email);
     this.profileForm = this.formBuilder.group({
@@ -110,6 +123,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
 
     console.log('Build form done');
 
+    /** Background Picker colors grid **/
     this.bgPicker = [
         'custom-bg1',
         'custom-bg2',
@@ -126,6 +140,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     this.loadUserProfile();
   }
 
+  /**
+   * @function ngAfterViewInit
+   * @description If no location of user is set, detects location
+   */
   ngAfterViewInit() {
     if (this.isBrowser && this.currentUser.location == null) {
       this.detectLocation();
@@ -137,6 +155,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     return this.profileForm.controls;
   }
 
+  /**
+   * @function onSubmit
+   * @description Send request to current user API and update data 
+   */
   onSubmit() {
     this.submitted = true;
 
@@ -169,6 +191,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         });
   }
 
+  /**
+   * @function detectLocation
+   * @description Detects location of user via geo response API
+   */
   detectLocation() {
     this.loading = true;
     this.userService.detectLocation().subscribe(
@@ -188,6 +214,11 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       });
   }
 
+  /**
+   * @function handleFileInput
+   * @param files File list model
+   * @description Saves image to database and sets to current user profile pic
+   */
   handleFileInput(files: FileList) {
     let fileToUpload: File = null;
     fileToUpload = files.item(0);
@@ -211,6 +242,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * @function sendVerifyEmail
+   * @description Sends email to verify current user email
+   */
   sendVerifyEmail() {
     this.loading = true;
     this.userService.verifyEmail()
@@ -230,6 +265,11 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         });
   }
 
+  /**
+   * @function sendVerifyEmailCheck
+   * @param code Verify code
+   * @description Checks if user has verified email
+   */
   sendVerifyEmailCheck(code: string) {
     this.loading = true;
     this.userService.verifyEmailCheck(code)

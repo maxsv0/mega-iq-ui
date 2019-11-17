@@ -9,6 +9,10 @@ import {environment} from '../../environments/environment';
 import {AngularFireAuth} from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 
+/**
+ * @class AuthenticationService
+ * @description Signs in and authenticates user
+ */
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
   public currentUser: Observable<User>;
@@ -41,6 +45,10 @@ export class AuthenticationService {
     );
   }
 
+  /**
+   * @function currentUserValue
+   * @description Returns current user value
+   */
   public get currentUserValue(): User {
     if (this.currentUserSubject.value && Object.entries(this.currentUserSubject.value).length !== 0) {
       return this.currentUserSubject.value;
@@ -49,21 +57,40 @@ export class AuthenticationService {
     }
   }
 
+  /**
+   * @function login
+   * @param email User email
+   * @param password User password
+   * @description Logs in user with email
+   */
   login(email: string, password: string) {
     return this.firebaseAuth.auth
       .signInWithEmailAndPassword(email, password);
   }
 
+  /**
+   * @async
+   * @function googleLogin
+   * @description Logs in user with google
+   */
   async googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.socialSignIn(provider);
   }
 
+  /**
+   * @function facebookLogin
+   * @description Logs in user via facebook
+   */
   facebookLogin() {
     const provider = new firebase.auth.FacebookAuthProvider();
     return this.socialSignIn(provider);
   }
 
+  /**
+   * @function socialSignIn
+   * @param provider Google or facebook
+   */
   private socialSignIn(provider) {
     return this.firebaseAuth.auth.signInWithPopup(provider)
       .then((credential) => {
@@ -72,6 +99,11 @@ export class AuthenticationService {
       .catch(error => console.log(error));
   }
 
+  /**
+   * @function loginToken
+   * @param token Authentication token
+   * @description Request user using token
+   */
   loginToken(token: string) {
     return this.http.post<any>(environment.apiUrl + '/user/loginToken', {token})
       .pipe(map(apiResponseUser => {
@@ -85,6 +117,11 @@ export class AuthenticationService {
       }));
   }
 
+  /**
+   * @function storeFirebaseUser
+   * @param userCredential Firenase stored user
+   * @description Creates a user and stores data
+   */
   public storeFirebaseUser(userCredential: firebase.User) {
     let user = null;
     if (userCredential !== null) {
@@ -99,12 +136,21 @@ export class AuthenticationService {
     }
   }
 
+  /**
+   * @function update
+   * @param user User
+   * @description Sets current user in localstorage
+   */
   update(user: User) {
     console.log('update storage with user: ' + user.uid);
     this.localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
 
+  /**
+   * @function logout
+   * @description Logs user out and reomve user from local storage
+   */
   logout() {
     this.firebaseAuth
       .auth

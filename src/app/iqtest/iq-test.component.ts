@@ -11,6 +11,11 @@ import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
+/**
+ * @class IqTestComponent
+ * @implements Oninit
+ * @description Controller for iq test list page, user selects one test to start
+ */
 @Component({
   selector: 'app-iq-test',
   templateUrl: './iq-test.component.html',
@@ -57,6 +62,10 @@ export class IqTestComponent implements OnInit {
     });
   }
 
+  /**
+   * @function ngOnInit
+   * @description Send GA event when test is opened
+   */
   ngOnInit() {
     if (this.testSelected != null) {
       this.googleAnalyticsService.sendEvent('iq-test', 'open-test', this.testSelected.type);
@@ -65,6 +74,11 @@ export class IqTestComponent implements OnInit {
     }
   }
 
+  /**
+   * @function startTest
+   * @param type Test type enum
+   * @description Gets selected test and navigates to classroom page
+   */
   startTest(type: TestTypeEnum) {
     this.loading = true;
     this.iqTestService.startTest(type)
@@ -74,11 +88,13 @@ export class IqTestComponent implements OnInit {
           if (apiResponseTestResult.ok) {
             this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
 
+            // send GA event when test started
             this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
           } else {
             this.alertService.error(apiResponseTestResult.msg);
             this.loading = false;
 
+            // send GA event if error
             this.googleAnalyticsService.sendEvent('iq-test', 'start-test-fail', type);
           }
         },

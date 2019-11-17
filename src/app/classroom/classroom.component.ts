@@ -10,6 +10,11 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
+/**
+ * @class ClassroomComponent
+ * @implements OnInit, OnDestroy
+ * @description Controller for the individual test component called 'Classroom'
+ */
 @Component({
   selector: 'app-classroom',
   templateUrl: './classroom.component.html',
@@ -69,10 +74,19 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
+  /**
+   * @function ngOnDestroy
+   * @description Unsubscribes from user event when component is detached
+   */
   ngOnDestroy() {
     this.currentUserSubscription.unsubscribe();
   }
 
+  /**
+   * @function setQuestion
+   * @param questionId Question Id
+   * @description Sets tue current question as active and tracks a 'question open' event
+   */
   setQuestion(questionId: number) {
     this.activeQuestionId = questionId;
     this.updateActiveTest(this.activeTest);
@@ -80,6 +94,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     this.googleAnalyticsService.sendEvent('classroom', 'question-open', questionId.toString());
   }
 
+  /**
+   * @function submitAllRandom
+   * @param code Test code
+   * @description Submits all question and with a random number of answers
+   */
   submitAllRandom(code: string) {
     let index = 1;
     this.activeTest.questionSet.forEach(
@@ -89,6 +108,13 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * @function submitAnswer
+   * @param code Question code
+   * @param question The test question
+   * @param answer The test answer
+   * @description Submits answer and sends request to test result API
+   */
   submitAnswer(code: string, question: number, answer: number) {
     this.loading = true;
     this.iqTestService.submitAnswer(code, question, answer)
@@ -110,6 +136,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     this.googleAnalyticsService.sendEvent('classroom', 'question-submit', question.toString(), answer);
   }
 
+  /**
+   * @function submitFinish
+   * @param code Test code
+   * @description Sumbits test and send request to Test result API, navigates to result page of test
+   */
   submitFinish(code: string) {
     this.loading = true;
     this.iqTestService.finishTest(code)
@@ -131,6 +162,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
+  /**
+   * @function updateActiveTest
+   * @param test Test model
+   * @description Retrieves a current not finished test in order update to it's current state
+   */
   private async updateActiveTest(test: TestResult) {
     this.googleAnalyticsService.sendEvent('classroom', 'open-test', test.type);
 
@@ -165,6 +201,11 @@ export class ClassroomComponent implements OnInit, OnDestroy {
 
   }
 
+  /**
+   * @function initTestByCode
+   * @param testCode Test code
+   * @description Initiates a new test by it's code
+   */
   private initTestByCode(testCode: string) {
     this.iqTestService.getClassroomTestByCode(testCode)
       .pipe(first())
@@ -188,6 +229,12 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         });
   }
 
+  /**
+   * @function setTitle
+   * @param type Test enum
+   * @param date Test date
+   * @description Sets title of current test
+   */
   public setTitle(type: TestTypeEnum, date: string) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
 

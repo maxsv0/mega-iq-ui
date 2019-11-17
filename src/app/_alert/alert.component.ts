@@ -9,6 +9,10 @@ import {AlertService} from '@/_services';
   styleUrls: ['./alert.component.scss']
 })
 
+/**
+ * @class AlertComponent
+ * @implements OnInit, OnDestroy
+ */
 export class AlertComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   message: any;
@@ -16,6 +20,10 @@ export class AlertComponent implements OnInit, OnDestroy {
   constructor(private alertService: AlertService) {
   }
 
+  /**
+   * @function ngOnInit
+   * @description Subsribes to the message and displays it one the respective page, disappears after 5 seconds
+   */
   ngOnInit() {
     this.subscription = this.alertService.getMessage().subscribe(message => {
         this.message = message;
@@ -28,6 +36,10 @@ export class AlertComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * @function ngOnDestroy
+   * @description Unsubscribes from subsribtion service
+   */
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

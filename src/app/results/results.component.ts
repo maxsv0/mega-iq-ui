@@ -5,6 +5,11 @@ import {User} from '@/_models';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 
+/**
+ * @class ResultsComponent
+ * @implements OnInit
+ * @description Shows top users who passed test by ranking
+ */
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -29,6 +34,10 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @function loadUsersAll
+   * @description Get all users to show in ranking
+   */
   private loadUsersAll() {
     this.userService.getAll().pipe(first()).subscribe(
       apiResponseUsersList => {

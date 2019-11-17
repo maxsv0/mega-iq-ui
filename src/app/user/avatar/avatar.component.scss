@@ -1,5 +1,6 @@
 @import 'src/styles';
 
+/** User profile card **/
 #iq-user {
 
   .iq-user-body {
@@ -33,6 +34,7 @@
   }
 }
 
+/** Responsive **/
 @include mobile-lg {
     .img-avatar,
     .iq-user-body {

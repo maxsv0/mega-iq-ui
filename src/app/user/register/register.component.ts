@@ -10,6 +10,11 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
+/**
+ * @class RegisterComponent
+ * @implements AfterViewInit
+ * @description User register page
+ */
 @Component({
   templateUrl: 'register.component.html',
   styleUrls: ['./register.component.scss']
@@ -60,6 +65,10 @@ export class RegisterComponent implements AfterViewInit {
     return this.registerForm.controls;
   }
 
+  /**
+   * @function onSubmit
+   * @description Generates user token and stores user data, navigates to user home after success
+   */
   onSubmit() {
     this.submitted = true;
 
@@ -110,12 +119,20 @@ export class RegisterComponent implements AfterViewInit {
         });
   }
 
+  /**
+   * @function ngAfterViewInit
+   * @description Detects user location
+   */
   ngAfterViewInit() {
     if (this.isBrowser) {
       this.detectLocation();
     }
   }
 
+  /**
+   * @function detectLocation
+   * @description Detects user's location and sets them to location field
+   */
   detectLocation() {
     this.userService.detectLocation().subscribe(
       apiResponseGeoIp => {
@@ -134,6 +151,10 @@ export class RegisterComponent implements AfterViewInit {
       });
   }
 
+  /**
+   * @function loginGoogle
+   * @description Google log in
+   */
   loginGoogle() {
     this.authenticationService.googleLogin()
       .then(data => {

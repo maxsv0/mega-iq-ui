@@ -10,6 +10,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
 
+/**
+ * @class PublicComponent
+ * @description User public profile
+ */
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
@@ -22,7 +26,6 @@ export class PublicComponent implements OnInit {
   testTypes: IqTest[];
   testTypesKeys: [] = [];
   isLoadingPage = false;
-  isLoading = false;
   isLastLoaded = false;
   userTestsPage = 0;
   testTypeEnum = TestTypeEnum;
@@ -65,12 +68,14 @@ export class PublicComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @function loadUserResult
+   * @description Loads tests result list from test result API
+   */
   private loadUserResult() {
     if (this.isLastLoaded) {
       return true;
     }
-
-    this.isLoading = true;
 
     this.userService.getById(this.userId, this.userTestsPage)
       .pipe(first())
@@ -93,22 +98,31 @@ export class PublicComponent implements OnInit {
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
-          this.isLoading = false;
           this.isLoadingPage = false;
         },
         error => {
           this.alertService.error(error);
-          this.isLoading = false;
           this.isLoadingPage = false;
         });
   }
 
+  /**7
+   * @function onScrollDown
+   * @description Loads more tests on scroll
+   */
   onScrollDown() {
     console.log('Load page ' + this.userTestsPage + '  scrolled down!!');
 
     this.loadUserResult();
   }
 
+  /**
+   * @function setTitle
+   * @param name User name
+   * @param iq User IQ 
+   * @param location User location
+   * @description Sets title for user public profile
+   */
   public setTitle(name: string, iq: number, location: string) {
     if (iq != null) {
       this.titleService.setTitle(this.i18n('IQ {{iq}} {{name}} {{location}}', {

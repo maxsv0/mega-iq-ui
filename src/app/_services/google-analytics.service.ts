@@ -6,10 +6,18 @@ declare var ga: Function;
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * @class GoogleAnalyticsService
+ * @description Attaches google analytics script and sets events
+ */
 export class GoogleAnalyticsService {
   constructor() {
   }
 
+  /**
+   * @function appendGaTrackingCode
+   * @description Attaches google analytics script
+   */
   public appendGaTrackingCode() {
     try {
       const script = document.createElement('script');
@@ -28,6 +36,10 @@ export class GoogleAnalyticsService {
     }
   }
 
+  /**
+   * @function sendPageView
+   * @param url Set event to respective page about page view 
+   */
   public sendPageView(url: string) {
     try {
       if (typeof ga === 'function') {
@@ -40,6 +52,14 @@ export class GoogleAnalyticsService {
     }
   }
 
+  /**
+   * @function sendEvent
+   * @param eventCategory What type of event
+   * @param eventAction What the event should track
+   * @param eventLabel Event label
+   * @param eventValue Event value
+   * @description Sets event depending on values given
+   */
   public sendEvent(eventCategory: string,
                    eventAction: string,
                    eventLabel: string = null,
