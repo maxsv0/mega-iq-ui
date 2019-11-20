@@ -31,9 +31,6 @@ import {APP_LOCALE_ID} from '../environments/app-locale';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
-import {registerLocaleData} from '@angular/common';
-import localeES from '@angular/common/locales/es';
-registerLocaleData(localeES);
 
 declare const require; // Use the require method provided by webpack
 
