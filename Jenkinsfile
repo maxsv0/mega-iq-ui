@@ -2,7 +2,7 @@ pipeline {
     environment {
         registrySchema = 'https://'
         registryHost = 'eu.gcr.io'
-        machineType = 'g1-small'
+        machineType = 'n1-standard-1'
         repositoryName = ''
         deploymentName = ''
         containerTag = ''
