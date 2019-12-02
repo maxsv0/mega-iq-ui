@@ -29,6 +29,10 @@
   @include border-radius(2em);
 }
 
+.certificate-progress {
+    height: 25px;
+}
+
 /**Responsive**/
 
 @include mobile-lg {

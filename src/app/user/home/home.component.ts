@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLastLoaded = false;
   deletedId = null;
   userTestsPage = 0;
+  progressToCertificate = 50;
   public testStatus = TestStatusEnum;
   public testTypeEnum = TestTypeEnum;
 
@@ -163,5 +164,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   async logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  getCertificateProgress() {
+      const myProgress = 50;
+      let certificateProgress = {
+          'width': `${myProgress}%`
+      };
+      return certificateProgress;
   }
 }

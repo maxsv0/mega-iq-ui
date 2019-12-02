@@ -33,6 +33,20 @@
         <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
       </div>
     </div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-lg-8 col-12">
+            <div class="progress certificate-progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated {{progressToCertificate < 100 ? 'bg-warning' : 'bg-success'}}" role="progressbar" [ngStyle]="getCertificateProgress()" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                    <span *ngIf="progressToCertificate < 100">
+                        {{100 - progressToCertificate}} questions left to unlock your certificate
+                    </span>
+                    <span *ngIf="progressToCertificate === 100">
+                        Certificate unlocked
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
