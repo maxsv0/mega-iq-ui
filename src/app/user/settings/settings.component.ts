@@ -112,7 +112,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       email: [this.currentUser.email, [Validators.required, Validators.email]],
       name: [this.currentUser.name, Validators.required],
       age: [this.currentUser.age],
-      location: [this.currentUser.location],
+      location: (this.isBrowser && this.currentUser.location == null) ? this.detectLocation() : [this.currentUser.location],
       country: [this.currentUser.country],
       cityLatLong: [this.currentUser.cityLatLong],
       isPublic: [this.currentUser.isPublic],
@@ -142,12 +142,8 @@ export class SettingsComponent implements OnInit, AfterViewInit {
 
   /**
    * @function ngAfterViewInit
-   * @description If no location of user is set, detects location
    */
   ngAfterViewInit() {
-    if (this.isBrowser && this.currentUser.location == null) {
-      this.detectLocation();
-    }
   }
 
   // convenience getter for easy access to form fields
