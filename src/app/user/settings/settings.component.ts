@@ -121,6 +121,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       background: [this.currentUser.background]
     });
 
+    if(this.isBrowser && this.currentUser.location == null) {
+        this.detectLocation();
+    }
+    
     console.log('Build form done');
 
     /** Background Picker colors grid **/
@@ -142,12 +146,8 @@ export class SettingsComponent implements OnInit, AfterViewInit {
 
   /**
    * @function ngAfterViewInit
-   * @description If no location of user is set, detects location
    */
   ngAfterViewInit() {
-    if (this.isBrowser && this.currentUser.location == null) {
-      this.detectLocation();
-    }
   }
 
   // convenience getter for easy access to form fields

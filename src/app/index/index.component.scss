@@ -64,6 +64,9 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
+    .test-start-btn {
+        background: #fff;
+    }
 }
 
 /** Mobile (xs-l) **/
@@ -100,6 +103,10 @@
             min-height: 100%;
         }
 
+    }
+
+    .test-start-btn {
+        background: #fff;
     }
 
 }

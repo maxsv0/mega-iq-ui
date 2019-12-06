@@ -37,6 +37,7 @@ import {faSignInAlt} from '@fortawesome/free-solid-svg-icons/faSignInAlt';
 import {faBrain} from '@fortawesome/free-solid-svg-icons/faBrain';
 import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
 import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes';
+import {faSearchLocation} from '@fortawesome/free-solid-svg-icons/faSearchLocation';
 
 export const shareButtonsIcons = [
   faFacebookF, faTwitter, faLinkedinIn, faPinterestP, faRedditAlien, faTumblr,
@@ -44,5 +45,5 @@ export const shareButtonsIcons = [
 
   faCommentAlt, faEnvelope, faCheck, faPrint, faExclamation, faLink, faEllipsisH, faMinus,
   faTrash, faUser, faHome, faCog, faShare, faSun, faCircle, faChevronRight, faChevronLeft,
-  faQuestion, faSave, faUserPlus, faXRay, faSignInAlt, faBrain, faBars, faTimes
+  faQuestion, faSave, faUserPlus, faXRay, faSignInAlt, faBrain, faBars, faTimes, faSearchLocation
 ];
