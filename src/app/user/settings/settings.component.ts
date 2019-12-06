@@ -112,7 +112,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       email: [this.currentUser.email, [Validators.required, Validators.email]],
       name: [this.currentUser.name, Validators.required],
       age: [this.currentUser.age],
-      location: (this.isBrowser && this.currentUser.location == null) ? this.detectLocation() : [this.currentUser.location],
+      location: [this.currentUser.location],
       country: [this.currentUser.country],
       cityLatLong: [this.currentUser.cityLatLong],
       isPublic: [this.currentUser.isPublic],
@@ -121,6 +121,10 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       background: [this.currentUser.background]
     });
 
+    if(this.isBrowser && this.currentUser.location == null) {
+        this.detectLocation();
+    }
+    
     console.log('Build form done');
 
     /** Background Picker colors grid **/
