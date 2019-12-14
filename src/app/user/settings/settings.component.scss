@@ -13,7 +13,8 @@
   margin-right: 5px;
 }
 
-[type=radio]:checked + img {
+input[type=radio]:checked + img,
+input[type=radio]:checked + label {
   outline: 2px solid #f00;
 }
 
@@ -48,10 +49,6 @@
         .box {
             cursor: pointer;
             @include border-radius(2px);
-        }
-
-        input[type=radio]:focus + label {
-            border: 2px solid var(--primary);
         }
     }
 }
