@@ -22,4 +22,5 @@ export class User {
   password: string;
   totalScore: number;
   background: string;
+  certificateProgress: number;
 }

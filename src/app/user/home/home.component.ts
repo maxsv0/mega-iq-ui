@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLastLoaded = false;
   deletedId = null;
   userTestsPage = 0;
-  progressToCertificate = 50;
   public testStatus = TestStatusEnum;
   public testTypeEnum = TestTypeEnum;
 
@@ -166,11 +165,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
-  getCertificateProgress() {
-      const myProgress = 50;
-      let certificateProgress = {
-          'width': `${myProgress}%`
-      };
-      return certificateProgress;
-  }
+    /**
+    * @function getCertificateProgress
+    * @description Returns width of progress bar with the value of the current certficate progress
+    */
+    getCertificateProgress() {
+        const myProgress = this.currentUser.certificateProgress;
+        if(myProgress !== null) {
+            let myCertificateProgress = {
+                'width': `${myProgress}%`
+            };
+            return myCertificateProgress;
+        }
+    }
 }
