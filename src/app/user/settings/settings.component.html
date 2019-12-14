@@ -74,14 +74,11 @@
 
             <!-- User background banner -->
             <div class="form-group">
-                <label>Profile Background:
-                    <span class="text-secondary" *ngIf="currentUser.background != null">{{currentUser.background.replace('custom-bg', '')}}</span>
-                    <span class="text-secondary" *ngIf="currentUser.background == null">Default</span>
-                </label>
+                <label>Profile Background</label>
                 <div class="custom-bg-grid w-100">
                     <ul class="row m-0 p-1 justify-content-around">
                         <li *ngFor="let color of bgPicker; index as i">
-                            <input type="radio" formControlName="background" id="bg-{{i}}" value="{{color}}">
+                            <input type="radio" formControlName="background" id="bg-{{i}}" value="{{color}}" [checked]="color === currentUser.background ? 'checked' : ''">
                             <label for="bg-{{i}}" class="box p-4 m-1 position-relative {{color}}"></label>
                         </li>
                     </ul>
