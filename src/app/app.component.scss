@@ -63,8 +63,8 @@
 
 /** Responsive **/
 
-@include tablet {
-
+// fix parallax bug on iOS tablet devices
+@media screen and (max-width: 991px) {
     .home-image {
         background-attachment: scroll;
     }
