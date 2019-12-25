@@ -72,7 +72,7 @@ declare const require; // Use the require method provided by webpack
       provide: TRANSLATIONS,
       useFactory: (locale) => {
         locale = locale || 'en';
-        return require(`raw-loader!../i18n/messages.${locale}.xlf`);
+        return require(`raw-loader!../i18n/messages.${locale}.xlf`).default;
       },
       deps: [LOCALE_ID]
     },
