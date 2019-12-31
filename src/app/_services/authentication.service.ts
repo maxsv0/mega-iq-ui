@@ -92,6 +92,8 @@ export class AuthenticationService {
    * @param provider Google or facebook
    */
   private socialSignIn(provider) {
+    provider.addScope('email');
+
     return this.firebaseAuth.auth.signInWithPopup(provider)
       .then((credential) => {
         this.storeFirebaseUser(credential.user);
