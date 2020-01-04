@@ -33,10 +33,10 @@
         <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
       </div>
     </div>
-    <div class="row mt-3 justify-content-center" *ngIf="currentUser.certificateProgress < 100 && currentUser.certificateProgress !== null">
+    <div class="row mt-3 justify-content-center" *ngIf="currentUser && currentUser.certificateProgress < 100 && currentUser.certificateProgress !== null">
         <div class="col-lg-8 col-12">
             <div class="progress certificate-progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{currentUser.certificateProgress}}" attr.aria-valuemin="0" attr.aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{currentUser.certificateProgress || 0}}" attr.aria-valuemin="0" attr.aria-valuemax="100">
                     <span>{{100 - currentUser.certificateProgress}} questions left to unlock your certificate</span>
                 </div>
             </div>
