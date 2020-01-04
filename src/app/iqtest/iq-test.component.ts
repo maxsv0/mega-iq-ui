@@ -8,6 +8,7 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {ShareButtonsConfig} from '@ngx-share/core';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
@@ -26,6 +27,7 @@ export class IqTestComponent implements OnInit {
   testSelected: IqTest;
   loading = false;
   isBrowser: boolean;
+  customConfig: ShareButtonsConfig;
 
   constructor(
     private titleService: Title,
@@ -42,23 +44,23 @@ export class IqTestComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     const testType = this.route.snapshot.params['testType'];
-
     this.iqTestService.getIqTest().subscribe(tests => {
-      this.testTypes = tests;
+        this.testTypes = tests;
 
-      this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
+        this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
 
-      this.testTypes.forEach(
-        (test) => {
-          if (test.url === '/iqtest/' + testType) {
-            this.testSelected = test;
-
-            this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
-              name: this.testSelected.name,
-            }));
-          }
-        }
-      );
+        this.testTypes.forEach((test) => {
+            if (test.url === '/iqtest/' + testType) {
+                this.testSelected = test;
+                this.setCustomShareButtonsConfig(this.testSelected.pic);
+                
+                this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
+                    name: this.testSelected.name,
+                }));
+            }
+        });
+        const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg';
+        this.setCustomShareButtonsConfig(shareButtonMetaImage);
     });
   }
 
@@ -105,4 +107,15 @@ export class IqTestComponent implements OnInit {
 
     this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
   }
+
+    /**
+     * @function setCustomShareButtonsConfig
+     * @description Sets custom configuration of share buttons
+     */
+    setCustomShareButtonsConfig(...options: any[]) {
+        this.customConfig = {
+            image: options[0].toString()
+        }
+        ShareButtonsModule.withConfig(this.customConfig);
+    }
 }

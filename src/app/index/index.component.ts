@@ -7,6 +7,8 @@ import {interval, Subscription} from 'rxjs';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
+import {ShareButtonsModule} from '@ngx-share/buttons';
+import {ShareButtonsConfig} from '@ngx-share/core';
 
 /**
  * @class IndexComponent
@@ -27,6 +29,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   clockTimerSubscription: Subscription;
   clockSpeed: number;
   isBrowser: boolean;
+  customConfig: ShareButtonsConfig;
 
   /** Owl carousel config **/
   carouselOptions = {
@@ -67,10 +70,11 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
     });
+
     this.isBrowser = isPlatformBrowser(this.platformId);
-
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
-
+    const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg';
+    this.setCustomShareButtonsConfig(shareButtonMetaImage);
     this.loadUsersTop();
   }
 
@@ -173,5 +177,16 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+    /**
+     * @function setCustomShareButtonsConfig
+     * @description Sets custom configuration of share buttons
+     */
+    setCustomShareButtonsConfig(...options: any[]) {
+        this.customConfig = {
+            image: options[0].toString()
+        }
+        ShareButtonsModule.withConfig(this.customConfig);
+    }
 
 }
