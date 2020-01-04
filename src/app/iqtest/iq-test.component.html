@@ -2,12 +2,13 @@
 <div class="container" id="iq-test-details">
   <div class="row">
 
-    <div class="col-12 py-3" *ngIf="isBrowser">
-      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
-                     [exclude]="['google','mix','tumblr','print']"
+    <div class="col-12 py-3" *ngIf="isBrowser && customConfig">
+      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','copy']"
+                     [exclude]="['google','mix','tumblr','print', 'messenger']"
                      [show]="15"
-                     [autoSetMeta]="true"
+                     [autoSetMeta]="false"
                      [theme]="'modern-dark'"
+                     [image]="customConfig.image"
       ></share-buttons>
     </div>
 
