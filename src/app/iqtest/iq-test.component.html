@@ -37,7 +37,7 @@
 
         <!-- Start test -->
         <div class="start-iq-test-btn col-4 offset-4">
-          <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} py-3 px-4"
+          <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} btn-rounded py-3 px-4"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
             <fa-icon *ngIf="!loading" [icon]="['fas', 'brain']" class="ml-2"></fa-icon>
@@ -73,7 +73,7 @@
                     <span i18n>limit</span> {{item.value.expire}} <span i18n>min</span></p>
                 </div>
                 <div class="col-md-5 pr-3">
-                  <a class="btn btn-block btn-lg btn-{{item.value.styleName}} py-3 px-4" routerLink="{{item.value.url}}">
+                  <a class="btn btn-block btn-lg btn-{{item.value.styleName}} btn-rounded py-3 px-4" routerLink="{{item.value.url}}">
                     <span i18n>Open</span> {{item.value.name}}
                   </a>
                 </div>
@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>

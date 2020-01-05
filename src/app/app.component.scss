@@ -15,6 +15,10 @@
 }
 
 #header-mega-iq {
+  background-image: url(https://storage.cloud.google.com/mega-iq/brand/mega-iq-brain-navbar.jpg);
+  background-size: 35px 85px;
+  background-repeat: no-repeat;
+
   @include box-shadow(0, 2px, 2px, -2px rgba(0, 0, 0, .2));
 
   .navbar-brand {
