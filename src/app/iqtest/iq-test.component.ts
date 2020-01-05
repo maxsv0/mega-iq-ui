@@ -53,13 +53,13 @@ export class IqTestComponent implements OnInit {
             if (test.url === '/iqtest/' + testType) {
                 this.testSelected = test;
                 this.setCustomShareButtonsConfig(this.testSelected.pic);
-                
+
                 this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
                     name: this.testSelected.name,
                 }));
             }
         });
-        const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg';
+        const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
         this.setCustomShareButtonsConfig(shareButtonMetaImage);
     });
   }

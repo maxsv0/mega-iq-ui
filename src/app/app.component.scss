@@ -6,7 +6,7 @@
 }
 
 .home-image {
-  background-image: url(https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg);
+  background-image: url(https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg);
   @include background-size(cover);
   width: 100%;
   max-height: 41em;
@@ -81,10 +81,9 @@
     }
 
     .home-image {
-        background-image: url(assets/img/bg-index-sm.png);
+        background-image: url(https://storage.googleapis.com/mega-iq/about/img/bg-index-sm.jpg);
         margin-top: 4.5rem;
         background-attachment: scroll;
     }
 
 }
-

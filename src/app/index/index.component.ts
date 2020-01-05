@@ -73,7 +73,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
-    const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/iqtest/bg-index.jpg';
+    const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
     this.setCustomShareButtonsConfig(shareButtonMetaImage);
     this.loadUsersTop();
   }
