@@ -3,11 +3,12 @@
     <div class="container-fluid d-flex flex-column">
         <div class="container mt-2 text-left" *ngIf="isBrowser">
             <!-- Social media share -->
-          <share-buttons [include]="['facebook','twitter','vk','telegram','messenger','whatsapp','pinterest','reddit','line','sms','email','copy']"
-                         [exclude]="['google','mix','tumblr','linkedin','xing','print']"
+          <share-buttons [include]="['facebook','twitter','vk','telegram','whatsapp','pinterest','reddit','line','sms','email','copy']"
+                         [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger']"
                          [show]="6"
-                         [autoSetMeta]="true"
+                         [autoSetMeta]="false"
                          [theme]="'modern-light'"
+                         [image]="customConfig.image"
           ></share-buttons>
         </div>
         <!-- Home image -->

@@ -53,11 +53,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       );
     });
-
-    this.loadMyResult();
   }
 
+  /**
+   * @function ngOnInit
+   * @description Load User and Test data
+   */
   ngOnInit() {
+    this.loadMyResult();
   }
 
   /**
