@@ -12,12 +12,11 @@ import {ApiResponseBase} from '@/_models/api-response-base';
   providedIn: 'root'
 })
 export class StorageService {
-  fileUploadUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.createUploadUrl();
+
   }
 
   /**
@@ -25,11 +24,13 @@ export class StorageService {
    * @param fileToUpload File type
    * @description Uploads a file to storage
    */
-  uploadFile(fileToUpload: File) {
-    const formData: FormData = new FormData();
-    formData.append('uploadFile', fileToUpload, fileToUpload.name);
+  uploadFile(fileUploadUrl: string, fileToUpload: File) {
+    if (fileUploadUrl != null) {
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', fileToUpload, fileToUpload.name);
 
-    return this.http.post<ApiResponseBase>(this.fileUploadUrl, formData);
+      return this.http.post<ApiResponseBase>(fileUploadUrl, formData);
+    }
   }
 
   /**
@@ -37,12 +38,6 @@ export class StorageService {
    * @description Create url to access data
    */
   createUploadUrl() {
-    this.http.get<ApiResponseBase>(environment.apiUrl + '/storage/create')
-      .pipe(first())
-      .subscribe(data => {
-        if (data.ok) {
-          this.fileUploadUrl = data.msg;
-        }
-      });
+    return this.http.get<ApiResponseBase>(environment.apiUrl + '/storage/create');
   }
 }

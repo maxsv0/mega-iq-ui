@@ -124,7 +124,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     if(this.isBrowser && this.currentUser.location == null) {
         this.detectLocation();
     }
-    
+
     console.log('Build form done');
 
     /** Background Picker colors grid **/
@@ -157,7 +157,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
 
   /**
    * @function onSubmit
-   * @description Send request to current user API and update data 
+   * @description Send request to current user API and update data
    */
   onSubmit() {
     this.submitted = true;
@@ -224,21 +224,30 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     fileToUpload = files.item(0);
     if (fileToUpload) {
       this.uploading = true;
-      this.storageService.uploadFile(fileToUpload)
+
+      this.storageService.createUploadUrl()
         .pipe(first())
-        .subscribe(
-          apiResponseBase => {
-            if (apiResponseBase.ok) {
-              this.uploadPic = apiResponseBase.msg;
-            } else {
-              this.alertService.error(apiResponseBase.msg);
-            }
-            this.uploading = false;
-          },
-          error => {
-            this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-            this.uploading = false;
-          });
+        .subscribe(data => {
+          if (data.ok) {
+            const fileUploadUrl = data.msg;
+
+            this.storageService.uploadFile(fileUploadUrl, fileToUpload)
+              .pipe(first())
+              .subscribe(
+                apiResponseBase => {
+                  if (apiResponseBase.ok) {
+                    this.uploadPic = apiResponseBase.msg;
+                  } else {
+                    this.alertService.error(apiResponseBase.msg);
+                  }
+                  this.uploading = false;
+                },
+                error => {
+                  this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+                  this.uploading = false;
+                });
+          }
+        });
     }
   }
 
