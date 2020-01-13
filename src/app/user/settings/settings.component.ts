@@ -67,27 +67,34 @@ export class SettingsComponent implements OnInit, AfterViewInit {
    * @function loadUserProfile
    * @description Loads user profile from user API and builds user profile form
    */
-  private async loadUserProfile() {
+  private loadUserProfile() {
     this.isLoading = true;
-    await this.userService.getMyInfo()
+
+    this.userService.getMyInfo()
       .pipe(first())
       .subscribe(
         apiResponseUser => {
           if (apiResponseUser.ok) {
             this.currentUser = apiResponseUser.user;
-            console.log(this.currentUser);
+            console.log('Loaded user info: ' + this.currentUser);
 
-            // in case data is loaded after page init
-            this.profileForm.controls['id'].setValue(this.currentUser.id);
-            this.profileForm.controls['email'].setValue(this.currentUser.email);
-            this.profileForm.controls['name'].setValue(this.currentUser.name);
-            this.profileForm.controls['age'].setValue(this.currentUser.age);
-            if (this.currentUser.location) {
-              this.profileForm.controls['location'].setValue(this.currentUser.location);
+            this.profileForm = this.formBuilder.group({
+              id: [this.currentUser.id],
+              email: [this.currentUser.email, [Validators.required, Validators.email]],
+              name: [this.currentUser.name, Validators.required],
+              age: [this.currentUser.age],
+              location: [this.currentUser.location],
+              country: [this.currentUser.country],
+              cityLatLong: [this.currentUser.cityLatLong],
+              isPublic: [this.currentUser.isPublic],
+              isUnsubscribed: [this.currentUser.isUnsubscribed],
+              pic: [this.currentUser.pic],
+              background: [this.currentUser.background]
+            });
+
+            if (this.isBrowser && this.currentUser.location == null) {
+              this.detectLocation();
             }
-            this.profileForm.controls['isPublic'].setValue(this.currentUser.isPublic);
-            this.profileForm.controls['pic'].setValue(this.currentUser.pic);
-            this.profileForm.controls['background'].setValue(this.currentUser.background);
           } else {
             this.alertService.error(apiResponseUser.msg);
           }
@@ -106,27 +113,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
    * @description Builds user profile details form after DOM is attached
    */
   ngOnInit() {
-    console.log('Build form for user ID ' + this.currentUser.email);
-    this.profileForm = this.formBuilder.group({
-      id: [this.currentUser.id],
-      email: [this.currentUser.email, [Validators.required, Validators.email]],
-      name: [this.currentUser.name, Validators.required],
-      age: [this.currentUser.age],
-      location: [this.currentUser.location],
-      country: [this.currentUser.country],
-      cityLatLong: [this.currentUser.cityLatLong],
-      isPublic: [this.currentUser.isPublic],
-      isUnsubscribed: [this.currentUser.isUnsubscribed],
-      pic: [this.currentUser.pic],
-      background: [this.currentUser.background]
-    });
-
-    if(this.isBrowser && this.currentUser.location == null) {
-        this.detectLocation();
-    }
-
-    console.log('Build form done');
-
     /** Background Picker colors grid **/
     this.bgPicker = [
         'custom-bg1',
