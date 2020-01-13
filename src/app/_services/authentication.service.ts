@@ -137,7 +137,7 @@ export class AuthenticationService {
       user.pic = userCredential.photoURL;
 
       // not request for ID Token
-      userCredential.getIdToken().then(idToken => {
+      userCredential.getIdToken(true).then(idToken => {
         user.token = idToken;
         this.update(user);
       });
