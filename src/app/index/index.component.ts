@@ -1,11 +1,12 @@
 import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, User} from '@/_models';
 import * as $ from 'jquery';
 import {interval, Subscription} from 'rxjs';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {Title} from '@angular/platform-browser';
+import {Title, Meta} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {ShareButtonsConfig} from '@ngx-share/core';
@@ -61,10 +62,12 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   constructor(
     private titleService: Title,
+    private metaService: Meta,
     private iqTestService: IqTestService,
     private userService: UserService,
     private alertService: AlertService,
     private i18n: I18n,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.iqTestService.getIqTest().subscribe(tests => {
@@ -83,9 +86,14 @@ export class IndexComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (this.isBrowser) {
       this.initJs();
-      const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-      const ogTitle = this.titleService.getTitle();
-      this.setCustomShareButtonsConfig(shareButtonMetaImage, ogTitle);
+      const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+      const metaTitle = this.titleService.getTitle();
+      const metaDescription = this.i18n('Join the Mega IQ now! IQ Tests Passed');
+      this.metaService.updateTag({property: 'og:title', content: metaTitle});
+      this.metaService.updateTag({property: 'og:description', content: metaDescription});
+      this.metaService.updateTag({property: 'og:image', content: metaImage});
+      this.metaService.updateTag({property: 'og:url', content: this.router.url});
+      this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
     }
   }
 
@@ -184,10 +192,11 @@ export class IndexComponent implements OnInit, OnDestroy {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
-        const [imageOption, titleOption] = options;
+        const [customImage, customTitle, customDescription] = options;
         this.customConfig = {
-            image: imageOption,
-            title: titleOption
+            image: customImage,
+            title: customTitle,
+            description: customDescription
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }
