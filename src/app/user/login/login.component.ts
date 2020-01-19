@@ -33,7 +33,6 @@ export class LoginComponent {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
 
-    console.log(this.authenticationService.currentUserValue);
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate([this.returnUrl]);
@@ -80,7 +79,6 @@ export class LoginComponent {
     this.authenticationService.googleLogin()
       .then(data => {
         this.loading = false;
-        console.log('g redirect to: ' + this.returnUrl);
         this.router.navigate([this.returnUrl]);
       })
       .catch(data => {
@@ -97,7 +95,6 @@ export class LoginComponent {
     this.authenticationService.facebookLogin()
       .then(data => {
         this.loading = false;
-        console.log('f redirect to: ' + this.returnUrl);
         this.router.navigate([this.returnUrl]);
       })
       .catch(data => {
@@ -123,7 +120,6 @@ export class LoginComponent {
       .then(data => {
         this.authenticationService.storeFirebaseUser(data.user);
         this.loading = false;
-        console.log('regirect to: ' + this.returnUrl);
         this.router.navigate([this.returnUrl]);
       })
       .catch(data => {

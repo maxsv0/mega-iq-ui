@@ -28,21 +28,21 @@ export class AuthenticationService {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(this.localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
 
-    firebaseAuth.authState.subscribe(
-      userCredential => {
-        this.storeFirebaseUser(userCredential);
-      }
-    );
-
-    this.firebaseAuth.idToken.subscribe(
-      token => {
-        const user = JSON.parse(this.localStorage.getItem('currentUser'));
-        if (user !== null && Object.entries(user).length !== 0) {
-          user.token = token;
-          this.update(user);
-        }
-      }
-    );
+    // firebaseAuth.authState.subscribe(
+    //   userCredential => {
+    //     this.storeFirebaseUser(userCredential);
+    //   }
+    // );
+    //
+    // this.firebaseAuth.idToken.subscribe(
+    //   token => {
+    //     const user = JSON.parse(this.localStorage.getItem('currentUser'));
+    //     if (user !== null && Object.entries(user).length !== 0) {
+    //       user.token = token;
+    //       this.update(user);
+    //     }
+    //   }
+    // );
   }
 
   /**
@@ -75,6 +75,8 @@ export class AuthenticationService {
    */
   async googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
     return this.socialSignIn(provider);
   }
 
@@ -92,11 +94,11 @@ export class AuthenticationService {
    * @param provider Google or facebook
    */
   private socialSignIn(provider) {
-    provider.addScope('email');
-
     return this.firebaseAuth.auth.signInWithPopup(provider)
-      .then((credential) => {
-        this.storeFirebaseUser(credential.user);
+      .then((result) => {
+        if (result.credential) {
+          this.storeFirebaseUser(result.user);
+        }
       })
       .catch(error => console.log(error));
   }
@@ -121,7 +123,7 @@ export class AuthenticationService {
 
   /**
    * @function storeFirebaseUser
-   * @param userCredential Firenase stored user
+   * @param userCredential Firebase stored user
    * @description Creates a user and stores data
    */
   public storeFirebaseUser(userCredential: firebase.User) {
@@ -134,7 +136,11 @@ export class AuthenticationService {
       user.isEmailVerified = userCredential.emailVerified;
       user.pic = userCredential.photoURL;
 
-      this.update(user);
+      // not request for ID Token
+      userCredential.getIdToken(true).then(idToken => {
+        user.token = idToken;
+        this.update(user);
+      });
     }
   }
 
@@ -144,7 +150,9 @@ export class AuthenticationService {
    * @description Sets current user in localstorage
    */
   update(user: User) {
-    console.log('update storage with user: ' + user.uid);
+    console.log('update user: ');
+    console.log(user);
+
     this.localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }

@@ -148,8 +148,9 @@ export class PublicComponent implements OnInit {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
+        const [imageOptions] = options;
         this.customConfig = {
-            image: options[0].toString()
+            image: imageOptions
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }

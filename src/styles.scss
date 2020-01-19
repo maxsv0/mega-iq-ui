@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #3f79ad
+);
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 @import 'views/mixins';
 @import 'views/variables';
 @import 'views/base';
@@ -27,6 +32,10 @@ body {
   border: 1px solid #dee2e6;
   border-radius: .375rem;
   @include box-shadow(0px, 3px, 15px, rgba(0,0,0,0.2));
+}
+
+.btn-rounded {
+  @include border-radius(5em);
 }
 
 .img-avatar {
