@@ -73,8 +73,6 @@ export class IndexComponent implements OnInit, OnDestroy {
 
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
-    const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-    this.setCustomShareButtonsConfig(shareButtonMetaImage);
     this.loadUsersTop();
   }
 
@@ -85,6 +83,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (this.isBrowser) {
       this.initJs();
+      const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+      const ogTitle = this.titleService.getTitle();
+      this.setCustomShareButtonsConfig(shareButtonMetaImage, ogTitle);
     }
   }
 
@@ -183,9 +184,10 @@ export class IndexComponent implements OnInit, OnDestroy {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
-        const [imageOptions] = options;
+        const [imageOption, titleOption] = options;
         this.customConfig = {
-            image: imageOptions
+            image: imageOption,
+            title: titleOption
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }

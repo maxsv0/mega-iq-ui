@@ -59,8 +59,6 @@ export class IqTestComponent implements OnInit {
                 }));
             }
         });
-        const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-        this.setCustomShareButtonsConfig(shareButtonMetaImage);
     });
   }
 
@@ -74,6 +72,9 @@ export class IqTestComponent implements OnInit {
     } else {
       this.googleAnalyticsService.sendEvent('iq-test', 'open-test', 'all');
     }
+    const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+    const ogTitle = this.titleService.getTitle();
+    this.setCustomShareButtonsConfig(shareButtonMetaImage, ogTitle);
   }
 
   /**
@@ -113,9 +114,10 @@ export class IqTestComponent implements OnInit {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
-        const [imageOptions] = options;
+        const [imageOption, titleOption] = options;
         this.customConfig = {
-            image: imageOptions
+            image: imageOption,
+            title: titleOption
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }
