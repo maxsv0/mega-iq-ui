@@ -6,6 +6,7 @@ import {first} from 'rxjs/operators';
 import {AlertService, AuthenticationService} from '@/_services';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import * as firebase from 'firebase';
 
 /**
  * @class LoginComponent
@@ -15,7 +16,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
   templateUrl: 'login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -33,13 +34,20 @@ export class LoginComponent {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
 
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate([this.returnUrl]);
-    }
+    // // redirect to home if already logged in
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate([this.returnUrl]);
+    // }
 
     this.titleService.setTitle(this.i18n('Log In to Mega-IQ'));
 
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
+
+  ngOnInit() {
     const token = this.route.snapshot.queryParams['token'];
     if (token) {
       this.loading = true;
@@ -59,11 +67,6 @@ export class LoginComponent {
             this.loading = false;
           });
     }
-
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
   }
 
   // convenience getter for easy access to form fields
@@ -78,8 +81,7 @@ export class LoginComponent {
   loginGoogle() {
     this.authenticationService.googleLogin()
       .then(data => {
-        this.loading = false;
-        this.router.navigate([this.returnUrl]);
+        this.storeUserAndNavigate(data);
       })
       .catch(data => {
         this.alertService.error(data.message);
@@ -118,13 +120,23 @@ export class LoginComponent {
     this.loading = true;
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .then(data => {
-        this.authenticationService.storeFirebaseUser(data.user);
-        this.loading = false;
-        this.router.navigate([this.returnUrl]);
+        this.storeUserAndNavigate(data);
       })
       .catch(data => {
         this.alertService.error(data.message);
         this.loading = false;
       });
+  }
+
+  private storeUserAndNavigate(userCredential: firebase.auth.UserCredential) {
+    const user = this.authenticationService.storeFirebaseUser(userCredential.user);
+
+    this.authenticationService.requestIdToken(userCredential.user).then(idToken => {
+      user.token = idToken;
+      this.authenticationService.update(user);
+
+      this.loading = false;
+      this.router.navigate([this.returnUrl]);
+    });
   }
 }

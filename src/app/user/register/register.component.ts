@@ -94,10 +94,16 @@ export class RegisterComponent implements AfterViewInit {
                   // we have a password and could login
                   this.authenticationService.login(apiResponseUser.user.email, apiResponseUser.user.password)
                     .then(data => {
-                      this.authenticationService.storeFirebaseUser(data.user);
-                      this.router.navigate(['/home']);
+                      const user = this.authenticationService.storeFirebaseUser(data.user);
 
-                      this.googleAnalyticsService.sendEvent('user', 'register');
+                      this.authenticationService.requestIdToken(data.user).then(idToken => {
+                        user.token = idToken;
+                        this.authenticationService.update(user);
+
+                        this.router.navigate(['/home']);
+
+                        this.googleAnalyticsService.sendEvent('user', 'register');
+                      });
                     })
                     .catch(data => {
                       this.alertService.error(data.message);
