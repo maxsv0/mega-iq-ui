@@ -33,7 +33,7 @@
         <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
       </div>
     </div>
-    <div class="row mt-3 justify-content-center" *ngIf="currentUser && currentUser.certificateProgress < 100 && currentUser.certificateProgress !== null">
+    <div class="row mt-4 justify-content-center" *ngIf="currentUser && currentUser.certificateProgress < 100 && currentUser.certificateProgress !== null && !currentUser.iq">
         <div class="col-lg-8 col-12">
             <div class="progress certificate-progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{currentUser.certificateProgress || 0}}" attr.aria-valuemin="0" attr.aria-valuemax="100">
@@ -116,10 +116,10 @@
           </div>
         </div>
         <div class="course-starts text-white pt-2">
-          <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
+          <span i18n>Started at</span>: {{testDateStart}}
         </div>
         <div class="course-ends text-white" *ngIf="test.finishDate">
-          <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
+          <span i18n>Finished at</span>: {{testDateEnd}}
         </div>
         <!-- Test actions -->
         <div class="row">

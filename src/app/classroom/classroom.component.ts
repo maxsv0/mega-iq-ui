@@ -95,20 +95,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @function submitAllRandom
-   * @param code Test code
-   * @description Submits all question and with a random number of answers
-   */
-  submitAllRandom(code: string) {
-    let index = 1;
-    this.activeTest.questionSet.forEach(
-      (question) => {
-        this.submitAnswer(code, index++, question.answers[0].id);
-      }
-    );
-  }
-
-  /**
    * @function submitAnswer
    * @param code Question code
    * @param question The test question
