@@ -13,6 +13,9 @@ COPY package.json /app
 COPY dist/ /app/dist
 
 # Install dependency
+RUN npm install node-sass@4.13.0
+
+# Install dependency
 RUN npm install
 
 # Install PM2 process manager

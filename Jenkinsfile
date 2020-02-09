@@ -2,7 +2,7 @@ pipeline {
     environment {
         registrySchema = 'https://'
         registryHost = 'eu.gcr.io'
-        machineType = 'n1-standard-1'
+        machineType = 'g1-small'
         repositoryName = ''
         deploymentName = ''
         containerTag = ''
@@ -15,8 +15,6 @@ pipeline {
             steps {
                 script {
                     sh "npm install"
-
-                    containerTag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
                 }
             }
         }
@@ -91,6 +89,17 @@ pipeline {
                 }
             }
         }
+
+      stage("Route") {
+        steps {
+          script {
+            sh "gcloud compute ssh iq-web-proxy --command=\"sudo echo 'Define MegaIqUiBuild ${env.BUILD_ID}'>/etc/apache2/conf-enabled/iq-ui.conf\""
+          }
+          script {
+            sh "gcloud compute ssh iq-web-proxy --command=\"sudo service apache2 restart\""
+          }
+        }
+      }
 
     }
 }

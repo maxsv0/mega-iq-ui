@@ -94,13 +94,7 @@ export class AuthenticationService {
    * @param provider Google or facebook
    */
   private socialSignIn(provider) {
-    return this.firebaseAuth.auth.signInWithPopup(provider)
-      .then((result) => {
-        if (result.credential) {
-          this.storeFirebaseUser(result.user);
-        }
-      })
-      .catch(error => console.log(error));
+    return this.firebaseAuth.auth.signInWithPopup(provider);
   }
 
   /**
@@ -135,13 +129,13 @@ export class AuthenticationService {
       user.name = userCredential.displayName;
       user.isEmailVerified = userCredential.emailVerified;
       user.pic = userCredential.photoURL;
-
-      // not request for ID Token
-      userCredential.getIdToken(true).then(idToken => {
-        user.token = idToken;
-        this.update(user);
-      });
     }
+
+    return user;
+  }
+
+  public requestIdToken(userCredential: firebase.User) {
+    return userCredential.getIdToken(true);
   }
 
   /**
