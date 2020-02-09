@@ -4,7 +4,7 @@ import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
-import {Title} from '@angular/platform-browser';
+import {Title, Meta} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
@@ -31,6 +31,7 @@ export class IqTestComponent implements OnInit {
 
   constructor(
     private titleService: Title,
+    private metaService: Meta,
     private iqTestService: IqTestService,
     private route: ActivatedRoute,
     private router: Router,
@@ -48,19 +49,29 @@ export class IqTestComponent implements OnInit {
         this.testTypes = tests;
 
         this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
+        const metaTitle = this.titleService.getTitle();
+        const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+        const metaDescription = this.i18n('Start The IQ Test');
+        this.metaService.updateTag({property: 'og:title', content: metaTitle});
+        this.metaService.updateTag({property: 'og:url', content: this.router.url});
+        if(this.router.url === '/iqtest') {
+            this.metaService.updateTag({property: 'og:image', content: metaImage});
+            this.metaService.updateTag({property: 'og:description', content: metaDescription});
+        }
+        this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
 
         this.testTypes.forEach((test) => {
             if (test.url === '/iqtest/' + testType) {
                 this.testSelected = test;
-                this.setCustomShareButtonsConfig(this.testSelected.pic);
 
+                this.setCustomShareButtonsConfig(this.testSelected.pic);
+                this.metaService.updateTag({property: 'og:image', content: this.testSelected.pic});
+                this.metaService.updateTag({property: 'og:description', content: this.testSelected.description});
                 this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
                     name: this.testSelected.name,
                 }));
             }
         });
-        const shareButtonMetaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-        this.setCustomShareButtonsConfig(shareButtonMetaImage);
     });
   }
 
@@ -113,9 +124,11 @@ export class IqTestComponent implements OnInit {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
-        const [imageOptions] = options;
+        const [customImage, customTitle, customDescription] = options;
         this.customConfig = {
-            image: imageOptions
+            image: customImage,
+            title: customTitle,
+            description: customDescription
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }

@@ -89,7 +89,7 @@ export class PublicComponent implements OnInit {
               this.setTitle(this.user.name, this.user.iq, this.user.location);
 
                 const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
-                this.setCustomShareButtonsConfig(customShareImage);
+                this.setCustomShareButtonsConfig(customShareImage, this.titleService.getTitle());
             }
 
             if (apiResponseTestResultList.tests.length < 8) {
@@ -148,9 +148,10 @@ export class PublicComponent implements OnInit {
      * @description Sets custom configuration of share buttons
      */
     setCustomShareButtonsConfig(...options: any[]) {
-        const [imageOptions] = options;
+        const [imageOption, titleOption] = options;
         this.customConfig = {
-            image: imageOptions
+            image: imageOption,
+            title: titleOption
         }
         ShareButtonsModule.withConfig(this.customConfig);
     }

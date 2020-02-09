@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AlertService, UserService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {User} from '@/_models';
-import {Title} from '@angular/platform-browser';
+import {Title, Meta} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {Router} from '@angular/router';
 
 /**
  * @class ResultsComponent
@@ -21,12 +22,19 @@ export class ResultsComponent implements OnInit {
 
   constructor(
     private titleService: Title,
+    private metaService: Meta,
     private userService: UserService,
     private alertService: AlertService,
-    private i18n: I18n
+    private i18n: I18n,
+    private router: Router,
   ) {
     this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
-
+    const metaTitle = this.titleService.getTitle();
+    const metaDescription = this.i18n('Every day thousands pass the online Mega-IQ test for free worldwide!');
+    this.metaService.updateTag({property: 'og:title', content: metaTitle});
+    this.metaService.updateTag({property: 'og:description', content: metaDescription});
+    this.metaService.updateTag({property: 'og:url', content: this.router.url});
+    
     this.isLoading = true;
     this.loadUsersAll();
   }
