@@ -1,6 +1,8 @@
 # Mega-IQ UI
 
-Mega-IQ Angular 8 application. 
+Mega-IQ Angular 8 application. Version 1.0-beta
+
+[![Build Status](http://ci.msvhost.com:8080/job/mega-iq-ui-es/112/badge/icon)](http://ci.msvhost.com:8080/job/mega-iq-ui-es/112/)
 
 ## Features
 * Multi-language UI for [www.mega-iq.com](https://www.mega-iq.com)
