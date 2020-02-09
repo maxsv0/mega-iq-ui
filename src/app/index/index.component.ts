@@ -76,6 +76,14 @@ export class IndexComponent implements OnInit, OnDestroy {
 
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
+    const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+    const metaTitle = this.titleService.getTitle();
+    const metaDescription = this.i18n('Join the Mega IQ now! IQ Tests Passed');
+    this.metaService.updateTag({property: 'og:title', content: metaTitle});
+    this.metaService.updateTag({property: 'og:description', content: metaDescription});
+    this.metaService.updateTag({property: 'og:image', content: metaImage});
+    this.metaService.updateTag({property: 'og:url', content: this.router.url});
+    this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
     this.loadUsersTop();
   }
 
@@ -86,14 +94,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (this.isBrowser) {
       this.initJs();
-      const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-      const metaTitle = this.titleService.getTitle();
-      const metaDescription = this.i18n('Join the Mega IQ now! IQ Tests Passed');
-      this.metaService.updateTag({property: 'og:title', content: metaTitle});
-      this.metaService.updateTag({property: 'og:description', content: metaDescription});
-      this.metaService.updateTag({property: 'og:image', content: metaImage});
-      this.metaService.updateTag({property: 'og:url', content: this.router.url});
-      this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
     }
   }
 

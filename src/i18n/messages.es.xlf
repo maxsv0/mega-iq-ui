@@ -241,9 +241,9 @@
       <notes>
         
       <note category="location">app/index/index.component.html:71</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Example profile</source>
-      <target>Example profile</target></segment>
+      <target>Perfil Ejemplo</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
         
@@ -265,7 +265,7 @@
       <note category="location">app/user/register/register.component.html:50</note></notes>
       <segment state="translated">
         <source>Password Confirmation</source>
-      <target>Confirmar contraseña </target></segment>
+      <target>Confirmar contraseña</target></segment>
     </unit>
     <unit id="6042936940683833037">
       <notes>
@@ -507,7 +507,7 @@
       <note category="location">app/user/forget/forget.component.html:5</note></notes>
       <segment state="translated">
         <source>Submit a form to create a new password</source>
-      <target>Rellenar formulario para crear nueva contraseña </target></segment>
+      <target>Rellenar formulario para crear nueva contraseña</target></segment>
     </unit>
     <unit id="6972105223770675605">
       <notes>
@@ -527,9 +527,9 @@
       <notes>
         <note category="location">app/results/results.component.html:6</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Every day thousands pass the online Mega-IQ test for free worldwide!</source>
-      <target>Every day thousands pass the online Mega-IQ test for free worldwide!</target></segment>
+      <target>Cada dia miles de personas pasan el test CI online gratis alrededor del mundo!</target></segment>
     </unit><unit id="4832375157049886617">
       <notes>
         <note category="location">app/results/results.component.html:9</note>
@@ -793,9 +793,9 @@
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Free IQ test on Mega-IQ</source>
-      <target>Free IQ test on Mega-IQ</target></segment>
+      <target>Test de CI gratis en Mega-IQ</target></segment>
     </unit><unit id="429949191312178475">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
@@ -807,9 +807,9 @@
       <notes>
         <note category="location">src/app/results/results.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Top scores of IQ test on Mega-IQ</source>
-      <target>Top scores of IQ test on Mega-IQ</target></segment>
+      <target>Top resultados de Test CI en Mega-IQ</target></segment>
     </unit><unit id="1493967136692480194">
       <notes>
         <note category="location">src/app/user/forget/forget.component.ts:1</note>

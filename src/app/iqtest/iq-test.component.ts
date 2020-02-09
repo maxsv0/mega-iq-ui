@@ -49,6 +49,16 @@ export class IqTestComponent implements OnInit {
         this.testTypes = tests;
 
         this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
+        const metaTitle = this.titleService.getTitle();
+        const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+        const metaDescription = this.i18n('Start The IQ Test');
+        this.metaService.updateTag({property: 'og:title', content: metaTitle});
+        this.metaService.updateTag({property: 'og:url', content: this.router.url});
+        if(this.router.url === '/iqtest') {
+            this.metaService.updateTag({property: 'og:image', content: metaImage});
+            this.metaService.updateTag({property: 'og:description', content: metaDescription});
+        }
+        this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
 
         this.testTypes.forEach((test) => {
             if (test.url === '/iqtest/' + testType) {
@@ -75,16 +85,6 @@ export class IqTestComponent implements OnInit {
     } else {
       this.googleAnalyticsService.sendEvent('iq-test', 'open-test', 'all');
     }
-    const metaTitle = this.titleService.getTitle();
-    const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
-    const metaDescription = this.i18n('Start The IQ Test');
-    this.metaService.updateTag({property: 'og:title', content: metaTitle});
-    this.metaService.updateTag({property: 'og:url', content: this.router.url});
-    if(this.router.url === '/iqtest') {
-        this.metaService.updateTag({property: 'og:image', content: metaImage});
-        this.metaService.updateTag({property: 'og:description', content: metaDescription});
-    }
-    this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
   }
 
   /**
