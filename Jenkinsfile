@@ -41,7 +41,7 @@ pipeline {
     stage("Route") {
       steps {
         script {
-          BUILD_ID_PREV = "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo cat /etc/apache2/conf-enabled/iq-ui.conf | sed 's/[^0-9]*//g'\""
+          BUILD_ID_PREV = sh(returnStdout: true, script: "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo cat /etc/apache2/conf-enabled/iq-ui.conf | sed 's/[^0-9]*//g'\"").trim()
         }
         script {
           sh "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo sh -c 'echo Define MegaIqUiBuild ${env.BUILD_ID} > /etc/apache2/conf-enabled/iq-ui.conf'\""
