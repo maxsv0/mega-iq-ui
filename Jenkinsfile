@@ -50,10 +50,10 @@ pipeline {
           sh "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo service apache2 restart\""
         }
         script {
-          sh "gcloud beta compute --project=${deploymentProject} instances  --project=${deploymentProject} stop  iq-ui-es-$BUILD_ID_PREV"
+          sh "gcloud beta compute instances --zone=${deploymentZone} --project=${deploymentProject} stop iq-ui-es-$BUILD_ID_PREV"
         }
         script {
-          sh "gcloud beta compute --project=${deploymentProject} instances  --project=${deploymentProject} stop  iq-ui-ru-$BUILD_ID_PREV"
+          sh "gcloud beta compute instances --zone=${deploymentZone} --project=${deploymentProject} stop iq-ui-ru-$BUILD_ID_PREV"
         }
       }
     }
