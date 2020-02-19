@@ -44,7 +44,7 @@ pipeline {
           BUILD_ID_PREV = "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo cat /etc/apache2/conf-enabled/iq-ui.conf | sed 's/[^0-9]*//g'\""
         }
         script {
-          sh "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo echo 'Define MegaIqUiBuild ${env.BUILD_ID}'>/etc/apache2/conf-enabled/iq-ui.conf\""
+          sh "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo sh -c 'echo Define MegaIqUiBuild ${env.BUILD_ID} > /etc/apache2/conf-enabled/iq-ui.conf'\""
         }
         script {
           sh "gcloud compute ssh iq-web-proxy --zone=${deploymentZone} --project=${deploymentProject} --command=\"sudo service apache2 restart\""
@@ -61,6 +61,9 @@ pipeline {
 }
 
 def deployByLocale(def locale) {
+  script {
+    sh "git checkout ."
+  }
   script {
     repositoryName = "msvhost/mega-iq-ui-${locale}"
     deploymentName = "iq-ui-${locale}-${env.BUILD_ID}"
