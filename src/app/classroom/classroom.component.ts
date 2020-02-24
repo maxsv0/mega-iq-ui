@@ -24,7 +24,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   loading = false;
-  updating: boolean = false;
+  updating = false;
   public testStatus = TestStatusEnum;
 
   activeTest: TestResult;
@@ -32,6 +32,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   activeQuestionId: number;
   activeQuestionIdPrev: number;
   activeQuestionIdNext: number;
+  activeQuestionAllDone = false;
   activeQuestion: Question;
 
   currentUser: User;

@@ -1,6 +1,6 @@
 <!-- Profile card -->
 <div id="iq-user" class="row" *ngIf="user">
-  <div class="col-md-6 offset-md-0 col-11 offset-1">
+  <div class="col-xs-12 col-sm-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1">
     <div class="iq-user-body">
       <div class="badge iq-badge position-absolute" *ngIf="user.iq">IQ {{user.iq}}</div>
       <div class="profile-hover">
@@ -15,10 +15,21 @@
     </div>
   </div>
   <div class="col-md-6 my-2" *ngIf="user.certificate">
-    <img class="img-fluid" src="{{user.certificate}}" alt="IQ Certificate">
+    <img class="img-fluid img-thumbnail" src="{{user.certificate}}" alt="IQ Certificate">
   </div>
-  <div class="col-md-6" *ngIf="user && !user.certificate">
-    <img class="img-fluid" src="https://storage.googleapis.com/mega-iq/iqtest/iq-certificate-example.jpg" alt="Example IQ Certificate">
+  <div class="col-md-6 p-3" *ngIf="user && !user.certificate">
+    <img class="img-fluid img-thumbnail" src="https://storage.googleapis.com/mega-iq/iqtest/iq-certificate-example.jpg"
+         alt="Example IQ Certificate">
+  </div>
+  <div class="col-12 p-3" *ngIf="user && user.certificateProgress < 100 && user.certificateProgress !== null && !user.iq">
+    <h3>Unlock your certificate</h3>
+    <div class="progress certificate-progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+           [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{user.certificateProgress || 0}}"
+           attr.aria-valuemin="0" attr.aria-valuemax="100">
+        <span>{{100 - user.certificateProgress}}%</span>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -167,18 +167,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
-
-    /**
-    * @function getCertificateProgress
-    * @description Returns width of progress bar with the value of the current certficate progress
-    */
-    getCertificateProgress() {
-        const myProgress = this.currentUser.certificateProgress;
-        if(myProgress !== null) {
-            let myCertificateProgress = {
-                'width': `${myProgress}%`
-            };
-            return myCertificateProgress;
-        }
-    }
 }

@@ -28,20 +28,7 @@
 <!-- User banner -->
 <div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoading">
   <div class="container py-4">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-11 offset-lg-1 col-md-12 offset-md-0">
-        <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
-      </div>
-    </div>
-    <div class="row mt-4 justify-content-center" *ngIf="currentUser && currentUser.certificateProgress < 100 && currentUser.certificateProgress !== null && !currentUser.iq">
-        <div class="col-lg-8 col-12">
-            <div class="progress certificate-progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{currentUser.certificateProgress || 0}}" attr.aria-valuemin="0" attr.aria-valuemax="100">
-                    <span>{{100 - currentUser.certificateProgress}} questions left to unlock your certificate</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
   </div>
 </div>
 
@@ -116,10 +103,10 @@
           </div>
         </div>
         <div class="course-starts text-white pt-2">
-          <span i18n>Started at</span>: {{testDateStart}}
+          <span i18n>Started at</span>: {{test.createDate}}
         </div>
         <div class="course-ends text-white" *ngIf="test.finishDate">
-          <span i18n>Finished at</span>: {{testDateEnd}}
+          <span i18n>Finished at</span>: {{test.finishDate}}
         </div>
         <!-- Test actions -->
         <div class="row">
@@ -142,7 +129,7 @@
   </section>
 
   <div class="row" *ngIf="isLastLoaded">
-    <div class="col-8 offset-2">
+    <div class="col-md-8 offset-md-2">
       <div class="alert alert-info" i18n>All results were loaded successfully.</div>
     </div>
   </div>

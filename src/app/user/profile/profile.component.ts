@@ -13,4 +13,18 @@ import {User} from '@/_models';
 export class ProfileComponent {
   @Input()
   user: User;
+
+  /**
+   * @function getCertificateProgress
+   * @description Returns width of progress bar with the value of the current certficate progress
+   */
+  getCertificateProgress() {
+    const myProgress = this.user.certificateProgress;
+    if (myProgress !== null) {
+      const myCertificateProgress = {
+        'width': `${myProgress}%`
+      };
+      return myCertificateProgress;
+    }
+  }
 }
