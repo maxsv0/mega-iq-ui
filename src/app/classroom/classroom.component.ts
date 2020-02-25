@@ -161,31 +161,35 @@ export class ClassroomComponent implements OnInit, OnDestroy {
     this.activeTest = test;
     this.activeQuestionIdPrev = this.activeQuestionId - 1;
 
-    try {
-      if (this.activeTest && this.activeQuestionId) {
-        await this.testTypes.forEach(
-          (testData) => {
-            if (this.activeTest.type === testData.type) {
-              this.activeTestName = testData.name;
-            }
-            this.updating = false;
-          }
-        );
-        this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
-        this.activeQuestionIdNext = this.activeQuestionId + 1;
-        if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
-          this.activeQuestionIdNext = 0;
-          this.updating = false;
+    if (this.activeTest) {
+      this.activeQuestionAllDone = true;
+      this.activeTest.questionSet.forEach(question => {
+        if (question.answerUser === null) {
+          this.activeQuestionAllDone = false;
         }
-      } else {
-        this.activeQuestionIdNext = 0;
-        this.activeQuestion = null;
-        this.updating = false;
-      }
-    } catch (err) {
-      this.alertService.error(this.i18n('API Service Unavailable') + '. ' + err);
+      });
     }
 
+    if (this.activeTest && this.activeQuestionId && this.testTypes) {
+      this.testTypes.forEach(
+        (testData) => {
+          if (this.activeTest.type === testData.type) {
+            this.activeTestName = testData.name;
+          }
+          this.updating = false;
+        }
+      );
+      this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+      this.activeQuestionIdNext = this.activeQuestionId + 1;
+      if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
+        this.activeQuestionIdNext = 0;
+        this.updating = false;
+      }
+    } else {
+      this.activeQuestionIdNext = 0;
+      this.activeQuestion = null;
+      this.updating = false;
+    }
   }
 
   /**

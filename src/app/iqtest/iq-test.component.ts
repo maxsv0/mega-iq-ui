@@ -54,7 +54,7 @@ export class IqTestComponent implements OnInit {
         const metaDescription = this.i18n('Start The IQ Test');
         this.metaService.updateTag({property: 'og:title', content: metaTitle});
         this.metaService.updateTag({property: 'og:url', content: this.router.url});
-        if(this.router.url === '/iqtest') {
+        if (this.router.url === '/iqtest') {
             this.metaService.updateTag({property: 'og:image', content: metaImage});
             this.metaService.updateTag({property: 'og:description', content: metaDescription});
         }
@@ -129,7 +129,7 @@ export class IqTestComponent implements OnInit {
             image: customImage,
             title: customTitle,
             description: customDescription
-        }
+        };
         ShareButtonsModule.withConfig(this.customConfig);
     }
 }

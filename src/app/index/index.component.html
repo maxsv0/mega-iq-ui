@@ -1,30 +1,38 @@
 <!-- Home hero-->
 <section id="home">
-    <div class="container-fluid d-flex flex-column">
-        <div class="container mt-2 text-left" *ngIf="isBrowser">
-            <!-- Social media share -->
-          <share-buttons [include]="['facebook','twitter','vk','telegram','whatsapp','pinterest','reddit','line','sms','email','copy']"
-                         [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger']"
-                         [show]="6"
-                         [autoSetMeta]="false"
-                         [theme]="'modern-light'"
-                         [image]="customConfig.image"
-                         [title]="customConfig.title"
-                         [description]="customConfig.description"
-          ></share-buttons>
-        </div>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1" *ngIf="isBrowser">
+        <!-- Social media share -->
+        <share-buttons
+          [include]="['facebook','twitter','vk','telegram','whatsapp','pinterest','reddit','line','sms','email','copy']"
+          [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger']"
+          [show]="6"
+          [autoSetMeta]="false"
+          [theme]="'modern-light'"
+          [image]="customConfig.image"
+          [title]="customConfig.title"
+          [description]="customConfig.description"
+        ></share-buttons>
+      </div>
+      <div class="col-lg-10 offset-lg-1 text-center">
         <!-- Home image -->
-        <h1 class="join-iq text-center position-relative pt-10 text-white" i18n>Join the Mega IQ now! IQ Tests Passed</h1>
-        <div class="test-start-btn position-relative align-self-center">
-            <a routerLink="/iqtest/" i18n>Start The IQ Test</a>
-        </div>
+        <h1 class="join-iq my-5 text-white" i18n>Join the Mega IQ now! IQ Tests
+          Passed</h1>
+        <p class="test-start-btn my-5">
+          <a routerLink="/iqtest/"i18n>Start The IQ Test</a>
+        </p>
         <!-- Flipclock -->
-        <div id="counter" class="px-4 d-flex justify-content-center"></div>
+        <div class="my-5 pt-5">
+          <div id="counter" class="position-relative"></div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Top iq users tables -->
-<section id="iq-scores" class="container d-flex justify-content-between my-5">
+<section id="iq-scores" class="container d-flex justify-content-between my-3">
 
     <div class="mt-2">
         <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
@@ -93,17 +101,17 @@
       <h2 i18n>Mega-iq tests</h2>
     </div>
 
-    <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypes | keyvalue"
-         [ngStyle]="{'background-image': 'url(' + item.value.pic + ')'}">
+    <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypes"
+         [ngStyle]="{'background-image': 'url(' + item.pic + ')'}">
       <div class="course-title text-white">
-        <h2><span i18n>Start</span> {{item.value.name}}</h2>
+        <h2><span i18n>Start</span> {{item.name}}</h2>
       </div>
       <div class="course-title text-white">
-        <p>{{item.value.description}}</p>
+        <p>{{item.description}}</p>
       </div>
       <div class="text-center mt-3">
-        <button class="btn btn-lg btn-{{item.value.styleName}} btn-rounded w-50">
-          <a class="text-white" routerLink="{{item.value.url}}" i18n>Start Test</a>
+        <button class="btn btn-lg btn-{{item.styleName}} btn-rounded w-50">
+          <a class="text-white" routerLink="{{item.url}}" i18n>Start Test</a>
         </button>
       </div>
     </div>

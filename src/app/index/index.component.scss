@@ -12,7 +12,7 @@
 
 /* Start test on home */
 .test-start-btn {
-  font-weight: 500;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 1px;
   margin: .4rem .8rem;
@@ -21,8 +21,7 @@
   word-break: break-word;
   padding: 1rem 3rem;
   cursor: pointer;
-  @include border-radius(5em);
-  top: 20em;
+  @include border-radius(2em);
   border: 1px solid var(--primary);
 
   &:hover {
@@ -40,7 +39,7 @@
 /* Public users carousel */
 #user-example {
     overflow-x: hidden;
-    
+
     .owl-carousel {
         margin: 0;
         padding: 0;
@@ -78,16 +77,25 @@
 
   #home {
     .flip-clock-wrapper {
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 3em 0 1em;
     }
 
-    .join-iq {
-        top: 4rem;
+    .flip-clock-wrapper ul {
+      margin: 3px;
+      width: 45px;
+      height: 60px;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 67px;
+      border-radius: 6px;
     }
-  
-    .test-start-btn {
-      top: 15rem;
+
+    .flip-clock-wrapper ul li {
+      line-height: 67px;
+    }
+
+    .flip-clock-wrapper ul li a div {
+      font-size: 50px;
     }
   }
 
@@ -111,9 +119,20 @@
 
 }
 
+@include mobile-md {
+  .flip-clock-wrapper ul li a div {
+    font-size: 70px;
+  }
+}
+
+
 @include mobile-sm {
     .flip-clock-wrapper ul {
         margin: 2px !important;
     }
+
+  .flip-clock-wrapper ul li a div {
+    font-size: 60px;
+  }
 }
 

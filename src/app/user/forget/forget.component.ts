@@ -53,7 +53,7 @@ export class ForgetComponent implements OnInit {
 
   /**
    * @function onSubmit
-   * @description Sumbit new user data and update user data 
+   * @description Sumbit new user data and update user data
    */
   onSubmit() {
     this.submitted = true;

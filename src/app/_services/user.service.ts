@@ -86,7 +86,7 @@ export class UserService {
 
   /**
    * @function verifyEmailCheck
-   * @param code 
+   * @param code
    */
   verifyEmailCheck(code: string) {
     return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/verify', code);

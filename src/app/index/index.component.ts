@@ -197,7 +197,7 @@ export class IndexComponent implements OnInit, OnDestroy {
             image: customImage,
             title: customTitle,
             description: customDescription
-        }
+        };
         ShareButtonsModule.withConfig(this.customConfig);
     }
 

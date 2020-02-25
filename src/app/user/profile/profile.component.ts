@@ -21,10 +21,9 @@ export class ProfileComponent {
   getCertificateProgress() {
     const myProgress = this.user.certificateProgress;
     if (myProgress !== null) {
-      const myCertificateProgress = {
+      return {
         'width': `${myProgress}%`
       };
-      return myCertificateProgress;
     }
   }
 }
