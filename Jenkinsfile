@@ -8,8 +8,6 @@ pipeline {
     repositoryName = ''
     deploymentName = ''
     containerTag = ''
-    localeRu = 'ru'
-    localeEs = 'es'
   }
 
   agent any
@@ -28,13 +26,25 @@ pipeline {
 
     stage('Build ES') {
       steps {
-        deployByLocale(localeEs)
+        deployByLocale('es')
       }
     }
 
     stage('Build RU') {
       steps {
-        deployByLocale(localeRu)
+        deployByLocale('ru')
+      }
+    }
+
+    stage('Build DE') {
+      steps {
+        deployByLocale('de')
+      }
+    }
+
+    stage('Build EN') {
+      steps {
+        deployByLocale('en')
       }
     }
 
