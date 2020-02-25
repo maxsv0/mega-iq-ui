@@ -18,8 +18,8 @@ export class AuthGuard implements CanActivate {
 
   /**
    * @function canActivate
-   * @param route 
-   * @param state 
+   * @param route
+   * @param state
    * @description Decides if a user can access this route
    */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

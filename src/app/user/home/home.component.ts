@@ -90,11 +90,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         apiResponseBase => {
           if (apiResponseBase.ok) {
-              for(let i = 0; i < this.userTests.length; i++) {
-                if(this.userTests[i].code === code) {
-                    this.userTests.splice(i, 1);
-                }
+            for (let i = 0; i < this.userTests.length; i++) {
+              if (this.userTests[i].code === code) {
+                this.userTests.splice(i, 1);
               }
+            }
             this.alertService.success(apiResponseBase.msg);
           } else {
             this.alertService.error(apiResponseBase.msg);
@@ -161,9 +161,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   /**
    * @function logout
-   * @description Logs out user
+   * @description Logs out current user
    */
-  async logout() {
+  logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

@@ -100,14 +100,4 @@ export class AppComponent {
       this.loading = false;
     }
   }
-
-  /**
-   * @function logout
-   * @description Logs out current user
-   */
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
-  }
-
 }

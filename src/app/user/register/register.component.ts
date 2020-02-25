@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {AfterViewInit, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';

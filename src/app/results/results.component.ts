@@ -18,6 +18,7 @@ import {Router} from '@angular/router';
 })
 export class ResultsComponent implements OnInit {
   users: User[] = [];
+  count = 0;
   isLoading = false;
 
   constructor(
@@ -34,7 +35,7 @@ export class ResultsComponent implements OnInit {
     this.metaService.updateTag({property: 'og:title', content: metaTitle});
     this.metaService.updateTag({property: 'og:description', content: metaDescription});
     this.metaService.updateTag({property: 'og:url', content: this.router.url});
-    
+
     this.isLoading = true;
     this.loadUsersAll();
   }
@@ -51,6 +52,7 @@ export class ResultsComponent implements OnInit {
       apiResponseUsersList => {
         if (apiResponseUsersList.ok) {
           this.users = apiResponseUsersList.users;
+          this.count = apiResponseUsersList.count;
           this.isLoading = false;
         } else {
           this.alertService.error(apiResponseUsersList.msg);

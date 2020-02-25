@@ -2,7 +2,7 @@
 <div *ngIf="isBrowser && !isLoadingPage">
   <div class="container py-2">
     <div class="row">
-      <div class="col-10 offset-1">
+      <div class="col-lg-10 offset-lg-1">
         <!-- Social media share -->
         <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','print','copy']"
                        [exclude]="['google','mix','tumblr', 'messenger']"
@@ -45,7 +45,7 @@
   </div>
 
   <section class="row" *ngIf="testTypes">
-    <div class="col-6"
+    <div class="col-lg-6"
          infiniteScroll
          [infiniteScrollDistance]="4"
          [infiniteScrollUpDistance]="1.5"

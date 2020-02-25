@@ -38,7 +38,7 @@ export class GoogleAnalyticsService {
 
   /**
    * @function sendPageView
-   * @param url Set event to respective page about page view 
+   * @param url Set event to respective page about page view
    */
   public sendPageView(url: string) {
     try {

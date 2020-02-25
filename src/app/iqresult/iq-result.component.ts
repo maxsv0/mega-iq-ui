@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {Component, ElementRef, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService} from '@/_services';

@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {first} from 'rxjs/operators';
 import {ApiResponseBase} from '@/_models/api-response-base';
 
 /**
@@ -21,6 +20,7 @@ export class StorageService {
 
   /**
    * @function uploadFile
+   * @param fileUploadUrl
    * @param fileToUpload File type
    * @description Uploads a file to storage
    */
