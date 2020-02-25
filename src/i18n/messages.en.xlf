@@ -82,9 +82,9 @@
       <notes>
         
       <note category="location">app/index/index.component.html:22</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Mega IQ Ever</source>
-      <target>Mega IQ Ever</target></segment>
+      <target>IQ Test Overall</target></segment>
     </unit><unit id="2392488717875840729">
       <notes>
         
@@ -206,9 +206,9 @@
       <notes>
         
       <note category="location">app/index/index.component.html:46</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Best IQ Today</target></segment>
+      <target> Best IQ Test Today</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
         
@@ -220,9 +220,9 @@
       <notes>
         
       <note category="location">app/index/index.component.html:83</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Mega-iq tests</source>
-      <target>Mega-iq tests</target></segment>
+      <target>Free IQ Test Online</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
         
@@ -505,16 +505,16 @@
       <notes>
         <note category="location">app/results/results.component.html:5</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Mega-iq test online</source>
-      <target>Mega-iq test online</target></segment>
+      <target>Mega-IQ Test Online</target></segment>
     </unit><unit id="8663760052070214835">
       <notes>
         <note category="location">app/results/results.component.html:6</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Every day thousands pass the online Mega-IQ test for free worldwide!</source>
-      <target>Every day thousands pass the online Mega-IQ test for free worldwide!</target></segment>
+      <target>Every day thousands people pass test iq free online. IQ-scale in English.</target></segment>
     </unit><unit id="4832375157049886617">
       <notes>
         <note category="location">app/results/results.component.html:9</note>
@@ -560,23 +560,23 @@
       <notes>
         <note category="location">app/iqtest/iq-test.component.html:48</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>online</source>
-      <target>online</target></segment>
+      <target>IQ Test Online</target></segment>
     </unit><unit id="6812374314162236933">
       <notes>
         
       <note category="location">app/iqtest/iq-test.component.html:17</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>free online</source>
-      <target>free online</target></segment>
+      <target>IQ Test Free Online</target></segment>
     </unit><unit id="6611630004208902126">
       <notes>
         
       <note category="location">app/index/index.component.html:96</note><note category="location">app/iqtest/iq-test.component.html:34</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Start Test</source>
-      <target>Start Test</target></segment>
+      <target>Start IQ Test</target></segment>
     </unit><unit id="7593555694782789615">
       <notes>
         
@@ -791,9 +791,9 @@
       <notes>
         <note category="location">src/app/results/results.component.ts:1</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Top scores of IQ test on Mega-IQ</source>
-      <target>Top scores of IQ test on Mega-IQ</target></segment>
+      <target>Best IQ-Test Online Free</target></segment>
     </unit><unit id="1493967136692480194">
       <notes>
         <note category="location">src/app/user/forget/forget.component.ts:1</note>
