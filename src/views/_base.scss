@@ -14,7 +14,12 @@ a, a:hover {
   border: 15px solid rgba(180, 180, 180, .2);
   border-top: 15px solid $colorStandard;
   animation: animate 1s infinite linear;
-  z-index: 9999;
+  z-index: 1;
+}
+
+.loader-placeholder {
+  padding: 20rem 2rem;
+  min-height: 600px;
 }
 
 @keyframes animate {

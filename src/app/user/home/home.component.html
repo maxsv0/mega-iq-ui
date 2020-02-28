@@ -32,17 +32,6 @@
   </div>
 </div>
 
-<!-- Loader -->
-<div class="my-5" *ngIf="isLoading">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-loader"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- User tests -->
 <div class="container mt-5" *ngIf="!isLoading">
   <div class="row">
@@ -132,5 +121,11 @@
     <div class="col-md-8 offset-md-2">
       <div class="alert alert-info" i18n>All results were loaded successfully.</div>
     </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="isLoading">
+  <div class="loader-placeholder">
+    <div class="page-loader"></div>
   </div>
 </div>

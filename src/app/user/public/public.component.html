@@ -26,14 +26,10 @@
 </div>
 
 <!-- Loader -->
-<div class="py-5" *ngIf="isLoadingPage">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-8 offset-2">
-                <div class="page-loader"></div>
-            </div>
-        </div>
-    </div>
+<div class="container" *ngIf="isLoadingPage">
+  <div class="loader-placeholder">
+    <div class="page-loader"></div>
+  </div>
 </div>
 
 <!-- User public tests -->
