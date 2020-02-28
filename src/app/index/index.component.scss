@@ -3,6 +3,12 @@
 /* Hero Home */
 #home {
 
+  #counter {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   min-height: 650px;
 
   .flip-clock-wrapper {
@@ -12,10 +18,10 @@
 
 /* Start test on home */
 .test-start-btn {
+  font-size: 1.4em;
   font-weight: bold;
   font-style: normal;
   letter-spacing: 1px;
-  margin: .4rem .8rem;
   white-space: normal;
   @include transition(all, .3s, ease-in-out);
   word-break: break-word;
@@ -29,10 +35,6 @@
     color: #333333;
     background-color: #ffffff;
     border-color: #ffffff;
-  }
-
-  a {
-    font-size: 1.2em;
   }
 }
 
