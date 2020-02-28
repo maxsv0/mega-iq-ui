@@ -6,12 +6,12 @@
       <h1 i18n>Mega-iq test online</h1>
       <h4 i18n>Every day thousands pass the online Mega-IQ test for free worldwide!</h4>
 
-      <section id="iq-scores">
+      <section id="iq-scores" *ngIf="!isLoading">
         <h2 i18n>Top users this month</h2>
         <p class="text-right">{{count}} results found</p>
 
         <!-- Top users table details -->
-        <table class="w-100 bg-white table-hover" *ngIf="!isLoading">
+        <table class="w-100 bg-white table-hover">
           <thead>
           <tr>
             <th width="20%" i18n>User</th>
