@@ -76,7 +76,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         apiResponseUser => {
           if (apiResponseUser.ok) {
             this.currentUser = apiResponseUser.user;
-            console.log('Loaded user info: ' + this.currentUser);
 
             this.profileForm = this.formBuilder.group({
               id: [this.currentUser.id],

@@ -113,8 +113,6 @@ export class HomeComponent implements OnInit, OnDestroy {
    * @description Loads more tests on scroll down
    */
   onScrollDown() {
-    console.log('Load page ' + this.userTestsPage + '  scrolled down!!');
-
     this.loadMyResult();
   }
 

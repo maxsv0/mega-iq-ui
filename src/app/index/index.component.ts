@@ -132,7 +132,6 @@ export class IndexComponent implements OnInit, OnDestroy {
           this.usersTop = apiResponseUsersTop.usersTop;
           this.usersList = apiResponseUsersTop.users;
           this.userExamples = apiResponseUsersTop.exampleProfiles;
-          console.log(this.userExamples);
         } else {
           this.alertService.error(apiResponseUsersTop.msg);
         }

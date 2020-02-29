@@ -98,7 +98,6 @@ export class PublicComponent implements OnInit {
 
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
 
-            console.log('Load page ' + this.userTestsPage + '  load done!');
             this.userTestsPage++;
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
@@ -116,8 +115,6 @@ export class PublicComponent implements OnInit {
    * @description Loads more tests on scroll
    */
   onScrollDown() {
-    console.log('Load page ' + this.userTestsPage + '  scrolled down!!');
-
     this.loadUserResult();
   }
 

@@ -144,9 +144,6 @@ export class AuthenticationService {
    * @description Sets current user in localstorage
    */
   update(user: User) {
-    console.log('update user: ');
-    console.log(user);
-
     this.localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
