@@ -68,6 +68,12 @@ pipeline {
         script {
           sh "gcloud beta compute instances --project=${deploymentProject} stop iq-ui-ru-$BUILD_ID_PREV"
         }
+        script {
+          sh "gcloud beta compute instances --project=${deploymentProject} stop iq-ui-de-$BUILD_ID_PREV"
+        }
+        script {
+          sh "gcloud beta compute instances --project=${deploymentProject} stop iq-ui-en-$BUILD_ID_PREV"
+        }
       }
     }
   }
