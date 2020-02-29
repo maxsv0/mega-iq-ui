@@ -26,14 +26,14 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoading">
+<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage">
   <div class="container py-4">
     <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
   </div>
 </div>
 
 <!-- User tests -->
-<div class="container mt-5" *ngIf="!isLoading">
+<div class="container mt-5" *ngIf="!isLoadingPage">
   <div class="row">
     <div class="col-12">
       <h1>{{currentUser.name}}, <span i18n> your iq tests are displayed below</span>.</h1>
@@ -124,7 +124,7 @@
   </div>
 </div>
 
-<div class="container" *ngIf="isLoading">
+<div class="container" *ngIf="isLoadingResults || isLoadingPage">
   <div class="loader-placeholder">
     <div class="page-loader"></div>
   </div>

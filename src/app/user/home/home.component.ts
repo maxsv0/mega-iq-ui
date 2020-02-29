@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentUserSubscription: Subscription;
   userTests: TestResult[] = [];
   loading = false;
-  isLoading = false;
+  isLoadingPage = true;
+  isLoadingResults = false;
   isLastLoaded = false;
   deletedId = null;
   userTestsPage = 0;
@@ -127,7 +128,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       return true;
     }
 
-    this.isLoading = true;
+    this.isLoadingResults = true;
 
     this.iqTestService.getMyAll(this.userTestsPage)
       .pipe(first())
@@ -139,23 +140,22 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
 
             this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
-            console.log(this.userTests);
             this.currentUser = apiResponseTestResultList.user;
-            console.log(this.currentUser);
 
             this.titleService.setTitle(this.i18n('{{name}} personal account', {name: this.currentUser.name}));
 
-            console.log('Load page ' + this.userTestsPage + '  load done!');
             this.userTestsPage++;
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
           }
 
-          this.isLoading = false;
+          this.isLoadingResults = false;
+          this.isLoadingPage = false;
         },
         error => {
           this.alertService.error(error);
-          this.isLoading = false;
+          this.isLoadingResults = false;
+          this.isLoadingPage = false;
         });
   }
 
