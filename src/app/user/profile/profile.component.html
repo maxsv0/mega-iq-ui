@@ -2,7 +2,11 @@
 <div id="iq-user" class="row" *ngIf="user">
   <div class="col-xs-12 col-sm-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1">
     <div class="iq-user-body">
-      <div class="badge iq-badge position-absolute" *ngIf="user.iq">IQ {{user.iq}}</div>
+
+      <div class="position-absolute" *ngIf="user.iq">
+        <div class="badge iq-badge test-standard position-relative">IQ {{user.iq}}</div>
+      </div>
+
       <div class="profile-hover">
         <a routerLink="/user/{{user.id}}">
           <img src="{{user.pic}}=s300-c" class="img-avatar">

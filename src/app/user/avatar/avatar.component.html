@@ -1,7 +1,10 @@
-<!-- User avatar -->
+<!-- Short User profile -->
+<!-- user profile without certificate -->
 <div id="iq-user" *ngIf="user">
   <div class="iq-user-body">
-    <div class="badge iq-badge position-absolute">IQ {{user.iq || 0}}</div>
+    <div class="position-absolute" *ngIf="user.iq">
+      <div class="badge iq-badge position-relative">IQ {{user.iq}}</div>
+    </div>
     <div class="profile-hover">
       <a routerLink="/user/{{user.id}}">
         <img src="{{user.pic}}=s300-c" class="img-avatar">
