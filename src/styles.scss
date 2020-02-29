@@ -159,6 +159,10 @@ body {
   @include gradient(#c02b74, #c19a15, horizontal);
 }
 
+.bg-light-gradient {
+  @include gradient(#ffffff, #f8f9fa, vertical);
+}
+
 @include mobile-lg {
   .sb-group {
     button {
