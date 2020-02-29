@@ -1,21 +1,17 @@
 <!-- User public profile -->
-<div *ngIf="isBrowser && !isLoadingPage">
-  <div class="container py-2">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <!-- Social media share -->
-        <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','print','copy']"
-                       [exclude]="['google','mix','tumblr', 'messenger']"
-                       [show]="7"
-                       [showText]="true"
-                       [autoSetMeta]="false"
-                       [theme]="'modern-dark'"
-                       [image]="customConfig.image"
-                       [title]="customConfig.title"
-        ></share-buttons>
-      </div>
-    </div>
-  </div>
+
+<div class="p-3" *ngIf="isBrowser">
+  <!-- Social media share -->
+  <share-buttons
+    [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','print','copy']"
+    [exclude]="['google','mix','tumblr', 'messenger']"
+    [show]="7"
+    [showText]="true"
+    [autoSetMeta]="false"
+    [theme]="'modern-dark'"
+    [image]="customConfig.image"
+    [title]="customConfig.title"
+  ></share-buttons>
 </div>
 
 <!-- User banner -->

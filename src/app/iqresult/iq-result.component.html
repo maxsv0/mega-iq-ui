@@ -1,16 +1,17 @@
+<div class="p-3" *ngIf="isBrowser">
+  <!-- Social media share -->
+  <share-buttons
+    [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
+    [exclude]="['google','mix','tumblr']"
+    [show]="7"
+    [showText]="true"
+    [autoSetMeta]="true"
+    [theme]="'modern-dark'"
+  ></share-buttons>
+</div>
 <!-- IQ Test Result -->
 <div class="container" *ngIf="!isLoading">
   <div class="row">
-    <div class="col-10 offset-1 py-3" *ngIf="isBrowser">
-        <!-- Social media share -->
-      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
-                     [exclude]="['google','mix','tumblr']"
-                     [show]="7"
-                     [showText]="true"
-                     [autoSetMeta]="true"
-                     [theme]="'modern-dark'"
-      ></share-buttons>
-    </div>
     <div class="col-12">
       <div class="jumbotron m-auto">
         <!-- Title -->
