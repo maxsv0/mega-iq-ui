@@ -79,7 +79,7 @@ export class IqResultComponent {
                 this.test.finishDate.toString(),
                 this.test.type);
 
-                /** Draw chart js canvas **/
+              /** Draw chart js canvas **/
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
                 setTimeout(() => {
                   this.drawResultGraph();

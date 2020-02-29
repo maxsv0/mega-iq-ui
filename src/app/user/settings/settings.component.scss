@@ -35,33 +35,33 @@ input[type=radio]:checked + label {
 }
 
 .custom-bg-grid {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    @include border-radius(5px);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  @include border-radius(5px);
 
-    li {
-        list-style: none;
+  li {
+    list-style: none;
 
-        .box {
-            cursor: pointer;
-            @include border-radius(2px);
-        }
+    .box {
+      cursor: pointer;
+      @include border-radius(2px);
     }
+  }
 }
 
 /** Responsive **/
 
 @include tablet {
-    .box {
-        padding: 26px;
-    }
+  .box {
+    padding: 26px;
+  }
 }
 
 @include mobile-lg {
-    .box {
-        padding: 30px !important;
-    }
+  .box {
+    padding: 30px !important;
+  }
 
-    .img-avatar-small {
-        width: 63px;
-    }
+  .img-avatar-small {
+    width: 63px;
+  }
 }

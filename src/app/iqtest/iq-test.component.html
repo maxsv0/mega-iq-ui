@@ -3,14 +3,15 @@
   <div class="row">
 
     <div class="col-12 py-3" *ngIf="isBrowser && customConfig">
-      <share-buttons [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','copy']"
-                     [exclude]="['google','mix','tumblr','print', 'messenger']"
-                     [show]="15"
-                     [autoSetMeta]="false"
-                     [theme]="'modern-dark'"
-                     [image]="customConfig.image"
-                     [title]="customConfig.title"
-                     [description]="customConfig.description"
+      <share-buttons
+        [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','copy']"
+        [exclude]="['google','mix','tumblr','print', 'messenger']"
+        [show]="15"
+        [autoSetMeta]="false"
+        [theme]="'modern-dark'"
+        [image]="customConfig.image"
+        [title]="customConfig.title"
+        [description]="customConfig.description"
       ></share-buttons>
     </div>
 
@@ -33,13 +34,14 @@
               <span i18n>limit</span> {{testSelected.expire}} <span i18n>min</span></p>
           </div>
           <div class="col-md-5">
-<!--            ad placeholder-->
+            <!--            ad placeholder-->
           </div>
         </div>
 
         <!-- Start test -->
         <div class="start-iq-test-btn col-4 offset-4">
-          <button [disabled]="loading" id="start-test-btn" class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} btn-rounded py-3 px-4"
+          <button [disabled]="loading" id="start-test-btn"
+                  class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} btn-rounded py-3 px-4"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
             <fa-icon *ngIf="!loading" [icon]="['fas', 'brain']" class="ml-2"></fa-icon>
@@ -75,7 +77,8 @@
                     <span i18n>limit</span> {{item.expire}} <span i18n>min</span></p>
                 </div>
                 <div class="col-md-5 pr-3">
-                  <a class="btn btn-block btn-lg btn-{{item.styleName}} btn-rounded py-3 px-4" routerLink="{{item.url}}">
+                  <a class="btn btn-block btn-lg btn-{{item.styleName}} btn-rounded py-3 px-4"
+                     routerLink="{{item.url}}">
                     <span i18n>Open</span> {{item.name}}
                   </a>
                 </div>

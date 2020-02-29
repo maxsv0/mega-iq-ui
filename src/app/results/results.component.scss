@@ -2,32 +2,32 @@
 
 /** Responsive **/
 @include mobile-lg {
-    #iq-scores {
-        table {
-            th,td {
-                padding: 10px 15px;
-            }
-        }
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 15px;
+      }
     }
+  }
 }
 
 @include mobile-md {
-    #iq-scores {
-        table {
-            th,td {
-                padding: 10px 9px;
-            }
-        }
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 9px;
+      }
     }
+  }
 }
 
 @include mobile-sm {
-    #iq-scores {
-        table {
-            th,td {
-                padding: 10px 4px;
-            }
-        }
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 4px;
+      }
     }
+  }
 }
 

@@ -6,7 +6,7 @@
   padding: 0;
   background-repeat: no-repeat;
   background-position: top;
-  background-size:cover;
+  background-size: cover;
 }
 
 .test h1 {
@@ -45,29 +45,29 @@
 /** Responsive **/
 
 @include tablet {
-    #iq-test-list {
-        .start-iq-test-btn {
-            margin-left: 0;
-            max-width: initial;
-        }
+  #iq-test-list {
+    .start-iq-test-btn {
+      margin-left: 0;
+      max-width: initial;
     }
+  }
 }
 
 @include mobile-lg {
-    #iq-test-list {
-        .start-iq-test-btn {
-            margin-left: 0;
-            max-width: initial;
-        }
-
-        #start-test-btn {
-            font-size: 25px;
-            padding: 10px !important
-        }
-
-        .test h1 {
-            line-height: initial;
-            font-size: 25px;
-        }
+  #iq-test-list {
+    .start-iq-test-btn {
+      margin-left: 0;
+      max-width: initial;
     }
+
+    #start-test-btn {
+      font-size: 25px;
+      padding: 10px !important
+    }
+
+    .test h1 {
+      line-height: initial;
+      font-size: 25px;
+    }
+  }
 }

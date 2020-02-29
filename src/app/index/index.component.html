@@ -34,64 +34,64 @@
 <!-- Top iq users tables -->
 <section id="iq-scores" class="container d-flex justify-content-between my-3">
 
-    <div class="mt-2">
-        <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
-        <table class="w-100 bg-white table-hover">
-            <thead>
-                <tr>
-                    <th i18n>User</th>
-                    <th i18n>Age</th>
-                    <th i18n>Location</th>
-                    <th i18n>IQ</th>
-                    <th i18n>Total Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
-                    <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-                    <td>{{user.age || '-'}}</td>
-                    <td>{{user.location || '-'}}</td>
-                    <td>{{user.iq || '-'}}</td>
-                    <td>{{user.totalScore || '-'}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="mt-2">
+    <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
+    <table class="w-100 bg-white table-hover">
+      <thead>
+      <tr>
+        <th i18n>User</th>
+        <th i18n>Age</th>
+        <th i18n>Location</th>
+        <th i18n>IQ</th>
+        <th i18n>Total Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
+        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td>{{user.age || '-'}}</td>
+        <td>{{user.location || '-'}}</td>
+        <td>{{user.iq || '-'}}</td>
+        <td>{{user.totalScore || '-'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="mt-2">
-        <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
-        <table class="w-100 bg-white table-hover">
-            <thead>
-                <tr>
-                    <th i18n>User</th>
-                    <th i18n>Age</th>
-                    <th i18n>Location</th>
-                    <th i18n>IQ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
-                    <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-                    <td>{{user.age || '-'}}</td>
-                    <td>{{user.location || '-'}}</td>
-                    <td>{{user.iq || '-'}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="mt-2">
+    <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
+    <table class="w-100 bg-white table-hover">
+      <thead>
+      <tr>
+        <th i18n>User</th>
+        <th i18n>Age</th>
+        <th i18n>Location</th>
+        <th i18n>IQ</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
+        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td>{{user.age || '-'}}</td>
+        <td>{{user.location || '-'}}</td>
+        <td>{{user.iq || '-'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 </section>
 
 <!-- Public users carousel -->
 <section id="user-example" class="container my-5">
-    <div class="clearfix mb-5">
-        <h2 class="text-center" i18n>Example profile</h2>
+  <div class="clearfix mb-5">
+    <h2 class="text-center" i18n>Example profile</h2>
+  </div>
+  <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div *ngFor="let userExample of userExamples">
+      <app-avatar *ngIf="userExample" [user]="userExample"></app-avatar>
     </div>
-    <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-        <div *ngFor="let userExample of userExamples">
-            <app-avatar *ngIf="userExample" [user]="userExample"></app-avatar>
-        </div>
-    </owl-carousel>
+  </owl-carousel>
 </section>
 
 <!-- IQ tests collection -->

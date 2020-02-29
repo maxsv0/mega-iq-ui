@@ -5,7 +5,7 @@
       <h2><span i18n>Hi</span>, {{currentUser.name}}!</h2>
     </div>
     <div id="home-actions" class="col-sm-7 text-right">
-        <!-- Open profile -->
+      <!-- Open profile -->
       <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
@@ -41,7 +41,7 @@
   </div>
 
   <section class="row" *ngIf="testTypes && userTests">
-      <!-- Test Card -->
+    <!-- Test Card -->
     <div class="col-lg-6"
          infiniteScroll
          [infiniteScrollDistance]="2"
@@ -53,8 +53,8 @@
            [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}"
       >
         <div class="text-white mb-3">
-        <!-- Status -->
-      <span class="w-25 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+          <!-- Status -->
+          <span class="w-25 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
                          'badge-primary': test.status === testStatus.ACTIVE,
                          'badge-secondary': test.status === testStatus.EXPIRED }">{{test.status}}</span>
         </div>
@@ -109,7 +109,8 @@
         <div class="text-right">
           <button class="btn btn-outline-danger btn-lg mt-3" (click)="deleteTestResult(test.code)"
                   *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading && test.code === deletedId">
-            <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span i18n>Delete</span></span>
+            <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span
+              i18n>Delete</span></span>
             <span *ngIf="loading" class="actn-loader"></span>
           </button>
         </div>

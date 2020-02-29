@@ -6,7 +6,7 @@ import {IqTest, User} from '@/_models';
 import * as $ from 'jquery';
 import {interval, Subscription} from 'rxjs';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {Title, Meta} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {ShareButtonsConfig} from '@ngx-share/core';
@@ -186,18 +186,18 @@ export class IndexComponent implements OnInit, OnDestroy {
     );
   }
 
-    /**
-     * @function setCustomShareButtonsConfig
-     * @description Sets custom configuration of share buttons
-     */
-    setCustomShareButtonsConfig(...options: any[]) {
-        const [customImage, customTitle, customDescription] = options;
-        this.customConfig = {
-            image: customImage,
-            title: customTitle,
-            description: customDescription
-        };
-        ShareButtonsModule.withConfig(this.customConfig);
-    }
+  /**
+   * @function setCustomShareButtonsConfig
+   * @description Sets custom configuration of share buttons
+   */
+  setCustomShareButtonsConfig(...options: any[]) {
+    const [customImage, customTitle, customDescription] = options;
+    this.customConfig = {
+      image: customImage,
+      title: customTitle,
+      description: customDescription
+    };
+    ShareButtonsModule.withConfig(this.customConfig);
+  }
 
 }

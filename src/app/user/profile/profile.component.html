@@ -25,7 +25,8 @@
     <img class="img-fluid img-thumbnail" src="https://storage.googleapis.com/mega-iq/iqtest/iq-certificate-example.jpg"
          alt="Example IQ Certificate">
   </div>
-  <div class="col-12 unlockCertificateBlock p-3" *ngIf="user && user.certificateProgress < 100 && user.certificateProgress !== null && !user.iq">
+  <div class="col-12 unlockCertificateBlock p-3"
+       *ngIf="user && user.certificateProgress < 100 && user.certificateProgress !== null && !user.iq">
     <h3>Unlock your certificate</h3>
     <div class="progress certificate-progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"

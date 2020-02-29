@@ -1,7 +1,7 @@
 <!-- User profile settings -->
 <div class="container pt-3">
   <div class="row">
-      <!-- Profile form -->
+    <!-- Profile form -->
     <form class="col" *ngIf="!isLoading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
       <div class="jumbotron">
         <div class="row">
@@ -11,14 +11,15 @@
               <label for="email" i18n>Email</label>
               <input type="text" id="email" formControlName="email" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-                <!-- Email verification -->
+              <!-- Email verification -->
               <div *ngIf="currentUser.isEmailVerified; else elseIsEmailVerified">
                 <p class="text-success" i18n>Email is verified</p>
               </div>
               <ng-template #elseIsEmailVerified>
                 <p class="text-danger" i18n>Email not verified</p>
                 <p>
-                  <button [disabled]="loading || uploading" class="btn btn-outline-info btn-sm" (click)="sendVerifyEmail()">
+                  <button [disabled]="loading || uploading" class="btn btn-outline-info btn-sm"
+                          (click)="sendVerifyEmail()">
                     <fa-icon [icon]="['fas', 'envelope']" class="mr-1"></fa-icon>
                     <span i18n>Send Verification Email</span>
                   </button>
@@ -48,7 +49,8 @@
             <div class="form-group">
               <label for="location" i18n>Location</label>
               <div class="input-group mb-3">
-                <input type="text" id="location" formControlName="location" placeholder="Location" class="form-control"/>
+                <input type="text" id="location" formControlName="location" placeholder="Location"
+                       class="form-control"/>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" (click)="detectLocation()">
                     <fa-icon [icon]="['fas', 'search-location']"></fa-icon>
@@ -74,15 +76,16 @@
 
             <!-- User background banner -->
             <div class="form-group">
-                <label>Profile Background</label>
-                <div class="custom-bg-grid w-100">
-                    <ul class="row m-0 p-1 justify-content-around">
-                        <li *ngFor="let color of bgPicker; index as i">
-                            <input type="radio" formControlName="background" id="bg-{{i}}" value="{{color}}" [checked]="color === currentUser.background ? 'checked' : ''">
-                            <label for="bg-{{i}}" class="box p-4 m-1 position-relative {{color}}"></label>
-                        </li>
-                    </ul>
-                </div>
+              <label>Profile Background</label>
+              <div class="custom-bg-grid w-100">
+                <ul class="row m-0 p-1 justify-content-around">
+                  <li *ngFor="let color of bgPicker; index as i">
+                    <input type="radio" formControlName="background" id="bg-{{i}}" value="{{color}}"
+                           [checked]="color === currentUser.background ? 'checked' : ''">
+                    <label for="bg-{{i}}" class="box p-4 m-1 position-relative {{color}}"></label>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <input type="hidden" id="id" formControlName="id"/>
@@ -105,28 +108,28 @@
             </div>
             <!-- Image select -->
             <div class="form-group">
-                <label i18n>Image</label>
-                <div class="input-group mb-3">
-                    <div class="card">
-                    <div class="card-body">
-                        <div class="row no-gutters">
-                        <label class="col" *ngFor="let avatar of avatarsDefault">
-                            <input type="radio" formControlName="pic" value="{{avatar}}">
-                            <img src="{{avatar}}=s60-c" class="img-avatar-small">
-                        </label>
-                        </div>
+              <label i18n>Image</label>
+              <div class="input-group mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row no-gutters">
+                      <label class="col" *ngFor="let avatar of avatarsDefault">
+                        <input type="radio" formControlName="pic" value="{{avatar}}">
+                        <img src="{{avatar}}=s60-c" class="img-avatar-small">
+                      </label>
                     </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
             <!-- Save / cancel -->
             <div class="form-group mt-5">
-                <button [disabled]="loading || uploading" class="btn btn-primary float-right" id="save-changes">
-                    <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
-                    <span *ngIf="!loading" i18n>Save changes</span>
-                    <span *ngIf="loading" class="actn-loader"></span>
-                </button>
-                <a routerLink="/user/{{currentUser.id}}" class="btn btn-link float-right" i18n>Cancel</a>
+              <button [disabled]="loading || uploading" class="btn btn-primary float-right" id="save-changes">
+                <fa-icon *ngIf="!loading" [icon]="['fas', 'save']" class="mr-1"></fa-icon>
+                <span *ngIf="!loading" i18n>Save changes</span>
+                <span *ngIf="loading" class="actn-loader"></span>
+              </button>
+              <a routerLink="/user/{{currentUser.id}}" class="btn btn-link float-right" i18n>Cancel</a>
             </div>
           </div>
         </div>

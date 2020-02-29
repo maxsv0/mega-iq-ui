@@ -18,23 +18,23 @@
 }
 
 @mixin box-shadow($left, $top, $radius, $color) {
-	box-shadow: $left $top $radius $color;
-	-webkit-box-shadow: $left $top $radius $color;
-	-moz-box-shadow: $left $top $radius $color;
+  box-shadow: $left $top $radius $color;
+  -webkit-box-shadow: $left $top $radius $color;
+  -moz-box-shadow: $left $top $radius $color;
 }
 
 @mixin gradient($start-color, $end-color, $orientation) {
-    background: $start-color;
-    @if $orientation == 'vertical' {
-        background: -webkit-linear-gradient(top, $start-color, $end-color) !important;
-        background: linear-gradient(to bottom, $start-color, $end-color) !important;
-    } @else if $orientation == 'horizontal' {
-        background: -webkit-linear-gradient(left, $start-color, $end-color) !important;
-        background: linear-gradient(to right, $start-color, $end-color) !important;
-    } @else {
-        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color) !important;
-        background: radial-gradient(ellipse at center, $start-color, $end-color) !important;
-    }
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color) !important;
+    background: linear-gradient(to bottom, $start-color, $end-color) !important;
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color) !important;
+    background: linear-gradient(to right, $start-color, $end-color) !important;
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color) !important;
+    background: radial-gradient(ellipse at center, $start-color, $end-color) !important;
+  }
 }
 
 $mobile-width-sm: 320px;
@@ -45,9 +45,9 @@ $desktop-width: 1024px;
 $desktop-width-lg: 1920px;
 
 @mixin mobile-sm {
-    @media (min-width: $mobile-width-sm) and (max-width: ($mobile-width-md - 1)) {
-        @content;
-    }
+  @media (min-width: $mobile-width-sm) and (max-width: ($mobile-width-md - 1)) {
+    @content;
+  }
 }
 
 @mixin mobile-md {
@@ -57,15 +57,15 @@ $desktop-width-lg: 1920px;
 }
 
 @mixin mobile-lg {
-    @media (min-width: $mobile-width-lg) and (max-width: ($tablet-width - 1)) {
-        @content;
-    }
+  @media (min-width: $mobile-width-lg) and (max-width: ($tablet-width - 1)) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: $tablet-width) and (max-width: ($desktop-width - 1)) {
-        @content;
-    }
+  @media (min-width: $tablet-width) and (max-width: ($desktop-width - 1)) {
+    @content;
+  }
 }
 
 @mixin desktop {
@@ -81,16 +81,16 @@ $desktop-width-lg: 1920px;
 }
 
 @mixin font-face($font-family, $url, $font-weight, $font-style) {
-    /* #{$font-family}-#{$font-weight} */
-    @font-face {
-        font-family: quote($font-family);
-        src: url('#{$url}.eot'); /* IE9 Compat Modes */
-        src: url('#{$url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-            url('#{$url}.woff2') format('woff2'), /* Super Modern Browsers */
-            url('#{$url}.woff') format('woff'), /* Modern Browsers */
-            url('#{$url}.ttf') format('truetype'), /* Safari, Android, iOS */
-            url('#{$url}.svg') format('svg'); /* Legacy iOS */
-        font-weight: $font-weight;
-        font-style: $font-style;
-    }
+  /* #{$font-family}-#{$font-weight} */
+  @font-face {
+    font-family: quote($font-family);
+    src: url('#{$url}.eot'); /* IE9 Compat Modes */
+    src: url('#{$url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('#{$url}.woff2') format('woff2'), /* Super Modern Browsers */
+    url('#{$url}.woff') format('woff'), /* Modern Browsers */
+    url('#{$url}.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('#{$url}.svg') format('svg'); /* Legacy iOS */
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
 }

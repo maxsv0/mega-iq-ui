@@ -12,8 +12,8 @@ $theme-colors: (
 @import '~@ngx-share/button/themes/modern/modern-dark-theme';
 
 body {
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
 }
 
 .feather {
@@ -31,7 +31,7 @@ body {
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: .375rem;
-  @include box-shadow(0px, 3px, 15px, rgba(0,0,0,0.2));
+  @include box-shadow(0px, 3px, 15px, rgba(0, 0, 0, 0.2));
 }
 
 .btn-rounded {
@@ -136,7 +136,7 @@ body {
 }
 
 .bg-default {
-    @include gradient(#fc4a1a, #f7b733, horizontal);
+  @include gradient(#fc4a1a, #f7b733, horizontal);
 }
 
 .bg-practice {
@@ -160,9 +160,9 @@ body {
 }
 
 @include mobile-lg {
-    .sb-group {
-        button {
-            font-size: 9px !important;
-        }
+  .sb-group {
+    button {
+      font-size: 9px !important;
     }
+  }
 }

@@ -1,96 +1,105 @@
 <!-- Main Site wrapper -->
 <div class="site-wrapper">
-<header id="header-mega-iq" class="bg-light fixed-top">
+  <header id="header-mega-iq" class="bg-light fixed-top">
     <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-light my-2">
-    <a class="navbar-brand" routerLink="/"><img class="mx-2" src="https://storage.googleapis.com/mega-iq/brand/logo-mega-iq-navbar.png" border="0" width="150" height="50" alt="www.mega-iq.com"/></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-md navbar-light my-2">
+      <a class="navbar-brand" routerLink="/"><img class="mx-2"
+                                                  src="https://storage.googleapis.com/mega-iq/brand/logo-mega-iq-navbar.png"
+                                                  border="0" width="150" height="50" alt="www.mega-iq.com"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <div class="btn-group" role="group" aria-label="Mega IQ tests">
-            <button type="button" class="btn btn-primary btn-rounded l-radius">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <div class="btn-group" role="group" aria-label="Mega IQ tests">
+              <button type="button" class="btn btn-primary btn-rounded l-radius">
                 <a class="nav-link text-white" routerLink="/iqtest/" id="dropdown01" i18n>Start IQ Test</a>
-            </button>
-            <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-rounded dropdown-toggle r-radius pr-3"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            </button>
-            <div class="dropdown-menu position-absolute" role="group">
+              </button>
+              <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-rounded dropdown-toggle r-radius pr-3"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </button>
+              <div class="dropdown-menu position-absolute" role="group">
                 <a *ngFor="let test of testTypes" class="dropdown-item" routerLink="{{test.url}}">{{ test.name }}</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
+          </li>
+        </ul>
+
+        <!-- Profile Button -->
+        <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser" data-toggle="collapse"
+                data-target=".navbar-collapse.show">
+          <fa-icon [icon]="['fas', 'user']"></fa-icon>
+          {{currentUser.name}}
+        </button>
+        <!-- Sign up button -->
+        <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
+          </li>
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/login/" i18n>Log In</a>
+          </li>
+        </ul>
+
+        <!-- Language switcher -->
+        <div class="my-2 my-lg-0">
+          <div class="dropdown" id="language-picker">
+            <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              <a href="javascript:void(0)" id="locale-link-current">
+                <img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png"
+                     alt="{{ this.locale.toUpperCase() }}"/>{{ this.locale.toUpperCase() }}
+              </a>
+            </button>
+            <div class="dropdown-menu dropdown-locale bg-light" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com"
+                 *ngIf="this.locale != 'en'"><img
+                class="mr-2" src="/assets/img/flag/en.png"/>English</a>
+              <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com"
+                 *ngIf="this.locale != 'ru'"><img
+                class="mr-2" src="/assets/img/flag/ru.png"/>Русский</a>
+              <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com"
+                 *ngIf="this.locale != 'de'"><img
+                class="mr-2" src="/assets/img/flag/de.png"/>Deutsch</a>
+              <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com"
+                 *ngIf="this.locale != 'es'"><img
+                class="mr-2" src="/assets/img/flag/es.png"/>Español</a>
             </div>
           </div>
-        </li>
-        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
-        </li>
-      </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-      <!-- Profile Button -->
-      <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser"  data-toggle="collapse" data-target=".navbar-collapse.show">
-        <fa-icon [icon]="['fas', 'user']"></fa-icon>
-        {{currentUser.name}}
-      </button>
-      <!-- Sign up button -->
-      <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
-        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" routerLink="/register/" i18n>Sign up</a>
-        </li>
-        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" routerLink="/login/" i18n>Log In</a>
-        </li>
-      </ul>
+  <!-- main app container -->
+  <main *ngIf="!loading" id="bgMain" class="mt-6 pt-2 {{backgroundClass}}">
 
-      <!-- Language switcher -->
-      <div class="my-2 my-lg-0">
-        <div class="dropdown" id="language-picker">
-          <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">
-            <a href="javascript:void(0)" id="locale-link-current">
-              <img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png" alt="{{ this.locale.toUpperCase() }}"/>{{ this.locale.toUpperCase() }}
-            </a>
-          </button>
-          <div class="dropdown-menu dropdown-locale bg-light" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com" *ngIf="this.locale != 'en'"><img
-              class="mr-2" src="/assets/img/flag/en.png"/>English</a>
-            <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com" *ngIf="this.locale != 'ru'"><img
-              class="mr-2" src="/assets/img/flag/ru.png"/>Русский</a>
-            <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com" *ngIf="this.locale != 'de'"><img
-              class="mr-2" src="/assets/img/flag/de.png"/>Deutsch</a>
-            <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com" *ngIf="this.locale != 'es'"><img
-              class="mr-2" src="/assets/img/flag/es.png"/>Español</a>
+    <alert></alert>
+    <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <footer class="bg-light mt-5">
+      <div class="container">
+        <!-- credits -->
+        <div class="row">
+          <div class="text-center col-12">
+            <ul class="list-inline text-muted mt-3">
+              <li class="list-inline-item">&copy; <span i18n>Mega-IQ</span> 2008-2020</li>
+              <li class="list-inline-item"><a href="/assets/static/about.html" i18n>About</a></li>
+              <li class="list-inline-item"><a href="/assets/static/privacy-policy.html" i18n>Privacy Policy</a></li>
+              <li class="list-inline-item"><a href="/assets/static/terms-conditions.html" i18n>Terms and Conditions</a>
+              </li>
+            </ul>
+            <p class="text-center text-muted small">Build info</p>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
-
-<!-- main app container -->
-<main *ngIf="!loading" id="bgMain" class="mt-6 pt-2 {{backgroundClass}}">
-
-  <alert></alert>
-  <router-outlet></router-outlet>
-
-<!-- Footer -->
-  <footer class="bg-light mt-5">
-    <div class="container">
-      <!-- credits -->
-      <div class="row">
-        <div class="text-center col-12">
-          <ul class="list-inline text-muted mt-3">
-            <li class="list-inline-item">&copy; <span i18n>Mega-IQ</span> 2008-2020</li>
-            <li class="list-inline-item"><a href="/assets/static/about.html" i18n>About</a></li>
-            <li class="list-inline-item"><a href="/assets/static/privacy-policy.html" i18n>Privacy Policy</a></li>
-            <li class="list-inline-item"><a href="/assets/static/terms-conditions.html" i18n>Terms and Conditions</a></li>
-          </ul>
-          <p class="text-center text-muted small">Build info</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-</main>
+    </footer>
+  </main>
 </div>

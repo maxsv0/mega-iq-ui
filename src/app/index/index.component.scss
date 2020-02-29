@@ -40,15 +40,16 @@
 
 /* Public users carousel */
 #user-example {
-    overflow-x: hidden;
+  overflow-x: hidden;
 
-    .owl-carousel {
-        margin: 0;
-        padding: 0;
-        .owl-stage-outer {
-            overflow: visible;
-        }
+  .owl-carousel {
+    margin: 0;
+    padding: 0;
+
+    .owl-stage-outer {
+      overflow: visible;
     }
+  }
 }
 
 #test-section {
@@ -65,9 +66,9 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
-    .test-start-btn {
-        background: #fff;
-    }
+  .test-start-btn {
+    background: #fff;
+  }
 }
 
 /** Mobile (xs-l) **/
@@ -107,17 +108,17 @@
     }
   }
 
-    #test-section {
-        .card-container {
-            min-width: 100%;
-            min-height: 100%;
-        }
-
+  #test-section {
+    .card-container {
+      min-width: 100%;
+      min-height: 100%;
     }
 
-    .test-start-btn {
-        background: #fff;
-    }
+  }
+
+  .test-start-btn {
+    background: #fff;
+  }
 
 }
 
@@ -129,9 +130,9 @@
 
 
 @include mobile-sm {
-    .flip-clock-wrapper ul {
-        margin: 2px !important;
-    }
+  .flip-clock-wrapper ul {
+    margin: 2px !important;
+  }
 
   .flip-clock-wrapper ul li a div {
     font-size: 60px;

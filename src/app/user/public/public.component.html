@@ -43,7 +43,7 @@
          [infiniteScrollUpDistance]="1.5"
          [infiniteScrollThrottle]="50"
          (scrolled)="onScrollDown()" *ngFor="let test of userTests">
-        <!-- Test card -->
+      <!-- Test card -->
       <div class="card-container"
            [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
 
@@ -52,8 +52,10 @@
           <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
         </div>
 
-        <div class="badge iq-badge-test test-megaiq position-absolute" *ngIf="test.type == testTypeEnum.MEGA_IQ">{{test.points}}</div>
-        <div class="badge iq-badge-test test-standard position-absolute" *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
+        <div class="badge iq-badge-test test-megaiq position-absolute"
+             *ngIf="test.type == testTypeEnum.MEGA_IQ">{{test.points}}</div>
+        <div class="badge iq-badge-test test-standard position-absolute"
+             *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
 
         <div class="row">
           <div class="col-6">

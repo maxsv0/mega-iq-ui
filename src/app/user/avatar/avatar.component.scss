@@ -4,7 +4,7 @@
 #iq-user {
 
   .iq-user-body {
-    width:300px;
+    width: 300px;
     @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
   }
 
@@ -36,8 +36,8 @@
 
 /** Responsive **/
 @include mobile-lg {
-    .img-avatar,
-    .iq-user-body {
-        width: 100% !important;
-    }
+  .img-avatar,
+  .iq-user-body {
+    width: 100% !important;
+  }
 }

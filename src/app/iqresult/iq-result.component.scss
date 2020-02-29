@@ -2,19 +2,19 @@
 
 /** chart js canvas **/
 canvas {
-    width: 100% !important;
-    height: auto !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 /** Responsive **/
 @include tablet {
-    .jumbotron {
-        padding: 4rem 15px !important;
-    }
+  .jumbotron {
+    padding: 4rem 15px !important;
+  }
 }
 
 @include mobile-lg {
-    .jumbotron {
-        max-width: 100%;
-    }
+  .jumbotron {
+    max-width: 100%;
+  }
 }

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AlertService, UserService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {User} from '@/_models';
-import {Title, Meta} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Router} from '@angular/router';
 

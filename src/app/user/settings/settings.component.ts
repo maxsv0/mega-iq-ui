@@ -114,16 +114,16 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     /** Background Picker colors grid **/
     this.bgPicker = [
-        'custom-bg1',
-        'custom-bg2',
-        'custom-bg3',
-        'custom-bg4',
-        'custom-bg5',
-        'custom-bg6',
-        'custom-bg7',
-        'custom-bg8',
-        'custom-bg9',
-        'custom-bg10'
+      'custom-bg1',
+      'custom-bg2',
+      'custom-bg3',
+      'custom-bg4',
+      'custom-bg5',
+      'custom-bg6',
+      'custom-bg7',
+      'custom-bg8',
+      'custom-bg9',
+      'custom-bg10'
     ];
 
     this.loadUserProfile();
