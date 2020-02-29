@@ -11,26 +11,42 @@
                      [theme]="'modern-dark'"
       ></share-buttons>
     </div>
-    <div class="jumbotron m-auto">
+    <div class="col-12">
+      <div class="jumbotron m-auto">
         <!-- Title -->
-        <h4 class="text-center">{{user.name}}
-            <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
+        <h4 class="text-left">{{user.name}}
+          <span i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
-        <div id="results-section" class="d-flex p-5">
+        <div class="row" *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
+          <div class="col-lg-6">
+            <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
+          </div>
+          <div class="col-lg-6 text-right">
+            <span i18n>Result code</span>: {{test.code}}
+          </div>
+        </div>
+        <div class="row" *ngIf="!(this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ)">
+          <div class="col-lg-12 text-right">
+            <span i18n>Result code</span>: {{test.code}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5">
             <!-- User profile card -->
-            <div class="result-profile px-5">
-                <app-avatar *ngIf="user" [user]="user"></app-avatar>
-            </div>
+            <app-avatar *ngIf="user" [user]="user"></app-avatar>
+          </div>
+          <div class="col-lg-7">
             <!-- Chart js results -->
-            <div class="result-stats px-5" *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
-                <canvas #myCanvas width="800" height="800"></canvas>
+            <div *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
+              <canvas #myCanvas width="800" height="800"></canvas>
             </div>
             <!-- Standard results for practice test -->
-            <div class="result-stats px-5" *ngIf="this.test.type !== testTypeEnum.MEGA_IQ && this.test.type !== testTypeEnum.STANDARD_IQ">
-                <img src="/assets/img/iqresult-groups-example.jpg" width="380" height="380">
+            <div class="py-5" *ngIf="!(this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ)">
+              <h1><span i18n>IQ Score</span>: {{test.points}} / {{testQuestionsCount}}</h1>
             </div>
+          </div>
         </div>
-        <p>Result code: {{test.code}}</p>
+      </div>
     </div>
   </div>
 </div>

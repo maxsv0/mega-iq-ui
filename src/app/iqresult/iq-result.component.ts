@@ -30,7 +30,7 @@ export class IqResultComponent {
   isLoading = false;
   isBrowser: boolean;
   chart: any;
-  testQuestions = null;
+  testQuestionsCount = 0;
   public testTypeEnum = TestTypeEnum;
 
   constructor(
@@ -71,6 +71,8 @@ export class IqResultComponent {
             } else {
               this.test = apiResponseTestResult.test;
               this.user = apiResponseTestResult.user;
+
+              this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
 
               this.setTitle(
                 this.test.points,
