@@ -47,34 +47,37 @@ export class AppComponent {
     // load iq tests
     this.loadIqTest();
 
+    // TODO: update not only bg, but also page title and styles
     /** Shows background color or image on respective route **/
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        switch (event.url) {
-          case '/iqtest/iq-practice':
-            this.backgroundClass = 'bg-practice';
-            break;
-          case '/iqtest/iq-standard':
-            this.backgroundClass = 'bg-standard';
-            break;
-          case '/iqtest/mega-iq':
-            this.backgroundClass = 'bg-megaiq';
-            break;
-          case '/iqtest/math':
-            this.backgroundClass = 'bg-math';
-            break;
-          case '/iqtest/grammar':
-            this.backgroundClass = 'bg-grammar';
-            break;
-          case '/classroom/':
-            this.backgroundClass = '';
-            break;
-          case '/':
-            this.backgroundClass = 'home-image';
-            break;
-          default:
-            this.backgroundClass = '';
-            break;
+        if (event.url.startsWith('/classroom/')) {
+          // TODO: style should be dependent on test type
+          this.backgroundClass = 'bg-megaiq';
+        } else {
+          switch (event.url) {
+            case '/iqtest/iq-practice':
+              this.backgroundClass = 'bg-practice';
+              break;
+            case '/iqtest/iq-standard':
+              this.backgroundClass = 'bg-standard';
+              break;
+            case '/iqtest/mega-iq':
+              this.backgroundClass = 'bg-megaiq';
+              break;
+            case '/iqtest/math':
+              this.backgroundClass = 'bg-math';
+              break;
+            case '/iqtest/grammar':
+              this.backgroundClass = 'bg-grammar';
+              break;
+            case '/':
+              this.backgroundClass = 'home-image';
+              break;
+            default:
+              this.backgroundClass = '';
+              break;
+          }
         }
       }
 
