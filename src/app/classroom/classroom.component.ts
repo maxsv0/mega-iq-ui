@@ -190,6 +190,19 @@ export class ClassroomComponent implements OnInit, OnDestroy {
       this.activeQuestion = null;
       this.updating = false;
     }
+
+    if (this.activeQuestionAllDone) {
+      this.setTitle(
+        this.activeTest.type,
+        this.i18n('Complete')
+      );
+    } else {
+      this.setTitle(
+        this.activeTest.type,
+        this.activeQuestionId + ' ' + this.i18n('question') +
+        ' ' + this.i18n('of') + ' ' + this.activeTest.questionSet.length
+      );
+    }
   }
 
   /**
@@ -207,13 +220,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
-
-          this.setTitle(
-            this.activeTest.type,
-            this.activeTest.toString()
-            );
-
-          this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         },
         error => {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
@@ -223,15 +229,15 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   /**
    * @function setTitle
    * @param type Test enum
-   * @param date Test date
+   * @param progress Test progress
    * @description Sets title of current test
    */
-  public setTitle(type: TestTypeEnum, date: string) {
+  public setTitle(type: TestTypeEnum, progress: string) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
 
-    this.titleService.setTitle(this.i18n('{{test}} {{date}}', {
-      test: testName,
-      date: date
+    this.titleService.setTitle(this.i18n('{{progress}} {{test}}', {
+      progress: progress,
+      test: testName
     }));
   }
 }
