@@ -50,10 +50,10 @@
           <button class="btn btn-muted dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
             <a href="javascript:void(0)" id="locale-link-current">
-              <img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png"/>{{ this.locale.toUpperCase() }}
+              <img class="mr-2" src="/assets/img/flag/{{ this.locale }}.png" alt="{{ this.locale.toUpperCase() }}"/>{{ this.locale.toUpperCase() }}
             </a>
           </button>
-          <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu dropdown-locale bg-light" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com" *ngIf="this.locale != 'en'"><img
               class="mr-2" src="/assets/img/flag/en.png"/>English</a>
             <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com" *ngIf="this.locale != 'ru'"><img

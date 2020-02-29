@@ -68,6 +68,27 @@
 
 /** Responsive **/
 
+@include tablet {
+  .dropdown-locale {
+    margin-left: -50px;
+  }
+
+}
+
+@include desktop {
+  .dropdown-locale {
+    margin-left: -50px;
+  }
+
+}
+
+@include desktop-lg {
+  .dropdown-locale {
+    margin-left: -50px;
+  }
+
+}
+
 // fix parallax bug on iOS tablet devices
 @media screen and (max-width: 991px) {
     .home-image {
@@ -77,14 +98,15 @@
 
 @include mobile-lg {
 
-    .site-wrapper {
-        overflow-x: hidden;
-    }
+  .site-wrapper {
+    overflow-x: hidden;
+  }
 
-    .home-image {
-        background-image: url(https://storage.googleapis.com/mega-iq/about/img/bg-index-sm.jpg);
-        margin-top: 4.5rem;
-        background-attachment: scroll;
-    }
+  .home-image {
+    background-image: url(https://storage.googleapis.com/mega-iq/about/img/bg-index-sm.jpg);
+    margin-top: 4.5rem;
+    background-attachment: scroll;
+  }
 
 }
+

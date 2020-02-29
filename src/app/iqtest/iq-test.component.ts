@@ -4,7 +4,7 @@ import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
-import {Title, Meta} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
@@ -14,7 +14,7 @@ import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 
 /**
  * @class IqTestComponent
- * @implements Oninit
+ * @implements OnInit
  * @description Controller for iq test list page, user selects one test to start
  */
 @Component({
@@ -46,8 +46,9 @@ export class IqTestComponent implements OnInit {
 
     const testType = this.route.snapshot.params['testType'];
     this.iqTestService.getIqTest().subscribe(tests => {
-        this.testTypes = tests;
+      this.testTypes = tests;
 
+      if (testType == null) {
         this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
         const metaTitle = this.titleService.getTitle();
         const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
@@ -55,23 +56,24 @@ export class IqTestComponent implements OnInit {
         this.metaService.updateTag({property: 'og:title', content: metaTitle});
         this.metaService.updateTag({property: 'og:url', content: this.router.url});
         if (this.router.url === '/iqtest') {
-            this.metaService.updateTag({property: 'og:image', content: metaImage});
-            this.metaService.updateTag({property: 'og:description', content: metaDescription});
+          this.metaService.updateTag({property: 'og:image', content: metaImage});
+          this.metaService.updateTag({property: 'og:description', content: metaDescription});
         }
         this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
-
+      } else {
         this.testTypes.forEach((test) => {
-            if (test.url === '/iqtest/' + testType) {
-                this.testSelected = test;
+          if (test.url === '/iqtest/' + testType) {
+            this.testSelected = test;
 
-                this.setCustomShareButtonsConfig(this.testSelected.pic);
-                this.metaService.updateTag({property: 'og:image', content: this.testSelected.pic});
-                this.metaService.updateTag({property: 'og:description', content: this.testSelected.description});
-                this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
-                    name: this.testSelected.name,
-                }));
-            }
+            this.setCustomShareButtonsConfig(this.testSelected.pic);
+            this.metaService.updateTag({property: 'og:image', content: this.testSelected.pic});
+            this.metaService.updateTag({property: 'og:description', content: this.testSelected.description});
+            this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
+              name: this.testSelected.name,
+            }));
+          }
         });
+      }
     });
   }
 
