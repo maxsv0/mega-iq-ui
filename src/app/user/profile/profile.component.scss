@@ -1,5 +1,10 @@
 @import 'src/views/_mixins';
 
+#unlockCertificateBlock {
+  background: rgba(255,255,255,0.4);
+  border-radius: 1em;
+}
+
 /** Responsive **/
 @include mobile-lg {
     #iq-user > div {
