@@ -116,10 +116,10 @@ export class IqResultComponent {
           }
         ],
         labels: [
-          'Math',
-          'Grammar',
-          'Logic',
-          'Horizons',
+          this.i18n('Math'),
+          this.i18n('Grammar'),
+          this.i18n('Logic'),
+          this.i18n('Horizons'),
         ]
       },
       options: {
