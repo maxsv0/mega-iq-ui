@@ -15,7 +15,7 @@
       <note category="location">app/app.component.html:19</note></notes>
       <segment state="translated">
         <source>Start IQ Test</source>
-      <target>Empieza Test CI</target></segment>
+      <target>Hacer Test CI</target></segment>
     </unit>
     <unit id="3242997623282735515">
       <notes>
@@ -85,7 +85,7 @@
       <note category="location">app/index/index.component.html:37</note></notes>
       <segment state="translated">
         <source>Mega IQ Ever</source>
-      <target>Mejores tests de todos</target></segment>
+      <target>Mejores tests CI de todos</target></segment>
     </unit><unit id="2392488717875840729">
       <notes>
         
@@ -808,9 +808,9 @@
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Mega-IQ free online IQ test</source>
-      <target>Mega-IQ free online IQ test</target></segment>
+      <target>Mega-IQ test CI online gratis</target></segment>
     </unit><unit id="2174699020890542276">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
