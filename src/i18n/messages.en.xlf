@@ -213,9 +213,9 @@
       <notes>
         
       <note category="location">app/index/index.component.html:87</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Example profile</source>
-      <target>Example profile</target></segment>
+      <target>Best IQ scores</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
         
@@ -792,9 +792,9 @@
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Mega-IQ free online IQ test</source>
-      <target>Mega-IQ free online IQ test</target></segment>
+      <target>Mega-IQ free IQ test online</target></segment>
     </unit><unit id="2174699020890542276">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
