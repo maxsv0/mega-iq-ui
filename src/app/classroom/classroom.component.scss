@@ -38,7 +38,7 @@ h3 {
 }
 
 .answer {
-  border: 1px solid #fff;
+  border: 1px solid #f8f9fa;
 }
 
 .answer:hover {
@@ -56,3 +56,16 @@ h3 {
 .submit-answer {
   right: 27px;
 }
+
+.question-title {
+  min-height: 130px;
+}
+
+.answer-submit-loader {
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9;
+  left: 15%;
+  top: -25px;
+}
+

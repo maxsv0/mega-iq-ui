@@ -1,8 +1,8 @@
-<div class="container py-3" *ngIf="activeTest">
+<div class="container pt-4" *ngIf="activeTest">
   <div class="row">
     <div class="col-md-4">
       <!-- Switch between all questions (tablet and desktop only) -->
-      <div class="jumbotron">
+      <div class="jumbotron py-4">
         <h4>{{activeTestName}}
           <span class="badge"
                 [ngClass]="{ 'badge-success': activeTest.status === testStatus.FINISHED, 'badge-primary': activeTest.status === testStatus.ACTIVE, 'badge-secondary': activeTest.status === testStatus.EXPIRED}">{{activeTest.status}}</span>
@@ -36,9 +36,9 @@
       </div>
     </div>
     <div class="col-md-8 d-none d-md-block d-lg-block d-xl-block">
-      <div class="jumbotron py-5">
+      <div class="jumbotron py-4 pr-0">
         <p class="text-muted" i18n>Click to navigate questions</p>
-        <p class="d-flex flex-wrap justify-content-between">
+        <p class="d-flex flex-wrap">
         <span class="btn" *ngFor="let question of activeTest.questionSet; index as index"
               (click)="setQuestion(index + 1)"
               [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }"
@@ -50,15 +50,15 @@
 </div>
 
 <div class="bg-light" *ngIf="activeTest">
-  <div class="container pt-5 pb-4">
+  <div class="container pt-5 pb-1 question-title">
     <!-- Question title -->
     <h3><span class="text-muted mr-3"><span
       i18n>Question</span> #{{activeQuestionId}}</span>{{activeQuestion.title}}</h3>
   </div>
 </div>
 
-<div class="bg-light-gradient">
-  <div class="container">
+<div class="bg-light-gradient" *ngIf="activeTest">
+  <div class="container pt-1">
     <div class="row">
 
       <!-- Question description -->
@@ -67,6 +67,17 @@
           <fa-icon [icon]="['fas', 'question']" class="mr-1"></fa-icon>
           {{activeQuestion.description}}
         </p>
+      </div>
+
+      <div class="col-md-12" *ngIf="activeTest.status === testStatus.ACTIVE">
+        <div class="position-absolute">
+          <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
+          <span class="submit-answer position-relative">
+          <span class="px-4 text-muted" i18n>Submitting your answer, please wait</span>
+          <span class="actn-loader text-muted"></span>
+          </span>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-6 text-center">
@@ -89,25 +100,20 @@
               <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
             </div>
           </div>
-          <div class="col-12">
-            <h4 class="my-4">
-              <span i18n>Question</span> #{{activeQuestionId}}
-              <span class="badge badge-success"
-                    *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
-                    i18n>Answer submitted</span>
-            </h4>
-            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>
-              Click to submit the answer</p>
-          </div>
         </div>
 
-        <div class="my-2" *ngIf="activeTest.status === testStatus.ACTIVE">
-          <div class="text-right">
-            <span *ngIf="loading" class="submit-answer position-relative">
-          <span class="px-4 text-muted small" i18n>Submitting your answer, please wait</span>
-        <span class="actn-loader text-muted"></span>
-            </span>
-
+        <div class="row my-2">
+          <div class="col-6">
+            <p>
+              <span i18n>Question</span> #{{activeQuestionId}}
+            </p>
+          </div>
+          <div class="col-6">
+            <span class="badge badge-success"
+                  *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
+                  i18n>Answer submitted</span>
+            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>
+              Click to submit the answer</p>
           </div>
         </div>
       </div>
@@ -117,7 +123,7 @@
 
 <div class="bg-light mb-3" *ngIf="activeTest">
   <div class="container">
-    <div class="row py-4">
+    <div class="row pb-4">
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
         <div class="btn btn-outline-primary" (click)="setQuestion(activeQuestionIdPrev)"
