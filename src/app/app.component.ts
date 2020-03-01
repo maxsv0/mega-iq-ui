@@ -81,9 +81,13 @@ export class AppComponent {
         }
       }
 
-      /** Send GA page view event */
+      // page loading is done
       if (event instanceof NavigationEnd) {
+        /** Send GA page view event */
         this.googleAnalyticsService.sendPageView(event.urlAfterRedirects);
+
+        // scroll to top
+        window.scrollTo(0, 0);
       }
     });
   }
