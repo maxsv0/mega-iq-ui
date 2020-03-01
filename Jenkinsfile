@@ -93,7 +93,9 @@ def deployByLocale(def locale) {
     }
   }
   script {
-    sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
+    if ("${locale}" != 'en') {
+      sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
+    }
     sh "sed -i \"s/'en'/'${locale}'/g\" src/environments/app-locale.ts"
     sh "sed -i 's/\"en\"/\"${locale}\"/g' src/index.html"
   }
