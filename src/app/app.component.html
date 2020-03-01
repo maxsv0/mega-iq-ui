@@ -59,16 +59,16 @@
             </button>
             <div class="dropdown-menu dropdown-locale bg-light" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" id="locale-link-en" href="https://www.mega-iq.com"
-                 *ngIf="this.locale != 'en'"><img
+                 [ngClass]="{'active' : this.locale === 'en'}"><img
                 class="mr-2" src="/assets/img/flag/en.png"/>English</a>
               <a class="dropdown-item" id="locale-link-ru" href="https://ru.mega-iq.com"
-                 *ngIf="this.locale != 'ru'"><img
+                 [ngClass]="{'active' : this.locale === 'ru'}"><img
                 class="mr-2" src="/assets/img/flag/ru.png"/>Русский</a>
               <a class="dropdown-item" id="locale-link-de" href="https://de.mega-iq.com"
-                 *ngIf="this.locale != 'de'"><img
+                 [ngClass]="{'active' : this.locale === 'de'}"><img
                 class="mr-2" src="/assets/img/flag/de.png"/>Deutsch</a>
               <a class="dropdown-item" id="locale-link-es" href="https://es.mega-iq.com"
-                 *ngIf="this.locale != 'es'"><img
+                 [ngClass]="{'active' : this.locale === 'es'}"><img
                 class="mr-2" src="/assets/img/flag/es.png"/>Español</a>
             </div>
           </div>
