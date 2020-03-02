@@ -113,7 +113,7 @@ export class IndexComponent implements OnInit, OnDestroy {
    */
   private initJs() {
     // @ts-ignore
-    this.clock = new FlipClock($('#counter'), 1481181, {
+    this.clock = new FlipClock($('#counter'), 1659596, {
       clockFace: 'Counter',
       minimumDigits: 7,
       autoStart: true,
@@ -135,7 +135,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         } else {
           this.alertService.error(apiResponseUsersTop.msg);
         }
-        this.scrollToValue(apiResponseUsersTop.count + 1481181 + 1000);
+        this.scrollToValue(apiResponseUsersTop.count);
       },
       error => {
         this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
