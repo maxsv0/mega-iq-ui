@@ -170,3 +170,42 @@ body {
     }
   }
 }
+
+@include mobile-lg {
+  .card-container {
+    max-width: 415px;
+    min-height: 250px;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 10px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@include mobile-md {
+  .card-container {
+    min-width: 365px;
+    min-height: 200px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@include mobile-sm {
+  .card-container {
+    max-width: 310px;
+    min-height: 200px;
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 10px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+  }
+}

@@ -39,9 +39,9 @@
         </div>
 
         <!-- Start test -->
-        <div class="start-iq-test-btn col-4 offset-4">
+        <div class="start-iq-test-btn col-xl-4 col-lg-5 col-md-6 col-sm-9">
           <button [disabled]="loading" id="start-test-btn"
-                  class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} btn-rounded py-3 px-4"
+                  class="text-white btn btn-block btn-lg btn-{{testSelected.styleName}} btn-rounded py-3 mx-auto"
                   (click)="startTest(testSelected.type)">
             <span *ngIf="!loading" i18n>Start Test</span>
             <fa-icon *ngIf="!loading" [icon]="['fas', 'brain']" class="ml-2"></fa-icon>

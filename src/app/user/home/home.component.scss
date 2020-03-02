@@ -1,10 +1,6 @@
 @import 'src/styles';
 
 /** User home test card **/
-.card-container {
-  padding: 20px;
-}
-
 .test {
   height: 250px;
   padding: 0;
@@ -36,10 +32,6 @@
 /**Responsive**/
 
 @include mobile-lg {
-  .card-container {
-    min-width: 100%;
-  }
-
   #home-actions {
     text-align: left !important;
   }

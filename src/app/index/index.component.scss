@@ -1,4 +1,4 @@
-@import 'src/styles';
+@import 'src/views/_mixins.scss';
 
 /* Hero Home */
 #home {
@@ -21,12 +21,8 @@
   font-size: 1.4em;
   font-weight: bold;
   font-style: normal;
-  letter-spacing: 1px;
-  white-space: normal;
   @include transition(all, .3s, ease-in-out);
-  word-break: break-word;
   padding: 1rem 3rem;
-  cursor: pointer;
   @include border-radius(2em);
   border: 1px solid var(--primary);
 
@@ -62,10 +58,6 @@
 /** Responsive **/
 
 @include tablet {
-  #iq-scores {
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
   .test-start-btn {
     background: #fff;
   }
@@ -74,10 +66,6 @@
 /** Mobile (xs-l) **/
 
 @include mobile-lg {
-  #iq-scores {
-    flex-direction: column;
-  }
-
   #home {
     .flip-clock-wrapper {
       margin: 3em 0 1em;
@@ -100,42 +88,72 @@
     .flip-clock-wrapper ul li a div {
       font-size: 50px;
     }
-  }
 
-  #iq-scores {
-    td, th {
-      padding: 10px 2px;
+    .test-start-btn {
+      background: #fff;
     }
   }
-
-  #test-section {
-    .card-container {
-      min-width: 100%;
-      min-height: 100%;
-    }
-
-  }
-
-  .test-start-btn {
-    background: #fff;
-  }
-
 }
 
 @include mobile-md {
-  .flip-clock-wrapper ul li a div {
-    font-size: 70px;
+  #home {
+    .flip-clock-wrapper {
+      margin: 3em 0 1em;
+    }
+
+    .flip-clock-wrapper ul {
+      margin: 3px;
+      width: 45px;
+      height: 60px;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 67px;
+      border-radius: 6px;
+    }
+
+    .flip-clock-wrapper ul li {
+      line-height: 67px;
+    }
+
+    .flip-clock-wrapper ul li a div {
+      font-size: 50px;
+    }
+
+    .test-start-btn {
+      background: #fff;
+    }
   }
 }
 
 
 @include mobile-sm {
-  .flip-clock-wrapper ul {
-    margin: 2px !important;
+  #home {
+    .flip-clock-wrapper {
+      margin: 3em 0 1em;
+    }
+
+    .flip-clock-wrapper ul {
+      margin: 2px;
+      width: 30px;
+      height: 45px;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 42px;
+      border-radius: 6px;
+    }
+
+    .flip-clock-wrapper ul li {
+      line-height: 42px;
+    }
+
+    .flip-clock-wrapper ul li a div {
+      font-size: 32px;
+    }
+
+    .test-start-btn {
+      background: #fff;
+    }
   }
 
-  .flip-clock-wrapper ul li a div {
-    font-size: 60px;
-  }
 }
 

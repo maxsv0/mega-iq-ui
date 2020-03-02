@@ -44,27 +44,17 @@
 
 /** Responsive **/
 
-@include tablet {
+@include mobile-md {
   #iq-test-list {
-    .start-iq-test-btn {
-      margin-left: 0;
-      max-width: initial;
+    .test h1 {
+      line-height: initial;
+      font-size: 28px;
     }
   }
 }
 
-@include mobile-lg {
+@include mobile-sm {
   #iq-test-list {
-    .start-iq-test-btn {
-      margin-left: 0;
-      max-width: initial;
-    }
-
-    #start-test-btn {
-      font-size: 25px;
-      padding: 10px !important
-    }
-
     .test h1 {
       line-height: initial;
       font-size: 25px;
