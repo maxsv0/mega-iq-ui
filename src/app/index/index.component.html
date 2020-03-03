@@ -37,30 +37,24 @@
 <!-- Top iq users tables -->
 <section id="iq-scores" class="container my-3">
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
     <table class="w-100 bg-white table-hover">
       <thead>
       <tr>
         <th i18n>User</th>
-        <th class="d-none d-md-block d-lg-block d-xl-block" i18n>Age</th>
-        <th class="d-none d-lg-block d-xl-block" i18n>Location</th>
-        <th class="d-none d-md-block d-lg-block d-xl-block" i18n>IQ</th>
         <th i18n>Total Score</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
         <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td class="d-none d-md-block d-lg-block d-xl-block">{{user.age || '-'}}</td>
-        <td class="d-none d-lg-block d-xl-block">{{user.location || '-'}}</td>
-        <td class="d-none d-md-block d-lg-block d-xl-block">{{user.iq || '-'}}</td>
         <td>{{user.totalScore || '-'}}</td>
       </tr>
       </tbody>
     </table>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-8">
     <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
     <table class="w-100 bg-white table-hover">
       <thead>
