@@ -2,12 +2,12 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 
-import {IqTest, TestResult, User} from '@/_models';
+import {TestResult, User} from '@/_models';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
-import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {TestStatusEnum} from '@/_models/enum';
 
 /**
  * @class HomeComponent
@@ -18,19 +18,16 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  testTypes: IqTest[] = [];
-  testTypesKeys: [] = [];
+
   currentUser: User;
   currentUserSubscription: Subscription;
   userTests: TestResult[] = [];
+  userTestsActive: TestResult[] = [];
   loading = false;
   isLoadingPage = true;
   isLoadingResults = false;
   isLastLoaded = false;
-  deletedId = null;
   userTestsPage = 0;
-  public testStatus = TestStatusEnum;
-  public testTypeEnum = TestTypeEnum;
 
   constructor(
     private titleService: Title,
@@ -44,16 +41,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.currentUser = user;
     });
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
-
-    this.iqTestService.getIqTest().subscribe(tests => {
-      this.testTypes = tests;
-
-      Object.entries(this.testTypes).forEach(
-        ([key, test]) => {
-          this.testTypesKeys[test.type] = key;
-        }
-      );
-    });
   }
 
   /**
@@ -73,6 +60,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.currentUserSubscription.unsubscribe();
   }
 
+  get deleteTestResultFunc() {
+    return this.deleteTestResult.bind(this);
+  }
+
   /**
    * @function deleteTestResult
    * @param code Test code
@@ -84,7 +75,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
-    this.deletedId = code;
 
     this.iqTestService.deleteTestResult(code)
       .pipe(first())
@@ -141,6 +131,11 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.currentUser = apiResponseTestResultList.user;
 
             this.titleService.setTitle(this.i18n('{{name}} personal account', {name: this.currentUser.name}));
+
+            // filter for current tests
+            this.userTestsActive = this.userTests.filter(test => {
+              return test.status === TestStatusEnum.ACTIVE;
+            });
 
             this.userTestsPage++;
           } else {

@@ -1,0 +1,66 @@
+<div class="card-container test-{{this.testTypes[this.testTypesKeys[test.type]].styleName}}"
+     [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}"
+>
+  <div class="text-white mb-3">
+    <!-- Status -->
+    <span class="w-25 p-2 badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+                         'badge-primary': test.status === testStatus.ACTIVE,
+                         'badge-secondary': test.status === testStatus.EXPIRED }">{{test.status}}</span>
+  </div>
+  <div class="text-white">
+    <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
+  </div>
+
+  <!-- Points -->
+  <div class="badge iq-badge-test test-megaiq position-absolute"
+       *ngIf="test.type == testTypeEnum.MEGA_IQ">{{test.points}}</div>
+  <div class="badge iq-badge-test test-standard position-absolute"
+       *ngIf="test.type == testTypeEnum.STANDARD_IQ">{{test.points}}</div>
+
+  <!-- Options -->
+  <div class="row">
+    <div class="col-sm-6 col-12" *ngIf="test.status === testStatus.FINISHED">
+      <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-2">
+        <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
+        <span i18n>Open Details</span></a>
+    </div>
+
+    <div class="col-sm-6 col-12">
+      <button routerLink="/classroom/{{test.code}}" class="btn btn-warning btn-block btn-lg mt-2"
+              *ngIf="test.status === testStatus.FINISHED" [disabled]="loading">
+        <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
+        <span i18n>Show Answers</span></button>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div *ngIf="!test.finishDate" class="course-progress">
+    <div class="text-white test-progress">
+      <span i18n>Overall test progress</span>: {{test.progress}}%
+      <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
+    </div>
+  </div>
+  <div class="course-starts text-white pt-2">
+    <span i18n>Started at</span>: {{test.createDate}}
+  </div>
+  <div class="course-ends text-white" *ngIf="test.finishDate">
+    <span i18n>Finished at</span>: {{test.finishDate}}
+  </div>
+  <!-- Test actions -->
+  <div class="row">
+    <div class="col-12">
+      <button routerLink="/classroom/{{test.code}}" class="btn btn-primary btn-block btn-lg mt-3"
+              *ngIf="test.status === testStatus.ACTIVE" i18n>Continue Test
+      </button>
+    </div>
+  </div>
+
+  <div class="text-right">
+    <button class="btn btn-outline-danger btn-lg mt-3" (click)="deleteTestResult(test.code)"
+            *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading">
+            <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span
+              i18n>Delete</span></span>
+      <span *ngIf="loading" class="actn-loader"></span>
+    </button>
+  </div>
+</div>

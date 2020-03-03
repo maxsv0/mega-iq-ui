@@ -171,6 +171,13 @@ body {
   }
 }
 
+@include desktop {
+  .card-container {
+    max-width: 550px;
+    min-height: 300px;
+  }
+}
+
 @include mobile-lg {
   .card-container {
     max-width: 415px;

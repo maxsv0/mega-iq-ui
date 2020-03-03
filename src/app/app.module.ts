@@ -31,6 +31,7 @@ import {APP_LOCALE_ID} from '../environments/app-locale';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
+import {TestcardComponent} from './user/testcard/testcard.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -62,7 +63,8 @@ declare const require; // Use the require method provided by webpack
     ClassroomComponent,
     IqResultComponent,
     PublicComponent,
-    AvatarComponent
+    AvatarComponent,
+    TestcardComponent
   ],
   providers: [
     AuthenticationService,
