@@ -32,7 +32,7 @@
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
            [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{user.certificateProgress || 0}}"
            attr.aria-valuemin="0" attr.aria-valuemax="100">
-        <span>{{100 - user.certificateProgress}}%</span>
+        <span>{{user.certificateProgress}}%</span>
       </div>
     </div>
   </div>
