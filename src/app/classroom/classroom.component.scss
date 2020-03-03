@@ -1,3 +1,5 @@
+@import 'src/views/_mixins.scss';
+
 h3 {
   padding: 0 1em;
   line-height: 1.4;
@@ -58,6 +60,7 @@ h3 {
 }
 
 .question-title {
+  font-size: 36px;
   min-height: 130px;
 }
 
@@ -65,7 +68,20 @@ h3 {
   border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 9;
-  left: 15%;
   top: -25px;
+}
+
+@include mobile-md {
+  .question-title {
+    line-height: 28px;
+    font-size: 26px;
+  }
+}
+
+@include mobile-sm {
+  .question-title {
+    line-height: 28px;
+    font-size: 26px;
+  }
 }
 

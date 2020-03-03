@@ -43,18 +43,18 @@
       <thead>
       <tr>
         <th i18n>User</th>
-        <th i18n>Age</th>
-        <th i18n>Location</th>
-        <th i18n>IQ</th>
+        <th class="d-none d-md-block d-lg-block d-xl-block" i18n>Age</th>
+        <th class="d-none d-lg-block d-xl-block" i18n>Location</th>
+        <th class="d-none d-md-block d-lg-block d-xl-block" i18n>IQ</th>
         <th i18n>Total Score</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
         <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td>{{user.age || '-'}}</td>
-        <td>{{user.location || '-'}}</td>
-        <td>{{user.iq || '-'}}</td>
+        <td class="d-none d-md-block d-lg-block d-xl-block">{{user.age || '-'}}</td>
+        <td class="d-none d-lg-block d-xl-block">{{user.location || '-'}}</td>
+        <td class="d-none d-md-block d-lg-block d-xl-block">{{user.iq || '-'}}</td>
         <td>{{user.totalScore || '-'}}</td>
       </tr>
       </tbody>

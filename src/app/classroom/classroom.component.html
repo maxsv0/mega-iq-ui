@@ -50,10 +50,10 @@
 </div>
 
 <div class="bg-light" *ngIf="activeTest">
-  <div class="container pt-5 pb-1 question-title">
+  <div class="container pt-5 pt-sm-2 pb-1 question-title">
     <!-- Question title -->
-    <h3><span class="text-muted mr-3"><span
-      i18n>Question</span> #{{activeQuestionId}}</span>{{activeQuestion.title}}</h3>
+    <span class="text-muted mr-2"><span
+      i18n>Question</span>&nbsp;#{{activeQuestionId}}</span> {{activeQuestion.title}}
   </div>
 </div>
 
@@ -69,17 +69,6 @@
         </p>
       </div>
 
-      <div class="col-md-12" *ngIf="activeTest.status === testStatus.ACTIVE">
-        <div class="position-absolute">
-          <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
-          <span class="submit-answer position-relative">
-          <span class="px-4 text-muted" i18n>Submitting your answer, please wait</span>
-          <span class="actn-loader text-muted"></span>
-          </span>
-          </div>
-        </div>
-      </div>
-
       <div class="col-md-6 text-center">
 
         <!-- Shows active question -->
@@ -90,6 +79,17 @@
       <div class="col-md-6">
         <!-- Possible answers set -->
         <div class="row">
+          <div class="col-md-12" *ngIf="activeTest.status === testStatus.ACTIVE">
+            <div class="position-absolute">
+              <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
+          <span class="submit-answer position-relative">
+          <span class="px-4 text-muted" i18n>Submitting your answer, please wait</span>
+          <span class="actn-loader text-muted"></span>
+          </span>
+              </div>
+            </div>
+          </div>
+
           <div class="col-4" *ngFor="let answer of activeQuestion.answers"
                [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
             <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
@@ -102,7 +102,7 @@
           </div>
         </div>
 
-        <div class="row my-2">
+        <div class="row mt-2">
           <div class="col-6">
             <p>
               <span i18n>Question</span> #{{activeQuestionId}}
@@ -125,14 +125,14 @@
     <div class="row pb-4">
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
-        <div class="btn btn-outline-primary" (click)="setQuestion(activeQuestionIdPrev)"
+        <div class="btn btn-outline-primary btn-sm" (click)="setQuestion(activeQuestionIdPrev)"
              [ngClass]="{'disabled': activeQuestionIdPrev === 0}" [class.disabled]="updating">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
           <span i18n>Previous Question</span>
         </div>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
-        <div class="btn btn-outline-primary" (click)="setQuestion(activeQuestionIdNext)"
+        <div class="btn btn-outline-primary btn-sm" (click)="setQuestion(activeQuestionIdNext)"
              [ngClass]="{'disabled': activeQuestionIdNext === 0}" [class.disabled]="updating">
           <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>

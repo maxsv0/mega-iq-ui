@@ -111,7 +111,7 @@ a, a:hover {
 /** Test list layout styles **/
 
 .card-container {
-  min-width: 450px;
+  max-width: 450px;
   min-height: 250px;
   padding: 30px;
   margin: 30px auto;
