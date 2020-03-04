@@ -64,6 +64,7 @@
     "firebase": "^5.11.1",
     "jquery": "^3.4.1",
     "localstorage-ponyfill": "^1.0.2",
+    "ng-lazyload-image": "^7.1.0",
     "ngx-infinite-scroll": "^8.0.1",
     "ngx-owl-carousel": "^2.0.7",
     "node-sass": "^4.13.1",

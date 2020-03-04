@@ -9,7 +9,7 @@
 
       <div class="profile-hover">
         <a routerLink="/user/{{user.id}}">
-          <img src="{{user.pic}}=s300-c" class="img-avatar">
+          <img [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="user.pic+'=s300-c'" class="img-avatar">
         </a>
       </div>
       <div class="profile-data d-flex justify-content-between bg-primary px-3 py-4">
@@ -19,10 +19,10 @@
     </div>
   </div>
   <div class="col-md-6 my-2" *ngIf="user.certificate">
-    <img class="img-fluid img-thumbnail" src="{{user.certificate}}" alt="IQ Certificate">
+    <img class="img-fluid img-thumbnail img-certificate" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="user.certificate" alt="IQ Certificate" />
   </div>
   <div class="col-md-6 p-3" *ngIf="user && !user.certificate">
-    <img class="img-fluid img-thumbnail" src="https://storage.googleapis.com/mega-iq/iqtest/iq-certificate-example.jpg"
+    <img class="img-fluid img-thumbnail img-certificate" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="'https://storage.googleapis.com/mega-iq/iqtest/iq-certificate-example.jpg'"
          alt="Example IQ Certificate">
   </div>
   <div class="col-12 unlockCertificateBlock p-3"

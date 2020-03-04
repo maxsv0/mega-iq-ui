@@ -48,7 +48,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td><img class="img-avatar-small" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
         <td>{{user.totalScore || '-'}}</td>
       </tr>
       </tbody>
@@ -67,12 +67,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" src="{{user.pic}}=s60-c" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td><img class="img-avatar-small" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="user.pic+'s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
         <td>{{user.age || '-'}}</td>
         <td>{{user.location || '-'}}</td>
         <td>{{user.iq || '-'}}</td>
-      </tr>
-      </tbody>
+      </tr>      </tbody>
     </table>
   </div>
 </div>

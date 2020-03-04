@@ -32,12 +32,14 @@ import {ShareButtonsModule} from '@ngx-share/buttons';
 import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
 import {TestcardComponent} from './user/testcard/testcard.component';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 declare const require; // Use the require method provided by webpack
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
+    LazyLoadImageModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
