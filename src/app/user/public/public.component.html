@@ -44,8 +44,7 @@
          [infiniteScrollThrottle]="50"
          (scrolled)="onScrollDown()" *ngFor="let test of userTests">
       <!-- Test card -->
-      <div class="card-container"
-           [ngStyle]="{'background-image': 'url(' + this.testTypes[this.testTypesKeys[test.type]].pic + ')'}">
+      <div class="card-container" [lazyLoad]="this.testTypes[this.testTypesKeys[test.type]].pic" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'">
 
         <!-- Test details -->
         <div class="text-white">
