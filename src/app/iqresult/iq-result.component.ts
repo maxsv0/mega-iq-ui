@@ -1,7 +1,7 @@
 import {Component, ElementRef, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
-import {AlertService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
+import {Subscription} from 'rxjs';
 
 /**
  * @class IqResultComponent
@@ -33,6 +34,8 @@ export class IqResultComponent {
   testQuestionsCount = 0;
   public testTypeEnum = TestTypeEnum;
 
+  currentUser: User;
+
   constructor(
     private titleService: Title,
     private iqTestService: IqTestService,
@@ -41,10 +44,15 @@ export class IqResultComponent {
     private alertService: AlertService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
+    private authenticationService: AuthenticationService,
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+
+    if (this.isBrowser) {
+      this.currentUser = this.authenticationService.currentUserValue;
+    }
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -71,7 +79,6 @@ export class IqResultComponent {
             } else {
               this.test = apiResponseTestResult.test;
               this.user = apiResponseTestResult.user;
-
               this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
 
               this.setTitle(
