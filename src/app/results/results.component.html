@@ -23,7 +23,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let user of users" routerLink="{{user.url}}">
-            <td><img class="img-avatar-small" [defaultImage]="'https://storage.googleapis.com/mega-iq/assets/spinner.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+            <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/spinner.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
             <td>{{user.name || '-'}}</td>
             <td>{{user.location || '-'}}</td>
             <td>{{user.age || '-'}}</td>
