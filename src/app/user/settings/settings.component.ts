@@ -70,6 +70,9 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   private loadUserProfile() {
     this.isLoading = true;
 
+    // call for token request for user before calling API
+    this.authenticationService.refreshIdTokenForCurrent();
+
     this.userService.getMyInfo()
       .pipe(first())
       .subscribe(

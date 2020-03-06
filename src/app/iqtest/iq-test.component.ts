@@ -2,7 +2,7 @@ import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {TestTypeEnum} from '@/_models/enum';
 import {IqTest} from '@/_models';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
@@ -36,6 +36,7 @@ export class IqTestComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private alertService: AlertService,
+        private authenticationService: AuthenticationService,
         private googleAnalyticsService: GoogleAnalyticsService,
         private httpClientModule: HttpClientModule,
         private shareButtonsModule: ShareButtonsModule,
@@ -96,6 +97,10 @@ export class IqTestComponent implements OnInit {
      */
     startTest(type: TestTypeEnum) {
         this.loading = true;
+
+        // call for token request for user before calling API
+        this.authenticationService.refreshIdTokenForCurrent();
+
         this.iqTestService.startTest(type)
             .pipe(first())
             .subscribe(

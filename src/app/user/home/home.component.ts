@@ -76,6 +76,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.loading = true;
 
+    // call for token request for user before calling API
+    this.authenticationService.refreshIdTokenForCurrent();
+
     this.iqTestService.deleteTestResult(code)
       .pipe(first())
       .subscribe(
@@ -117,6 +120,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.isLoadingResults = true;
+
+    // call for token request for user before calling API
+    this.authenticationService.refreshIdTokenForCurrent();
 
     this.iqTestService.getMyAll(this.userTestsPage)
       .pipe(first())

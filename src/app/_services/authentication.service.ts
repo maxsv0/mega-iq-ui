@@ -138,6 +138,14 @@ export class AuthenticationService {
     return userCredential.getIdToken(true);
   }
 
+  public refreshIdTokenForCurrent() {
+    this.firebaseAuth.auth.currentUser.getIdToken().then(idToken => {
+      const user = this.currentUserValue;
+      user.token = idToken;
+      this.update(user);
+    });
+  }
+
   /**
    * @function update
    * @param user User

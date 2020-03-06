@@ -104,6 +104,10 @@ export class ClassroomComponent implements OnInit, OnDestroy {
    */
   submitAnswer(code: string, question: number, answer: number) {
     this.loading = true;
+
+    // call for token request for user before calling API
+    this.authenticationService.refreshIdTokenForCurrent();
+
     this.iqTestService.submitAnswer(code, question, answer)
       .pipe(first())
       .subscribe(
@@ -130,6 +134,10 @@ export class ClassroomComponent implements OnInit, OnDestroy {
    */
   submitFinish(code: string) {
     this.loading = true;
+
+    // call for token request for user before calling API
+    this.authenticationService.refreshIdTokenForCurrent();
+
     this.iqTestService.finishTest(code)
       .pipe(first())
       .subscribe(
