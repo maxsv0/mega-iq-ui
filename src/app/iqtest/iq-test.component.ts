@@ -51,7 +51,7 @@ export class IqTestComponent implements OnInit {
             if (testType == null) {
                 this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
                 const metaTitle = this.titleService.getTitle();
-                const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+                const metaImage = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
                 const metaDescription = this.i18n('Start The IQ Test');
                 this.metaService.updateTag({property: 'og:title', content: metaTitle});
                 this.metaService.updateTag({property: 'og:url', content: this.router.url});

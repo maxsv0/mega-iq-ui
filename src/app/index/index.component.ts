@@ -76,7 +76,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
-    const metaImage = 'https://storage.googleapis.com/mega-iq/about/img/bg-index.jpg';
+    const metaImage = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
     const metaTitle = this.titleService.getTitle();
     const metaDescription = this.i18n('Join the Mega IQ now! IQ Tests Passed');
     this.metaService.updateTag({property: 'og:title', content: metaTitle});
