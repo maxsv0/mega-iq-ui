@@ -48,7 +48,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/spinner.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
         <td>{{user.totalScore || '-'}}</td>
       </tr>
       </tbody>
@@ -67,7 +67,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/spinner.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
         <td>{{user.age || '-'}}</td>
         <td>{{user.location || '-'}}</td>
         <td>{{user.iq || '-'}}</td>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypes"
-         [lazyLoad]="item.pic" [defaultImage]="'https://img.mega-iq.com/g/assets/spinner.gif'">
+         [lazyLoad]="item.pic" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'">
       <div class="course-title text-white">
         <h2><span i18n>Start</span> {{item.name}}</h2>
       </div>
