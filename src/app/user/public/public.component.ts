@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AlertService, IqTestService, UserService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
 import {first} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
@@ -33,6 +33,8 @@ export class PublicComponent implements OnInit {
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
 
+  currentUser: User;
+
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
@@ -41,6 +43,7 @@ export class PublicComponent implements OnInit {
     private alertService: AlertService,
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
+    private authenticationService: AuthenticationService,
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -52,6 +55,10 @@ export class PublicComponent implements OnInit {
     this.userId = userId;
 
     this.isBrowser = isPlatformBrowser(this.platformId);
+
+    if (this.isBrowser) {
+      this.currentUser = this.authenticationService.currentUserValue;
+    }
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
