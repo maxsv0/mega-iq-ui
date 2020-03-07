@@ -139,6 +139,10 @@ export class AuthenticationService {
   }
 
   public refreshIdTokenForCurrent() {
+    if (!this.firebaseAuth.auth.currentUser) {
+      this.logout();
+    }
+
     this.firebaseAuth.auth.currentUser.getIdToken().then(idToken => {
       const user = this.currentUserValue;
       user.token = idToken;
