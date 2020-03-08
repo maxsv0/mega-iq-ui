@@ -17,6 +17,12 @@
         <span i18n>Edit Profile</span>
       </button>
 
+      <!-- Delete certificate btn -->
+      <button (click)="deleteCertificate()" class="btn btn-outline-danger m-2" [disabled]="!currentUser.certificate">
+        <fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon>
+        <span i18n>Delete Certificate</span>
+      </button>
+
       <!-- Logout -->
       <button (click)="logout()" class="btn btn-outline-primary">
         <span i18n>Logout</span>

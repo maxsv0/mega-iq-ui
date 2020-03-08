@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 
 import {TestResult, User} from '@/_models';
-import {AlertService, AuthenticationService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private router: Router,
     private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
+    private userService: UserService,
     private alertService: AlertService,
     private i18n: I18n
   ) {
@@ -158,6 +159,17 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
+  private deleteCertificate() {
+    this.userService.deleteCertificate()
+      .pipe(first())
+      .subscribe(
+        apiResponse => {
+          if (apiResponse.ok) {
+            this.currentUser.certificate = '';
+            this.alertService.error(apiResponse.msg);
+          }
+        });
+  }
   /**
    * @function logout
    * @description Logs out current user

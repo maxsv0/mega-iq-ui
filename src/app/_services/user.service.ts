@@ -101,6 +101,14 @@ export class UserService {
   }
 
   /**
+   * @function deleteCertificate
+   * @description deletes user certificate
+   */
+  deleteCertificate() {
+    return this.http.get<ApiResponseBase>(environment.apiUrl + '/user/deleteCertificate');
+  }
+
+  /**
    * @function getAvatarsDefault
    * @description Shows default avatars that user can use in user settings
    */

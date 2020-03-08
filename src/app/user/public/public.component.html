@@ -17,7 +17,13 @@
 <!-- User banner -->
 <div class="bg-user {{user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
   <div class="container py-5">
-    <div class="position-absolute py-5 px-1" *ngIf="currentUser && user.uid === currentUser.uid">
+    <div class="p-1 text-right" *ngIf="currentUser && user.uid === currentUser.uid">
+      <!-- Open profile -->
+      <button routerLink="/home" class="btn btn-outline-primary mr-2">
+        <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
+        <span i18n>Open Profile</span>
+      </button>
+
       <!-- Profile settings -->
       <button routerLink="/settings" class="btn btn-outline-primary mr-2">
         <fa-icon [icon]="['fas', 'cog']" class="mr-1"></fa-icon>
