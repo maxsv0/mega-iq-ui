@@ -159,7 +159,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
-  private deleteCertificate() {
+  deleteCertificate() {
     this.userService.deleteCertificate()
       .pipe(first())
       .subscribe(
