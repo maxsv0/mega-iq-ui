@@ -16,24 +16,6 @@
   }
 }
 
-/* Start test on home */
-.test-start-btn {
-  font-size: 1.4em;
-  font-weight: bold;
-  font-style: normal;
-  @include transition(all, .3s, ease-in-out);
-  padding: 1rem 3rem;
-  @include border-radius(2em);
-  border: 1px solid var(--primary);
-
-  &:hover {
-    @include box-shadow(0, 10px, 40px, 0 rgba(0, 0, 0, 0.2) !important);
-    color: #333333;
-    background-color: #ffffff;
-    border-color: #ffffff;
-  }
-}
-
 /* Public users carousel */
 #user-example {
   overflow-x: hidden;
@@ -52,14 +34,6 @@
 
   a {
     vertical-align: middle;
-  }
-}
-
-/** Responsive **/
-
-@include tablet {
-  .test-start-btn {
-    background: #fff;
   }
 }
 
@@ -93,9 +67,6 @@
       font-size: 50px;
     }
 
-    .test-start-btn {
-      background: #fff;
-    }
   }
 }
 
@@ -125,10 +96,6 @@
 
     .flip-clock-wrapper ul li a div {
       font-size: 44px;
-    }
-
-    .test-start-btn {
-      background: #fff;
     }
   }
 }
@@ -160,10 +127,6 @@
 
     .flip-clock-wrapper ul li a div {
       font-size: 32px;
-    }
-
-    .test-start-btn {
-      background: #fff;
     }
   }
 
