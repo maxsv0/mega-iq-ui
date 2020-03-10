@@ -129,12 +129,7 @@ export class LoginComponent implements OnInit {
   }
 
   private storeUserAndNavigate(userCredential: firebase.auth.UserCredential) {
-    const user = this.authenticationService.storeFirebaseUser(userCredential.user);
-
-    this.authenticationService.requestIdToken(userCredential.user).then(idToken => {
-      user.token = idToken;
-      this.authenticationService.update(user);
-
+    this.authenticationService.updateAuthData(userCredential.user).then(_ => {
       this.loading = false;
       this.router.navigate([this.returnUrl]);
     });

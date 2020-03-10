@@ -3,10 +3,11 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 
 import {AuthenticationService, IqTestService} from './_services';
-import {IqTest, User} from './_models';
+import {IqTest} from './_models';
 import {APP_LOCALE_ID} from '../environments/app-locale';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 import {isPlatformBrowser} from '@angular/common';
+import * as firebase from 'firebase';
 
 /**
  * @class AppComponent
@@ -19,7 +20,7 @@ import {isPlatformBrowser} from '@angular/common';
 })
 export class AppComponent {
   title = 'mega-iq-ui';
-  currentUser: User;
+  currentUser: firebase.User;
   backgroundClass: string;
   testTypes: IqTest[] = [];
   loading = false;

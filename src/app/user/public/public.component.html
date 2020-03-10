@@ -1,6 +1,6 @@
 <!-- User public profile -->
 
-<div class="p-3" *ngIf="isBrowser">
+<div class="p-3" *ngIf="isBrowser && customConfig">
   <!-- Social media share -->
   <share-buttons
     [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','xing','line','sms','email','print','copy']"

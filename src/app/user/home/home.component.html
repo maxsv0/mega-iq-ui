@@ -1,5 +1,5 @@
 <!-- User dashboard -->
-<div class="container pt-4 pb-3">
+<div class="container pt-4 pb-3" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-sm-5">
       <h2><span i18n>Hi</span>, {{currentUser.name}}!</h2>
@@ -18,7 +18,7 @@
       </button>
 
       <!-- Delete certificate btn -->
-      <button (click)="deleteCertificate()" class="btn btn-outline-danger m-2" [disabled]="!currentUser.certificate">
+      <button (click)="deleteCertificate()" class="btn btn-outline-danger m-2" *ngIf="currentUser.certificate">
         <fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon>
         <span i18n>Delete Certificate</span>
       </button>
@@ -42,14 +42,14 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage">
+<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage && currentUser">
   <div class="container py-4">
     <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
   </div>
 </div>
 
 <!-- User tests -->
-<div class="container mt-5" *ngIf="!isLoadingPage">
+<div class="container mt-5" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-12">
       <h1>{{currentUser.name}}, <span i18n> your iq tests are displayed below</span>.</h1>

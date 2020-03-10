@@ -35,7 +35,7 @@
         <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser" data-toggle="collapse"
                 data-target=".navbar-collapse.show">
           <fa-icon [icon]="['fas', 'user']"></fa-icon>
-          {{currentUser.name}}
+          {{currentUser.displayName}}
         </button>
         <!-- Sign up button -->
         <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">

@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
-import {Subscription} from 'rxjs';
+import * as firebase from 'firebase';
 
 /**
  * @class IqResultComponent
@@ -34,7 +34,7 @@ export class IqResultComponent {
   testQuestionsCount = 0;
   public testTypeEnum = TestTypeEnum;
 
-  currentUser: User;
+  currentUser: firebase.User;
 
   constructor(
     private titleService: Title,

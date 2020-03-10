@@ -98,9 +98,6 @@ export class IqTestComponent implements OnInit {
     startTest(type: TestTypeEnum) {
         this.loading = true;
 
-        // call for token request for user before calling API
-        this.authenticationService.refreshIdTokenForCurrent();
-
         this.iqTestService.startTest(type)
             .pipe(first())
             .subscribe(
