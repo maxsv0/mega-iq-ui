@@ -33,6 +33,7 @@ import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
 import {TestcardComponent} from './user/testcard/testcard.component';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import { UsersComponent } from './users/users.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -66,7 +67,8 @@ declare const require; // Use the require method provided by webpack
     IqResultComponent,
     PublicComponent,
     AvatarComponent,
-    TestcardComponent
+    TestcardComponent,
+    UsersComponent
   ],
   providers: [
     AuthenticationService,

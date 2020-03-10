@@ -5,6 +5,7 @@ import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiRe
 import {TestTypeEnum} from '@/_models/enum';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {first} from 'rxjs/operators';
+import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-test-result-list';
 
 /**
  * @class IqTestService
@@ -33,6 +34,10 @@ export class IqTestService {
             this.testTypesSubject.next(this.testTypes);
           }
         });
+  }
+
+  getLatestResults() {
+    return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest`);
   }
 
   /**
