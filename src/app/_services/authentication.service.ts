@@ -4,7 +4,6 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {createLocalStorage} from 'localstorage-ponyfill';
 
-import {User} from '@/_models';
 import {environment} from '../../environments/environment';
 import {AngularFireAuth} from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
@@ -15,9 +14,13 @@ import * as firebase from 'firebase/app';
  */
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
-  public currentUser: Observable<User>;
-  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<firebase.User>;
+  private currentUserSubject: BehaviorSubject<firebase.User>;
   private localStorage: any;
+
+  // user token that is used to call API
+  private currentToken: Observable<string>;
+  private currentTokenSubject: BehaviorSubject<string>;
 
   constructor(
     private http: HttpClient,
@@ -25,33 +28,44 @@ export class AuthenticationService {
   ) {
     this.localStorage = createLocalStorage();
 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(this.localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<firebase.User>(JSON.parse(this.localStorage.getItem('user')));
     this.currentUser = this.currentUserSubject.asObservable();
 
-    // firebaseAuth.authState.subscribe(
-    //   userCredential => {
-    //     this.storeFirebaseUser(userCredential);
-    //   }
-    // );
-    //
-    // this.firebaseAuth.idToken.subscribe(
-    //   token => {
-    //     const user = JSON.parse(this.localStorage.getItem('currentUser'));
-    //     if (user !== null && Object.entries(user).length !== 0) {
-    //       user.token = token;
-    //       this.update(user);
-    //     }
-    //   }
-    // );
+    this.currentTokenSubject = new BehaviorSubject<string>(JSON.parse(this.localStorage.getItem('token')));
+    this.currentToken = this.currentTokenSubject.asObservable();
+
+    this.firebaseAuth.authState.subscribe(user => {
+      if (user) {
+        this.updateAuthData(user);
+      } else {
+        this.localStorage.setItem('user', JSON.stringify(null));
+        this.currentUserSubject.next(null);
+      }
+    });
+
+    this.firebaseAuth.idToken.subscribe(
+      token => {
+        this.localStorage.setItem('token', JSON.stringify(token));
+        this.currentTokenSubject.next(token);
+      }
+    );
   }
 
   /**
    * @function currentUserValue
    * @description Returns current user value
    */
-  public get currentUserValue(): User {
+  public get currentUserValue(): firebase.User {
     if (this.currentUserSubject.value && Object.entries(this.currentUserSubject.value).length !== 0) {
       return this.currentUserSubject.value;
+    } else {
+      return null;
+    }
+  }
+
+  public get currentTokenValue(): string {
+    if (this.currentTokenSubject.value && Object.entries(this.currentTokenSubject.value).length !== 0) {
+      return this.currentTokenSubject.value;
     } else {
       return null;
     }
@@ -106,58 +120,27 @@ export class AuthenticationService {
     return this.http.post<any>(environment.apiUrl + '/user/loginToken', {token})
       .pipe(map(apiResponseUser => {
 
-        // login successful if there's a jwt token in the response
         if (apiResponseUser.ok) {
-          this.update(apiResponseUser.user);
+          this.updateAuthData(apiResponseUser.user);
         }
 
         return apiResponseUser;
       }));
   }
 
-  /**
-   * @function storeFirebaseUser
-   * @param userCredential Firebase stored user
-   * @description Creates a user and stores data
-   */
-  public storeFirebaseUser(userCredential: firebase.User) {
-    let user = null;
-    if (userCredential !== null) {
-      user = new User();
-      user.uid = userCredential.uid;
-      user.email = userCredential.email;
-      user.name = userCredential.displayName;
-      user.isEmailVerified = userCredential.emailVerified;
-      user.pic = userCredential.photoURL;
-    }
-
-    return user;
-  }
-
   public requestIdToken(userCredential: firebase.User) {
     return userCredential.getIdToken(true);
   }
 
-  public refreshIdTokenForCurrent() {
-    if (!this.firebaseAuth.auth.currentUser) {
-      this.logout();
-    }
-
-    this.firebaseAuth.auth.currentUser.getIdToken().then(idToken => {
-      const user = this.currentUserValue;
-      user.token = idToken;
-      this.update(user);
-    });
-  }
-
   /**
-   * @function update
-   * @param user User
+   * @function updateAuthData
+   * @param user any
    * @description Sets current user in localstorage
    */
-  update(user: User) {
-    this.localStorage.setItem('currentUser', JSON.stringify(user));
+  updateAuthData(user: any) {
+    this.localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSubject.next(user);
+    return this.requestIdToken(user);
   }
 
   /**
@@ -165,10 +148,10 @@ export class AuthenticationService {
    * @description Logs user out and reomve user from local storage
    */
   logout() {
-    this.firebaseAuth
-      .auth
-      .signOut();
-    this.localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    return this.firebaseAuth.auth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.localStorage.removeItem('user');
+      this.currentUserSubject.next(null);
+    });
   }
 }

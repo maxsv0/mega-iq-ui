@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {ShareButtonsConfig} from '@ngx-share/core';
 import {isPlatformBrowser} from '@angular/common';
+import * as firebase from 'firebase';
 
 /**
  * @class PublicComponent
@@ -33,7 +34,7 @@ export class PublicComponent implements OnInit {
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
 
-  currentUser: User;
+  currentUser: firebase.User;
 
   constructor(
     private titleService: Title,

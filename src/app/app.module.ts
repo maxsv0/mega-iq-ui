@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
 
 import {AlertComponent} from './_alert';
-import {ErrorInterceptor, JwtInterceptor} from './_helpers';
+import {JwtInterceptor} from './_helpers';
 import {IndexComponent} from './index/index.component';
 import {LoginComponent} from './user/login/login.component';
 import {RegisterComponent} from './user/register/register.component';
@@ -71,7 +71,6 @@ declare const require; // Use the require method provided by webpack
   providers: [
     AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
