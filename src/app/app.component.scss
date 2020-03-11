@@ -1,8 +1,9 @@
 @import '../styles.scss';
 
 /** Main page sytles and navbar styles **/
-.container:first-of-type {
-  padding-top: 25px;
+
+#bgMain {
+  margin-top: 66px;
 }
 
 .home-image {
@@ -63,12 +64,14 @@
 }
 
 /** Responsive **/
-
 @include tablet {
   .dropdown-locale {
     margin-left: -50px;
   }
 
+  #bgMain {
+    margin-top: 85px;
+  }
 }
 
 @include desktop {
@@ -76,13 +79,9 @@
     margin-left: -50px;
   }
 
-}
-
-@include desktop-lg {
-  .dropdown-locale {
-    margin-left: -50px;
+  #bgMain {
+    margin-top: 85px;
   }
-
 }
 
 // fix parallax bug on iOS tablet devices

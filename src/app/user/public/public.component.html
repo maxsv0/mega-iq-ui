@@ -1,5 +1,4 @@
 <!-- User public profile -->
-
 <div class="p-3" *ngIf="isBrowser && customConfig">
   <!-- Social media share -->
   <share-buttons
@@ -14,10 +13,10 @@
   ></share-buttons>
 </div>
 
-<!-- User banner -->
-<div class="bg-user {{user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
-  <div class="container py-5">
-    <div class="p-1 text-right" *ngIf="currentUser && user.uid === currentUser.uid">
+<!-- User dashboard -->
+<div class="container pt-2 pb-3" *ngIf="!isLoadingPage && currentUser && currentUser && user.uid === currentUser.uid">
+  <div class="row">
+    <div id="home-actions" class="col-sm-7 text-right">
       <!-- Open profile -->
       <button routerLink="/home" class="btn btn-outline-primary mr-2">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
@@ -30,6 +29,12 @@
         <span i18n>Edit Profile</span>
       </button>
     </div>
+  </div>
+</div>
+
+<!-- User banner -->
+<div class="bg-user {{user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
+  <div class="container py-5">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>
 </div>

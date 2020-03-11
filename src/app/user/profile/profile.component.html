@@ -19,10 +19,10 @@
     </div>
   </div>
   <div class="col-md-6 my-2" *ngIf="user.certificate">
-    <img class="img-fluid img-thumbnail img-certificate" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.certificate" alt="IQ Certificate" />
+    <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.certificate" alt="IQ Certificate" />
   </div>
-  <div class="col-md-6 p-3" *ngIf="user && !user.certificate">
-    <img class="img-fluid img-thumbnail img-certificate" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="'https://img.mega-iq.com/g/iqtest/iq-certificate-example.jpg'"
+  <div class="col-md-6 my-2" *ngIf="user && !user.certificate">
+    <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="'https://img.mega-iq.com/g/iqtest/iq-certificate-example.jpg'"
          alt="Example IQ Certificate">
   </div>
   <div class="col-12 unlockCertificateBlock p-3"

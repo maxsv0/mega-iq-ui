@@ -48,12 +48,6 @@ body {
   height: 60px;
 }
 
-.img-certificate {
-  min-width: 320px;
-  min-height: 320px;
-  max-width: 100%;
-}
-
 .test-practice {
   border-color: $colorPracticeDark;
   background-color: $colorPractice;
@@ -169,11 +163,36 @@ body {
   @include gradient(#ffffff, #f8f9fa, vertical);
 }
 
-@include mobile-lg {
-  .sb-group {
-    button {
-      font-size: 9px !important;
-    }
+/** User profile card **/
+#iq-user {
+  .iq-user-body {
+    width: 300px;
+    @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
+  }
+
+  .profile-example {
+    @include border-radius(4px);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .profile-hover {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hover-bg {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include transition(all, .3s);
   }
 }
 
@@ -190,10 +209,23 @@ body {
     min-height: 250px;
     padding: 20px;
     margin: 15px auto;
-    border-radius: 10px;
-    background-color: white;
-    background-size: cover;
-    background-position: center;
+  }
+
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 15px;
+      }
+    }
+  }
+
+  .img-avatar {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .iq-user-body {
+    width: 100% !important;
   }
 }
 
@@ -203,10 +235,14 @@ body {
     min-height: 200px;
     padding: 10px;
     margin: 10px auto;
-    border-radius: 10px;
-    background-color: white;
-    background-size: cover;
-    background-position: center;
+  }
+
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 9px;
+      }
+    }
   }
 }
 
@@ -216,9 +252,13 @@ body {
     min-height: 200px;
     padding: 10px;
     margin: 5px auto;
-    border-radius: 10px;
-    background-color: white;
-    background-size: cover;
-    background-position: center;
+  }
+
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 4px;
+      }
+    }
   }
 }

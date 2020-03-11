@@ -2,91 +2,89 @@
 <div class="container">
   <div class="row">
     <div class="col-12 pt-3">
-
       <h1 i18n>Mega-iq test online</h1>
       <h4 i18n>Every day thousands pass the online Mega-IQ test for free worldwide!</h4>
-
-      <section id="iq-scores" *ngIf="!isLoading">
-        <p class="text-right">{{count}} results found</p>
-
-        <!-- Active current results table details -->
-        <table class="w-100 bg-white mb-2" *ngIf="testsActive && testsActive.length > 0">
-          <thead>
-          <tr>
-            <th width="10%" i18n>User</th>
-            <th width="30%" i18n>Test</th>
-            <th width="10%" i18n>Status</th>
-            <th width="20%" i18n>Started</th>
-            <th width="30%" i18n>Current test progress</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let test of testsActive">
-            <td *ngIf="test.userPic">
-              <img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="test.userPic+'=s60-c'">
-            </td>
-            <td *ngIf="!test.userPic">
-              <span i18n>private</span>
-            </td>
-            <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
-            <td>
-              <span class="badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
-                         'badge-primary': test.status === testStatus.ACTIVE}">{{test.status}}</span>
-            </td>
-            <td class="small">{{test.createDate | date:'medium'}}</td>
-            <td>
-              <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <!-- Top results table details -->
-        <table class="w-100 bg-white table-hover">
-          <thead>
-          <tr>
-            <th width="10%" i18n>User</th>
-            <th width="30%" i18n>Test</th>
-            <th width="5%" i18n>Result</th>
-            <th width="35%" i18n>Info</th>
-            <th width="20%" i18n>Finished at</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let test of tests">
-            <td *ngIf="test.userPic" routerLink="{{test.url}}">
-              <img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="test.userPic+'=s60-c'">
-            </td>
-            <td *ngIf="!test.userPic">
-              <span i18n>private</span>
-            </td>
-            <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
-            <td>
-              <span>{{test.points}}</span>
-            </td>
-            <td class="small">
-              <div>
-                <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
-              </div>
-              <div *ngIf="test.finishDate">
-                <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
-              </div>
-            </td>
-            <td>
-              <a routerLink="{{test.url}}" class="btn btn-success btn-block">
-                <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
-                <span i18n>Open Details</span></a>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-
-      </section>
-
     </div>
   </div>
 </div>
+
+<section id="iq-scores" class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-12">
+      <p class="text-right">{{count}} results found</p>
+
+      <!-- Active current results table details -->
+      <table class="w-100 bg-white mb-2" *ngIf="testsActive && testsActive.length > 0">
+        <thead>
+        <tr>
+          <th width="10%" i18n>User</th>
+          <th width="30%" i18n>Test</th>
+          <th width="10%" i18n>Status</th>
+          <th width="20%" i18n>Started</th>
+          <th width="30%" i18n>Current test progress</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let test of testsActive">
+          <td *ngIf="test.userPic">
+            <img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'"
+                 [lazyLoad]="test.userPic+'=s60-c'">
+          </td>
+          <td *ngIf="!test.userPic">
+            <span i18n>private</span>
+          </td>
+          <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
+          <td>
+        <span class="badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
+                   'badge-primary': test.status === testStatus.ACTIVE}">{{test.status}}</span>
+          </td>
+          <td class="small">{{test.createDate | date:'medium'}}</td>
+          <td>
+            <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Top results table details -->
+      <table class="w-100 bg-white table-hover">
+        <thead>
+        <tr>
+          <th width="10%" i18n>User</th>
+          <th width="30%" i18n>Test</th>
+          <th width="5%" i18n>Result</th>
+          <th width="35%" i18n>Finished at</th>
+          <th width="20%" i18n>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let test of tests">
+          <td *ngIf="test.userPic" routerLink="{{test.url}}">
+            <img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'"
+                 [lazyLoad]="test.userPic+'=s60-c'">
+          </td>
+          <td *ngIf="!test.userPic">
+            <span i18n>private</span>
+          </td>
+          <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
+          <td>
+            <span>{{test.points}}</span>
+          </td>
+          <td class="small text-left">
+            {{test.finishDate | date:'medium'}}
+          </td>
+          <td>
+            <a routerLink="{{test.url}}" class="btn btn-success btn-block">
+              <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
+              <span i18n>Open Details</span></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
 
 <!-- Loader -->
 <div class="container" *ngIf="isLoading">
