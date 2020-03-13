@@ -12,6 +12,7 @@ import {IqTestComponent} from './iqtest/iq-test.component';
 import {IqResultComponent} from './iqresult/iq-result.component';
 import {ClassroomComponent} from './classroom/classroom.component';
 import {AuthGuard} from './_guards';
+import {UsersComponent} from '@/users/users.component';
 
 
 const appRoutes: Routes = [
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'forget', component: ForgetComponent},
   {path: 'iqtest', component: IqTestComponent},
+  {path: 'iqtest/users', component: UsersComponent},
   {path: 'iqtest/results', component: ResultsComponent},
   {path: 'iqtest/:testType', component: IqTestComponent},
   {path: 'iqtest/result/:testCode', component: IqResultComponent},

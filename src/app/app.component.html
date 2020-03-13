@@ -2,7 +2,7 @@
 <div class="site-wrapper">
   <header id="header-mega-iq" class="bg-light fixed-top">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light my-2">
+    <nav class="navbar navbar-expand-md navbar-light my-md-0 my-lg-2">
       <a class="navbar-brand p-0" routerLink="/"><img class="mx-2"
                                                   src="https://img.mega-iq.com/g/brand/logo-mega-iq-navbar.png"
                                                   border="0" width="150" height="50" alt="www.mega-iq.com"/></a>
@@ -26,8 +26,11 @@
               </div>
             </div>
           </li>
-          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <li class="nav-item">
             <a class="nav-link mt-2 ml-2" routerLink="/iqtest/results" i18n>Best Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-2 ml-2" routerLink="/iqtest/users" i18n>Best Users</a>
           </li>
         </ul>
 
@@ -35,7 +38,7 @@
         <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser" data-toggle="collapse"
                 data-target=".navbar-collapse.show">
           <fa-icon [icon]="['fas', 'user']"></fa-icon>
-          {{currentUser.name}}
+          {{currentUser.displayName}}
         </button>
         <!-- Sign up button -->
         <ul class="navbar-nav mt-2 mt-md-0" *ngIf="!currentUser">
@@ -78,7 +81,7 @@
   </header>
 
   <!-- main app container -->
-  <main *ngIf="!loading" id="bgMain" class="mt-6 pt-2 {{backgroundClass}}">
+  <main *ngIf="!loading" id="bgMain" class="{{backgroundClass}}">
 
     <alert></alert>
     <router-outlet></router-outlet>

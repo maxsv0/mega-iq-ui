@@ -95,6 +95,8 @@ def deployByLocale(def locale) {
   script {
     if ("${locale}" != 'en') {
       sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
+    } else {
+      machineType = "n1-standard-1";
     }
     sh "sed -i \"s/'en'/'${locale}'/g\" src/environments/app-locale.ts"
     sh "sed -i 's/\"en\"/\"${locale}\"/g' src/index.html"

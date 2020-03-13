@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,10 +9,11 @@ import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
+import * as firebase from 'firebase';
 
 /**
  * @class ClassroomComponent
- * @implements OnInit, OnDestroy
+ * @implements OnInit,
  * @description Controller for the individual test component called 'Classroom'
  */
 @Component({
@@ -20,7 +21,7 @@ import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
   templateUrl: './classroom.component.html',
   styleUrls: ['./classroom.component.scss']
 })
-export class ClassroomComponent implements OnInit, OnDestroy {
+export class ClassroomComponent implements OnInit {
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   loading = false;
@@ -35,7 +36,7 @@ export class ClassroomComponent implements OnInit, OnDestroy {
   activeQuestionAllDone = false;
   activeQuestion: Question;
 
-  currentUser: User;
+  currentUser: firebase.User;
   currentUserSubscription: Subscription;
 
   constructor(
@@ -66,21 +67,9 @@ export class ClassroomComponent implements OnInit, OnDestroy {
         }
       );
     });
-
-    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
-      this.currentUser = user;
-    });
   }
 
   ngOnInit() {
-  }
-
-  /**
-   * @function ngOnDestroy
-   * @description Unsubscribes from user event when component is detached
-   */
-  ngOnDestroy() {
-    this.currentUserSubscription.unsubscribe();
   }
 
   /**
@@ -104,9 +93,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
    */
   submitAnswer(code: string, question: number, answer: number) {
     this.loading = true;
-
-    // call for token request for user before calling API
-    this.authenticationService.refreshIdTokenForCurrent();
 
     this.iqTestService.submitAnswer(code, question, answer)
       .pipe(first())
@@ -134,9 +120,6 @@ export class ClassroomComponent implements OnInit, OnDestroy {
    */
   submitFinish(code: string) {
     this.loading = true;
-
-    // call for token request for user before calling API
-    this.authenticationService.refreshIdTokenForCurrent();
 
     this.iqTestService.finishTest(code)
       .pipe(first())

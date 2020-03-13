@@ -5,10 +5,3 @@
   border-radius: 1em;
 }
 
-/** Responsive **/
-@include mobile-lg {
-  #iq-user > div {
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-}

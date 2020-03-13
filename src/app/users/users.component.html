@@ -1,0 +1,42 @@
+<!-- Top users -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 pt-3">
+
+      <section id="iq-scores" *ngIf="!isLoading">
+        <h2 i18n>Top users this month</h2>
+
+        <!-- Top users table details -->
+        <table class="w-100 bg-white table-hover">
+          <thead>
+          <tr>
+            <th width="20%" i18n>User</th>
+            <th width="30%" i18n>Name</th>
+            <th width="30%" i18n>Location</th>
+            <th width="10%" i18n>Age</th>
+            <th width="10%" i18n>IQ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users" routerLink="{{user.url}}">
+            <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+            <td>{{user.name || '-'}}</td>
+            <td>{{user.location || '-'}}</td>
+            <td>{{user.age || '-'}}</td>
+            <td>{{user.iq || '-'}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- Loader -->
+<div class="container" *ngIf="isLoading">
+  <div class="loader-placeholder">
+    <div class="page-loader"></div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 
 import {TestResult, User} from '@/_models';
@@ -11,16 +10,15 @@ import {TestStatusEnum} from '@/_models/enum';
 
 /**
  * @class HomeComponent
- * @implements OnInit, OnDestroy
+ * @implements OnInit
  */
 @Component({
   templateUrl: 'home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   currentUser: User;
-  currentUserSubscription: Subscription;
   userTests: TestResult[] = [];
   userTestsActive: TestResult[] = [];
   loading = false;
@@ -38,9 +36,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private i18n: I18n
   ) {
-    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
-      this.currentUser = user;
-    });
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
   }
 
@@ -50,15 +45,6 @@ export class HomeComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.loadMyResult();
-  }
-
-  /**
-   * @function ngOnDestroy
-   * @description Unsubscribe from current user on destroy
-   */
-  ngOnDestroy() {
-    // unsubscribe to ensure no memory leaks
-    this.currentUserSubscription.unsubscribe();
   }
 
   get deleteTestResultFunc() {
@@ -76,9 +62,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
-
-    // call for token request for user before calling API
-    this.authenticationService.refreshIdTokenForCurrent();
 
     this.iqTestService.deleteTestResult(code)
       .pipe(first())
@@ -121,9 +104,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.isLoadingResults = true;
-
-    // call for token request for user before calling API
-    this.authenticationService.refreshIdTokenForCurrent();
 
     this.iqTestService.getMyAll(this.userTestsPage)
       .pipe(first())
@@ -170,6 +150,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         });
   }
+
   /**
    * @function logout
    * @description Logs out current user

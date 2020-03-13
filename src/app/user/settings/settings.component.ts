@@ -33,7 +33,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   isBrowser: boolean;
 
   currentUser: User;
-  currentUserSubscription: Subscription;
 
   constructor(
     private titleService: Title,
@@ -51,10 +50,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
 
-    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
-      this.currentUser = user;
-    });
-
     const code = this.route.snapshot.params['verifyCode'];
     if (code) {
       this.sendVerifyEmailCheck(code);
@@ -69,9 +64,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
    */
   private loadUserProfile() {
     this.isLoading = true;
-
-    // call for token request for user before calling API
-    this.authenticationService.refreshIdTokenForCurrent();
 
     this.userService.getMyInfo()
       .pipe(first())
@@ -165,7 +157,6 @@ export class SettingsComponent implements OnInit, AfterViewInit {
       .subscribe(
         apiResponseUser => {
           if (apiResponseUser.ok) {
-            this.authenticationService.update(apiResponseUser.user);
             this.alertService.success('Successfully saved', true);
             this.router.navigate(['/user/' + this.currentUser.id]);
           } else {

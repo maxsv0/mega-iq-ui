@@ -39,9 +39,8 @@
 
 $mobile-width-sm: 320px;
 $mobile-width-md: 375px;
-$mobile-width-lg: 426px;
-$desktop-width: 1024px;
-$desktop-width-lg: 1920px;
+$mobile-width-lg: 576px;
+$desktop-width: 992px;
 
 @mixin mobile-sm {
   @media (max-width: $mobile-width-sm) {
@@ -68,13 +67,7 @@ $desktop-width-lg: 1920px;
 }
 
 @mixin desktop {
-  @media (min-width: ($desktop-width + 1)) and (max-width: $desktop-width-lg) {
-    @content;
-  }
-}
-
-@mixin desktop-lg {
-  @media (min-width: ($desktop-width-lg + 1)) {
+  @media (min-width: ($desktop-width + 1)) {
     @content;
   }
 }

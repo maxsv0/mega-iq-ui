@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertService, UserService} from '@/_services';
+import {AlertService, IqTestService} from '@/_services';
 import {first} from 'rxjs/operators';
-import {User} from '@/_models';
 import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {Router} from '@angular/router';
+import {PublicTestResult} from '@/_models/public-test-result';
+import {IqTest} from '@/_models';
+import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 
 /**
  * @class ResultsComponent
@@ -17,45 +18,61 @@ import {Router} from '@angular/router';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  users: User[] = [];
   count = 0;
+  testsActive: PublicTestResult[] = [];
+  tests: PublicTestResult[] = [];
   isLoading = false;
+  testTypes: IqTest[];
+  testTypesKeys: [] = [];
+
+  public testStatus = TestStatusEnum;
+  public testTypeEnum = TestTypeEnum;
 
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    private userService: UserService,
+    private iqTestService: IqTestService,
     private alertService: AlertService,
     private i18n: I18n,
-    private router: Router,
   ) {
     this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
     const metaTitle = this.titleService.getTitle();
     const metaDescription = this.i18n('Every day thousands pass the online Mega-IQ test for free worldwide!');
     this.metaService.updateTag({property: 'og:title', content: metaTitle});
     this.metaService.updateTag({property: 'og:description', content: metaDescription});
-    this.metaService.updateTag({property: 'og:url', content: this.router.url});
+    this.metaService.updateTag({property: 'og:url', content: '/iqtest/results'});
+
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
+
+      Object.entries(this.testTypes).forEach(
+        ([key, test]) => {
+          this.testTypesKeys[test.type] = key;
+        }
+      );
+    });
 
     this.isLoading = true;
-    this.loadUsersAll();
+    this.loadUsersResults();
   }
 
   ngOnInit() {
   }
 
   /**
-   * @function loadUsersAll
-   * @description Get all users to show in ranking
+   * @function loadUsersResults
+   * @description Get latest iq tests results to show in ranking
    */
-  private loadUsersAll() {
-    this.userService.getAll().pipe(first()).subscribe(
-      apiResponseUsersList => {
-        if (apiResponseUsersList.ok) {
-          this.users = apiResponseUsersList.users;
-          this.count = apiResponseUsersList.count;
+  private loadUsersResults() {
+    this.iqTestService.getLatestResults().pipe(first()).subscribe(
+      apiResponsePublicTestResultList => {
+        if (apiResponsePublicTestResultList.ok) {
+          this.testsActive = apiResponsePublicTestResultList.testsActive;
+          this.tests = apiResponsePublicTestResultList.tests;
+          this.count = apiResponsePublicTestResultList.count;
           this.isLoading = false;
         } else {
-          this.alertService.error(apiResponseUsersList.msg);
+          this.alertService.error(apiResponsePublicTestResultList.msg);
           this.isLoading = false;
         }
       },

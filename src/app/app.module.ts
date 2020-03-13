@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import {routing} from './app-routing.module';
 
 import {AlertComponent} from './_alert';
-import {ErrorInterceptor, JwtInterceptor} from './_helpers';
+import {JwtInterceptor} from './_helpers';
 import {IndexComponent} from './index/index.component';
 import {LoginComponent} from './user/login/login.component';
 import {RegisterComponent} from './user/register/register.component';
@@ -33,6 +33,7 @@ import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
 import {TestcardComponent} from './user/testcard/testcard.component';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import { UsersComponent } from './users/users.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -66,12 +67,12 @@ declare const require; // Use the require method provided by webpack
     IqResultComponent,
     PublicComponent,
     AvatarComponent,
-    TestcardComponent
+    TestcardComponent,
+    UsersComponent
   ],
   providers: [
     AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {

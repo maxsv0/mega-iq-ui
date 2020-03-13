@@ -1,0 +1,33 @@
+@import 'src/views/_mixins';
+
+/** Responsive **/
+@include mobile-lg {
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+@include mobile-md {
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 9px;
+      }
+    }
+  }
+}
+
+@include mobile-sm {
+  #iq-scores {
+    table {
+      th, td {
+        padding: 10px 4px;
+      }
+    }
+  }
+}
+
