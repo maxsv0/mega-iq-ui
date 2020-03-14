@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
 import {first} from 'rxjs/operators';
-import {Title} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {TestTypeEnum} from '@/_models/enum';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
@@ -38,6 +38,7 @@ export class PublicComponent implements OnInit {
 
   constructor(
     private titleService: Title,
+    private metaService: Meta,
     private route: ActivatedRoute,
     private iqTestService: IqTestService,
     private userService: UserService,
@@ -94,10 +95,10 @@ export class PublicComponent implements OnInit {
           if (apiResponseTestResultList.ok) {
             if (!this.user) {
               this.user = apiResponseTestResultList.user;
-              this.setTitle(this.user.name, this.user.iq, this.user.location);
+              this.setMetaTags(this.user);
 
               const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
-              this.setCustomShareButtonsConfig(customShareImage, this.titleService.getTitle());
+              this.setCustomShareButtonsConfig(this.titleService, this.titleService.getTitle());
             }
 
             if (apiResponseTestResultList.tests.length < 8) {
@@ -127,25 +128,30 @@ export class PublicComponent implements OnInit {
   }
 
   /**
-   * @function setTitle
-   * @param name User name
-   * @param iq User IQ
-   * @param location User location
+   * @function setMetaTags
    * @description Sets title for user public profile
+   * @param user
    */
-  public setTitle(name: string, iq: number, location: string) {
-    if (iq != null) {
+  public setMetaTags(user: User) {
+    if (user.iq != null) {
       this.titleService.setTitle(this.i18n('IQ {{iq}} {{name}} {{location}}', {
-        name: name,
-        iq: iq,
-        location: location
+        name: user.name,
+        iq: user.iq,
+        location: user.location
       }));
     } else {
       this.titleService.setTitle(this.i18n('{{name}} {{location}}', {
-        name: name,
-        location: location
+        name: user.name,
+        location: user.location
       }));
     }
+
+    const shareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
+
+    this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:description', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:image', content: shareImage});
+    this.metaService.updateTag({property: 'og:url', content: user.url});
   }
 
   /**

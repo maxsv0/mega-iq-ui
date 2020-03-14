@@ -4,7 +4,7 @@ import {first} from 'rxjs/operators';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
 import {IqTest, TestResult, User} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
-import {Title} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
@@ -38,6 +38,7 @@ export class IqResultComponent {
 
   constructor(
     private titleService: Title,
+    private metaService: Meta,
     private iqTestService: IqTestService,
     private route: ActivatedRoute,
     private router: Router,
@@ -81,7 +82,7 @@ export class IqResultComponent {
               this.user = apiResponseTestResult.user;
               this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
 
-              this.setTitle(
+              this.setMetaTags(
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
@@ -177,9 +178,10 @@ export class IqResultComponent {
    * @param type Test type
    * @description Sets title for completed test result and i18n
    */
-  public setTitle(score: number, date: string, type: TestTypeEnum) {
+  public setMetaTags(score: number, date: string, type: TestTypeEnum) {
     const testName = this.testTypes[this.testTypesKeys[type]].name;
     const testQuestions = this.testTypes[this.testTypesKeys[type]].questions;
+    const testPic = this.testTypes[this.testTypesKeys[type]].pic;
 
     if (score != null) {
       switch (type) {
@@ -210,5 +212,10 @@ export class IqResultComponent {
         date: date
       }));
     }
+
+    this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:description', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:image', content: testPic});
+    this.metaService.updateTag({property: 'og:url', content: this.router.url});
   }
 }

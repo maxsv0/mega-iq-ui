@@ -82,7 +82,6 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.metaService.updateTag({property: 'og:title', content: metaTitle});
     this.metaService.updateTag({property: 'og:description', content: metaDescription});
     this.metaService.updateTag({property: 'og:image', content: metaImage});
-    this.metaService.updateTag({property: 'og:url', content: this.router.url});
     this.setCustomShareButtonsConfig(metaImage, metaTitle, metaDescription);
     this.loadUsersTop();
   }
