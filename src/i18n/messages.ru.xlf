@@ -4,7 +4,7 @@
     <unit id="2586312104569557204">
       <notes>
 
-      <note category="location">app/app.component.html:93</note></notes>
+      <note category="location">app/app.component.html:96</note></notes>
       <segment state="translated">
         <source>Mega-IQ</source>
       <target>Мега-Айкю</target></segment>
@@ -23,12 +23,19 @@
       <segment state="translated">
         <source>Best Results</source>
       <target>Рейтинг IQ теста</target></segment>
+    </unit><unit id="2864338553126737462">
+      <notes>
+        <note category="location">app/app.component.html:33</note>
+      </notes>
+      <segment state="initial">
+        <source>Best Users</source>
+      <target>Best Users</target></segment>
     </unit>
 
     <unit id="7028204981963450021">
       <notes>
 
-      <note category="location">app/app.component.html:43</note></notes>
+      <note category="location">app/app.component.html:46</note></notes>
       <segment state="translated">
         <source>Sign up</source>
       <target>Регистрация</target></segment>
@@ -36,7 +43,7 @@
     <unit id="8520023152129279437">
       <notes>
 
-      <note category="location">app/app.component.html:46</note><note category="location">app/user/login/login.component.html:30</note></notes>
+      <note category="location">app/app.component.html:49</note><note category="location">app/user/login/login.component.html:30</note></notes>
       <segment state="translated">
         <source>Log In</source>
       <target>Войти</target></segment>
@@ -44,7 +51,7 @@
     <unit id="1726363342938046830">
       <notes>
 
-      <note category="location">app/app.component.html:94</note></notes>
+      <note category="location">app/app.component.html:97</note></notes>
       <segment state="translated">
         <source>About</source>
       <target>О Мега-Айкю</target></segment>
@@ -52,7 +59,7 @@
     <unit id="8439955599488894226">
       <notes>
 
-      <note category="location">app/app.component.html:95</note></notes>
+      <note category="location">app/app.component.html:98</note></notes>
       <segment state="translated">
         <source>Privacy Policy</source>
       <target>Политика конфиденциальности</target></segment>
@@ -60,7 +67,7 @@
     <unit id="664573589261423471">
       <notes>
 
-      <note category="location">app/app.component.html:96</note></notes>
+      <note category="location">app/app.component.html:99</note></notes>
       <segment state="translated">
         <source>Terms and Conditions</source>
       <target>Условия и положения</target></segment>
@@ -74,14 +81,14 @@
     </unit><unit id="6748946987170626971">
       <notes>
 
-      <note category="location">app/index/index.component.html:22</note></notes>
+      <note category="location">app/index/index.component.html:28</note></notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
       <target>Пройти Мега-Айкю тест онлайн</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
 
-      <note category="location">app/index/index.component.html:37</note></notes>
+      <note category="location">app/index/index.component.html:39</note></notes>
       <segment state="translated">
         <source>Mega IQ Ever</source>
       <target>Тест iq результаты</target></segment>
@@ -89,7 +96,7 @@
       <notes>
 
 
-      <note category="location">app/index/index.component.html:41</note><note category="location">app/index/index.component.html:65</note><note category="location">app/results/results.component.html:17</note></notes>
+      <note category="location">app/index/index.component.html:43</note><note category="location">app/index/index.component.html:60</note><note category="location">app/results/results.component.html:20</note><note category="location">app/results/results.component.html:53</note><note category="location">app/users/users.component.html:13</note></notes>
       <segment state="initial">
         <source>User</source>
       <target>User</target></segment>
@@ -156,7 +163,7 @@
       <notes>
 
 
-      <note category="location">app/user/register/register.component.html:19</note><note category="location">app/user/settings/settings.component.html:38</note><note category="location">app/results/results.component.html:18</note></notes>
+      <note category="location">app/user/register/register.component.html:19</note><note category="location">app/user/settings/settings.component.html:38</note><note category="location">app/users/users.component.html:14</note></notes>
       <segment state="translated">
         <source>Name</source>
       <target>Имя</target></segment>
@@ -174,7 +181,7 @@
       <notes>
 
 
-      <note category="location">app/index/index.component.html:42</note><note category="location">app/index/index.component.html:66</note><note category="location">app/user/register/register.component.html:27</note><note category="location">app/user/settings/settings.component.html:46</note><note category="location">app/results/results.component.html:20</note></notes>
+      <note category="location">app/index/index.component.html:61</note><note category="location">app/user/register/register.component.html:27</note><note category="location">app/user/settings/settings.component.html:46</note><note category="location">app/users/users.component.html:16</note></notes>
       <segment state="translated">
         <source>Age</source>
       <target>Возраст</target></segment>
@@ -183,7 +190,7 @@
       <notes>
 
 
-      <note category="location">app/index/index.component.html:43</note><note category="location">app/index/index.component.html:67</note><note category="location">app/user/register/register.component.html:31</note><note category="location">app/user/settings/settings.component.html:50</note><note category="location">app/results/results.component.html:19</note></notes>
+      <note category="location">app/index/index.component.html:62</note><note category="location">app/user/register/register.component.html:31</note><note category="location">app/user/settings/settings.component.html:50</note><note category="location">app/users/users.component.html:15</note></notes>
       <segment state="translated">
         <source>Location</source>
       <target>Регион</target></segment>
@@ -191,42 +198,42 @@
       <notes>
 
 
-      <note category="location">app/index/index.component.html:44</note><note category="location">app/index/index.component.html:68</note><note category="location">app/results/results.component.html:21</note></notes>
+      <note category="location">app/index/index.component.html:63</note><note category="location">app/users/users.component.html:17</note></notes>
       <segment state="translated">
         <source>IQ</source>
       <target>Айкю</target></segment>
     </unit><unit id="5263690784228037855">
       <notes>
 
-      <note category="location">app/index/index.component.html:45</note></notes>
+      <note category="location">app/index/index.component.html:44</note></notes>
       <segment state="translated">
         <source>Total Score</source>
       <target>Всего</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
 
-      <note category="location">app/index/index.component.html:61</note></notes>
+      <note category="location">app/index/index.component.html:56</note></notes>
       <segment state="translated">
         <source>Best IQ Today</source>
       <target>IQ тест за сегодня</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
 
-      <note category="location">app/index/index.component.html:87</note></notes>
+      <note category="location">app/index/index.component.html:82</note></notes>
       <segment state="translated">
         <source>Example profile</source>
       <target>Соревнуйся с теми кто смог пройти бесплатный онлайн тест на iq</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
 
-      <note category="location">app/index/index.component.html:100</note></notes>
+      <note category="location">app/index/index.component.html:95</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
       <target>Мега-Айкю тесты на iq 2020</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
 
-      <note category="location">app/index/index.component.html:106</note></notes>
+      <note category="location">app/index/index.component.html:101</note></notes>
       <segment state="translated">
         <source>Start</source>
       <target>Пройти</target></segment>
@@ -305,28 +312,35 @@
     </unit><unit id="2606712855106855414">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:11</note></notes>
+      <note category="location">app/user/home/home.component.html:11</note><note category="location">app/user/public/public.component.html:23</note></notes>
       <segment state="translated">
         <source>Open Profile</source>
       <target>Открыть Ваш профиль</target></segment>
     </unit><unit id="2984628903434675339">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:17</note></notes>
+      <note category="location">app/user/home/home.component.html:17</note><note category="location">app/user/public/public.component.html:29</note></notes>
       <segment state="translated">
         <source>Edit Profile</source>
       <target>Редактировать профиль</target></segment>
+    </unit><unit id="8265250366364176799">
+      <notes>
+        <note category="location">app/user/home/home.component.html:23</note>
+      </notes>
+      <segment state="initial">
+        <source>Delete Certificate</source>
+      <target>Delete Certificate</target></segment>
     </unit><unit id="3797778920049399855">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:22</note></notes>
+      <note category="location">app/user/home/home.component.html:28</note></notes>
       <segment state="translated">
         <source>Logout</source>
       <target>Выйти</target></segment>
     </unit><unit id="6205220545163020073">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:39</note></notes>
+      <note category="location">app/user/home/home.component.html:55</note></notes>
       <segment state="translated">
         <source> your iq tests are displayed below</source>
       <target>ваши айкю тесты отображаются ниже</target></segment>
@@ -334,14 +348,14 @@
       <notes>
 
 
-      <note category="location">app/user/home/home.component.html:76</note><note category="location">app/user/public/public.component.html:64</note></notes>
+      <note category="location">app/results/results.component.html:79</note><note category="location">app/user/public/public.component.html:81</note><note category="location">app/user/testcard/testcard.component.html:25</note></notes>
       <segment state="translated">
         <source>Open Details</source>
       <target>Подробнее</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:83</note></notes>
+      <note category="location">app/iqresult/iq-result.component.html:57</note><note category="location">app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="translated">
         <source>Show Answers</source>
       <target>Показать ответы</target></segment>
@@ -349,7 +363,7 @@
       <notes>
 
 
-      <note category="location">app/user/home/home.component.html:90</note></notes>
+      <note category="location">app/user/testcard/testcard.component.html:39</note></notes>
       <segment state="translated">
         <source>Overall test progress</source>
       <target>Прогресс теста</target></segment>
@@ -358,27 +372,33 @@
 
 
 
-      <note category="location">app/user/home/home.component.html:95</note></notes>
+      <note category="location">app/user/testcard/testcard.component.html:44</note></notes>
       <segment state="translated">
         <source>Started at</source>
       <target>Начало тестирования</target></segment>
+    </unit><unit id="1768347631200761486">
+      <notes>
+        <note category="location">app/user/testcard/testcard.component.html:53</note>
+      </notes>
+      <segment state="initial">
+        <source>Continue Test</source>
+      <target>Continue Test</target></segment>
     </unit><unit id="599874826031482666">
       <notes>
 
 
 
-      <note category="location">app/user/home/home.component.html:98</note><note category="location">app/user/public/public.component.html:69</note></notes>
+      <note category="location">app/results/results.component.html:56</note><note category="location">app/user/public/public.component.html:86</note><note category="location">app/user/testcard/testcard.component.html:47</note></notes>
       <segment state="translated">
         <source>Finished at</source>
       <target>IQ тест пройден</target></segment>
-    </unit><unit id="3856509348648011303">
+    </unit><unit id="3945318949999633875">
       <notes>
-
-      <note category="location">app/user/home/home.component.html:104</note></notes>
-      <segment state="translated">
-        <source>Continue Test
-            </source>
-      <target>Продолжить тест</target></segment>
+        <note category="location">app/results/results.component.html:57</note>
+      </notes>
+      <segment state="initial">
+        <source> </source>
+      <target> </target></segment>
     </unit>
 
     <unit id="5265161251609188502">
@@ -392,7 +412,7 @@
     </unit><unit id="3326877877555410533">
       <notes>
 
-      <note category="location">app/classroom/classroom.component.html:15</note></notes>
+      <note category="location">app/results/results.component.html:23</note><note category="location">app/classroom/classroom.component.html:15</note></notes>
       <segment state="translated">
         <source>Started</source>
       <target>Старт</target></segment>
@@ -401,7 +421,7 @@
     <unit id="7022070615528435141">
       <notes>
 
-      <note category="location">app/user/home/home.component.html:113</note></notes>
+      <note category="location">app/user/testcard/testcard.component.html:61</note></notes>
       <segment state="translated">
         <source>Delete</source>
       <target>Удалить</target></segment>
@@ -409,7 +429,7 @@
       <notes>
 
 
-      <note category="location">app/user/home/home.component.html:123</note><note category="location">app/user/public/public.component.html:77</note></notes>
+      <note category="location">app/user/home/home.component.html:74</note><note category="location">app/user/public/public.component.html:94</note></notes>
       <segment state="translated">
         <source>All results were loaded successfully.</source>
       <target>Все результаты были успешно загружены.</target></segment>
@@ -503,21 +523,35 @@
     </unit><unit id="8828602631473114559">
       <notes>
         
-      <note category="location">app/results/results.component.html:6</note></notes>
+      <note category="location">app/results/results.component.html:5</note></notes>
       <segment state="translated">
         <source>Mega-iq test online</source>
       <target>Mega-iq тест онлайн</target></segment>
     </unit><unit id="8663760052070214835">
       <notes>
         
-      <note category="location">app/results/results.component.html:7</note></notes>
+      <note category="location">app/results/results.component.html:6</note></notes>
       <segment state="translated">
         <source>Every day thousands pass the online Mega-IQ test for free worldwide!</source>
       <target>Каждый день тысячи людей бесплатно походят наши тесты iq онлайн. Тест на iq на русском.</target></segment>
+    </unit><unit id="9198240285630709243">
+      <notes>
+        <note category="location">app/results/results.component.html:21</note>
+      </notes>
+      <segment state="initial">
+        <source>Test IQ</source>
+      <target>Test IQ</target></segment>
+    </unit><unit id="5611592591303869712">
+      <notes>
+        <note category="location">app/results/results.component.html:22</note>
+      </notes>
+      <segment state="initial">
+        <source>Status</source>
+      <target>Status</target></segment>
     </unit><unit id="4832375157049886617">
       <notes>
         
-      <note category="location">app/results/results.component.html:10</note></notes>
+      <note category="location">app/users/users.component.html:7</note></notes>
       <segment state="translated">
         <source>Top users this month</source>
       <target>Сегодня прошли тест iq онлайн:</target></segment>
@@ -572,7 +606,7 @@
     </unit><unit id="6611630004208902126">
       <notes>
 
-      <note category="location">app/index/index.component.html:113</note><note category="location">app/iqtest/iq-test.component.html:46</note></notes>
+      <note category="location">app/index/index.component.html:108</note><note category="location">app/iqtest/iq-test.component.html:46</note></notes>
       <segment state="translated">
         <source>Start Test</source>
       <target>Пройти iq тест</target></segment>
@@ -600,7 +634,7 @@
     </unit><unit id="1847384773580767337">
       <notes>
 
-      <note category="location">app/classroom/classroom.component.html:76</note></notes>
+      <note category="location">app/classroom/classroom.component.html:86</note></notes>
       <segment state="translated">
         <source>Submitting your answer, please wait</source>
       <target>Посылаем ваш ответ, пожалуйста, подождите</target></segment>
@@ -635,14 +669,29 @@
     </unit><unit id="8922168210464314649">
       <notes>
 
-      <note category="location">app/classroom/classroom.component.html:11</note></notes>
+      <note category="location">app/results/results.component.html:24</note><note category="location">app/classroom/classroom.component.html:11</note></notes>
       <segment state="translated">
         <source>Current test progress</source>
       <target>Прогресс</target></segment>
+    </unit><unit id="5963865584069399662">
+      <notes>
+        <note category="location">app/results/results.component.html:34</note>
+        <note category="location">app/results/results.component.html:67</note>
+      </notes>
+      <segment state="initial">
+        <source>private</source>
+      <target>private</target></segment>
+    </unit><unit id="6563391987554512024">
+      <notes>
+        <note category="location">app/results/results.component.html:54</note>
+      </notes>
+      <segment state="initial">
+        <source>Test</source>
+      <target>Test</target></segment>
     </unit><unit id="2525230676386818985">
       <notes>
 
-      <note category="location">app/classroom/classroom.component.html:18</note></notes>
+      <note category="location">app/results/results.component.html:55</note><note category="location">app/classroom/classroom.component.html:18</note></notes>
       <segment state="translated">
         <source>Result</source>
       <target>Результат</target></segment>
@@ -715,7 +764,7 @@
     </unit><unit id="5879741663972722968">
       <notes>
 
-      <note category="location">app/user/public/public.component.html:35</note></notes>
+      <note category="location">app/user/public/public.component.html:53</note></notes>
       <segment state="translated">
         <source>latest passed iq tests</source>
       <target>последние пройденные айкю тесты</target></segment>
@@ -732,23 +781,23 @@
       <target>Мега-Айкю загружается..</target></segment>
     </unit><unit id="7621426683557637403">
       <notes>
-        <note category="location">src/app/classroom/classroom.component.ts:1</note>
-        <note category="location">src/app/classroom/classroom.component.ts:1</note>
-        <note category="location">src/app/classroom/classroom.component.ts:1</note>
-        <note category="location">src/app/classroom/classroom.component.ts:1</note>
-        <note category="location">src/app/index/index.component.ts:1</note>
-        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
-        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
-        <note category="location">src/app/results/results.component.ts:1</note>
-        <note category="location">src/app/user/forget/forget.component.ts:1</note>
-        <note category="location">src/app/user/login/login.component.ts:1</note>
-        <note category="location">src/app/user/register/register.component.ts:1</note>
-        <note category="location">src/app/user/settings/settings.component.ts:1</note>
-        <note category="location">src/app/user/settings/settings.component.ts:1</note>
-        <note category="location">src/app/user/settings/settings.component.ts:1</note>
-        <note category="location">src/app/user/settings/settings.component.ts:1</note>
-        <note category="location">src/app/user/settings/settings.component.ts:1</note>
-      </notes>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/classroom/classroom.component.ts:1</note><note category="location">src/app/index/index.component.ts:1</note><note category="location">src/app/iqresult/iq-result.component.ts:1</note><note category="location">src/app/iqtest/iq-test.component.ts:1</note><note category="location">src/app/results/results.component.ts:1</note><note category="location">src/app/user/forget/forget.component.ts:1</note><note category="location">src/app/user/login/login.component.ts:1</note><note category="location">src/app/user/register/register.component.ts:1</note><note category="location">src/app/user/register/register.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/user/settings/settings.component.ts:1</note><note category="location">src/app/users/users.component.ts:1</note></notes>
       <segment state="translated">
         <source>API Service Unavailable</source>
       <target>Служба API недоступна</target></segment>
@@ -824,8 +873,8 @@
       <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> на Мега-Айкю</target></segment>
     </unit><unit id="7322074626709578366">
       <notes>
-        <note category="location">src/app/results/results.component.ts:1</note>
-      </notes>
+        
+      <note category="location">src/app/results/results.component.ts:1</note><note category="location">src/app/users/users.component.ts:1</note></notes>
       <segment state="translated">
         <source>Top scores of IQ test on Mega-IQ</source>
       <target>Лучшие iq тест результаты онлайн</target></segment>
