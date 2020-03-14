@@ -27,9 +27,9 @@
       <notes>
         <note category="location">app/app.component.html:33</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Best Users</source>
-      <target>Best Users</target></segment>
+      <target>Лучшие IQ</target></segment>
     </unit>
 
     <unit id="7028204981963450021">
@@ -97,9 +97,9 @@
 
 
       <note category="location">app/index/index.component.html:43</note><note category="location">app/index/index.component.html:60</note><note category="location">app/results/results.component.html:20</note><note category="location">app/results/results.component.html:53</note><note category="location">app/users/users.component.html:13</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>User</source>
-      <target>User</target></segment>
+      <target>Имя</target></segment>
     </unit><unit id="2454050363478003966">
       <notes>
 
@@ -327,9 +327,9 @@
       <notes>
         <note category="location">app/user/home/home.component.html:23</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Delete Certificate</source>
-      <target>Delete Certificate</target></segment>
+      <target>Удалить сертификат</target></segment>
     </unit><unit id="3797778920049399855">
       <notes>
 
@@ -380,9 +380,9 @@
       <notes>
         <note category="location">app/user/testcard/testcard.component.html:53</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Continue Test</source>
-      <target>Continue Test</target></segment>
+      <target>Продолжить тест</target></segment>
     </unit><unit id="599874826031482666">
       <notes>
 
@@ -538,16 +538,16 @@
       <notes>
         <note category="location">app/results/results.component.html:21</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Test IQ</source>
-      <target>Test IQ</target></segment>
+      <target>IQ тест</target></segment>
     </unit><unit id="5611592591303869712">
       <notes>
         <note category="location">app/results/results.component.html:22</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Status</source>
-      <target>Status</target></segment>
+      <target>Статус</target></segment>
     </unit><unit id="4832375157049886617">
       <notes>
         
@@ -678,9 +678,9 @@
         <note category="location">app/results/results.component.html:34</note>
         <note category="location">app/results/results.component.html:67</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>private</source>
-      <target>private</target></segment>
+      <target>Приватный</target></segment>
     </unit><unit id="6563391987554512024">
       <notes>
         <note category="location">app/results/results.component.html:54</note>
@@ -847,16 +847,16 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
-      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
+      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/><ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> прошел тест <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
     </unit><unit id="5201126520440031540">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/><ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> прошел тест <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
     </unit><unit id="6918087724127868060">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
@@ -910,9 +910,9 @@
       <notes>
         <note category="location">src/app/user/public/public.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/><ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
     </unit><unit id="3898617878162339498">
       <notes>
         <note category="location">src/app/user/register/register.component.ts:1</note>
