@@ -22,8 +22,8 @@ import {join} from 'path';
 import {SitemapStream, streamToPromise} from 'sitemap';
 import {createGzip} from 'zlib';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
-import {environment} from './src/environments/environment';
-import {first} from 'rxjs/operators';
+
+const fs = require('fs');
 
 const https = require('https');
 
@@ -48,16 +48,16 @@ app.get('/sitemap.xml', function (req, res) {
   }
 
   try {
-    const hostName = 'https://www.mega-iq.com/';
+    let hostName = 'https://www.mega-iq.com/';
     // @ts-ignore
     if (APP_LOCALE_ID === 'de') {
-      return new SitemapStream({hostname: 'https://de.mega-iq.com/'});
+      hostName = 'https://de.mega-iq.com/';
       // @ts-ignore
     } else if (APP_LOCALE_ID === 'es') {
-      return new SitemapStream({hostname: 'https://es.mega-iq.com/'});
+      hostName = 'https://es.mega-iq.com/';
       // @ts-ignore
     } else if (APP_LOCALE_ID === 'ru') {
-      return new SitemapStream({hostname: 'https://ru.mega-iq.com/'});
+      hostName = 'https://ru.mega-iq.com/';
     }
 
     const smStream = new SitemapStream({hostname: hostName});
@@ -74,71 +74,20 @@ app.get('/sitemap.xml', function (req, res) {
     smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
     smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
 
-    // const options = {
-    //   hostname: 'www.mega-iq.com',
-    //   port: 443,
-    //   path: '/api/v1/list-latest',
-    //   method: 'GET'
-    // };
-    //
-    // const request = https.request(options, (resonse) => {
-    //   resonse.on('data', (data) => {
-    //     process.stdout.write(data);
-    //     console.log('Got data='  +  data);
-    //     const tests = JSON.parse(data);
-    //     console.log('tests='  +  tests);
-    //
-    //     if (tests.ok && tests.tests) {
-    //       for (const testInfo of tests.tests) {
-    //         smStream.write({
-    //           url: testInfo.url,
-    //           changefreq: 'monthly',
-    //           priority: 0.3
-    //         });
-    //       }
-    //     }
-    //   });
-    // });
-    // request.end();
+    if (fs.existsSync('/tmp/list-latest.json')) {
+      const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
+      const tests = JSON.parse(data);
 
-    https.get(environment.apiUrl + `/list-latest`, (resp) => {
-      let data = '';
-
-      // A chunk of data has been recieved.
-      resp.on('data', (chunk) => {
-        data += chunk;
-      });
-
-      // The whole response has been received. Print out the result.
-      resp.on('end', () => {
-        console.log('Got data='  +  data);
-        const tests = JSON.parse(data);
-        console.log('tests='  +  tests);
-
-        if (tests.ok && tests.tests) {
-          for (const testInfo of tests.tests) {
-            smStream.write({
-              url: testInfo.url,
-              changefreq: 'monthly',
-              priority: 0.3
-            });
-          }
+      if (tests && tests.ok && tests.tests) {
+        for (const testInfo of tests.tests) {
+          smStream.write({
+            url: testInfo.url,
+            changefreq: 'monthly',
+            priority: 0.3
+          });
         }
-      });
-    });
-
-    // httpR.get(environment.apiUrl + `/list-latest`).pipe(first()).subscribe(
-    //   apiResponsePublicTestResultList => {
-    //     if (apiResponsePublicTestResultList.ok && apiResponsePublicTestResultList.tests) {
-    //       for (const testInfo of apiResponsePublicTestResultList.tests) {
-    //         smStream.write({
-    //           url: testInfo.url,
-    //           changefreq: 'monthly',
-    //           priority: 0.3
-    //         });
-    //       }
-    //     }
-    //   });
+      }
+    }
 
     smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
     smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
