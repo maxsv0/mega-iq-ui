@@ -19,6 +19,13 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import {join} from 'path';
+import {SitemapStream, streamToPromise} from 'sitemap';
+import {createGzip} from 'zlib';
+import {APP_LOCALE_ID} from './src/environments/app-locale';
+
+const fs = require('fs');
+
+const https = require('https');
 
 // Express server
 const app = express();
@@ -28,6 +35,80 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
+
+let sitemap;
+
+app.get('/sitemap.xml', function (req, res) {
+  res.header('Content-Type', 'application/xml');
+  res.header('Content-Encoding', 'gzip');
+  // if we have a cached entry send it
+  if (sitemap) {
+    res.send(sitemap);
+    return;
+  }
+
+  try {
+    let hostName = 'https://www.mega-iq.com/';
+    // @ts-ignore
+    if (APP_LOCALE_ID === 'de') {
+      hostName = 'https://de.mega-iq.com/';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'es') {
+      hostName = 'https://es.mega-iq.com/';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'ru') {
+      hostName = 'https://ru.mega-iq.com/';
+    }
+
+    const smStream = new SitemapStream({hostname: hostName});
+    const pipeline = smStream.pipe(createGzip());
+
+    // pipe your entries or directly write them.
+    smStream.write({url: '/', changefreq: 'hourly', priority: 0.9});
+    smStream.write({url: '/iqtest', changefreq: 'daily', priority: 0.95});
+    smStream.write({url: '/iqtest/mega-iq', changefreq: 'weekly', priority: 0.9});
+    smStream.write({url: '/iqtest/iq-practice', changefreq: 'weekly', priority: 0.9});
+    smStream.write({url: '/iqtest/iq-standard', changefreq: 'weekly', priority: 0.9});
+    smStream.write({url: '/iqtest/math', changefreq: 'weekly', priority: 0.9});
+    smStream.write({url: '/iqtest/grammar', changefreq: 'weekly', priority: 0.9});
+    smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
+    smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
+
+    if (fs.existsSync('/tmp/list-latest.json')) {
+      const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
+      const tests = JSON.parse(data);
+
+      if (tests && tests.ok && tests.tests) {
+        for (const testInfo of tests.tests) {
+          smStream.write({
+            url: testInfo.url,
+            changefreq: 'monthly',
+            priority: 0.3
+          });
+        }
+      }
+    }
+
+    smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
+    smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
+    smStream.write({url: '/forget', changefreq: 'monthly', priority: 0.2});
+    smStream.write({url: '/assets/static/about.html', changefreq: 'monthly', priority: 0.1});
+    smStream.write({url: '/assets/static/privacy-policy.html', changefreq: 'monthly', priority: 0.1});
+    smStream.write({url: '/assets/static/terms-conditions.html', changefreq: 'monthly', priority: 0.1});
+
+    smStream.end();
+
+    // cache the response
+    streamToPromise(pipeline).then(sm => sitemap = sm);
+    // stream write the response
+    pipeline.pipe(res).on('error', (e) => {
+      res.status(500).end();
+    });
+  } catch (e) {
+    console.error(e);
+    res.status(500).end();
+  }
+});
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
