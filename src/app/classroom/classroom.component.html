@@ -17,7 +17,7 @@
         <p *ngIf="activeTest.points">
           <span i18n>Result</span>: {{activeTest.points}}
         </p>
-        <p *ngIf="activeQuestionAllDone && !activeTest.finishDate">
+        <p *ngIf="activeTestCompleted && !activeTest.finishDate">
           <button class="btn btn-primary btn-block" (click)="submitFinish(activeTest.code)" [disabled]="loading">
             <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
             <span *ngIf="!loading" i18n>Submit test</span>
@@ -125,18 +125,18 @@
     <div class="row pb-4">
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
-        <div class="btn btn-outline-primary btn-sm p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdPrev)"
-             [ngClass]="{'disabled': activeQuestionIdPrev === 0}" [class.disabled]="updating">
+        <button class="btn btn-outline-primary btn-sm p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdPrev)"
+            [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId > 1">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
           <span i18n>Previous Question</span>
-        </div>
+        </button>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
-        <div class="btn btn-outline-primary btn-sm p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdNext)"
-             [ngClass]="{'disabled': activeQuestionIdNext === 0}" [class.disabled]="updating">
+        <button class="btn btn-outline-primary btn-sm p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdNext)"
+            [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId !== activeTest.questionSet.length">
           <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>
-        </div>
+        </button>
       </div>
     </div>
   </div>

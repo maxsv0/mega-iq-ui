@@ -33,7 +33,7 @@ export class ClassroomComponent implements OnInit {
   activeQuestionId: number;
   activeQuestionIdPrev: number;
   activeQuestionIdNext: number;
-  activeQuestionAllDone = false;
+  activeTestCompleted = false;
   activeQuestion: Question;
 
   currentUser: firebase.User;
@@ -150,16 +150,16 @@ export class ClassroomComponent implements OnInit {
 
     this.updating = true;
     this.activeTest = test;
-    this.activeQuestionIdPrev = this.activeQuestionId - 1;
+    const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
 
-    if (this.activeTest) {
-      this.activeQuestionAllDone = true;
-      this.activeTest.questionSet.forEach(question => {
-        if (question.answerUser === null) {
-          this.activeQuestionAllDone = false;
-        }
-      });
+    if(this.activeTest && allQuestionsAnswered) {
+        this.activeTestCompleted = true;
+        this.alertService.success(this.i18n('The test is finished. Please press the submit button to submit your result.'));
+        this.setTitle(this.activeTest.type, this.i18n('Complete'));
+    } else {
+        this.setTitle(this.activeTest.type, `${this.activeQuestionId} ${this.i18n('question')} ${this.i18n('of')} ${this.activeTest.questionSet.length}`);
     }
+    this.activeQuestionIdPrev = this.findUnansweredQuestion(this.activeTest.questionSet, 'prev');
 
     if (this.activeTest && this.activeQuestionId && this.testTypes) {
       this.testTypes.forEach(
@@ -171,7 +171,7 @@ export class ClassroomComponent implements OnInit {
         }
       );
       this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
-      this.activeQuestionIdNext = this.activeQuestionId + 1;
+        this.activeQuestionIdNext = this.findUnansweredQuestion(this.activeTest.questionSet, 'next');
       if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
         this.activeQuestionIdNext = 0;
         this.updating = false;
@@ -180,19 +180,6 @@ export class ClassroomComponent implements OnInit {
       this.activeQuestionIdNext = 0;
       this.activeQuestion = null;
       this.updating = false;
-    }
-
-    if (this.activeQuestionAllDone) {
-      this.setTitle(
-        this.activeTest.type,
-        this.i18n('Complete')
-      );
-    } else {
-      this.setTitle(
-        this.activeTest.type,
-        this.activeQuestionId + ' ' + this.i18n('question') +
-        ' ' + this.i18n('of') + ' ' + this.activeTest.questionSet.length
-      );
     }
   }
 
@@ -231,4 +218,24 @@ export class ClassroomComponent implements OnInit {
       test: testName
     }));
   }
+
+  /**
+   * @function findUnansweredQuestion
+   * @param questions Current test question set
+   * @param goTo Navigation direction
+   * @description Find index of previous or next unanswered question
+   */
+    private findUnansweredQuestion(questions: Question[], goTo: string) {
+        const activeQuestionIndex = this.activeQuestionId - 1;
+        const prevUnansweredQuestion = (questions.findIndex((q, i) => q.answerUser === null && i < activeQuestionIndex) + 1);
+        const nextUnansweredQuestion = (questions.findIndex((q, i) => q.answerUser === null && i > activeQuestionIndex) + 1);
+        const cycleBack = (questions.findIndex(q => q.answerUser === null) + 1);
+        if(prevUnansweredQuestion !== 0 && goTo === 'prev') {
+            return prevUnansweredQuestion;
+        } else if(nextUnansweredQuestion !== 0 && goTo === 'next') {
+            return nextUnansweredQuestion;
+        } else {
+            return cycleBack;
+        }
+    }
 }
