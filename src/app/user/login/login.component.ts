@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  showPassword = false;
 
   constructor(
     private titleService: Title,
@@ -126,6 +127,10 @@ export class LoginComponent implements OnInit {
         this.alertService.error(data.message);
         this.loading = false;
       });
+  }
+
+  showHidePassword() {
+    this.showPassword = !this.showPassword;
   }
 
   private storeUserAndNavigate(userCredential: firebase.auth.UserCredential) {
