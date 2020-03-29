@@ -25,6 +25,7 @@ export class RegisterComponent implements AfterViewInit {
   submitted = false;
   uploadPic = '';
   isBrowser: boolean;
+  showPassword = false;
 
   constructor(
     private titleService: Title,
@@ -147,6 +148,10 @@ export class RegisterComponent implements AfterViewInit {
         this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
         this.loading = false;
       });
+  }
+
+  showHidePassword() {
+    this.showPassword = !this.showPassword;
   }
 
   /**
