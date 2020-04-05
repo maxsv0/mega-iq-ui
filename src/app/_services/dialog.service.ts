@@ -17,7 +17,7 @@ export class DialogService {
     }
 
     public open() {
-        $('#' + this.dialogId).modal('show');
+        this.tryOpen();
     }
 
     public close() {
@@ -30,5 +30,18 @@ export class DialogService {
 
     public getContent(): Observable<any> {
         return this.subject.asObservable();
+    }
+
+    private tryOpen() {
+        if($('#' + this.dialogId).length) {
+            $('#' + this.dialogId).modal('show');
+        } else {
+            const checkExist = setInterval(() => {
+                if ($('#' + this.dialogId).length) {
+                    $('#' + this.dialogId).modal('show');
+                    clearInterval(checkExist);
+                }
+            }, 100);
+        }
     }
 }
