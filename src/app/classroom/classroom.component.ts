@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService, AuthenticationService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService, DialogService} from '@/_services';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
@@ -47,6 +47,7 @@ export class ClassroomComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
+    private dialogService: DialogService,
     private googleAnalyticsService: GoogleAnalyticsService,
     private i18n: I18n
   ) {
@@ -57,6 +58,17 @@ export class ClassroomComponent implements OnInit {
     if (testCode) {
       this.initTestByCode(testCode);
     }
+
+    this.dialogService.create({
+        id: 'expired-test',
+        title: this.i18n('Your test has expired.'),
+        body: this.i18n('Your test has expired. You will be redirected to Home. Please start a new test.'),
+        primary: this.i18n('Back to Home'),
+        clickFunction: () => {
+            this.router.navigate(['/home'])
+        },
+        close: false
+    });
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -151,6 +163,8 @@ export class ClassroomComponent implements OnInit {
     this.updating = true;
     this.activeTest = test;
     const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
+
+    if(this.activeTest.status === this.testStatus.EXPIRED) this.dialogService.open();
 
     if(this.activeTest && allQuestionsAnswered) {
         this.activeTestCompleted = true;
