@@ -1,0 +1,17 @@
+<div *ngIf="id" class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" attr.data-backdrop="{{ !close ? 'static' : true }}" attr.aria-labelledby="{{ id }}" attr.aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="{{ id }}-title">{{ title }}</h5>
+                <button *ngIf="close" type="button" class="close" data-dismiss="modal" attr.aria-label="Close">
+                    <span attr.aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">{{ body }}</div>
+            <div class="modal-footer">
+                <button *ngIf="secondary" type="button" class="btn btn-secondary" data-dismiss="modal">{{ secondary }}</button>
+                <button *ngIf="primary" type="button" class="btn btn-primary" (click)="handleClick()">{{ primary }}</button>
+            </div>
+        </div>
+    </div>
+</div>

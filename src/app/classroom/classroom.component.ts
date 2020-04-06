@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService, AuthenticationService, IqTestService} from '@/_services';
+import {AlertService, AuthenticationService, IqTestService, DialogService} from '@/_services';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
@@ -47,6 +47,7 @@ export class ClassroomComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
+    private dialogService: DialogService,
     private googleAnalyticsService: GoogleAnalyticsService,
     private i18n: I18n
   ) {
@@ -151,6 +152,7 @@ export class ClassroomComponent implements OnInit {
     this.updating = true;
     this.activeTest = test;
     const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
+    if(this.activeTest.status !== this.testStatus.ACTIVE) this.createModal(this.activeTest.status, this.activeTest.code);
 
     if(this.activeTest && allQuestionsAnswered) {
         this.activeTestCompleted = true;
@@ -160,11 +162,12 @@ export class ClassroomComponent implements OnInit {
         this.setTitle(this.activeTest.type, `${this.activeQuestionId} ${this.i18n('question')} ${this.i18n('of')} ${this.activeTest.questionSet.length}`);
     }
     this.activeQuestionIdPrev = this.findUnansweredQuestion(this.activeTest.questionSet, 'prev');
-
+    
     if (this.activeTest && this.activeQuestionId && this.testTypes) {
       this.testTypes.forEach(
         (testData) => {
           if (this.activeTest.type === testData.type) {
+              this.activeTest.status !== this.testStatus.ACTIVE ? this.dialogService.open() : this.expireCountdown(this.activeTest.createDate, testData.expire);
             this.activeTestName = testData.name;
           }
           this.updating = false;
@@ -237,5 +240,46 @@ export class ClassroomComponent implements OnInit {
         } else {
             return cycleBack;
         }
+    }
+
+    /**
+     * @function expireCountdown
+     * @param createDate Date when test was created
+     * @param expireTime Expire value (in minutes)
+     * @description Counts down the time of expiry of the test from the time it was created
+     */
+    private expireCountdown(createDate: Date, expireTime: number) {
+        const minInMs = 60000;
+        const start = new Date(createDate).getTime();
+        const expire = Math.floor(expireTime * minInMs);
+        const countDownDate = start + expire;
+
+        const x = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            if(distance < 0) {
+                clearInterval(x);
+                this.dialogService.open();
+            }
+        }, minInMs);
+    }
+
+    /**
+     * @function createModal
+     * @param status Test status
+     * @param code Test code
+     * @description Creates test modal
+     */
+    private createModal(status: TestStatusEnum, code: string) {
+        this.dialogService.create({
+            id: status.toLocaleLowerCase(),
+            title: this.i18n(`Test ${status.toLocaleLowerCase()}.`),
+            body: status === this.testStatus.EXPIRED ? this.i18n('Your test has expired. You will be redirected to Home. Please start a new test.') : this.i18n('You have completed this test. Check the result of this test.'),
+            primary: status === this.testStatus.EXPIRED ? this.i18n('Back to Home') : this.i18n('Check results'),
+            clickFunction: () => {
+                status === this.testStatus.EXPIRED ? this.router.navigate(['/home']) : this.router.navigate(['/iqtest/result/' + code]);
+            },
+            close: false
+        });
     }
 }
