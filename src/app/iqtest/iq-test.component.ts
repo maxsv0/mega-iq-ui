@@ -11,6 +11,7 @@ import {ShareButtonsModule} from '@ngx-share/buttons';
 import {ShareButtonsConfig} from '@ngx-share/core';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
+import {Subscription} from 'rxjs';
 
 /**
  * @class IqTestComponent
@@ -28,6 +29,8 @@ export class IqTestComponent implements OnInit {
   loading = false;
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
+  private sub: Subscription;
+  metaImage: string = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
 
   constructor(
     private titleService: Title,
@@ -50,15 +53,10 @@ export class IqTestComponent implements OnInit {
       this.testTypes = tests;
 
       if (testType == null) {
-        this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
-        const metaImage = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
-        const metaDescription = this.i18n('Start The IQ Test');
-        this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
-        this.metaService.updateTag({property: 'og:url', content: this.router.url});
-        this.metaService.updateTag({property: 'og:image', content: metaImage});
-        this.metaService.updateTag({property: 'og:description', content: metaDescription});
-
-        this.setCustomShareButtonsConfig(metaImage, this.titleService.getTitle(), metaDescription);
+          this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
+          const metaDescription = this.i18n('Start The IQ Test');
+        this.updateMetaTags(this.titleService.getTitle(), this.router.url, metaDescription);
+        this.setCustomShareButtonsConfig(this.metaImage, this.titleService.getTitle(), metaDescription);
       } else {
         this.testTypes.forEach((test) => {
           if (test.url === '/iqtest/' + testType) {
@@ -67,12 +65,7 @@ export class IqTestComponent implements OnInit {
             this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {
               name: this.testSelected.name,
             }));
-
-            this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
-            this.metaService.updateTag({property: 'og:url', content: this.router.url});
-            this.metaService.updateTag({property: 'og:image', content: this.testSelected.pic});
-            this.metaService.updateTag({property: 'og:description', content: this.testSelected.description});
-
+            this.updateMetaTags(this.titleService.getTitle(), this.router.url, this.testSelected.description);
             this.setCustomShareButtonsConfig(this.testSelected.pic, this.titleService.getTitle(), this.testSelected.description);
           }
         });
@@ -90,6 +83,11 @@ export class IqTestComponent implements OnInit {
     } else {
       this.googleAnalyticsService.sendEvent('iq-test', 'open-test', 'all');
     }
+
+    this.sub = this.route.params.subscribe(params => {
+        this.testSelected = this.updateTest(params.testType);
+    });
+
   }
 
   /**
@@ -138,4 +136,61 @@ export class IqTestComponent implements OnInit {
     };
     ShareButtonsModule.withConfig(this.customConfig);
   }
+
+    private updateTest(paramType: string): IqTest {
+        if(this.testTypes.length) {
+            let type: TestTypeEnum;
+            switch (paramType) {
+                case 'iq-practice':
+                    type = TestTypeEnum.PRACTICE_IQ;
+                    break;
+                case 'iq-standard':
+                    type = TestTypeEnum.STANDARD_IQ;
+                    break;
+                case 'mega-iq':
+                    type = TestTypeEnum.MEGA_IQ;
+                    break;
+                case 'math':
+                    type = TestTypeEnum.MATH;
+                    break;
+                case 'grammar':
+                    type = TestTypeEnum.GRAMMAR;
+                    break;
+            }
+            for(let i = 0; i < this.testTypes.length; i++) {
+                if(this.testTypes[i].type === type) {
+                    this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {name: this.testTypes[i].name}));
+                    this.updateMetaTags(this.titleService.getTitle(), this.router.url, this.testTypes[i].description);
+                    this.setCustomShareButtonsConfig(this.testTypes[i].pic, this.titleService.getTitle(), this.testTypes[i].description);
+                    return this.testTypes[i];
+                }
+            }
+        } else {
+            return null;
+        }
+    }
+
+    private updateMetaTags(title: string, url: string, description: string) {
+        const tagsToUpdate = [
+            {
+                property: 'og:title',
+                content: title
+            },
+            {
+                property: 'og:url',
+                content: url
+            },
+            {
+                property: 'og:description',
+                content: description
+            },
+            {
+                property: 'og:image',
+                content: this.metaImage
+            }
+        ];
+        tagsToUpdate.forEach(tag => {
+            this.metaService.updateTag({property: tag.property, content: tag.content});
+        });
+    }
 }
