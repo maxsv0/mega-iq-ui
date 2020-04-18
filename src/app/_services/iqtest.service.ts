@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiResponseTests, IqTest} from '@/_models';
 import {TestTypeEnum} from '@/_models/enum';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {first} from 'rxjs/operators';
 import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-test-result-list';
 
@@ -18,6 +18,7 @@ export class IqTestService {
   private testTypes = [];
   public testTypesSubscription: Observable<IqTest[]>;
   private testTypesSubject: BehaviorSubject<IqTest[]>;
+  private activeTestType = new Subject<TestTypeEnum>();
 
   constructor(
     private http: HttpClient
@@ -116,5 +117,13 @@ export class IqTestService {
    */
   getIqTest() {
     return this.testTypesSubscription;
+  }
+
+  getType(): Observable<TestTypeEnum> {
+    return this.activeTestType.asObservable();
+  }
+
+  setType(type: TestTypeEnum) {
+    this.activeTestType.next(type);
   }
 }
