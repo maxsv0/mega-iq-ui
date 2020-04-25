@@ -1,0 +1,23 @@
+<section id="star-rating">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="lead">Rate this question:</p>
+                <span class="star text-warning" [ngClass]="{'rated': rated}" *ngFor="let star of stars; let i=index">
+                    <fa-icon *ngIf="!star" [icon]="['far', 'star']" (click)="!rated ? select(i) : ''"></fa-icon>
+                    <fa-icon *ngIf="star" [icon]="['fas', 'star']" (click)="!rated ? select(i) : ''"></fa-icon>
+                </span>
+                <p *ngIf="rated" class="lead">Thank you for rating!</p>
+            </div>
+            <div class="col-12 col-sm-4 my-3" *ngIf="selected && !rated">
+                <form>
+                    <div class="form-group">
+                        <label for="rating-comment">Tell us more (optional):</label>
+                        <textarea class="form-control" id="rating-comment" rows="3" placeholder="Let us know what you liked or we can improve..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="submit()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

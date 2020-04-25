@@ -1,0 +1,10 @@
+#star-rating {
+    .star {
+        cursor: pointer;
+        font-size: 2rem;
+
+        &.rated {
+            pointer-events: none;
+        }
+    }
+}
