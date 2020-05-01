@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 import {ApiResponseBase, ApiResponseTestResultList, ApiResponseUser, ApiResponseUsersList, ApiResponseUsersTop, User} from '@/_models';
 import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
+import { Rating } from '@/_models/rating';
 
 /**
  * @class UserService
@@ -12,6 +14,11 @@ import {APP_LOCALE_ID} from '../../environments/app-locale';
  */
 @Injectable({providedIn: 'root'})
 export class UserService {
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type':  'application/json'
+        })
+    };
   constructor(private http: HttpClient) {
   }
 
@@ -125,5 +132,10 @@ export class UserService {
       'https://lh3.googleusercontent.com/tuw6slWlwIeL3PewrRnDPVTfpuR5OPrDsMTNmDQnb3KQDBFqsuJl8MFfNAkCVXkPcmz0BoM6rvw2XxE10eGX',
       'https://lh3.googleusercontent.com/0afftGjZogSfSZ08FwQ2Ijg-QSFCAkSqTDw_WWEIoE-hKKhjh9tqDfkKNExNBWbuiJuEWDse_C5qrqPCMpM'
     ];
+  }
+
+  sendFeedback(feedback: Rating, userToken: User["token"]) {
+    this.httpOptions.headers.set('Authorization', `Bearer ${userToken}`);
+    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/feedback', feedback, this.httpOptions);
   }
 }

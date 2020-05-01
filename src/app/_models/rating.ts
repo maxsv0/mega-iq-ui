@@ -1,8 +1,8 @@
-import {Answer} from '@/_models/answer';
+import {TestResult} from '@/_models/test-result';
 
-export class Rating {
-    id: Answer["id"];
+export interface Rating {
+    test: TestResult["code"];
+    question: number;
     score: number;
     comment: string;
-    rated: boolean;
 }
