@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 
 import {ApiResponseBase, ApiResponseTestResultList, ApiResponseUser, ApiResponseUsersList, ApiResponseUsersTop, User} from '@/_models';
 import {environment} from '../../environments/environment';
@@ -14,11 +13,7 @@ import { Rating } from '@/_models/rating';
  */
 @Injectable({providedIn: 'root'})
 export class UserService {
-    httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type':  'application/json'
-        })
-    };
+
   constructor(private http: HttpClient) {
   }
 
@@ -134,8 +129,12 @@ export class UserService {
     ];
   }
 
-  sendFeedback(feedback: Rating, userToken: User["token"]) {
-    this.httpOptions.headers.set('Authorization', `Bearer ${userToken}`);
-    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/feedback', feedback, this.httpOptions);
+  /**
+   * @function sendFeedback
+   * @param feedback Rating
+   * @description Sends user feedback per question.
+   */
+  sendFeedback(feedback: Rating) {
+    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/feedback', feedback);
   }
 }

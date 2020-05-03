@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Rating } from '@/_models/rating';
-import { User } from '@/_models/user';
 import { AlertService, UserService } from '@/_services';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { first } from 'rxjs/operators';
@@ -20,10 +19,8 @@ export class RatingComponent implements OnInit {
     rating: Rating;
     score: Rating["score"];
     comment: Rating["comment"];
-    userToken: User["token"];
     stars: boolean[] = [];
     selected: boolean = false;
-
 
     constructor(
         private userService: UserService,
@@ -34,24 +31,6 @@ export class RatingComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getUserToken();
-    }
-
-    /**
-     * @function getUserToken
-     * @description Gets current user token for user to submit rating.
-     */
-    private getUserToken() {
-        this.userService.getMyInfo()
-        .pipe(first())
-        .subscribe(
-            apiResponseUser => {
-                if (apiResponseUser.ok) return this.userToken = apiResponseUser.user.token;
-            },
-            error => {
-                this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.msg);
-            }
-        )
     }
 
     /**
@@ -78,7 +57,7 @@ export class RatingComponent implements OnInit {
             question: this.question,
             score: this.score,
             comment: this.comment || ""
-        }, this.userToken)
+        })
         .pipe(first())
         .subscribe(
             response => {
