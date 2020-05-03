@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <p class="lead">Rate this question:</p>
+                <p class="lead" i18n>Rate this question:</p>
                 <span class="star text-warning" *ngFor="let star of stars; let i=index">
                     <fa-icon *ngIf="!star" [icon]="['far', 'star']" (click)="select(i)"></fa-icon>
                     <fa-icon *ngIf="star" [icon]="['fas', 'star']" (click)="select(i)"></fa-icon>
@@ -11,10 +11,10 @@
             <div class="col-12 col-sm-4 my-3" *ngIf="selected">
                 <form>
                     <div class="form-group">
-                        <label for="rating-comment">Tell us more (optional):</label>
+                        <label for="rating-comment" i18n>Tell us more (optional):</label>
                         <textarea id="rating-comment" class="form-control" name="comment" rows="3" placeholder="Let us know what you liked or we can improve..." [(ngModel)]="comment"></textarea>
                     </div>
-                    <button type="button" class="btn btn-primary btn-block" (click)="submit()">Submit</button>
+                    <button type="button" class="btn btn-primary btn-block" (click)="submit()" i18n>Submit</button>
                 </form>
             </div>
         </div>

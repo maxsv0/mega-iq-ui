@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Rating } from '@/_models/rating';
+import { User } from '@/_models/user';
 import { AlertService, UserService } from '@/_services';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { first } from 'rxjs/operators';
-import { User } from '@/_models';
 
 @Component({
   selector: 'app-rating',
@@ -33,36 +33,45 @@ export class RatingComponent implements OnInit {
         this.stars = [false, false, false, false, false];
     }
 
-  ngOnInit() {
-      this.getUserToken();
-  }
+    ngOnInit() {
+        this.getUserToken();
+    }
 
-  getUserToken() {
-      this.userService.getMyInfo()
-      .pipe(first())
-      .subscribe(
-        apiResponseUser => {
-            if (apiResponseUser.ok) return this.userToken = apiResponseUser.user.token;
-        },
-        error => {
-            this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.msg);
-        }
-      )
-  }
-
-    select(selectedStar: number) {
-        for(let i = 0; i < this.stars.length; i++) {
-            if(i <= selectedStar) {
-                this.stars[i] = true;
-            } else {
-                this.stars[i] = false;
+    /**
+     * @function getUserToken
+     * @description Gets current user token for user to submit rating.
+     */
+    private getUserToken() {
+        this.userService.getMyInfo()
+        .pipe(first())
+        .subscribe(
+            apiResponseUser => {
+                if (apiResponseUser.ok) return this.userToken = apiResponseUser.user.token;
+            },
+            error => {
+                this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.msg);
             }
+        )
+    }
+
+    /**
+     * @function select
+     * @param selectedStar Number
+     * @description Sets rating depending on selected star.
+     */
+    public select(selectedStar: number): Rating["score"] {
+        for(let i = 0; i < this.stars.length; i++) {
+            i <= selectedStar ? this.stars[i] = true : this.stars[i] = false;
         }
         this.selected = true;
         return this.score = selectedStar + 1;
     }
 
-    submit() {
+    /**
+     * @function submit
+     * @description Sends feedback post request and resets rating for next rating.
+     */
+    public submit() {
         this.userService.sendFeedback(
         this.rating = {
             test: this.test,
@@ -73,9 +82,10 @@ export class RatingComponent implements OnInit {
         .pipe(first())
         .subscribe(
             response => {
-                // console.log(response);
-                this.alertService.success(this.i18n('Thank you for your feedback'));
-                this.resetRating();
+                if (response.ok) {
+                    this.alertService.success(this.i18n('Thank you for your feedback'));
+                    this.resetRating();
+                }
             },
             error => {
                 this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
@@ -83,7 +93,10 @@ export class RatingComponent implements OnInit {
         );
     }
 
-    resetRating() {
+    /**
+     * @function resetRating
+     */
+    private resetRating() {
         for(let i = 0; i < this.stars.length; i++) {
             this.stars[i] = false;
         }
