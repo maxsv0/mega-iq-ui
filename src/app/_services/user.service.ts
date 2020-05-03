@@ -5,6 +5,7 @@ import {ApiResponseBase, ApiResponseTestResultList, ApiResponseUser, ApiResponse
 import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
+import { Rating } from '@/_models/rating';
 
 /**
  * @class UserService
@@ -12,6 +13,7 @@ import {APP_LOCALE_ID} from '../../environments/app-locale';
  */
 @Injectable({providedIn: 'root'})
 export class UserService {
+
   constructor(private http: HttpClient) {
   }
 
@@ -125,5 +127,14 @@ export class UserService {
       'https://lh3.googleusercontent.com/tuw6slWlwIeL3PewrRnDPVTfpuR5OPrDsMTNmDQnb3KQDBFqsuJl8MFfNAkCVXkPcmz0BoM6rvw2XxE10eGX',
       'https://lh3.googleusercontent.com/0afftGjZogSfSZ08FwQ2Ijg-QSFCAkSqTDw_WWEIoE-hKKhjh9tqDfkKNExNBWbuiJuEWDse_C5qrqPCMpM'
     ];
+  }
+
+  /**
+   * @function sendFeedback
+   * @param feedback Rating
+   * @description Sends user feedback per question.
+   */
+  sendFeedback(feedback: Rating) {
+    return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/feedback', feedback);
   }
 }
