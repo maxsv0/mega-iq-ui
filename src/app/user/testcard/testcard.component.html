@@ -20,7 +20,7 @@
   <!-- Options -->
   <div class="row">
     <div class="col-sm-6 col-12" *ngIf="test.status === testStatus.FINISHED">
-      <a routerLink="{{test.url}}" class="btn btn-success btn-block btn-lg mt-2">
+      <a routerLink="/iqtest/review/{{test.code}}" class="btn btn-success btn-block btn-lg mt-2">
         <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
         <span i18n>Open Details</span></a>
     </div>
