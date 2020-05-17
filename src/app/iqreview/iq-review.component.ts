@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IqTest, Question, TestResult, User} from '@/_models';
+import {IqTest, Question, TestResult} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService, AuthenticationService, IqTestService, DialogService} from '@/_services';
-import {FormBuilder} from '@angular/forms';
+import {AlertService, IqTestService, DialogService} from '@/_services';
 import {first} from 'rxjs/operators';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
@@ -24,8 +23,8 @@ export class IqReviewComponent implements OnInit {
     updating = false;
     public testStatus = TestStatusEnum;
 
-    activeTest: TestResult;
-    activeTestName: string;
+    finishedTest: TestResult;
+    finishedTestName: string;
     activeQuestionId: number;
     activeQuestionIdPrev: number;
     activeQuestionIdNext: number;
@@ -36,11 +35,9 @@ export class IqReviewComponent implements OnInit {
 
     constructor(
       private titleService: Title,
-      private formBuilder: FormBuilder,
       private iqTestService: IqTestService,
       private route: ActivatedRoute,
       private router: Router,
-      private authenticationService: AuthenticationService,
       private alertService: AlertService,
       private dialogService: DialogService,
       private googleAnalyticsService: GoogleAnalyticsService,
@@ -74,7 +71,7 @@ export class IqReviewComponent implements OnInit {
         .subscribe(
             apiResponseTestResult => {
                 if (apiResponseTestResult.ok) {
-                    this.updateActiveTest(apiResponseTestResult.test);
+                    this.updatefinishedTest(apiResponseTestResult.test);
                 } else {
                     this.alertService.error(apiResponseTestResult.msg);
                 }
@@ -92,35 +89,36 @@ export class IqReviewComponent implements OnInit {
      */
     setQuestion(questionId: number) {
       this.activeQuestionId = questionId;
-      this.updateActiveTest(this.activeTest);
+      this.updatefinishedTest(this.finishedTest);
       this.googleAnalyticsService.sendEvent('classroom', 'question-open', questionId.toString());
     }
 
     /**
-     * @function updateActiveTest
+     * @function updatefinishedTest
      * @param test Test model
      * @description Retrieves a current not finished test in order update to it's current state
      */
-    private async updateActiveTest(test: TestResult) {
+    private async updatefinishedTest(test: TestResult) {
         this.googleAnalyticsService.sendEvent('classroom', 'open-test', test.type);
 
         this.updating = true;
-        this.activeTest = test;
-        console.log(this.activeTest);
-        this.iqTestService.setType(this.activeTest.type);
+        this.finishedTest = test;
+        if(this.finishedTest.status !== this.testStatus.FINISHED) this.createModal();
 
-        this.setTitle(this.activeTest.type, this.i18n('Complete'));
+        this.iqTestService.setType(this.finishedTest.type);
+
+        this.setTitle(this.finishedTest.type, this.i18n('Complete'));
         this.activeQuestionIdPrev = this.activeQuestionId - 1;
 
-        if (this.activeTest && this.activeQuestionId && this.testTypes) {
+        if (this.finishedTest && this.activeQuestionId && this.testTypes) {
             this.testTypes.forEach((testData) => {
-                if (this.activeTest.type === testData.type) this.activeTestName = testData.name;
+                if (this.finishedTest.type === testData.type) this.finishedTestName = testData.name;
                 this.updating = false;
             });
-            this.activeQuestion = this.activeTest.questionSet[this.activeQuestionId - 1];
+            this.activeQuestion = this.finishedTest.questionSet[this.activeQuestionId - 1];
             this.activeQuestionIdNext = this.activeQuestionId + 1;
 
-            if (this.activeQuestionIdNext > this.activeTest.questionSet.length) {
+            if (this.activeQuestionIdNext > this.finishedTest.questionSet.length) {
                 this.activeQuestionIdNext = 0;
                 this.updating = false;
             }
@@ -144,5 +142,22 @@ export class IqReviewComponent implements OnInit {
         progress: progress,
         test: testName
       }));
+    }
+
+    /**
+     * @function createModal
+     * @description Shows if user has not completed a test yet, but tries no manually navigate to review.
+     */
+    private createModal() {
+        this.dialogService.create({
+            id: 'not-finished',
+            title: this.i18n('Test not finished.'),
+            body: this.i18n('You have not finished your test yet. You will be redirected to Home.'),
+            primary: this.i18n('Back to Home'),
+            clickFunction: () => {
+                this.router.navigate(['/home'])
+            },
+            close: false
+        }).open();
     }
 }

@@ -1,26 +1,26 @@
-<div class="container pt-4" *ngIf="activeTest.status === testStatus.FINISHED">
+<div class="container pt-4" *ngIf="finishedTest">
     <div class="row">
         <div class="col-md-4">
             <!-- Switch between all questions (tablet and desktop only) -->
             <div class="jumbotron py-4">
-                <h4>{{ activeTestName }}
-                    <span class="badge badge-success">
-                        {{ activeTest.status }}
+                <h4>{{ finishedTestName }}
+                    <span class="badge badge-success" *ngIf="finishedTest.status">
+                        {{ finishedTest.status }}
                     </span>
                 </h4>
                 <p>
-                    <span i18n>Started</span>: {{ activeTest.createDate | date:'medium' }}
+                    <span i18n>Started</span>: {{ finishedTest.createDate | date:'medium' }}
                 </p>
-                <p>
-                    <span i18n>Result</span>: {{ activeTest.points }}
+                <p *ngIf="finishedTest.points">
+                    <span i18n>Result</span>: {{ finishedTest.points }}
                 </p>
                 <div class="text-muted">
                     <h4>
                         <fa-icon [icon]="['fas', 'check']" class="mr-1"></fa-icon>
                         <span i18n>Test finished</span>
                     </h4>
-                    <h4 class="text-info">
-                        {{ activeTest.finishDate | date:'medium' }}
+                    <h4 class="text-info" *ngIf="finishedTest.finishDate">
+                        {{ finishedTest.finishDate | date:'medium' }}
                     </h4>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="jumbotron py-4 pr-0">
                 <p class="text-muted" i18n>Click to navigate questions</p>
                 <p class="d-flex flex-wrap">
-                    <span class="btn" *ngFor="let question of activeTest.questionSet; index as index" (click)="setQuestion(index + 1)"
+                    <span class="btn" *ngFor="let question of finishedTest.questionSet; index as index" (click)="setQuestion(index + 1)"
                         [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }">
                         {{ index + 1 }}
                     </span>
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="bg-light" *ngIf="activeTest.status === testStatus.FINISHED">
+<div class="bg-light" *ngIf="activeTes">
     <div class="container pt-5 pt-sm-2 pb-1 question-title">
         <!-- Question title -->
         <span class="text-muted mr-2">
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div class="bg-light-gradient" *ngIf="activeTest.status === testStatus.FINISHED">
+<div class="bg-light-gradient" *ngIf="finishedTest">
     <div class="container pt-1">
         <div class="row">
             <!-- Question description -->
@@ -68,7 +68,7 @@
                 <!-- Possible answers set -->
                 <div class="row">
                     <div class="col-4" *ngFor="let answer of activeQuestion.answers"
-                            [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
+                            [ngClass]="{'answer': finishedTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
                         <div class="px-0 w-100">
                             <img src="{{ answer.pic }}" srcset="{{ answer.pic2x }} 2x" class="w-100">
                         </div>
@@ -87,7 +87,7 @@
     </div>
 </div>
 
-<div class="bg-light mb-3" *ngIf="activeTest.status === testStatus.FINISHED">
+<div class="bg-light mb-3" *ngIf="finishedTest">
     <div class="container">
         <div class="row pb-4">
             <!-- Question navigation -->
@@ -100,7 +100,7 @@
             </div>
             <div class="col-sm-6 col-6 px-0 text-right">
                 <button class="btn btn-outline-primary btn-sm p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdNext)"
-                    *ngIf="activeQuestionId !== activeTest.questionSet.length">
+                    *ngIf="activeQuestionId !== finishedTest.questionSet.length">
                     <span i18n>Next Question</span>
                     <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>
                 </button>
@@ -109,13 +109,13 @@
     </div>
 </div>
 
-<div class="mb-3 d-md-none" *ngIf="activeTest.status === testStatus.FINISHED">
+<div class="mb-3 d-md-none" *ngIf="finishedTest">
     <div class="container">
         <!-- Switch between all questions (Mobile only)-->
         <div class="jumbotron py-5">
             <p class="text-muted" i18n>Click to navigate questions</p>
             <p class="d-flex flex-wrap justify-content-between">
-            <span class="btn" *ngFor="let question of activeTest.questionSet; index as index"
+            <span class="btn" *ngFor="let question of finishedTest.questionSet; index as index"
                     (click)="setQuestion(index + 1)"
                     [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }"
             >{{ index + 1 }}</span>
@@ -124,10 +124,10 @@
     </div>
 </div>
 
-<app-rating *ngIf="activeTest.status === testStatus.FINISHED"></app-rating>
+<app-rating [test]="finishedTest.code" [question]="activeQuestionId" *ngIf="finishedTest"></app-rating>
 
 <!-- Loader -->
-<div class="container" *ngIf="!activeTest && activeTest.status === testStatus.FINISHED">
+<div class="container" *ngIf="!finishedTest">
     <div class="loader-placeholder">
         <div class="page-loader"></div>
     </div>
