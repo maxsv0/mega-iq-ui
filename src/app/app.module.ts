@@ -36,6 +36,7 @@ import {LazyLoadImageModule} from 'ng-lazyload-image';
 import {UsersComponent} from './users/users.component';
 import {DialogComponent} from './_dialog';
 import {RatingComponent} from './user/rating/rating.component';
+import {IqReviewComponent} from './iqreview/iq-review.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -72,7 +73,8 @@ declare const require; // Use the require method provided by webpack
     TestcardComponent,
     UsersComponent,
     DialogComponent,
-    RatingComponent
+    RatingComponent,
+    IqReviewComponent
   ],
   providers: [
     AuthenticationService,
