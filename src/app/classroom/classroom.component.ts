@@ -27,6 +27,7 @@ export class ClassroomComponent implements OnInit {
   loading = false;
   updating = false;
   public testStatus = TestStatusEnum;
+  remainingTime: number;
 
   activeTest: TestResult;
   activeTestName: string;
@@ -249,20 +250,22 @@ export class ClassroomComponent implements OnInit {
      * @param expireTime Expire value (in minutes)
      * @description Counts down the time of expiry of the test from the time it was created
      */
-    private expireCountdown(createDate: Date, expireTime: number) {
+    private expireCountdown(createDate: Date, expireTime: number): void {
         const minInMs = 60000;
+        const secInMs = 1000;
         const start = new Date(createDate).getTime();
         const expire = Math.floor(expireTime * minInMs);
-        const countDownDate = start + expire;
+        const countDownDate = start + expire + (secInMs * 5);
 
         const x = setInterval(() => {
             const now = new Date().getTime();
-            const distance = countDownDate - now;
-            if(distance < 0) {
+            this.remainingTime = countDownDate - now;
+            if(this.remainingTime < 0) {
                 clearInterval(x);
+                this.remainingTime = 0;
                 this.dialogService.open();
             }
-        }, minInMs);
+        }, secInMs);
     }
 
     /**
