@@ -40,8 +40,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes';
 import {faSearchLocation} from '@fortawesome/free-solid-svg-icons/faSearchLocation';
 import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
-import {faStar as farStar} from '@fortawesome/free-solid-svg-icons';
-import {faStar as fasStar} from '@fortawesome/free-solid-svg-icons';
+import {faStar} from '@fortawesome/free-solid-svg-icons/faStar';
 
 export const shareButtonsIcons = [
   faFacebookF, faTwitter, faLinkedinIn, faPinterestP, faRedditAlien, faTumblr,
@@ -50,5 +49,5 @@ export const shareButtonsIcons = [
   faCommentAlt, faEnvelope, faCheck, faPrint, faExclamation, faLink, faEllipsisH, faMinus,
   faTrash, faUser, faHome, faCog, faShare, faSun, faCircle, faChevronRight, faChevronLeft,
   faQuestion, faSave, faUserPlus, faXRay, faSignInAlt, faBrain, faBars, faTimes, faSearchLocation,
-  faEye, faEyeSlash, farStar, fasStar
+  faEye, faEyeSlash, faStar
 ];
