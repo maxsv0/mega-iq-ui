@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,7 +9,6 @@ import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
-import {CountdownComponent} from 'ngx-countdown';
 import * as firebase from 'firebase';
 
 /**
@@ -23,16 +22,11 @@ import * as firebase from 'firebase';
   styleUrls: ['./classroom.component.scss']
 })
 export class ClassroomComponent implements OnInit {
-  @ViewChild('timer', { static: false }) 
-  private countdown: CountdownComponent;
-  countdownConfig: CountdownComponent["config"];
-
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   loading = false;
   updating = false;
   public testStatus = TestStatusEnum;
-  almostOver: boolean = false;
 
   activeTest: TestResult;
   activeTestName: string;
@@ -159,7 +153,7 @@ export class ClassroomComponent implements OnInit {
     this.activeTest = test;
     this.iqTestService.setType(this.activeTest.type);
     const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
-    this.createModal(this.activeTest.status, this.activeTest.code);
+    if(this.activeTest.status !== this.testStatus.ACTIVE) this.createModal(this.activeTest.status, this.activeTest.code);
 
     if(this.activeTest && allQuestionsAnswered) {
         this.activeTestCompleted = true;
@@ -174,7 +168,7 @@ export class ClassroomComponent implements OnInit {
       this.testTypes.forEach(
         (testData) => {
           if (this.activeTest.type === testData.type) {
-            this.expireCountdown(this.activeTest.createDate, testData.expire);
+              this.activeTest.status !== this.testStatus.ACTIVE ? this.dialogService.open() : this.expireCountdown(this.activeTest.createDate, testData.expire);
             this.activeTestName = testData.name;
           }
           this.updating = false;
@@ -250,6 +244,28 @@ export class ClassroomComponent implements OnInit {
     }
 
     /**
+     * @function expireCountdown
+     * @param createDate Date when test was created
+     * @param expireTime Expire value (in minutes)
+     * @description Counts down the time of expiry of the test from the time it was created
+     */
+    private expireCountdown(createDate: Date, expireTime: number) {
+        const minInMs = 60000;
+        const start = new Date(createDate).getTime();
+        const expire = Math.floor(expireTime * minInMs);
+        const countDownDate = start + expire;
+
+        const x = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            if(distance < 0) {
+                clearInterval(x);
+                this.dialogService.open();
+            }
+        }, minInMs);
+    }
+
+    /**
      * @function createModal
      * @param status Test status
      * @param code Test code
@@ -266,35 +282,5 @@ export class ClassroomComponent implements OnInit {
             },
             close: false
         });
-    }
-
-    /**
-     * @function expireCountdown
-     * @param createDate Date when test was created
-     * @param expireTime Expire value (in minutes)
-     * @description Counts down the time of expiry of the test from the time it was created
-     */
-    private expireCountdown(createDate: Date, expireTime: number): void {
-        const start = new Date(createDate);
-        const countDownDate = start.getMinutes() + expireTime;
-        const now = new Date();
-        const distance = (countDownDate - now.getMinutes()) * 60;
-
-        this.countdownConfig = {
-            leftTime: (distance < 0) ? 0 : distance,
-            format: 'HH:mm:ss',
-            notify: [300]
-        }
-    }
-
-    public handleCountdown(event): void {
-        switch (event.action) {
-            case 'notify':
-                this.almostOver = true;
-                break;     
-            case 'done':
-                this.dialogService.open();
-                break;
-        }
     }
 }
