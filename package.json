@@ -67,6 +67,7 @@
     "jquery": "^3.5.0",
     "localstorage-ponyfill": "^1.0.2",
     "ng-lazyload-image": "^7.1.0",
+    "ngx-countdown": "^9.0.1",
     "ngx-infinite-scroll": "^8.0.1",
     "ngx-owl-carousel": "^2.0.7",
     "node-sass": "^4.13.1",
