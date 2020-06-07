@@ -4,7 +4,7 @@
             <div class="col-12">
                 <p class="lead" i18n>Rate this question:</p>
                 <span class="star text-warning" *ngFor="let star of stars; let i=index">
-                    <fa-icon *ngIf="!star" [icon]="['fas', 'star']" (click)="select(i)"></fa-icon>
+                    <fa-icon *ngIf="!star" [icon]="['far', 'star']" (click)="select(i)"></fa-icon>
                     <fa-icon *ngIf="star" [icon]="['fas', 'star']" (click)="select(i)"></fa-icon>
                 </span>
             </div>
