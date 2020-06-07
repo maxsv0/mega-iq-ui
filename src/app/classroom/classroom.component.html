@@ -33,6 +33,13 @@
             {{activeTest.finishDate | date:'medium'}}
           </h4>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <span [ngClass]="{'almost-over': almostOver || countdownConfig.leftTime <= 300}" i18n>
+                    Time left: <countdown #timer [config]="countdownConfig" (event)="handleCountdown($event)"></countdown>
+                </span>
+            </div>
+        </div>
       </div>
     </div>
     <div class="col-md-8 d-none d-md-block d-lg-block d-xl-block">
