@@ -52,7 +52,7 @@
             <!-- Only for test owner -->
             <div class="py-5"
                  *ngIf="currentUser && user.uid === currentUser.uid">
-              <button routerLink="/classroom/{{test.code}}" class="btn btn-warning btn-block btn-lg">
+              <button routerLink="/iqtest/review/{{test.code}}" class="btn btn-warning btn-block btn-lg">
                 <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
                 <span i18n>Show Answers</span></button>
             </div>

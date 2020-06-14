@@ -22,6 +22,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./classroom.component.scss']
 })
 export class ClassroomComponent implements OnInit {
+
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   loading = false;
@@ -169,7 +170,7 @@ export class ClassroomComponent implements OnInit {
       this.testTypes.forEach(
         (testData) => {
           if (this.activeTest.type === testData.type) {
-              this.activeTest.status !== this.testStatus.ACTIVE ? this.dialogService.open() : this.expireCountdown(this.activeTest.createDate, testData.expire);
+            this.activeTest.status !== this.testStatus.ACTIVE ? this.dialogService.open() : this.expireCountdown(this.activeTest.createDate, testData.expire);
             this.activeTestName = testData.name;
           }
           this.updating = false;
@@ -255,7 +256,7 @@ export class ClassroomComponent implements OnInit {
         const secInMs = 1000;
         const start = new Date(createDate).getTime();
         const expire = Math.floor(expireTime * minInMs);
-        const countDownDate = start + expire + (secInMs * 5);
+        const countDownDate = start + expire + (secInMs * 6);
 
         const x = setInterval(() => {
             const now = new Date().getTime();

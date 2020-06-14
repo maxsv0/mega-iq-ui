@@ -71,6 +71,12 @@ h3 {
   top: -25px;
 }
 
+.almost-over {
+    .count-down {
+        color: var(--red);
+    }
+}
+
 @include mobile-md {
   .question-title {
     line-height: 28px;
