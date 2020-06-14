@@ -254,9 +254,10 @@ export class ClassroomComponent implements OnInit {
     private expireCountdown(createDate: Date, expireTime: number): void {
         const minInMs = 60000;
         const secInMs = 1000;
+        const timeOffset = 7 * secInMs;
         const start = new Date(createDate).getTime();
         const expire = Math.floor(expireTime * minInMs);
-        const countDownDate = start + expire + (secInMs * 6);
+        const countDownDate = start + expire + timeOffset;
 
         const x = setInterval(() => {
             const now = new Date().getTime();
