@@ -33,6 +33,11 @@
             {{activeTest.finishDate | date:'medium'}}
           </h4>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <span class="text-center" i18n>Time remaining: {{ remainingTime | date:'mm:ss' }}</span>
+            </div>
+        </div>
       </div>
     </div>
     <div class="col-md-8 d-none d-md-block d-lg-block d-xl-block">

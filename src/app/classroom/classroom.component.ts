@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IqTest, Question, TestResult, User} from '@/_models';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -28,7 +28,7 @@ export class ClassroomComponent implements OnInit {
   loading = false;
   updating = false;
   public testStatus = TestStatusEnum;
-  almostOver: boolean = false;
+  remainingTime: number;
 
   activeTest: TestResult;
   activeTestName: string;
@@ -155,7 +155,7 @@ export class ClassroomComponent implements OnInit {
     this.activeTest = test;
     this.iqTestService.setType(this.activeTest.type);
     const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
-    this.createModal(this.activeTest.status, this.activeTest.code);
+    if(this.activeTest.status !== this.testStatus.ACTIVE) this.createModal(this.activeTest.status, this.activeTest.code);
 
     if(this.activeTest && allQuestionsAnswered) {
         this.activeTestCompleted = true;
@@ -170,6 +170,7 @@ export class ClassroomComponent implements OnInit {
       this.testTypes.forEach(
         (testData) => {
           if (this.activeTest.type === testData.type) {
+            this.activeTest.status !== this.testStatus.ACTIVE ? this.dialogService.open() : this.expireCountdown(this.activeTest.createDate, testData.expire);
             this.activeTestName = testData.name;
           }
           this.updating = false;
@@ -242,6 +243,31 @@ export class ClassroomComponent implements OnInit {
         } else {
             return cycleBack;
         }
+    }
+
+    /**
+     * @function expireCountdown
+     * @param createDate Date when test was created
+     * @param expireTime Expire value (in minutes)
+     * @description Counts down the time of expiry of the test from the time it was created
+     */
+    private expireCountdown(createDate: Date, expireTime: number): void {
+        const minInMs = 60000;
+        const secInMs = 1000;
+        const timeOffset = 7 * secInMs;
+        const start = new Date(createDate).getTime();
+        const expire = Math.floor(expireTime * minInMs);
+        const countDownDate = start + expire + timeOffset;
+
+        const x = setInterval(() => {
+            const now = new Date().getTime();
+            this.remainingTime = countDownDate - now;
+            if(this.remainingTime < 0) {
+                clearInterval(x);
+                this.remainingTime = 0;
+                this.dialogService.open();
+            }
+        }, secInMs);
     }
 
     /**
