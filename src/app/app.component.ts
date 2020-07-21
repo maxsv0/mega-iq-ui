@@ -52,20 +52,23 @@ export class AppComponent {
 
     // TODO: update not only bg, but also page title and styles
     /** Shows background color or image on respective route **/
-    router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.setBackground(event.url);
-      }
+    // Only for browser
+    if (this.isBrowser) {
+      router.events.subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          this.setBackground(event.url);
+        }
 
-      // page loading is done
-      if (event instanceof NavigationEnd) {
-        /** Send GA page view event */
-        this.googleAnalyticsService.sendPageView(event.urlAfterRedirects);
+        // page loading is done
+        if (event instanceof NavigationEnd) {
+          /** Send GA page view event */
+          this.googleAnalyticsService.sendPageView(event.urlAfterRedirects);
 
-        // scroll to top
-        window.scrollTo(0, 0);
-      }
-    });
+          // scroll to top
+          window.scrollTo(0, 0);
+        }
+      });
+    }
   }
 
   /**
