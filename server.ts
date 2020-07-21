@@ -39,8 +39,9 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModule
 let sitemap;
 
 app.get('/sitemap.xml', function (req, res) {
-  res.header('Content-Type', 'application/xml');
-  res.header('Content-Encoding', 'gzip');
+  res.setHeader('Content-Type', 'application/xml');
+  res.setHeader('Content-Encoding', 'gzip');
+
   // if we have a cached entry send it
   if (sitemap) {
     res.send(sitemap);
