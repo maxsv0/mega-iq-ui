@@ -20,7 +20,6 @@ import 'zone.js/dist/zone-node';
 import * as express from 'express';
 import {join} from 'path';
 import {SitemapStream, streamToPromise} from 'sitemap';
-import {createGzip} from 'zlib';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
 
 const fs = require('fs');
@@ -40,7 +39,6 @@ let sitemap;
 
 app.get('/sitemap.xml', function (req, res) {
   res.setHeader('Content-Type', 'application/xml');
-  res.setHeader('Content-Encoding', 'gzip');
 
   // if we have a cached entry send it
   if (sitemap) {
@@ -62,7 +60,6 @@ app.get('/sitemap.xml', function (req, res) {
     }
 
     const smStream = new SitemapStream({hostname: hostName});
-    const pipeline = smStream.pipe(createGzip());
 
     // pipe your entries or directly write them.
     smStream.write({url: '/', changefreq: 'hourly', priority: 0.9});
@@ -100,9 +97,11 @@ app.get('/sitemap.xml', function (req, res) {
     smStream.end();
 
     // cache the response
-    streamToPromise(pipeline).then(sm => sitemap = sm);
+    streamToPromise(smStream).then(sm => sitemap = sm);
+
     // stream write the response
-    pipeline.pipe(res).on('error', (e) => {
+    smStream.pipe(res).on('error', (e) => {
+      console.error(e);
       res.status(500).end();
     });
   } catch (e) {
