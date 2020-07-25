@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.loading = false;
         });
   }
@@ -133,7 +133,7 @@ export class HomeComponent implements OnInit {
           this.isLoadingPage = false;
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.isLoadingResults = false;
           this.isLoadingPage = false;
         });

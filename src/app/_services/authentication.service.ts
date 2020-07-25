@@ -137,7 +137,7 @@ export class AuthenticationService {
    * @param user any
    * @description Sets current user in localstorage
    */
-  updateAuthData(user: any) {
+  updateAuthData(user: firebase.User) {
     this.localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSubject.next(user);
     return this.requestIdToken(user);
@@ -154,4 +154,17 @@ export class AuthenticationService {
       this.currentUserSubject.next(null);
     });
   }
+
+    public anonymousLogin(): Promise<firebase.User> {
+        return new Promise<firebase.User>((resolve, reject) => {
+            this.firebaseAuth.auth.signInAnonymously()
+            .then(userCredential => {
+                this.updateAuthData(userCredential.user);
+                resolve(userCredential.user);
+            })
+            .catch(error => {
+                reject(error.message);
+            });
+        });
+    }
 }

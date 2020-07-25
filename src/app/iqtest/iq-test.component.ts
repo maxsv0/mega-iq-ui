@@ -116,12 +116,26 @@ export class IqTestComponent implements OnInit {
           }
         },
         error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
           this.loading = false;
         });
 
     this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
   }
+
+    startTestBtn(type: TestTypeEnum): void {
+        const currentUser = this.authenticationService.currentUserValue;
+        if(!currentUser) {
+            this.authenticationService.anonymousLogin()
+            .catch(() => {
+                setTimeout(() => {
+                    this.startTestBtn(type);
+                }, 300);
+                return;
+            })
+        } 
+        this.startTest(type);
+    }
 
   /**
    * @function setCustomShareButtonsConfig
