@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   isLoadingResults = false;
   isLastLoaded = false;
   userTestsPage = 0;
+  isUserAnonymous: boolean;
 
   constructor(
     private titleService: Title,
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
     private i18n: I18n
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
+    this.isUserAnonymous = this.authenticationService.currentUserValue.isAnonymous;
   }
 
   /**
@@ -80,7 +82,7 @@ export class HomeComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.loading = false;
         });
   }
@@ -133,7 +135,7 @@ export class HomeComponent implements OnInit {
           this.isLoadingPage = false;
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.isLoadingResults = false;
           this.isLoadingPage = false;
         });
