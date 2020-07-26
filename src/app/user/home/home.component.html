@@ -2,7 +2,7 @@
 <div class="container pt-4 pb-3" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-sm-5">
-      <h2><span i18n>Hi</span>, {{currentUser.name}}!</h2>
+      <h2><span i18n>Hi</span>, {{currentUser.name || "Anonymous"}}!</h2>
     </div>
     <div id="home-actions" class="col-sm-7 text-right">
       <!-- Open profile -->
@@ -42,7 +42,7 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage && currentUser">
+<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
   <div class="container py-4">
     <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
   </div>
@@ -52,7 +52,7 @@
 <div class="container mt-5" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-12">
-      <h1>{{currentUser.name}}, <span i18n> your iq tests are displayed below</span>.</h1>
+      <h1>{{currentUser.name || "Anonymous"}}, <span i18n> your iq tests are displayed below</span>.</h1>
     </div>
   </div>
 

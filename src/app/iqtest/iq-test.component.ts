@@ -31,6 +31,7 @@ export class IqTestComponent implements OnInit {
   customConfig: ShareButtonsConfig;
   private sub: Subscription;
   metaImage: string = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
+  private currentUser: firebase.User = null;
 
   constructor(
     private titleService: Title,
@@ -47,6 +48,7 @@ export class IqTestComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    this.currentUser = this.authenticationService.currentUserValue;
 
     const testType = this.route.snapshot.params['testType'];
     this.iqTestService.getIqTest().subscribe(tests => {
@@ -95,45 +97,51 @@ export class IqTestComponent implements OnInit {
    * @param type Test type enum
    * @description Gets selected test and navigates to classroom page
    */
-  startTest(type: TestTypeEnum) {
-    this.loading = true;
+    startTest(type: TestTypeEnum) {
+        this.loading = true;
 
-    this.iqTestService.startTest(type)
-      .pipe(first())
-      .subscribe(
-        apiResponseTestResult => {
-          if (apiResponseTestResult.ok) {
-            this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
+        this.iqTestService.startTest(type)
+        .pipe(first())
+        .subscribe(
+            apiResponseTestResult => {
+                if (apiResponseTestResult.ok) {
+                    this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
 
-            // send GA event when test started
-            this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
-          } else {
-            this.alertService.error(apiResponseTestResult.msg);
-            this.loading = false;
+                    // send GA event when test started
+                    this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
+                } else {
+                    this.alertService.error(apiResponseTestResult.msg);
+                    this.loading = false;
 
-            // send GA event if error
-            this.googleAnalyticsService.sendEvent('iq-test', 'start-test-fail', type);
-          }
-        },
-        error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
-          this.loading = false;
-        });
+                    // send GA event if error
+                    this.googleAnalyticsService.sendEvent('iq-test', 'start-test-fail', type);
+                }
+            },
+            error => {
+                this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
+                this.loading = false;
+            });
 
-    this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
-  }
+        this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
+    }
 
     startTestBtn(type: TestTypeEnum): void {
-        const currentUser = this.authenticationService.currentUserValue;
-        if(!currentUser) {
+        if(!this.currentUser) {
             this.authenticationService.anonymousLogin()
+            .then(user => {
+                if(user.isAnonymous) {
+                    setTimeout(() => {
+                        this.startTest(type);
+                    }, 500);
+                }
+            })
             .catch(() => {
                 setTimeout(() => {
                     this.startTestBtn(type);
-                }, 300);
-                return;
+                }, 500);
             })
-        } 
+            return;
+        }
         this.startTest(type);
     }
 
