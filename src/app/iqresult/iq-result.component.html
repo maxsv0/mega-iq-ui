@@ -15,7 +15,7 @@
     <div class="col-12">
       <div class="jumbotron">
         <!-- Title -->
-        <h4>{{user.name}}
+        <h4>{{user.name || "Anonymous"}}
           <span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
@@ -37,7 +37,7 @@
         <div class="row">
           <div class="col-lg-6">
             <!-- User profile card -->
-            <app-avatar *ngIf="user" [user]="user"></app-avatar>
+            <app-avatar *ngIf="user && user.isPublic" [user]="user"></app-avatar>
           </div>
           <div class="col-lg-6">
             <!-- Chart js results -->
