@@ -14,7 +14,7 @@
 </div>
 
 <!-- User dashboard -->
-<div class="container pt-2 pb-3" *ngIf="!isLoadingPage && currentUser && currentUser && user.uid === currentUser.uid">
+<div class="container pt-2 pb-3" *ngIf="!isLoadingPage && currentUser && user && user.uid === currentUser.uid">
   <div class="row">
     <div id="home-actions" class="col-sm-7 text-right">
       <!-- Open profile -->
@@ -33,7 +33,7 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
+<div class="bg-user {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
   <div class="container py-5">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>
