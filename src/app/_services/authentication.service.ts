@@ -1,10 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {createLocalStorage} from 'localstorage-ponyfill';
-
-import {environment} from '../../environments/environment';
 import {AngularFireAuth} from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 
@@ -16,36 +11,33 @@ import * as firebase from 'firebase/app';
 export class AuthenticationService {
   public currentUser: Observable<firebase.User>;
   private currentUserSubject: BehaviorSubject<firebase.User>;
-  private localStorage: any;
 
   // user token that is used to call API
   private currentToken: Observable<string>;
   private currentTokenSubject: BehaviorSubject<string>;
 
   constructor(
-    private http: HttpClient,
     private firebaseAuth: AngularFireAuth
   ) {
-    this.localStorage = createLocalStorage();
 
-    this.currentUserSubject = new BehaviorSubject<firebase.User>(JSON.parse(this.localStorage.getItem('user')));
+    this.currentUserSubject = new BehaviorSubject<firebase.User>(JSON.parse(localStorage.getItem('user')));
     this.currentUser = this.currentUserSubject.asObservable();
 
-    this.currentTokenSubject = new BehaviorSubject<string>(JSON.parse(this.localStorage.getItem('token')));
+    this.currentTokenSubject = new BehaviorSubject<string>(JSON.parse(localStorage.getItem('token')));
     this.currentToken = this.currentTokenSubject.asObservable();
 
     this.firebaseAuth.authState.subscribe(user => {
       if (user) {
         this.updateAuthData(user);
       } else {
-        this.localStorage.setItem('user', JSON.stringify(null));
+        localStorage.setItem('user', JSON.stringify(null));
         this.currentUserSubject.next(null);
       }
     });
 
     this.firebaseAuth.idToken.subscribe(
       token => {
-        this.localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('token', JSON.stringify(token));
         this.currentTokenSubject.next(token);
       }
     );
@@ -117,15 +109,7 @@ export class AuthenticationService {
    * @description Request user using token
    */
   loginToken(token: string) {
-    return this.http.post<any>(environment.apiUrl + '/user/loginToken', {token})
-      .pipe(map(apiResponseUser => {
-
-        if (apiResponseUser.ok) {
-          this.updateAuthData(apiResponseUser.user);
-        }
-
-        return apiResponseUser;
-      }));
+    return null;
   }
 
   public requestIdToken(userCredential: firebase.User) {
@@ -138,7 +122,7 @@ export class AuthenticationService {
    * @description Sets current user in localstorage
    */
   updateAuthData(user: firebase.User) {
-    this.localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSubject.next(user);
     return this.requestIdToken(user);
   }
@@ -150,7 +134,7 @@ export class AuthenticationService {
   logout() {
     return this.firebaseAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.localStorage.removeItem('user');
+      localStorage.removeItem('user');
       this.currentUserSubject.next(null);
     });
   }
