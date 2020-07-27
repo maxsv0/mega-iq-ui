@@ -3,17 +3,8 @@
 /* Hero Home */
 #home {
 
-  #counter {
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   min-height: 650px;
 
-  .flip-clock-wrapper {
-    margin: 10em 0 5em;
-  }
 }
 
 /* Public users carousel */
@@ -36,99 +27,3 @@
     vertical-align: middle;
   }
 }
-
-/** Mobile (xs-l) **/
-
-@include mobile-lg {
-  #home {
-    #counter {
-      width: 420px;
-    }
-
-    .flip-clock-wrapper {
-      margin: 3em 0 1em;
-    }
-
-    .flip-clock-wrapper ul {
-      margin: 3px;
-      width: 45px;
-      height: 60px;
-      font-size: 50px;
-      font-weight: bold;
-      line-height: 67px;
-      border-radius: 6px;
-    }
-
-    .flip-clock-wrapper ul li {
-      line-height: 67px;
-    }
-
-    .flip-clock-wrapper ul li a div {
-      font-size: 50px;
-    }
-
-  }
-}
-
-@include mobile-md {
-  #home {
-    #counter {
-      width: 365px;
-    }
-
-    .flip-clock-wrapper {
-      margin: 3em 0;
-    }
-
-    .flip-clock-wrapper ul {
-      margin: 3px;
-      width: 40px;
-      height: 55px;
-      font-size: 44px;
-      font-weight: bold;
-      line-height: 52px;
-      border-radius: 6px;
-    }
-
-    .flip-clock-wrapper ul li {
-      line-height: 52px;
-    }
-
-    .flip-clock-wrapper ul li a div {
-      font-size: 44px;
-    }
-  }
-}
-
-
-@include mobile-sm {
-  #home {
-    #counter {
-      width: 310px;
-    }
-
-    .flip-clock-wrapper {
-      margin: 3em 0;
-    }
-
-    .flip-clock-wrapper ul {
-      margin: 1px;
-      width: 35px;
-      height: 45px;
-      font-size: 32px;
-      font-weight: bold;
-      line-height: 42px;
-      border-radius: 6px;
-    }
-
-    .flip-clock-wrapper ul li {
-      line-height: 42px;
-    }
-
-    .flip-clock-wrapper ul li a div {
-      font-size: 32px;
-    }
-  }
-
-}
-
