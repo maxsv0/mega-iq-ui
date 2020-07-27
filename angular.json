@@ -266,7 +266,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "src/tsconfig.server.json"
           },
           "configurations": {
@@ -322,6 +322,32 @@
               "sourceMap": false,
               "optimization": true
             }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "mega-iq-ui:build",
+            "serverTarget": "mega-iq-ui:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mega-iq-ui:build:production",
+              "serverTarget": "mega-iq-ui:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "mega-iq-ui:build:production",
+            "serverTarget": "mega-iq-ui:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
