@@ -1,8 +1,10 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, IqTestService, UserService} from '@/_services';
 import {IqTest, User} from '@/_models';
+import * as $ from 'jquery';
+import {interval, Subscription} from 'rxjs';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
@@ -11,17 +13,22 @@ import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 
 /**
  * @class IndexComponent
+ * @implements Oninit, OnDestroy
  * @description Home page controller
  */
 @Component({
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss', './flipclock.css'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit, OnDestroy {
   testTypes: IqTest[] = [];
   usersList: User[] = [];
   usersTop: User[] = [];
   userExamples: User[];
+  clock: any;
+  clockTimerSubscription: Subscription;
+  clockSpeed: number;
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
 
@@ -80,6 +87,40 @@ export class IndexComponent {
   }
 
   /**
+   * @function ngOnInit
+   * @description Initialize Flipclock
+   */
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.initJs();
+    }
+  }
+
+  /**
+   * @function ngOnDestroy
+   * @description Unsubscribes from Flipclock
+   */
+  ngOnDestroy() {
+    if (this.clockTimerSubscription) {
+      this.clockTimerSubscription.unsubscribe();
+    }
+  }
+
+  /**
+   * @function initJs
+   * @description Initialize Flipclock
+   */
+  private initJs() {
+    // @ts-ignore
+    this.clock = new FlipClock($('#counter'), 1659596, {
+      clockFace: 'Counter',
+      minimumDigits: 7,
+      autoStart: true,
+      countdown: false
+    });
+  }
+
+  /**
    * @function loadUsersTop
    * @description Loads data for top users tables
    */
@@ -93,10 +134,55 @@ export class IndexComponent {
         } else {
           this.alertService.error(apiResponseUsersTop.msg);
         }
+        this.scrollToValue(apiResponseUsersTop.count);
       },
       error => {
         this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
       });
+  }
+
+  /**
+   * @function scrollToValue
+   * @param value Scrolls to correct value of users who passed tests
+   * @description Scrolls to correct value of flipclock after initializing
+   */
+  private scrollToValue(value: number) {
+    if (value == null) {
+      return;
+    }
+    if (this.clock == null) {
+      return;
+    }
+
+    // scroll in 5 sec
+    const diff = value - this.clock.getTime().getTimeSeconds();
+    if (diff < 0) {
+      return false;
+    }
+
+    this.clockSpeed = Math.round(diff / 57);
+
+    const diffLimitSlow = Math.round(value - diff * 0.03);
+    const diffLimitSlow2 = Math.round(value - diff * 0.14);
+    const source = interval(25);
+
+    this.clockTimerSubscription = source.subscribe(
+      val => {
+        const counter = this.clock.getTime().getTimeSeconds();
+        for (let i = 0; i < this.clockSpeed; i++) {
+          this.clock.increment();
+        }
+        if (this.clockSpeed > 2 && counter >= diffLimitSlow2) {
+          this.clockSpeed = Math.round(this.clockSpeed / 2);
+        }
+        if (this.clockSpeed > 1 && counter >= diffLimitSlow) {
+          this.clockSpeed = 1;
+        }
+        if (counter >= value) {
+          this.clockTimerSubscription.unsubscribe();
+        }
+      }
+    );
   }
 
   /**
