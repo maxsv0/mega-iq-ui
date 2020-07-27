@@ -6,8 +6,8 @@ import {IqTest, User} from '@/_models';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
-import {ShareButtonsModule} from '@ngx-share/buttons';
-import {ShareButtonsConfig} from '@ngx-share/core';
+import {ShareButtonsConfig} from 'ngx-sharebuttons';
+import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 
 /**
  * @class IndexComponent

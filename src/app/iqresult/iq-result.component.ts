@@ -7,7 +7,7 @@ import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
-import {ShareButtonsModule} from '@ngx-share/buttons';
+import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
 import * as firebase from 'firebase';
