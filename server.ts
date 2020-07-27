@@ -13,6 +13,8 @@ import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
 import 'localstorage-polyfill';
+import {SitemapStream, streamToPromise} from 'sitemap';
+import {APP_LOCALE_ID} from './src/environments/app-locale';
 global['localStorage'] = localStorage;
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -35,6 +37,81 @@ export function app(): express.Express {
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
+
+  let sitemap;
+
+  server.get('/sitemap.xml', function (req, res) {
+    res.setHeader('Content-Type', 'application/xml');
+
+    // if we have a cached entry send it
+    if (sitemap) {
+      res.send(sitemap);
+      return;
+    }
+
+    try {
+      let hostName = 'https://www.mega-iq.com/';
+      // @ts-ignore
+      if (APP_LOCALE_ID === 'de') {
+        hostName = 'https://de.mega-iq.com/';
+        // @ts-ignore
+      } else if (APP_LOCALE_ID === 'es') {
+        hostName = 'https://es.mega-iq.com/';
+        // @ts-ignore
+      } else if (APP_LOCALE_ID === 'ru') {
+        hostName = 'https://ru.mega-iq.com/';
+      }
+
+      const smStream = new SitemapStream({hostname: hostName});
+
+      // pipe your entries or directly write them.
+      smStream.write({url: '/', changefreq: 'hourly', priority: 0.9});
+      smStream.write({url: '/iqtest', changefreq: 'daily', priority: 0.95});
+      smStream.write({url: '/iqtest/mega-iq', changefreq: 'weekly', priority: 0.9});
+      smStream.write({url: '/iqtest/iq-practice', changefreq: 'weekly', priority: 0.9});
+      smStream.write({url: '/iqtest/iq-standard', changefreq: 'weekly', priority: 0.9});
+      smStream.write({url: '/iqtest/math', changefreq: 'weekly', priority: 0.9});
+      smStream.write({url: '/iqtest/grammar', changefreq: 'weekly', priority: 0.9});
+      smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
+      smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
+
+      // if (fs.existsSync('/tmp/list-latest.json')) {
+      //   const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
+      //   const tests = JSON.parse(data);
+      //
+      //   if (tests && tests.ok && tests.tests) {
+      //     for (const testInfo of tests.tests) {
+      //       smStream.write({
+      //         url: testInfo.url,
+      //         changefreq: 'monthly',
+      //         priority: 0.3
+      //       });
+      //     }
+      //   }
+      // }
+
+      smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
+      smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
+      smStream.write({url: '/forget', changefreq: 'monthly', priority: 0.2});
+      smStream.write({url: '/assets/static/about.html', changefreq: 'monthly', priority: 0.1});
+      smStream.write({url: '/assets/static/privacy-policy.html', changefreq: 'monthly', priority: 0.1});
+      smStream.write({url: '/assets/static/terms-conditions.html', changefreq: 'monthly', priority: 0.1});
+
+      smStream.end();
+
+      // cache the response
+      streamToPromise(smStream).then(sm => sitemap = sm);
+
+      // stream write the response
+      smStream.pipe(res).on('error', (e) => {
+        console.error(e);
+        res.status(500).end();
+      });
+    } catch (e) {
+      console.error(e);
+      res.status(500).end();
+    }
+  });
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
