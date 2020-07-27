@@ -9,6 +9,9 @@ $theme-colors: (
 @import 'views/base';
 @import 'views/typography';
 
+@import '~ngx-sharebuttons/themes/modern/modern-light-theme';
+@import '~ngx-sharebuttons/themes/modern/modern-dark-theme';
+
 body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
