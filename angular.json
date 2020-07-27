@@ -4,19 +4,40 @@
   "newProjectRoot": "projects",
   "projects": {
     "mega-iq-ui": {
+      "i18n": {
+        "locales": {
+          "en": {
+            "translation": "src/i18n/messages.en.xlf",
+            "baseHref": ""
+          },
+          "ru": {
+            "translation": "src/i18n/messages.ru.xlf",
+            "baseHref": ""
+          },
+          "es": {
+            "translation": "src/i18n/messages.es.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "src/i18n/messages.de.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -50,15 +71,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+            "localize": [
+              "en"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nFormat": "xlf2",
-              "i18nLocale": "en",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -67,6 +88,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
@@ -77,15 +102,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+            "localize": [
+              "ru"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "i18nFile": "src/i18n/messages.ru.xlf",
-              "i18nFormat": "xlf2",
-              "i18nLocale": "ru",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -94,6 +119,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
@@ -104,15 +133,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+            "localize": [
+              "es"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "i18nFile": "src/i18n/messages.es.xlf",
-              "i18nFormat": "xlf2",
-              "i18nLocale": "es",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -121,6 +150,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
@@ -131,15 +164,15 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+            "localize": [
+              "de"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "i18nFile": "src/i18n/messages.de.xlf",
-              "i18nFormat": "xlf2",
-              "i18nLocale": "de",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -148,6 +181,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -244,10 +281,7 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             },
             "production-ru": {
               "i18nFile": "src/i18n/messages.ru.xlf",
@@ -260,10 +294,7 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             },
             "production-de": {
               "i18nFile": "src/i18n/messages.de.xlf",
@@ -276,10 +307,7 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             },
             "production-es": {
               "i18nFile": "src/i18n/messages.es.xlf",
@@ -292,10 +320,7 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             }
           }
         }

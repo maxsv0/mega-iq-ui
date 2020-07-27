@@ -22,7 +22,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./iq-result.component.scss']
 })
 export class IqResultComponent {
-  @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+  @ViewChild('myCanvas') myCanvas: ElementRef;
   public ctx: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
