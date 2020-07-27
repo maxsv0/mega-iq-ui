@@ -78,7 +78,7 @@ export class AuthenticationService {
    * @description Logs in user with email
    */
   login(email: string, password: string) {
-    return this.firebaseAuth.auth
+    return this.firebaseAuth
       .signInWithEmailAndPassword(email, password);
   }
 
@@ -108,7 +108,7 @@ export class AuthenticationService {
    * @param provider Google or facebook
    */
   private socialSignIn(provider) {
-    return this.firebaseAuth.auth.signInWithPopup(provider);
+    return this.firebaseAuth.signInWithPopup(provider);
   }
 
   /**
@@ -148,7 +148,7 @@ export class AuthenticationService {
    * @description Logs user out and reomve user from local storage
    */
   logout() {
-    return this.firebaseAuth.auth.signOut().then(() => {
+    return this.firebaseAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.localStorage.removeItem('user');
       this.currentUserSubject.next(null);
@@ -157,7 +157,7 @@ export class AuthenticationService {
 
     public anonymousLogin(): Promise<firebase.User> {
         return new Promise<firebase.User>((resolve, reject) => {
-            this.firebaseAuth.auth.signInAnonymously()
+            this.firebaseAuth.signInAnonymously()
             .then(userCredential => {
                 this.updateAuthData(userCredential.user);
                 resolve(userCredential.user);
