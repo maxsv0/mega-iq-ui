@@ -8,8 +8,9 @@ $theme-colors: (
 @import 'views/variables';
 @import 'views/base';
 @import 'views/typography';
-@import '~@ngx-share/button/themes/modern/modern-light-theme';
-@import '~@ngx-share/button/themes/modern/modern-dark-theme';
+
+@import '~ngx-sharebuttons/themes/modern/modern-light-theme';
+@import '~ngx-sharebuttons/themes/modern/modern-dark-theme';
 
 body {
   font-family: 'Roboto', sans-serif;

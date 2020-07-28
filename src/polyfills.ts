@@ -1,3 +1,5 @@
-import 'core-js/es6/reflect';
-import 'core-js/es7/reflect';
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
 import 'zone.js/dist/zone';

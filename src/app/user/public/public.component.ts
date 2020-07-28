@@ -7,8 +7,8 @@ import {Meta, Title} from '@angular/platform-browser';
 import {TestTypeEnum} from '@/_models/enum';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
-import {ShareButtonsModule} from '@ngx-share/buttons';
-import {ShareButtonsConfig} from '@ngx-share/core';
+import {ShareButtonsConfig} from 'ngx-sharebuttons';
+import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import * as firebase from 'firebase';
 

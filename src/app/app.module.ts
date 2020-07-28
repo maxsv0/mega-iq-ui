@@ -28,7 +28,7 @@ import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
 import {AvatarComponent} from './user/avatar/avatar.component';
 import {APP_LOCALE_ID} from '../environments/app-locale';
-import {ShareButtonsModule} from '@ngx-share/buttons';
+import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {shareButtonsIcons} from '@/icons';
 import {TestcardComponent} from './user/testcard/testcard.component';

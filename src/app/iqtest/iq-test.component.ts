@@ -7,8 +7,8 @@ import {first} from 'rxjs/operators';
 import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
-import {ShareButtonsModule} from '@ngx-share/buttons';
-import {ShareButtonsConfig} from '@ngx-share/core';
+import {ShareButtonsConfig} from 'ngx-sharebuttons';
+import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 import {Subscription} from 'rxjs';
@@ -98,8 +98,6 @@ export class IqTestComponent implements OnInit {
    * @description Gets selected test and navigates to classroom page
    */
     startTest(type: TestTypeEnum) {
-        this.loading = true;
-
         this.iqTestService.startTest(type)
         .pipe(first())
         .subscribe(
@@ -125,25 +123,27 @@ export class IqTestComponent implements OnInit {
         this.googleAnalyticsService.sendEvent('iq-test', 'start-test', type);
     }
 
-    startTestBtn(type: TestTypeEnum): void {
-        if(!this.currentUser) {
-            this.authenticationService.anonymousLogin()
-            .then(user => {
-                if(user.isAnonymous) {
-                    setTimeout(() => {
-                        this.startTest(type);
-                    }, 500);
-                }
-            })
-            .catch(() => {
-                setTimeout(() => {
-                    this.startTestBtn(type);
-                }, 500);
-            })
-            return;
-        }
-        this.startTest(type);
+  startTestBtn(type: TestTypeEnum): void {
+    this.loading = true;
+
+    if (!this.currentUser) {
+      this.authenticationService.anonymousLogin()
+        .then(user => {
+          if (user.isAnonymous) {
+            setTimeout(() => {
+              this.startTest(type);
+            }, 500);
+          }
+        })
+        .catch(() => {
+          setTimeout(() => {
+            this.startTestBtn(type);
+          }, 500);
+        });
+      return;
     }
+    this.startTest(type);
+  }
 
   /**
    * @function setCustomShareButtonsConfig

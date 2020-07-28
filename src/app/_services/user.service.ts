@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
 import { Rating } from '@/_models/rating';
+import {map} from 'rxjs/operators';
 
 /**
  * @class UserService
@@ -136,5 +137,14 @@ export class UserService {
    */
   sendFeedback(feedback: Rating) {
     return this.http.post<ApiResponseBase>(environment.apiUrl + '/user/feedback', feedback);
+  }
+
+  /**
+   * @function loginToken
+   * @param token Authentication token
+   * @description Request user using token
+   */
+  loginToken(token: string) {
+    return this.http.post<any>(environment.apiUrl + '/user/loginToken', {token});
   }
 }

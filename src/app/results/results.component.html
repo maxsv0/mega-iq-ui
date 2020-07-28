@@ -13,39 +13,6 @@
     <div class="col-12">
       <p class="text-right">{{count}} results found</p>
 
-      <!-- Active current results table details -->
-      <table class="w-100 bg-white mb-2" *ngIf="testsActive && testsActive.length > 0">
-        <thead>
-        <tr>
-          <th width="10%" i18n>User</th>
-          <th width="30%" i18n>Test IQ</th>
-          <th width="10%" i18n>Status</th>
-          <th width="20%" i18n>Started</th>
-          <th width="30%" i18n>Current test progress</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let test of testsActive">
-          <td *ngIf="test.userPic">
-            <img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'"
-                 [lazyLoad]="test.userPic+'=s60-c'">
-          </td>
-          <td *ngIf="!test.userPic">
-            <span i18n>private</span>
-          </td>
-          <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
-          <td>
-        <span class="badge" [ngClass]="{ 'badge-success': test.status === testStatus.FINISHED,
-                   'badge-primary': test.status === testStatus.ACTIVE}">{{test.status}}</span>
-          </td>
-          <td class="small">{{test.createDate | date:'medium'}}</td>
-          <td>
-            <progress class="w-100" value="{{test.progress}}" max="100" role="progressbar"></progress>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
       <!-- Top results table details -->
       <table class="w-100 bg-white table-hover">
         <thead>
