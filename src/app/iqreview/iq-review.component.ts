@@ -158,6 +158,6 @@ export class IqReviewComponent implements OnInit {
                 this.router.navigate(['/home'])
             },
             close: false
-        }).open();
+        }).then(modal => modal.open());
     }
 }

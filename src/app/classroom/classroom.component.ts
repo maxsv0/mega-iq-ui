@@ -138,7 +138,7 @@ export class ClassroomComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
           this.loading = false;
         });
   }
