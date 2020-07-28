@@ -3,16 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiUrl: 'https://www.mega-iq.com/api/v1',
-  apiGeoIpUrl: 'https://geoip.mega-iq.com',
-  googleAnalyticsKey: 'UA-5019289-13',
-  firebase: {
-    apiKey: '',
-    authDomain: 'megaiq637.firebaseapp.com',
-    databaseURL: 'https://megaiq637.firebaseio.com',
-    projectId: 'megaiq637',
-    storageBucket: 'megaiq637.appspot.com',
-    messagingSenderId: '589199945075'
-  }
-};
+    production: false,
+    apiUrl: 'https://es.mega-iq.com/api/v1',
+    apiGeoIpUrl: 'https://geoip.mega-iq.com',
+    googleAnalyticsKey: 'UA-5019289-13',
+    firebase: {
+      apiKey: 'AIzaSyA2DRW5ImkUR8C7wg27B8ooCexjDZcCrqw',
+      authDomain: 'megaiq637.firebaseapp.com',
+      databaseURL: 'https://megaiq637.firebaseio.com',
+      projectId: 'megaiq637',
+      storageBucket: 'megaiq637.appspot.com',
+      messagingSenderId: '589199945075'
+    }
+  };
