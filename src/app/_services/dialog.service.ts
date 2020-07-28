@@ -8,7 +8,7 @@ declare var $:any;
   providedIn: 'root'
 })
 export class DialogService {
-    private subject = new Subject<any>();
+    private subject = new Subject<Modal>();
     dialogId: Modal["id"];
 
     constructor() { }
@@ -33,7 +33,7 @@ export class DialogService {
         $('#' + this.dialogId).modal('dispose');
     }
 
-    public getContent(): Observable<any> {
+    public getContent(): Observable<Modal> {
         return this.subject.asObservable();
     }
 

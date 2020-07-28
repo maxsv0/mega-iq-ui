@@ -6,8 +6,9 @@ export interface Modal {
     id: string;
     title: string;
     body: string;
-    primary: string;
+    primary?: string;
     secondary?: string;
-    clickFunction?: Function;
+    clickFunctionPrimary?: Function;
+    clickFunctionSecondary?: Function;
     close: boolean;
 }

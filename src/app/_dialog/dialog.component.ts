@@ -10,13 +10,14 @@ import { DialogService } from '@/_services';
 export class DialogComponent implements OnInit, OnDestroy {
 
     private subscription: Subscription;
-    id: string;
-    title: string;
-    body: string;
-    primary: string;
-    secondary: string;
-    clickFunction: Function;
-    close: boolean = true;
+    public id: string;
+    public title: string;
+    public body: string;
+    public primary: string;
+    public secondary: string;
+    public clickFunctionPrimary: Function;
+    public clickFunctionSecondary: Function;
+    public close: boolean = true;
 
   constructor(private dialogService: DialogService) { }
 
@@ -26,7 +27,9 @@ export class DialogComponent implements OnInit, OnDestroy {
         this.title = modal.title;
         this.body = modal.body;
         this.primary = modal.primary;
-        this.clickFunction = modal.clickFunction;
+        this.secondary = modal.secondary;
+        this.clickFunctionPrimary = modal.clickFunctionPrimary;
+        this.clickFunctionSecondary = modal.clickFunctionSecondary;
         this.close = modal.close;
       });
   }
@@ -35,8 +38,13 @@ export class DialogComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
   }
 
-  handleClick() {
-    this.clickFunction();
+  handleClickPrimary() {
+    this.clickFunctionPrimary();
+    this.dialogService.close();
+  }
+
+  handleClickSecondary() {
+    this.clickFunctionSecondary();
     this.dialogService.close();
   }
 
