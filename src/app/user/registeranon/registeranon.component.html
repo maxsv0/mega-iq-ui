@@ -1,0 +1,113 @@
+<section>
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text lead">Create an account.</p>
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" method="post">
+                            <div class="form-group required">
+                                <label for="email" i18n>Email</label>
+                                <input type="text" id="email" formControlName="email" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required" i18n>Email is required</div>
+                                    <div *ngIf="f.email.errors.email" i18n>Email is not valid</div>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="name" i18n>Name</label>
+                                <input type="text" id="name" formControlName="name" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required" i18n>Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="age" i18n>Age</label>
+                                <input type="number" id="age" formControlName="age" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="location" i18n>Location</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="location" formControlName="location" placeholder="Location" class="form-control"/>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" (click)="detectLocation()">
+                                            <fa-icon [icon]="['fas', 'search-location']"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="country" formControlName="country"/>
+                                <input type="hidden" id="cityLatLong" formControlName="cityLatLong"/>
+                            </div>
+                            
+                            <div class="form-group required">
+                                <label for="password" i18n>Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="{{ !showPassword ? 'password' : 'text' }}" id="password" formControlName="password" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" (click)="showHidePassword()">
+                                            <fa-icon *ngIf="!showPassword" [icon]="['fas', 'eye']"></fa-icon>
+                                            <fa-icon *ngIf="showPassword" [icon]="['fas', 'eye-slash']"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required" i18n>Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength" v>Password must be at least 6 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="password2" i18n>Password Confirmation</label>
+                                <div class="input-group mb-3">
+                                    <input type="{{ !showPassword ? 'password' : 'text' }}" id="password2" formControlName="password2" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password2.errors }"/>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" (click)="showHidePassword()">
+                                            <fa-icon *ngIf="!showPassword" [icon]="['fas', 'eye']"></fa-icon>
+                                            <fa-icon *ngIf="showPassword" [icon]="['fas', 'eye-slash']"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div *ngIf="submitted && f.password2.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password2.errors.required" i18n>Password confirmation is required</div>
+                                    <div *ngIf="f.password2.errors.minlength" i18n>Password confirmation must be at least 6 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" id="terms" formControlName="terms" class="form-check-input" value="1" checked=""
+                                    [ngClass]="{ 'is-invalid': submitted && f.terms.errors }"/>
+                                    <label class="form-check-label" for="terms" i18n>Accept terms and conditions and privacy policy.</label>
+                                    <div *ngIf="submitted && f.terms.errors" class="invalid-feedback">
+                                        <div *ngIf="f.terms.errors.required" i18n>You must agree before submitting.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button [disabled]="loading" class="btn btn-primary" id="register-btn">
+                                    <fa-icon *ngIf="!loading" [icon]="['fas', 'user-plus']" class="mr-1"></fa-icon>
+                                    <span *ngIf="!loading" i18n>Register</span>
+                                    <span *ngIf="loading" class="actn-loader"></span>
+                                </button>
+                                <a routerLink="/login" class="btn btn-link" i18n>Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text lead">Login with Google.</p>
+                        <button type="button" class="btn btn-link" (click)="loginGoogle()">
+                            <img src="/assets/img/btn_google_signin_light_normal_web.png"
+                                 srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">
+                          </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
