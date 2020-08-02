@@ -40,6 +40,7 @@ export class ClassroomComponent implements OnInit {
 
   currentUser: firebase.User;
   currentUserSubscription: Subscription;
+  currentUserisAnonymous = false;
 
   constructor(
     private titleService: Title,
@@ -54,13 +55,13 @@ export class ClassroomComponent implements OnInit {
     private i18n: I18n
   ) {
     this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
+    this.currentUserisAnonymous = this.authenticationService.currentUserValue.isAnonymous;
 
     this.activeQuestionId = 1;
     const testCode = this.route.snapshot.params['testCode'];
     if (testCode) {
       this.initTestByCode(testCode);
     }
-
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
 
@@ -129,16 +130,19 @@ export class ClassroomComponent implements OnInit {
       .subscribe(
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
-            this.router.navigate(['/iqtest/result/' + apiResponseTestResult.test.code]);
-
-            this.googleAnalyticsService.sendEvent('iq-test', 'finish-test', this.activeTest.type);
+              if(this.currentUserisAnonymous) {
+                this.anonUserModal(apiResponseTestResult.test.code);
+              } else {
+                  this.router.navigate(['/iqtest/result/' + apiResponseTestResult.test.code]);
+                  this.googleAnalyticsService.sendEvent('iq-test', 'finish-test', this.activeTest.type);
+              }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
           this.loading = false;
         },
         error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
           this.loading = false;
         });
   }
@@ -282,10 +286,31 @@ export class ClassroomComponent implements OnInit {
             title: this.i18n(`Test ${status.toLocaleLowerCase()}.`),
             body: status === this.testStatus.EXPIRED ? this.i18n('Your test has expired. You will be redirected to Home. Please start a new test.') : this.i18n('You have completed this test. Check the result of this test.'),
             primary: status === this.testStatus.EXPIRED ? this.i18n('Back to Home') : this.i18n('Check results'),
-            clickFunction: () => {
+            clickFunctionPrimary: () => {
                 status === this.testStatus.EXPIRED ? this.router.navigate(['/home']) : this.router.navigate(['/iqtest/result/' + code]);
             },
             close: false
         });
+    }
+
+    private anonUserModal(code: TestResult["code"]): void {
+        const modalBody = `
+            <p>${this.i18n("You are logged in as an anonymous user.")}</p>
+            <p>${this.i18n("Click below to create an account or continue anonymously.")}</p>
+        `;
+        this.dialogService.create({
+            id: "anon-user-register",
+            title: this.i18n("Register anonymous account."),
+            body: modalBody,
+            primary: this.i18n("Register account"),
+            secondary: this.i18n("Continue anonyomously"),
+            clickFunctionPrimary: () => {
+                this.router.navigate(['/register/anonymous'])
+            },
+            clickFunctionSecondary: () => {
+                this.router.navigate(['/iqtest/result/' + code]);
+            },
+            close: false
+        }).then(modal => modal.open());
     }
 }

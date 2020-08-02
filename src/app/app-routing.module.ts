@@ -14,12 +14,14 @@ import {ClassroomComponent} from './classroom/classroom.component';
 import {AuthGuard} from './_guards';
 import {UsersComponent} from '@/users/users.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
+import {RegisteranonComponent} from './user/registeranon/registeranon.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: IndexComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'register/anonymous', component: RegisteranonComponent},
   {path: 'forget', component: ForgetComponent},
   {path: 'iqtest', component: IqTestComponent},
   {path: 'iqtest/users', component: UsersComponent},

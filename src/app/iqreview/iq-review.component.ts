@@ -154,10 +154,10 @@ export class IqReviewComponent implements OnInit {
             title: this.i18n('Test not finished.'),
             body: this.i18n('You have not finished your test yet. You will be redirected to Home.'),
             primary: this.i18n('Back to Home'),
-            clickFunction: () => {
+            clickFunctionPrimary: () => {
                 this.router.navigate(['/home'])
             },
             close: false
-        }).open();
+        }).then(modal => modal.open());
     }
 }

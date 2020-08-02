@@ -37,6 +37,7 @@ import {UsersComponent} from './users/users.component';
 import {DialogComponent} from './_dialog';
 import {RatingComponent} from './user/rating/rating.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
+import { RegisteranonComponent } from './user/registeranon/registeranon.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -74,7 +75,8 @@ declare const require; // Use the require method provided by webpack
     UsersComponent,
     DialogComponent,
     RatingComponent,
-    IqReviewComponent
+    IqReviewComponent,
+    RegisteranonComponent
   ],
   providers: [
     AuthenticationService,

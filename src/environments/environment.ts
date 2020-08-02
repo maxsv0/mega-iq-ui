@@ -7,12 +7,12 @@ export const environment = {
   apiUrl: 'https://www.mega-iq.com/api/v1',
   apiGeoIpUrl: 'https://geoip.mega-iq.com',
   googleAnalyticsKey: 'UA-5019289-13',
-  firebase: {
-    apiKey: '',
-    authDomain: 'megaiq637.firebaseapp.com',
-    databaseURL: 'https://megaiq637.firebaseio.com',
-    projectId: 'megaiq637',
-    storageBucket: 'megaiq637.appspot.com',
-    messagingSenderId: '589199945075'
+    firebase: {
+      apiKey: '',
+      authDomain: 'megaiq637.firebaseapp.com',
+      databaseURL: 'https://megaiq637.firebaseio.com',
+      projectId: 'megaiq637',
+      storageBucket: 'megaiq637.appspot.com',
+      messagingSenderId: '589199945075'
   }
 };

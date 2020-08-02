@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Modal } from '@/_models/modal';
+import { resolve } from 'url';
 declare var $:any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
-    private subject = new Subject<any>();
+    private subject = new Subject<Modal>();
     dialogId: Modal["id"];
 
     constructor() { }
 
     public create({id, ...modalOptions}: Modal) {
-        this.dialogId = id;
-        this.subject.next({id, ...modalOptions});
-        return this;
+        return new Promise<DialogService>((resolve, reject) => {
+            this.dialogId = id;
+            this.subject.next({id, ...modalOptions});
+            resolve(this);
+        });
     }
 
     public open() {
@@ -30,7 +33,7 @@ export class DialogService {
         $('#' + this.dialogId).modal('dispose');
     }
 
-    public getContent(): Observable<any> {
+    public getContent(): Observable<Modal> {
         return this.subject.asObservable();
     }
 

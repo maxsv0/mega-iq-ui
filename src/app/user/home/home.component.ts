@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   isLoadingResults = false;
   isLastLoaded = false;
   userTestsPage = 0;
-  isUserAnonymous: boolean;
+  isUserAnonymous = false;
 
   constructor(
     private titleService: Title,
