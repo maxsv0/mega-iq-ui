@@ -4,7 +4,7 @@
             <div class="col-sm-6 col-12">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text lead">Create an account.</p>
+                        <p class="card-text lead" i18n>Create an account.</p>
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" method="post">
                             <div class="form-group required">
                                 <label for="email" i18n>Email</label>
@@ -100,10 +100,14 @@
             <div class="col-sm-6 col-12">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text lead">Login with Google.</p>
+                        <p class="card-text lead" i18n>Login with existing account.</p>
                         <button type="button" class="btn btn-link" (click)="loginGoogle()">
                             <img src="/assets/img/btn_google_signin_light_normal_web.png"
                                  srcset="/assets/img/btn_google_signin_light_normal_web@2x.png 2x" border="0">
+                          </button>
+                          <button type="button" class="btn btn-link" (click)="loginFacebook()">
+                            <img src="/assets/img/facebook-login-button.png"
+                                 srcset="/assets/img/facebook-login-button.png 2x" border="0" width="200">
                           </button>
                     </div>
                 </div>

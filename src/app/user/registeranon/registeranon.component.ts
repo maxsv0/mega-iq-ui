@@ -39,11 +39,7 @@ export class RegisteranonComponent implements AfterViewInit {
         ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.currentUser = this.authenticationService.currentUserValue;
-        // console.log(this.currentUser);
-        // const idToken = this.authenticationService.currentTokenValue;
-        // console.log(idToken);
-        
-        // redirect to home if already logged in
+
         if (this.currentUser && !this.currentUser.isAnonymous) {
             this.router.navigate(['/home']);
         }
@@ -74,51 +70,44 @@ export class RegisteranonComponent implements AfterViewInit {
     */
     onSubmit() {
         this.submitted = true;
-        
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
-        
+
+        if(this.registerForm.invalid) return;
         this.loading = true;
-        this.userService.register(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            apiResponseUser => {
-                if (apiResponseUser.ok) {
-                    this.alertService.success('Registration was successful. You can now log in.', true);    
-                    if (apiResponseUser.user) {
-                        if (apiResponseUser.user.token == null) {
-                            if (apiResponseUser.user.password == null) {
+
+        this.authenticationService
+        .anonEmailLogin(this.registerForm.get(["email"]).value, this.registerForm.get(["password"]).value)
+        .then(user => {
+            this.userService.register(this.registerForm.value)
+            .pipe(first())
+            .subscribe(
+                response => {
+                    if(response.ok) {
+                        this.alertService.success('Registration was successful. You can now log in.', true);
+                        if(response.user) {
+                            if(!response.user.token && !response.user.password) {
                                 this.router.navigate(['/login']);
                             } else {
-                                // console.log(apiResponseUser.user.email, apiResponseUser.user.password);
-                                this.authenticationService.anonEmailLogin(apiResponseUser.user.email, apiResponseUser.user.password)
-                                .then(user => {
-                                    console.log(user);
-                                    // this.googleAnalyticsService.sendEvent('user', 'register');
-                                    // this.router.navigate(['/home']);
-                                })
-                                .catch(error => {
-                                    console.log(error);
-                                    this.alertService.error(error);
-                                    this.loading = false;
-                                });
+                                this.googleAnalyticsService.sendEvent('user', 'register');
+                                this.router.navigate(['/home']);
                             }
-                        } else {
-                            this.router.navigate(['/home']);
                         }
+                    } else {
+                        this.alertService.error(response.msg);
+                        this.loading = false;
                     }
-                } else {
-                    this.alertService.error(apiResponseUser.msg);
+                },
+                error => {
+                    this.alertService.error(`${this.i18n('API Service Unavailable')}. ${error.message}`);
                     this.loading = false;
                 }
-            },
-            error => {
-                this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error.message);
-                this.loading = false;
-            });
-        }
+            )
+            this.loading = false;
+        })
+        .catch(error => {
+            this.alertService.error(error);
+            this.loading = false;
+        });
+    }
             
     /**
     * @function ngAfterViewInit
@@ -163,10 +152,26 @@ export class RegisteranonComponent implements AfterViewInit {
     loginGoogle() {
         this.authenticationService.anonGoogleLogin()
         .then(user => {
-            console.log(user);
+            this.googleAnalyticsService.sendEvent('user', 'register');
+            this.router.navigate(['/home']);
         })
         .catch(error => {
-            console.log(error);
+            this.alertService.error(error);
+        });
+    }
+
+    /**
+     * @function loginFacebook
+     * @description Link anonymous user with FB account
+     */
+    loginFacebook() {
+        this.authenticationService.anonFbLogin()
+        .then(user => {
+            this.googleAnalyticsService.sendEvent('user', 'register');
+            this.router.navigate(['/home']);
+        })
+        .catch(error => {
+            this.alertService.error(error);
         });
     }
         

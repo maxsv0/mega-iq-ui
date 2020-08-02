@@ -300,10 +300,10 @@ export class ClassroomComponent implements OnInit {
         `;
         this.dialogService.create({
             id: "anon-user-register",
-            title: "Register anonymous account.",
+            title: this.i18n("Register anonymous account."),
             body: modalBody,
-            primary: "Register account",
-            secondary: "Continue anonyomously",
+            primary: this.i18n("Register account"),
+            secondary: this.i18n("Continue anonyomously"),
             clickFunctionPrimary: () => {
                 this.router.navigate(['/register/anonymous'])
             },

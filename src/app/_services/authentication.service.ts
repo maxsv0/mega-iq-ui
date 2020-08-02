@@ -151,4 +151,42 @@ export class AuthenticationService {
             });
         });
     }
+
+    public anonEmailLogin(email: string, password: string): Promise<firebase.User> {
+        const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+        return this.linkAccount(credential);
+    }
+
+    public anonGoogleLogin(): Promise<firebase.User> {
+        let idToken: string;
+        this.googleLogin().then(user => {
+            idToken = (<any>user).credential.idToken;
+        });
+        const credential = firebase.auth.GoogleAuthProvider.credential(idToken);
+        return this.linkAccount(credential);
+    }
+
+    public anonFbLogin(): Promise<firebase.User> {
+        let accessToken: string;
+        this.facebookLogin().then(user => {
+            accessToken = (<any>user).credential.accessToken;
+        });
+        const credential = firebase.auth.FacebookAuthProvider.credential(accessToken);
+        return this.linkAccount(credential);
+    }
+
+    private linkAccount(credential: firebase.auth.AuthCredential): Promise<firebase.User> {
+        return new Promise<firebase.User>((resolve, reject) => {
+            this.firebaseAuth.currentUser
+            .then(user => {
+                user.linkWithCredential(credential)
+                .then(userCred => {
+                    resolve(userCred.user);
+                })
+                .catch(error => {
+                    reject(error.message);
+                });
+            });
+        });
+    }
 }
