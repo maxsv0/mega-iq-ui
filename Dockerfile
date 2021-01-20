@@ -1,7 +1,7 @@
-FROM node:8-alpine
+FROM node:10-slim
 
 # for some reason git is required by `npm install`
-RUN apk update && apk add --no-cache git
+RUN apt update && apt install git -y
 
 # set main app dir
 WORKDIR /app
@@ -15,11 +15,8 @@ COPY dist/ /app/dist
 # Install dependency
 RUN npm install
 
-# Install PM2 process manager
-RUN npm install -g pm2
-
 # Expose the app port
 EXPOSE 4000
 
 # Run the app
-CMD ["pm2-docker", "/app/dist/server.js"]
+CMD ["node", "./dist/server/main.js"]
