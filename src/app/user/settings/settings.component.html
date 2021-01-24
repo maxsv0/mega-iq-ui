@@ -103,7 +103,7 @@
               <label for="uploadPic" i18n>Upload new image</label>
               <input type="file" id="uploadPic" class="form-control" (change)="handleFileInput($event.target.files)"/>
               <span *ngIf="uploading" class="uploader"></span>
-              <span *ngIf="uploading" class="pl-3 text-muted">Image is loading... please wait</span>
+              <span *ngIf="uploading" class="pl-3 text-muted" i18n>Image is loading... please wait</span>
               <img *ngIf="uploadPic" src="{{this.uploadPic}}" class="img-thumbnail">
             </div>
             <!-- Image select -->

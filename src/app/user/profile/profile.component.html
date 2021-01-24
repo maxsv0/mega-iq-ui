@@ -27,7 +27,7 @@
   </div>
   <div class="col-12 unlockCertificateBlock p-3"
        *ngIf="user && user.certificateProgress < 100 && user.certificateProgress !== null && !user.iq">
-    <h3>Unlock your certificate</h3>
+    <h3 i18n>Unlock your certificate</h3>
     <div class="progress certificate-progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
            [ngStyle]="getCertificateProgress()" attr.aria-valuenow="{{user.certificateProgress || 0}}"
