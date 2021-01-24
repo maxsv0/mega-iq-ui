@@ -46,7 +46,7 @@ export class IqReviewComponent implements OnInit {
         this.titleService.setTitle(this.i18n('Mega-IQ is loading..'));
         this.activeQuestionId = 1;
         const testCode = this.route.snapshot.params['testCode'];
-        if (testCode) this.initTestByCode(testCode);
+        if (testCode) { this.initTestByCode(testCode); }
 
         this.iqTestService.getIqTest().subscribe(tests => {
             this.testTypes = tests;
@@ -103,7 +103,7 @@ export class IqReviewComponent implements OnInit {
 
         this.updating = true;
         this.finishedTest = test;
-        if(this.finishedTest.status !== this.testStatus.FINISHED) this.createModal();
+        if (this.finishedTest.status !== this.testStatus.FINISHED) { this.createModal(); }
 
         this.iqTestService.setType(this.finishedTest.type);
 
@@ -112,7 +112,7 @@ export class IqReviewComponent implements OnInit {
 
         if (this.finishedTest && this.activeQuestionId && this.testTypes) {
             this.testTypes.forEach((testData) => {
-                if (this.finishedTest.type === testData.type) this.finishedTestName = testData.name;
+                if (this.finishedTest.type === testData.type) { this.finishedTestName = testData.name; }
                 this.updating = false;
             });
             this.activeQuestion = this.finishedTest.questionSet[this.activeQuestionId - 1];
@@ -155,7 +155,7 @@ export class IqReviewComponent implements OnInit {
             body: this.i18n('You have not finished your test yet. You will be redirected to Home.'),
             primary: this.i18n('Back to Home'),
             clickFunctionPrimary: () => {
-                this.router.navigate(['/home'])
+                this.router.navigate(['/home']);
             },
             close: false
         }).then(modal => modal.open());

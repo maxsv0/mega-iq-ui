@@ -74,15 +74,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-6">
-                        <p>
-                            <span i18n>Question</span>
-                            #{{ activeQuestionId }}
-                        </p>
-                    </div>
-                </div>
             </div>
+
+
+          <!-- User answer details -->
+          <div class="col-sm-3 card">
+            <div class="card-body">
+              <h4 class="card-text">Your answer</h4>
+              <div *ngFor="let answer of activeQuestion.answers">
+                <div class="px-0 w-100" *ngIf="answer.id === activeQuestion.answerUser">
+                  <img src="{{ answer.pic }}" srcset="{{ answer.pic2x }} 2x" class="w-100">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 card">
+            <div class="card-body">
+              <h4 class="card-text">Correct answer</h4>
+              <div *ngFor="let answer of activeQuestion.answers">
+                <div class="px-0 w-100" *ngIf="answer.id === activeQuestion.answerCorrect">
+                  <img src="{{ answer.pic }}" srcset="{{ answer.pic2x }} 2x" class="w-100">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 card">
+            <div class="card-body">
+              <h4 class="card-text">Result</h4>
+              <div class="bg-danger p-5" *ngIf="activeQuestion.answerUser !== activeQuestion.answerCorrect">
+                <h3 class="text-white text-center">Incorrect Answer</h3>
+              </div>
+              <div class="bg-success p-5" *ngIf="activeQuestion.answerUser === activeQuestion.answerCorrect">
+                <h3 class="text-white text-center">Correct Answer</h3>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 </div>
