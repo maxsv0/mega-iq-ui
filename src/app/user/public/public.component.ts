@@ -29,6 +29,7 @@ export class PublicComponent implements OnInit {
   testTypesKeys: [] = [];
   isLoadingPage = false;
   isLastLoaded = false;
+  isPageLoaded: boolean[] = [];
   userTestsPage = 0;
   testTypeEnum = TestTypeEnum;
   isBrowser: boolean;
@@ -86,6 +87,13 @@ export class PublicComponent implements OnInit {
   private loadUserResult() {
     if (this.isLastLoaded) {
       return true;
+    }
+
+    // this is to prevent multiple API calls for same page
+    if (this.isPageLoaded[this.userTestsPage]) {
+      return false;
+    } else {
+      this.isPageLoaded[this.userTestsPage] = true;
     }
 
     this.userService.getById(this.userId, this.userTestsPage)
