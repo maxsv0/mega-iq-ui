@@ -33,7 +33,7 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
+<div class="bg-user pt-3 {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
   <div class="container py-5">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>

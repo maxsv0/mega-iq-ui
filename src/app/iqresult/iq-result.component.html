@@ -19,7 +19,7 @@
           <span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
-        <div class="row my-3"
+        <div class="row my-3 pb-4"
              *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
           <div class="col-lg-6">
             <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
