@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   isLoadingPage = true;
   isLoadingResults = false;
   isLastLoaded = false;
+  isPageLoaded: boolean[] = [];
   userTestsPage = 0;
   isUserAnonymous = false;
 
@@ -103,6 +104,13 @@ export class HomeComponent implements OnInit {
   private loadMyResult() {
     if (this.isLastLoaded) {
       return true;
+    }
+
+    // this is to prevent multiple API calls for same page
+    if (this.isPageLoaded[this.userTestsPage]) {
+      return false;
+    } else {
+      this.isPageLoaded[this.userTestsPage] = true;
     }
 
     this.isLoadingResults = true;
