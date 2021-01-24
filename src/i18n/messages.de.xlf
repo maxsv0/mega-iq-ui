@@ -5,7 +5,7 @@
       <notes>
         
       <note category="location">app/app.component.html:97</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Mega-IQ</source>
       <target>Mega-IQ</target></segment>
     </unit><unit id="3854501539966213538">
@@ -137,7 +137,7 @@
         
         
       <note category="location">app/user/login/login.component.html:10</note><note category="location">app/user/register/register.component.html:10</note><note category="location">app/user/settings/settings.component.html:11</note><note category="location">app/user/forget/forget.component.html:9</note><note category="location">app/user/registeranon/registeranon.component.html:10</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Email</source>
       <target>Email</target></segment>
     </unit>
@@ -191,15 +191,15 @@
         
         
       <note category="location">app/index/index.component.html:62</note><note category="location">app/user/register/register.component.html:31</note><note category="location">app/user/settings/settings.component.html:50</note><note category="location">app/users/users.component.html:15</note><note category="location">app/user/registeranon/registeranon.component.html:31</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Location</source>
-      <target>Location</target></segment>
+      <target>Standort</target></segment>
     </unit><unit id="3151050103772729215">
       <notes>
         
         
       <note category="location">app/index/index.component.html:63</note><note category="location">app/users/users.component.html:17</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ</source>
       <target>IQ</target></segment>
     </unit><unit id="5263690784228037855">
@@ -234,7 +234,7 @@
       <notes>
         
       <note category="location">app/index/index.component.html:101</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Start</source>
       <target>Start</target></segment>
     </unit>
@@ -242,9 +242,9 @@
       <notes>
         
       <note category="location">app/user/login/login.component.html:19</note><note category="location">app/user/register/register.component.html:45</note><note category="location">app/user/registeranon/registeranon.component.html:45</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Password</source>
-      <target>Password</target></segment>
+      <target>Passwort</target></segment>
     </unit>
     <unit id="205044832662301680">
       <notes>
@@ -306,9 +306,9 @@
       <notes>
         
       <note category="location">app/user/home/home.component.html:5</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Hi</source>
-      <target>Hi</target></segment>
+      <target>Hallo</target></segment>
     </unit><unit id="2606712855106855414">
       <notes>
         
@@ -437,9 +437,9 @@
       <notes>
         <note category="location">app/user/profile/profile.component.html:30</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Unlock your certificate</source>
-      <target>Unlock your certificate</target></segment>
+      <target>Entsperren Sie Ihr Zertifikat</target></segment>
     </unit>
     
     <unit id="3649366019356514608">
@@ -517,9 +517,9 @@
       <notes>
         <note category="location">app/user/settings/settings.component.html:106</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Image is loading... please wait</source>
-      <target>Image is loading... please wait</target></segment>
+      <target>Bild wird geladen ... bitte warten</target></segment>
     </unit><unit id="8434435657357906899">
       <notes>
         
@@ -538,9 +538,9 @@
       <notes>
         
       <note category="location">app/results/results.component.html:5</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Mega-iq test online</source>
-      <target>Mega-iq test online</target></segment>
+      <target>Mega-iq Test online</target></segment>
     </unit><unit id="8663760052070214835">
       <notes>
         
@@ -559,65 +559,65 @@
       <notes>
         <note category="location">app/user/rating/rating.component.html:5</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Rate this question:</source>
-      <target>Rate this question:</target></segment>
+      <target>Bewerten Sie diese Frage:</target></segment>
     </unit><unit id="4909815147743704654">
       <notes>
         <note category="location">app/user/rating/rating.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Tell us more (optional):</source>
-      <target>Tell us more (optional):</target></segment>
+      <target>Erzählen Sie uns mehr (optional):</target></segment>
     </unit><unit id="935187492052582731">
       <notes>
         <note category="location">app/user/rating/rating.component.html:17</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Submit</source>
-      <target>Submit</target></segment>
+      <target>einreichen</target></segment>
     </unit><unit id="3212237534127642519">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:83</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Your answer</source>
-      <target>Your answer</target></segment>
+      <target>Deine Antwort</target></segment>
     </unit><unit id="6737127594232120391">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:93</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Correct answer</source>
-      <target>Correct answer</target></segment>
+      <target>Korrekte Antwort</target></segment>
     </unit><unit id="989531434287244974">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:105</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Incorrect Answer</source>
-      <target>Incorrect Answer</target></segment>
+      <target>Falsche Antwort</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:108</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Correct Answer</source>
-      <target>Correct Answer</target></segment>
+      <target>Korrekte Antwort</target></segment>
     </unit><unit id="7641882763605439290">
       <notes>
         <note category="location">app/user/registeranon/registeranon.component.html:7</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Create an account.</source>
-      <target>Create an account.</target></segment>
+      <target>Ein Konto erstellen.</target></segment>
     </unit><unit id="3452592280018267402">
       <notes>
         <note category="location">app/user/registeranon/registeranon.component.html:103</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Login with existing account.</source>
-      <target>Login with existing account.</target></segment>
+      <target>Melden Sie sich mit einem vorhandenen Konto an.</target></segment>
     </unit><unit id="2650269401046048840">
       <notes>
         
@@ -656,14 +656,14 @@
       <notes>
         <note category="location">app/iqtest/iq-test.component.html:50</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Loading... please wait</source>
-      <target>Loading... please wait</target></segment>
+      <target>Laden, bitte warten</target></segment>
     </unit><unit id="180949385590118498">
       <notes>
         
       <note category="location">app/iqtest/iq-test.component.html:70</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>online</source>
       <target>online</target></segment>
     </unit><unit id="6812374314162236933">
@@ -755,9 +755,9 @@
       <notes>
         
       <note category="location">app/results/results.component.html:21</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Test</source>
-      <target>Test</target></segment>
+      <target>Prüfung</target></segment>
     </unit><unit id="2525230676386818985">
       <notes>
         
@@ -784,9 +784,9 @@
       <notes>
         <note category="location">app/classroom/classroom.component.html:38</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></source>
-      <target>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></target></segment>
+      <target>Verbleibende Zeit: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></target></segment>
     </unit><unit id="2124672565465036433">
       <notes>
         

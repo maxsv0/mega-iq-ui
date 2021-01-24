@@ -437,9 +437,9 @@
       <notes>
         <note category="location">app/user/profile/profile.component.html:30</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Unlock your certificate</source>
-      <target>Unlock your certificate</target></segment>
+      <target>Разблокируйте свой сертификат</target></segment>
     </unit>
 
     <unit id="3649366019356514608">
@@ -517,9 +517,9 @@
       <notes>
         <note category="location">app/user/settings/settings.component.html:106</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Image is loading... please wait</source>
-      <target>Image is loading... please wait</target></segment>
+      <target>Изображение загружается... подождите</target></segment>
     </unit><unit id="8434435657357906899">
       <notes>
 
@@ -559,65 +559,65 @@
       <notes>
         <note category="location">app/user/rating/rating.component.html:5</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Rate this question:</source>
-      <target>Rate this question:</target></segment>
+      <target>Оцените этот вопрос:</target></segment>
     </unit><unit id="4909815147743704654">
       <notes>
         <note category="location">app/user/rating/rating.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Tell us more (optional):</source>
-      <target>Tell us more (optional):</target></segment>
+      <target>Расскажите подробнее (необязательно):</target></segment>
     </unit><unit id="935187492052582731">
       <notes>
         <note category="location">app/user/rating/rating.component.html:17</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Submit</source>
-      <target>Submit</target></segment>
+      <target>Отправить</target></segment>
     </unit><unit id="3212237534127642519">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:83</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Your answer</source>
-      <target>Your answer</target></segment>
+      <target>Ваш ответ</target></segment>
     </unit><unit id="6737127594232120391">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:93</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Correct answer</source>
-      <target>Correct answer</target></segment>
+      <target>Правильный ответ</target></segment>
     </unit><unit id="989531434287244974">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:105</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Incorrect Answer</source>
-      <target>Incorrect Answer</target></segment>
+      <target>Ответ неверный</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
         <note category="location">app/iqreview/iq-review.component.html:108</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Correct Answer</source>
-      <target>Correct Answer</target></segment>
+      <target>Правильный ответ</target></segment>
     </unit><unit id="7641882763605439290">
       <notes>
         <note category="location">app/user/registeranon/registeranon.component.html:7</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Create an account.</source>
-      <target>Create an account.</target></segment>
+      <target>Завести аккаунт.</target></segment>
     </unit><unit id="3452592280018267402">
       <notes>
         <note category="location">app/user/registeranon/registeranon.component.html:103</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Login with existing account.</source>
-      <target>Login with existing account.</target></segment>
+      <target>Войти с существующей учетной записью.</target></segment>
     </unit><unit id="2650269401046048840">
       <notes>
 
@@ -656,9 +656,9 @@
       <notes>
         <note category="location">app/iqtest/iq-test.component.html:50</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Loading... please wait</source>
-      <target>Loading... please wait</target></segment>
+      <target>Загрузка, пожалуйста подождите</target></segment>
     </unit><unit id="180949385590118498">
       <notes>
         
@@ -755,9 +755,9 @@
       <notes>
         
       <note category="location">app/results/results.component.html:21</note></notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Test</source>
-      <target>Test</target></segment>
+      <target>Тест</target></segment>
     </unit><unit id="2525230676386818985">
       <notes>
 
@@ -784,9 +784,9 @@
       <notes>
         <note category="location">app/classroom/classroom.component.html:38</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></source>
-      <target>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></target></segment>
+      <target>Оставшееся время: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></target></segment>
     </unit><unit id="2124672565465036433">
       <notes>
         
