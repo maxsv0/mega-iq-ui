@@ -72,13 +72,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-            "localize": [
-              "en"
-            ],
+              "localize": [
+                "en"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -103,13 +102,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-            "localize": [
-              "ru"
-            ],
+              "localize": [
+                "ru"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -134,13 +132,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-            "localize": [
-              "es"
-            ],
+              "localize": [
+                "es"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -165,13 +162,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-            "localize": [
-              "de"
-            ],
+              "localize": [
+                "de"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
