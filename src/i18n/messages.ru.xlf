@@ -355,7 +355,7 @@
     </unit><unit id="6976453063741511743">
       <notes>
 
-      <note category="location">app/iqresult/iq-result.component.html:57</note><note category="location">app/user/testcard/testcard.component.html:32</note></notes>
+      <note category="location">app/iqresult/iq-result.component.html:67</note><note category="location">app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="translated">
         <source>Show Answers</source>
       <target>Показать ответы</target></segment>
@@ -796,20 +796,41 @@
       <target>прошел</target></segment>
     </unit><unit id="6108143310015300307">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:25</note>
-        <note category="location">app/iqresult/iq-result.component.html:50</note>
-      </notes>
+        
+        
+      <note category="location">app/iqresult/iq-result.component.html:45</note><note category="location">app/iqresult/iq-result.component.html:60</note></notes>
       <segment state="translated">
         <source>IQ Score</source>
       <target>Результат IQ</target></segment>
+    </unit><unit id="9037223601982900500">
+      <notes>
+        <note category="location">app/iqresult/iq-result.component.html:47</note>
+      </notes>
+      <segment state="translated">
+        <source>Total Questions</source>
+      <target>Всего вопросов</target></segment>
+    </unit><unit id="5599997413987082662">
+      <notes>
+        <note category="location">app/iqresult/iq-result.component.html:50</note>
+      </notes>
+      <segment state="translated">
+        <source>Correct Answers</source>
+      <target>Правильных ответов</target></segment>
     </unit><unit id="8008770153767785281">
       <notes>
-        <note category="location">app/iqresult/iq-result.component.html:28</note>
-        <note category="location">app/iqresult/iq-result.component.html:34</note>
-      </notes>
+        
+        
+      <note category="location">app/iqresult/iq-result.component.html:25</note><note category="location">app/iqresult/iq-result.component.html:39</note></notes>
       <segment state="translated">
         <source>Result code</source>
       <target>Код результата</target></segment>
+    </unit><unit id="1627152575473720569">
+      <notes>
+        <note category="location">app/iqresult/iq-result.component.html:36</note>
+      </notes>
+      <segment state="translated">
+        <source>Permanent IQ result link</source>
+      <target>Постоянная ссылка на результат теста</target></segment>
     </unit><unit id="5879741663972722968">
       <notes>
 
