@@ -1,4 +1,4 @@
-FROM node:10-slim
+FROM node:14-slim
 
 # for some reason git is required by `npm install`
 RUN apt update && apt install git -y
