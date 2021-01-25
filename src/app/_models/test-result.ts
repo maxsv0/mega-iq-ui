@@ -1,5 +1,7 @@
 import {Question, QuestionGroupsResult, User} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
+import {TestResultInfo} from '@/_models/test-result-info';
+import {AnswerInfo} from '@/_models/answer-info';
 
 /**
  * @class TestResult
@@ -19,4 +21,6 @@ export class TestResult {
   progress: number;
   groupsGraph: QuestionGroupsResult;
   questionSet: Question[];
+  info: TestResultInfo;
+  answerInfo: AnswerInfo[];
 }

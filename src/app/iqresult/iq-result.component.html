@@ -19,27 +19,37 @@
           <span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
-        <div class="row my-3 pb-4"
-             *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
-          <div class="col-lg-6">
-            <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
-          </div>
-          <div class="col-lg-6 text-right small">
-            <span i18n>Result code</span>: {{test.code}}
-          </div>
-        </div>
         <div class="row my-3"
              *ngIf="!(this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ)">
           <div class="col-lg-12 text-right">
             <span i18n>Result code</span>: {{test.code}}
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
+        <div class="row mt-4">
+          <div class="col-lg-6 py-5">
             <!-- User profile card -->
             <app-avatar *ngIf="user && user.isPublic" [user]="user"></app-avatar>
+
+            <div class="card offset-1 col-10 my-4">
+              <div class="card-body">
+                <p>
+                  <span i18n>Permanent IQ result link</span>: <a href="{{ hostName }}{{test.url}}">{{ hostName }}{{test.url}}</a>
+                </p>
+                <p>
+                  <span i18n>Result code</span>: {{test.code}}
+                </p>
+              </div>
+            </div>
           </div>
           <div class="col-lg-6">
+            <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
+            <p *ngIf="test.info && test.info.questions">
+              <span i18n>Total Questions</span>: {{test.info.questions}}
+            </p>
+            <p *ngIf="test.info && test.info.answersCorrect">
+              <span i18n>Correct Answers</span>: {{test.info.answersCorrect}}
+            </p>
+
             <!-- Chart js results -->
             <div *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
               <canvas #myCanvas width="800" height="800"></canvas>
@@ -56,6 +66,9 @@
                 <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
                 <span i18n>Show Answers</span></button>
             </div>
+          </div>
+          <div class="col" *ngIf="this.test.answerInfo">
+            <canvas #myCanvasAnswers width="1000" height="400"></canvas>
           </div>
         </div>
       </div>

@@ -11,6 +11,8 @@ import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
 import * as firebase from 'firebase';
+import {APP_LOCALE_ID} from '../../environments/app-locale';
+import {AnswerInfo} from '@/_models/answer-info';
 
 /**
  * @class IqResultComponent
@@ -23,7 +25,9 @@ import * as firebase from 'firebase';
 })
 export class IqResultComponent {
   @ViewChild('myCanvas') myCanvas: ElementRef;
+  @ViewChild('myCanvasAnswers') myCanvasAnswers: ElementRef;
   public ctx: CanvasRenderingContext2D;
+  public ctxAnswers: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
@@ -31,6 +35,8 @@ export class IqResultComponent {
   isLoading = false;
   isBrowser: boolean;
   chart: any;
+  chartAnswers: any;
+  hostName: string;
   testQuestionsCount = 0;
   public testTypeEnum = TestTypeEnum;
 
@@ -54,6 +60,19 @@ export class IqResultComponent {
     if (this.isBrowser) {
       this.currentUser = this.authenticationService.currentUserValue;
     }
+
+    let hostName = 'https://www.mega-iq.com';
+    // @ts-ignore
+    if (APP_LOCALE_ID === 'de') {
+      hostName = 'https://de.mega-iq.com';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'es') {
+      hostName = 'https://es.mega-iq.com';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'ru') {
+      hostName = 'https://ru.mega-iq.com';
+    }
+    this.hostName = hostName;
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -91,8 +110,12 @@ export class IqResultComponent {
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
                 setTimeout(() => {
                   this.drawResultGraph();
-                }, 1000);
+                }, 500);
               }
+
+              setTimeout(() => {
+                this.drawAnswersGraph();
+              }, 2000);
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -169,6 +192,93 @@ export class IqResultComponent {
         }
       }]
     });
+  }
+
+  drawAnswersGraph() {
+    if (this.test.answerInfo == null || this.test.answerInfo.length === 0) {
+      return;
+    }
+
+    this.ctxAnswers = (<HTMLCanvasElement>this.myCanvasAnswers.nativeElement).getContext('2d');
+
+    this.chartAnswers  = new Chart(this.ctxAnswers, {
+      type: 'bar',
+      data: {
+        labels: this.createLabelsForQuestions(),
+        datasets: [{
+          label: 'Points per question',
+          data: this.createPointForQuestions(),
+          backgroundColor: this.createBackgroundColorForQuestions(),
+          borderColor: this.createBorderColorForQuestions(),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  private createLabelsForQuestions(): string[] {
+    const list: string[] = [];
+
+    for (let i = 0; i < this.test.answerInfo.length; i++) {
+        list.push('Question ' + (i + 1));
+    }
+
+    return list;
+  }
+
+  private createPointForQuestions(): number[] {
+    const list: number[] = [];
+
+    for (let i = 0; i < this.test.answerInfo.length; i++) {
+      list.push(this.test.answerInfo[i].points);
+    }
+
+    return list;
+  }
+
+  private createBackgroundColorForQuestions(): string[] {
+    const list: string[] = [];
+
+    for (let i = 0; i < this.test.answerInfo.length; i++) {
+      let color = '';
+
+      if (!this.test.answerInfo[i].correct) {
+        color = 'rgba(255, 99, 132, 0.2)';
+      } else {
+        color = 'rgb(75, 192, 155, 0.2)';
+      }
+
+      list.push(color);
+    }
+
+    return list;
+  }
+
+  private createBorderColorForQuestions(): string[] {
+    const list: string[] = [];
+
+    for (let i = 0; i < this.test.answerInfo.length; i++) {
+      let color = '';
+
+      if (!this.test.answerInfo[i].correct) {
+        color = 'rgba(255, 99, 132, 1)';
+      } else {
+        color = 'rgb(44, 122, 36)';
+      }
+
+      list.push(color);
+    }
+
+    return list;
   }
 
   /**
