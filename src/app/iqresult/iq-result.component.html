@@ -82,3 +82,30 @@
     <div class="page-loader"></div>
   </div>
 </div>
+
+
+<!-- IQ tests collection -->
+<section id="test-section" class="container" *ngIf="testTypesToShow">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 i18n>One more Mega-iq test?</h3>
+    </div>
+
+    <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypesToShow"
+         [lazyLoad]="item.pic" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'">
+<div *ngIf="item.type !== test.type">
+  <div class="course-title text-white">
+    <h2><span i18n>Start</span> {{item.name}}</h2>
+  </div>
+  <div class="course-title text-white">
+    <p>{{item.description}}</p>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-lg btn-{{item.styleName}} btn-rounded w-50">
+      <a class="text-white" routerLink="{{item.url}}" i18n>Start Test</a>
+    </button>
+  </div>
+</div>
+    </div>
+  </div>
+</section>

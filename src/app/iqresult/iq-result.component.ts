@@ -29,6 +29,7 @@ export class IqResultComponent {
   public ctx: CanvasRenderingContext2D;
   public ctxAnswers: CanvasRenderingContext2D;
   testTypes: IqTest[] = [];
+  testTypesToShow: IqTest[] = [];
   testTypesKeys: [] = [];
   test: TestResult;
   user: User;
@@ -105,6 +106,9 @@ export class IqResultComponent {
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
+
+              let showIndex = 0;
+              this.testTypesToShow = this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 2);
 
               /** Draw chart js canvas **/
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
