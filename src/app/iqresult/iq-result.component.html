@@ -43,12 +43,12 @@
           </div>
           <div class="col-lg-6">
             <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
-            <p *ngIf="test.info && test.info.questions">
+            <h4 *ngIf="test.info && test.info.questions">
               <span i18n>Total Questions</span>: {{test.info.questions}}
-            </p>
-            <p *ngIf="test.info && test.info.answersCorrect">
+            </h4>
+            <h4 *ngIf="test.info && test.info.answersCorrect">
               <span i18n>Correct Answers</span>: {{test.info.answersCorrect}}
-            </p>
+            </h4>
 
             <!-- Chart js results -->
             <div *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
