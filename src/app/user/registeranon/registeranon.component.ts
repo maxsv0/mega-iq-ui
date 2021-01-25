@@ -9,6 +9,7 @@ import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
+import firebase from 'firebase/app';
 
 @Component({
     selector: 'app-registeranon',
@@ -16,7 +17,7 @@ import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
     styleUrls: ['./registeranon.component.scss']
 })
 export class RegisteranonComponent implements AfterViewInit {
-    
+
     registerForm: FormGroup;
     loading = false;
     submitted = false;
@@ -24,7 +25,7 @@ export class RegisteranonComponent implements AfterViewInit {
     isBrowser: boolean;
     showPassword = false;
     currentUser: firebase.User;
-    
+
     constructor(
         private titleService: Title,
         private http: HttpClient,
@@ -43,9 +44,9 @@ export class RegisteranonComponent implements AfterViewInit {
         if (this.currentUser && !this.currentUser.isAnonymous) {
             this.router.navigate(['/home']);
         }
-        
+
         this.titleService.setTitle(this.i18n('Register on Mega-IQ'));
-            
+
         this.registerForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             name: ['', Validators.required],
@@ -58,12 +59,12 @@ export class RegisteranonComponent implements AfterViewInit {
             terms: [true, Validators.required]
         });
     }
-        
+
     // convenience getter for easy access to form fields
     get f() {
         return this.registerForm.controls;
     }
-        
+
     /**
     * @function onSubmit
     * @description Generates user token and stores user data, navigates to user home after success
@@ -71,20 +72,20 @@ export class RegisteranonComponent implements AfterViewInit {
     onSubmit() {
         this.submitted = true;
 
-        if(this.registerForm.invalid) return;
+        if (this.registerForm.invalid) { return; }
         this.loading = true;
 
         this.authenticationService
-        .anonEmailLogin(this.registerForm.get(["email"]).value, this.registerForm.get(["password"]).value)
+        .anonEmailLogin(this.registerForm.get(['email']).value, this.registerForm.get(['password']).value)
         .then(user => {
             this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
                 response => {
-                    if(response.ok) {
+                    if (response.ok) {
                         this.alertService.success('Registration was successful. You can now log in.', true);
-                        if(response.user) {
-                            if(!response.user.token && !response.user.password) {
+                        if (response.user) {
+                            if (!response.user.token && !response.user.password) {
                                 this.router.navigate(['/login']);
                             } else {
                                 this.googleAnalyticsService.sendEvent('user', 'register');
@@ -100,7 +101,7 @@ export class RegisteranonComponent implements AfterViewInit {
                     this.alertService.error(`${this.i18n('API Service Unavailable')}. ${error.message}`);
                     this.loading = false;
                 }
-            )
+            );
             this.loading = false;
         })
         .catch(error => {
@@ -108,7 +109,7 @@ export class RegisteranonComponent implements AfterViewInit {
             this.loading = false;
         });
     }
-            
+
     /**
     * @function ngAfterViewInit
     * @description Detects user location
@@ -118,7 +119,7 @@ export class RegisteranonComponent implements AfterViewInit {
             this.detectLocation();
         }
     }
-    
+
     /**
     * @function detectLocation
     * @description Detects user's location and sets them to location field
@@ -140,11 +141,11 @@ export class RegisteranonComponent implements AfterViewInit {
             this.loading = false;
         });
     }
-        
+
     showHidePassword() {
         this.showPassword = !this.showPassword;
     }
-        
+
     /**
     * @function loginGoogle
     * @description Google log in
@@ -174,5 +175,5 @@ export class RegisteranonComponent implements AfterViewInit {
             this.alertService.error(error);
         });
     }
-        
+
 }

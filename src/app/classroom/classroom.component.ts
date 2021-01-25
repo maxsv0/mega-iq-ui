@@ -9,7 +9,7 @@ import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 /**
  * @class ClassroomComponent
@@ -169,7 +169,7 @@ export class ClassroomComponent implements OnInit {
         this.setTitle(this.activeTest.type, `${this.activeQuestionId} ${this.i18n('question')} ${this.i18n('of')} ${this.activeTest.questionSet.length}`);
     }
     this.activeQuestionIdPrev = this.findUnansweredQuestion(this.activeTest.questionSet, 'prev');
-    
+
     if (this.activeTest && this.activeQuestionId && this.testTypes) {
       this.testTypes.forEach(
         (testData) => {

@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsConfig} from 'ngx-sharebuttons';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 /**
  * @class PublicComponent

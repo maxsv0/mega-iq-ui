@@ -8,7 +8,7 @@ import {TestTypeEnum} from '@/_models/enum';
 import {APP_LOCALE_ID} from '../environments/app-locale';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 import {isPlatformBrowser} from '@angular/common';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 /**
  * @class AppComponent
