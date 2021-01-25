@@ -4,17 +4,18 @@
 import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import {ngExpressEngine} from '@nguniversal/express-engine';
 import * as express from 'express';
-import { join } from 'path';
+import {join} from 'path';
 
-import { AppServerModule } from './src/main.server';
-import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
+import {AppServerModule} from './src/main.server';
+import {APP_BASE_HREF} from '@angular/common';
+import {existsSync} from 'fs';
 
 import 'localstorage-polyfill';
 import {SitemapStream, streamToPromise} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
+
 global['localStorage'] = localStorage;
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -75,20 +76,21 @@ export function app(): express.Express {
       smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
       smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
 
-      // if (fs.existsSync('/tmp/list-latest.json')) {
-      //   const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
-      //   const tests = JSON.parse(data);
-      //
-      //   if (tests && tests.ok && tests.tests) {
-      //     for (const testInfo of tests.tests) {
-      //       smStream.write({
-      //         url: testInfo.url,
-      //         changefreq: 'monthly',
-      //         priority: 0.3
-      //       });
-      //     }
-      //   }
-      // }
+      const fs = require('fs');
+      if (fs.existsSync('/tmp/list-latest.json')) {
+         const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
+         const tests = JSON.parse(data);
+
+         if (tests && tests.ok && tests.tests) {
+           for (const testInfo of tests.tests) {
+             smStream.write({
+               url: testInfo.url,
+               changefreq: 'monthly',
+               priority: 0.3
+             });
+           }
+         }
+       }
 
       smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
@@ -111,7 +113,7 @@ export function app(): express.Express {
       console.error(e);
       res.status(500).end();
     }
-  });
+  })
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
