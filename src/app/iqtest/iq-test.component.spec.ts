@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {IqTestComponent} from './iq-test.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -8,7 +8,7 @@ describe('IqTestComponent', () => {
   let component: IqTestComponent;
   let fixture: ComponentFixture<IqTestComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [IqTestComponent],
       imports: [HttpClientModule, RouterTestingModule],

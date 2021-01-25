@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {ForgetComponent} from './forget.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -11,7 +11,7 @@ describe('ForgetComponent', () => {
   let component: ForgetComponent;
   let fixture: ComponentFixture<ForgetComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ForgetComponent],
       imports: [ReactiveFormsModule, HttpClientModule, RouterTestingModule],
