@@ -16,8 +16,6 @@ import 'localstorage-polyfill';
 import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
 
-global['localStorage'] = localStorage;
-
 let hostName = 'https://www.mega-iq.com/';
 // @ts-ignore
 if (APP_LOCALE_ID === 'de') {

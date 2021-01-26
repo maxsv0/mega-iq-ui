@@ -105,8 +105,6 @@ export class IqReviewComponent implements OnInit {
         this.finishedTest = test;
         if (this.finishedTest.status !== this.testStatus.FINISHED) { this.createModal(); }
 
-        this.iqTestService.setType(this.finishedTest.type);
-
         this.setTitle(this.finishedTest.type, this.i18n('Complete'));
         this.activeQuestionIdPrev = this.activeQuestionId - 1;
 

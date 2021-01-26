@@ -116,9 +116,12 @@ export class IqResultComponent {
                 }, 500);
               }
 
-              setTimeout(() => {
-                this.drawAnswersGraph();
-              }, 2000);
+              // This is to fix ERROR Error: NotYetImplemented
+              if (this.isBrowser) {
+                setTimeout(() => {
+                  this.drawAnswersGraph();
+                }, 1000);
+              }
             }
           } else {
             this.alertService.error(apiResponseTestResult.msg);
@@ -303,9 +306,7 @@ export class IqResultComponent {
           this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} passed on {{date}}', {
             test: testName,
             score: score,
-            date: date,
-            location: location
-          }));
+            date: date}));
           break;
         case TestTypeEnum.PRACTICE_IQ:
         case TestTypeEnum.MATH:
@@ -314,9 +315,7 @@ export class IqResultComponent {
             test: testName,
             score: score,
             date: date,
-            questions: testQuestions,
-            location: location
-          }));
+            questions: testQuestions}));
           break;
       }
     } else {

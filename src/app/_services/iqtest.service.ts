@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiResponseTests, IqTest} from '@/_models';
+import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList} from '@/_models';
 import {TestTypeEnum} from '@/_models/enum';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {first} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-test-result-list';
+import {ServerDataModule} from '@/_services/server-data.module';
 
 /**
  * @class IqTestService
@@ -15,26 +15,11 @@ import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-tes
   providedIn: 'root'
 })
 export class IqTestService {
-  private testTypes = [];
-  public testTypesSubscription: Observable<IqTest[]>;
-  private testTypesSubject: BehaviorSubject<IqTest[]>;
-  private activeTestType = new Subject<TestTypeEnum>();
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private serverDataModule: ServerDataModule
   ) {
-    this.testTypesSubject = new BehaviorSubject<IqTest[]>(this.testTypes);
-    this.testTypesSubscription = this.testTypesSubject.asObservable();
-
-    this.http.get<ApiResponseTests>(environment.apiUrl + '/test')
-      .pipe(first())
-      .subscribe(
-        apiResponseTests => {
-          if (apiResponseTests.ok) {
-            this.testTypes = apiResponseTests.tests;
-            this.testTypesSubject.next(this.testTypes);
-          }
-        });
   }
 
   getLatestResults() {
@@ -116,14 +101,10 @@ export class IqTestService {
    * @description Gets a single test
    */
   getIqTest() {
-    return this.testTypesSubscription;
+    return this.serverDataModule.testTypesSubscription;
   }
 
   getType(): Observable<TestTypeEnum> {
-    return this.activeTestType.asObservable();
-  }
-
-  setType(type: TestTypeEnum) {
-    this.activeTestType.next(type);
+    return this.serverDataModule.getType();
   }
 }

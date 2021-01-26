@@ -157,7 +157,6 @@ export class ClassroomComponent implements OnInit {
 
     this.updating = true;
     this.activeTest = test;
-    this.iqTestService.setType(this.activeTest.type);
     const allQuestionsAnswered = this.activeTest.questionSet.every(q => q.answerUser !== null);
     if(this.activeTest.status !== this.testStatus.ACTIVE) this.createModal(this.activeTest.status, this.activeTest.code);
 
