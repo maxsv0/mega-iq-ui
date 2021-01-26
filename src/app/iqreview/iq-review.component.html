@@ -29,8 +29,9 @@
             <div class="jumbotron py-4 pr-0">
                 <p class="text-muted" i18n>Click to navigate questions</p>
                 <p class="d-flex flex-wrap">
-                    <span class="btn" *ngFor="let question of finishedTest.questionSet; index as index" (click)="setQuestion(index + 1)"
-                        [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered': question.answerUser }">
+                    <span class="btn" *ngFor="let question of finishedTest.questionSet; index as index"
+                          (click)="setQuestion(index + 1)"
+                          [ngClass]="{ 'm-2 set-question rounded-circle': question, 'set-question-active': index === activeQuestionId - 1, 'set-question-answered-correct': question.answerUser === question.answerCorrect, 'set-question-answered-wrong': question.answerUser !== question.answerCorrect }">
                         {{ index + 1 }}
                     </span>
                 </p>

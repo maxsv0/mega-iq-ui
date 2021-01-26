@@ -31,11 +31,19 @@ h3 {
   color: #fff;
 }
 
-.set-question-answered {
+.set-question-answered-correct {
   background-color: #5cb85c;
   border-bottom: 1px #4e9d4e solid;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
-  box-shadow: 0 0 5px #dc3545;
+  box-shadow: 0 0 5px #f8ff9c;
+  color: #fff;
+}
+
+.set-question-answered-wrong {
+  background-color: #b85c5c;
+  border-bottom: 1px #9d4e4e solid;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px #ff9c9c;
   color: #fff;
 }
 
