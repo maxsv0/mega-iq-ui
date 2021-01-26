@@ -52,7 +52,6 @@ export class AppComponent {
     this.loadIqTest();
 
     // init background on a first load
-    console.log('Set bg for URL=' + this.location.path());
     this.setBackground(this.location.path());
 
     // TODO: update not only bg, but also page title and styles
