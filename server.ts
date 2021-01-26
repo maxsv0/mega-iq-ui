@@ -4,18 +4,51 @@
 import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import {ngExpressEngine} from '@nguniversal/express-engine';
 import * as express from 'express';
-import { join } from 'path';
+import {join} from 'path';
 
-import { AppServerModule } from './src/main.server';
-import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
+import {AppServerModule} from './src/main.server';
+import {APP_BASE_HREF} from '@angular/common';
+import {existsSync} from 'fs';
 
 import 'localstorage-polyfill';
-import {SitemapStream, streamToPromise} from 'sitemap';
+import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
+
 global['localStorage'] = localStorage;
+
+let hostName = 'https://www.mega-iq.com/';
+// @ts-ignore
+if (APP_LOCALE_ID === 'de') {
+  hostName = 'https://de.mega-iq.com/';
+  // @ts-ignore
+} else if (APP_LOCALE_ID === 'es') {
+  hostName = 'https://es.mega-iq.com/';
+  // @ts-ignore
+} else if (APP_LOCALE_ID === 'ru') {
+  hostName = 'https://ru.mega-iq.com/';
+}
+
+// we will load latest IQ test results from API and save to a local file
+// periodically, so it could be used by /sitemap.xml request
+// job set every 15 min.
+let sitemap = '';
+const http = require('https');
+
+const CronJob = require('cron').CronJob;
+const job = new CronJob('0 */15 * * * *', function() {
+  http.get(hostName + 'api/v1/list-latest-all', function(response) {
+    let body = '';
+    response.on('data', function(chunk) {
+      body += chunk;
+    });
+    response.on('end', function() {
+      sitemap = body;
+    });
+  });
+}, null, true, 'Europe/Berlin');
+job.start();
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -38,30 +71,10 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
-  let sitemap;
-
   server.get('/sitemap.xml', function (req, res) {
     res.setHeader('Content-Type', 'application/xml');
 
-    // if we have a cached entry send it
-    if (sitemap) {
-      res.send(sitemap);
-      return;
-    }
-
     try {
-      let hostName = 'https://www.mega-iq.com/';
-      // @ts-ignore
-      if (APP_LOCALE_ID === 'de') {
-        hostName = 'https://de.mega-iq.com/';
-        // @ts-ignore
-      } else if (APP_LOCALE_ID === 'es') {
-        hostName = 'https://es.mega-iq.com/';
-        // @ts-ignore
-      } else if (APP_LOCALE_ID === 'ru') {
-        hostName = 'https://ru.mega-iq.com/';
-      }
-
       const smStream = new SitemapStream({hostname: hostName});
 
       // pipe your entries or directly write them.
@@ -75,20 +88,19 @@ export function app(): express.Express {
       smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
       smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
 
-      // if (fs.existsSync('/tmp/list-latest.json')) {
-      //   const data = fs.readFileSync('/tmp/list-latest.json', 'utf8');
-      //   const tests = JSON.parse(data);
-      //
-      //   if (tests && tests.ok && tests.tests) {
-      //     for (const testInfo of tests.tests) {
-      //       smStream.write({
-      //         url: testInfo.url,
-      //         changefreq: 'monthly',
-      //         priority: 0.3
-      //       });
-      //     }
-      //   }
-      // }
+      if (sitemap && sitemap !== '') {
+         const tests = JSON.parse(sitemap);
+
+         if (tests && tests.ok && tests.tests) {
+           for (const testInfo of tests.tests) {
+             smStream.write({
+               url: testInfo.url,
+               changefreq: 'monthly',
+               priority: 0.3
+             });
+           }
+         }
+       }
 
       smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
@@ -98,9 +110,6 @@ export function app(): express.Express {
       smStream.write({url: '/assets/static/terms-conditions.html', changefreq: 'monthly', priority: 0.1});
 
       smStream.end();
-
-      // cache the response
-      streamToPromise(smStream).then(sm => sitemap = sm);
 
       // stream write the response
       smStream.pipe(res).on('error', (e) => {

@@ -16,15 +16,15 @@
 <!-- User dashboard -->
 <div class="container pt-2 pb-3" *ngIf="!isLoadingPage && currentUser && user && user.uid === currentUser.uid">
   <div class="row">
-    <div id="home-actions" class="col-sm-7 text-right">
+    <div id="home-actions" class="col text-right">
       <!-- Open profile -->
-      <button routerLink="/home" class="btn btn-outline-primary mr-2">
+      <button routerLink="/home" class="btn btn-outline-primary mr-2 text-white">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
       </button>
 
       <!-- Profile settings -->
-      <button routerLink="/settings" class="btn btn-outline-primary mr-2">
+      <button routerLink="/settings" class="btn btn-outline-primary mr-2  text-white">
         <fa-icon [icon]="['fas', 'cog']" class="mr-1"></fa-icon>
         <span i18n>Edit Profile</span>
       </button>
@@ -33,8 +33,8 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user pt-3 {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
-  <div class="container py-5">
+<div class="bg-user {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage">
+  <div class="container py-4">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>
 </div>
