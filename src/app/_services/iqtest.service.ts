@@ -23,8 +23,6 @@ export class IqTestService {
   constructor(
     private http: HttpClient
   ) {
-    console.log('IqTestService started!!');
-
     this.testTypesSubject = new BehaviorSubject<IqTest[]>(this.testTypes);
     this.testTypesSubscription = this.testTypesSubject.asObservable();
 
