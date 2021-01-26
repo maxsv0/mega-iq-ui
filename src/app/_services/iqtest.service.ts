@@ -23,18 +23,28 @@ export class IqTestService {
   constructor(
     private http: HttpClient
   ) {
+    console.log('IqTestService started!!');
+
     this.testTypesSubject = new BehaviorSubject<IqTest[]>(this.testTypes);
     this.testTypesSubscription = this.testTypesSubject.asObservable();
 
-    this.http.get<ApiResponseTests>(environment.apiUrl + '/test')
-      .pipe(first())
-      .subscribe(
-        apiResponseTests => {
-          if (apiResponseTests.ok) {
-            this.testTypes = apiResponseTests.tests;
-            this.testTypesSubject.next(this.testTypes);
-          }
-        });
+    const testsData = localStorage.getItem('IqTestService/test');
+    if (testsData) {
+      this.testTypes = JSON.parse(testsData);
+      this.testTypesSubject.next(this.testTypes);
+    } else {
+      this.http.get<ApiResponseTests>(environment.apiUrl + '/test')
+        .pipe(first())
+        .subscribe(
+          apiResponseTests => {
+            if (apiResponseTests.ok) {
+              this.testTypes = apiResponseTests.tests;
+              this.testTypesSubject.next(this.testTypes);
+
+              localStorage.setItem('IqTestService/test', JSON.stringify(apiResponseTests.tests));
+            }
+          });
+    }
   }
 
   getLatestResults() {

@@ -23,7 +23,7 @@ import {IqResultComponent} from './iqresult/iq-result.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AuthenticationService} from '@/_services';
+import {AuthenticationService, IqTestService} from '@/_services';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PublicComponent} from './user/public/public.component';
 import {AvatarComponent} from './user/avatar/avatar.component';
