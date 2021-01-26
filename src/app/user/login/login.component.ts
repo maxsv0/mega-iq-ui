@@ -6,7 +6,7 @@ import {first} from 'rxjs/operators';
 import {AlertService, AuthenticationService} from '@/_services';
 import {Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 /**
  * @class LoginComponent

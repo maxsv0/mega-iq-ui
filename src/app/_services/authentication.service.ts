@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {AngularFireAuth} from '@angular/fire/auth';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
 /**
  * @class AuthenticationService

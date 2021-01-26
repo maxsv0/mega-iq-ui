@@ -12,6 +12,7 @@ import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
 import {Subscription} from 'rxjs';
+import firebase from 'firebase/app';
 
 /**
  * @class IqTestComponent
@@ -30,7 +31,7 @@ export class IqTestComponent implements OnInit {
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
   private sub: Subscription;
-  metaImage: string = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
+  metaImage = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
   private currentUser: firebase.User = null;
 
   constructor(
@@ -160,7 +161,7 @@ export class IqTestComponent implements OnInit {
   }
 
     private updateTest(paramType: string): IqTest {
-        if(this.testTypes.length) {
+        if (this.testTypes.length) {
             let type: TestTypeEnum;
             switch (paramType) {
                 case 'iq-practice':
@@ -179,8 +180,8 @@ export class IqTestComponent implements OnInit {
                     type = TestTypeEnum.GRAMMAR;
                     break;
             }
-            for(let i = 0; i < this.testTypes.length; i++) {
-                if(this.testTypes[i].type === type) {
+            for (let i = 0; i < this.testTypes.length; i++) {
+                if (this.testTypes[i].type === type) {
                     this.titleService.setTitle(this.i18n('{{name}} on Mega-IQ', {name: this.testTypes[i].name}));
                     this.updateMetaTags(this.titleService.getTitle(), this.router.url, this.testTypes[i].description);
                     this.setCustomShareButtonsConfig(this.testTypes[i].pic, this.titleService.getTitle(), this.testTypes[i].description);

@@ -10,9 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
-import {AnswerInfo} from '@/_models/answer-info';
 
 /**
  * @class IqResultComponent
