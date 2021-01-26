@@ -1,1 +1,0 @@
-*/2 * * * * curl https://www.mega-iq.com/api/v1/list-latest>/tmp/list-latest
