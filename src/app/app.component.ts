@@ -7,7 +7,7 @@ import {IqTest} from './_models';
 import {TestTypeEnum} from '@/_models/enum';
 import {APP_LOCALE_ID} from '../environments/app-locale';
 import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
-import {isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser, Location} from '@angular/common';
 import firebase from 'firebase/app';
 
 /**
@@ -32,6 +32,7 @@ export class AppComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private iqTestService: IqTestService,
     private authenticationService: AuthenticationService,
     private googleAnalyticsService: GoogleAnalyticsService,
@@ -49,6 +50,10 @@ export class AppComponent {
 
     // load iq tests
     this.loadIqTest();
+
+    // init background on a first load
+    console.log('Set bg for URL=' + this.location.path());
+    this.setBackground(this.location.path());
 
     // TODO: update not only bg, but also page title and styles
     /** Shows background color or image on respective route **/
@@ -114,28 +119,43 @@ export class AppComponent {
                         break;
                 }
             });
+        } else if (eventUrl.startsWith('/iqtest/')) {
+          switch (eventUrl) {
+            case '/iqtest/iq-practice':
+              this.backgroundClass = 'bg-practice';
+              break;
+            case '/iqtest/iq-standard':
+              this.backgroundClass = 'bg-standard';
+              break;
+            case '/iqtest/mega-iq':
+              this.backgroundClass = 'bg-megaiq';
+              break;
+            case '/iqtest/math':
+              this.backgroundClass = 'bg-math';
+              break;
+            case '/iqtest/grammar':
+              this.backgroundClass = 'bg-grammar';
+              break;
+            default:
+              this.backgroundClass = '';
+              break;
+          }
         } else {
             switch (eventUrl) {
-                case '/iqtest/iq-practice':
-                    this.backgroundClass = 'bg-practice';
-                    break;
-                case '/iqtest/iq-standard':
-                    this.backgroundClass = 'bg-standard';
-                    break;
-                case '/iqtest/mega-iq':
-                    this.backgroundClass = 'bg-megaiq';
-                    break;
-                case '/iqtest/math':
-                    this.backgroundClass = 'bg-math';
-                    break;
-                case '/iqtest/grammar':
-                    this.backgroundClass = 'bg-grammar';
-                    break;
                 case '/':
                     this.backgroundClass = 'home-image';
                     break;
-                default:
+                case '/register':
+                case '/forget':
+                case '/login':
+                    this.backgroundClass = 'home-image';
+                    break;
+                case '/home':
+                case '/settings':
                     this.backgroundClass = '';
+                    break;
+                default:
+                    this.backgroundClass = 'home-image';
                     break;
             }
         }
