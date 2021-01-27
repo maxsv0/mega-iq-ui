@@ -38,7 +38,7 @@ import {DialogComponent} from './_dialog';
 import {RatingComponent} from './user/rating/rating.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
 import { RegisteranonComponent } from './user/registeranon/registeranon.component';
-import {ServerDataModule} from '@/_services/server-data.module';
+import {ServerDataModule} from '@/server-data.module';
 
 declare const require; // Use the require method provided by webpack
 

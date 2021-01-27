@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {ApiResponseTests, IqTest} from '../_models';
+import {ApiResponseTests, IqTest} from './_models';
 import {TestTypeEnum} from '@/_models/enum';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {environment} from '../environments/environment';
 import {first} from 'rxjs/operators';
 
 @NgModule({

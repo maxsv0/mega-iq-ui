@@ -6,7 +6,6 @@ import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
 import { Rating } from '@/_models/rating';
-import {map} from 'rxjs/operators';
 
 /**
  * @class UserService

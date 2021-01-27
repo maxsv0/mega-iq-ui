@@ -15,7 +15,7 @@ import {existsSync} from 'fs';
 import 'localstorage-polyfill';
 import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
-import {ServerDataModule} from './src/app/_services/server-data.module';
+import {ServerDataModule} from './src/app/server-data.module';
 
 let hostName = 'https://www.mega-iq.com/';
 // @ts-ignore

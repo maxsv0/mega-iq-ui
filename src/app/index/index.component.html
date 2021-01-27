@@ -77,11 +77,11 @@
 </section>
 
 <!-- Public users carousel -->
-<section id="user-example" class="container my-5">
+<section id="user-example" class="container my-5" *ngIf="userExamples">
   <div class="clearfix mb-5">
     <h2 class="text-center" i18n>Example profile</h2>
   </div>
-  <owl-carousel [options]="carouselOptions" [items]="userExamples" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+  <owl-carousel [options]="carouselOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']">
     <div *ngFor="let userExample of userExamples">
       <app-avatar *ngIf="userExample" [user]="userExample"></app-avatar>
     </div>

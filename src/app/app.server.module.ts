@@ -3,7 +3,7 @@ import {ServerModule} from '@angular/platform-server';
 
 import {AppModule} from './app.module';
 import {AppComponent} from './app.component';
-import {ServerDataModule} from './_services/server-data.module';
+import {ServerDataModule} from './server-data.module';
 
 @NgModule({
   imports: [

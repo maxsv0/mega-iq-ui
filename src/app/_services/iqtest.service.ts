@@ -5,7 +5,7 @@ import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList} from 
 import {TestTypeEnum} from '@/_models/enum';
 import {Observable} from 'rxjs';
 import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-test-result-list';
-import {ServerDataModule} from '@/_services/server-data.module';
+import {ServerDataModule} from '@/server-data.module';
 
 /**
  * @class IqTestService
