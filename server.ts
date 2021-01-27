@@ -91,11 +91,13 @@ export function app(): express.Express {
 
          if (tests && tests.ok && tests.tests) {
            for (const testInfo of tests.tests) {
-             smStream.write({
-               url: testInfo.url,
-               changefreq: 'monthly',
-               priority: 0.3
-             });
+             if (testInfo.url) {
+               smStream.write({
+                 url: testInfo.url,
+                 changefreq: 'monthly',
+                 priority: 0.3
+               });
+             }
            }
          }
        }

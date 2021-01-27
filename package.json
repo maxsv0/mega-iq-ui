@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-i18n": "ng xi18n mega-iq-ui --i18n-format xlf2 --output-path i18n --i18n-locale en && ng run mega-iq-ui:xliffmerge",
+    "extract-i18n": "ng xi18n mega-iq-ui --i18n-format xlf2 --output-path src/i18n --i18n-locale en && ng run mega-iq-ui:xliffmerge",
     "start-de": "ng serve --configuration=de",
     "start-ru": "ng serve --configuration=ru",
     "start-es": "ng serve --configuration=es",
