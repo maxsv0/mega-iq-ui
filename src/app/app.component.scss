@@ -7,16 +7,15 @@
 }
 
 .home-image {
-  background-image: url(https://img.mega-iq.com/g/about/img/bg-index.jpg);
   @include background-size(cover);
   width: 100%;
   max-height: 41em;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-color: #f8f9fa;
 }
 
 #header-mega-iq {
-  background-image: url(https://img.mega-iq.com/g/brand/mega-iq-brain-navbar.jpg);
   background-size: 150px 85px;
   background-position: bottom left;
   background-repeat: no-repeat;
