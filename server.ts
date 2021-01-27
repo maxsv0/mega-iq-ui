@@ -15,6 +15,7 @@ import {existsSync} from 'fs';
 import 'localstorage-polyfill';
 import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
+import {ServerDataModule} from './src/app/_services/server-data.module';
 
 let hostName = 'https://www.mega-iq.com/';
 // @ts-ignore
@@ -35,13 +36,13 @@ let sitemap = '';
 const http = require('https');
 
 const CronJob = require('cron').CronJob;
-const job = new CronJob('0 */15 * * * *', function() {
-  http.get(hostName + 'api/v1/list-latest-all', function(response) {
+const job = new CronJob('0 */15 * * * *', function () {
+  http.get(hostName + 'api/v1/list-latest-all', function (response) {
     let body = '';
-    response.on('data', function(chunk) {
+    response.on('data', function (chunk) {
       body += chunk;
     });
-    response.on('end', function() {
+    response.on('end', function () {
       sitemap = body;
     });
   });
@@ -87,20 +88,20 @@ export function app(): express.Express {
       smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
 
       if (sitemap && sitemap !== '') {
-         const tests = JSON.parse(sitemap);
+        const tests = JSON.parse(sitemap);
 
-         if (tests && tests.ok && tests.tests) {
-           for (const testInfo of tests.tests) {
-             if (testInfo.url) {
-               smStream.write({
-                 url: testInfo.url,
-                 changefreq: 'monthly',
-                 priority: 0.3
-               });
-             }
-           }
-         }
-       }
+        if (tests && tests.ok && tests.tests) {
+          for (const testInfo of tests.tests) {
+            if (testInfo.url) {
+              smStream.write({
+                url: testInfo.url,
+                changefreq: 'monthly',
+                priority: 0.3
+              });
+            }
+          }
+        }
+      }
 
       smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
@@ -124,7 +125,12 @@ export function app(): express.Express {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+    res.render(indexHtml, {
+      req, providers: [
+        {provide: APP_BASE_HREF, useValue: req.baseUrl},
+        {provide: ServerDataModule},
+      ]
+    });
   });
 
   return server;
