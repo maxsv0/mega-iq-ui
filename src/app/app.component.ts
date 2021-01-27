@@ -136,7 +136,7 @@ export class AppComponent {
               this.backgroundClass = 'bg-grammar';
               break;
             default:
-              this.backgroundClass = '';
+              this.backgroundClass = 'bg-blank';
               break;
           }
         } else {
@@ -151,7 +151,7 @@ export class AppComponent {
                     break;
                 case '/home':
                 case '/settings':
-                    this.backgroundClass = '';
+                    this.backgroundClass = 'bg-blank';
                     break;
                 default:
                     this.backgroundClass = 'home-image';

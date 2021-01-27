@@ -164,6 +164,10 @@ body {
   @include gradient(#ffffff, #f8f9fa, vertical);
 }
 
+.bg-blank {
+  background-image: none !important;
+}
+
 /** User profile card **/
 #iq-user {
   .iq-user-body {
