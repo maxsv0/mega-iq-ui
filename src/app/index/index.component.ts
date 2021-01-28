@@ -10,6 +10,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {ShareButtonsConfig} from 'ngx-sharebuttons';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
+import {ServerDataModule} from '@/server-data.module';
 
 /**
  * @class IndexComponent
@@ -68,7 +69,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private i18n: I18n,
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private serverDataModule: ServerDataModule
   ) {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -125,20 +127,27 @@ export class IndexComponent implements OnInit, OnDestroy {
    * @description Loads data for top users tables
    */
   private loadUsersTop() {
-    this.userService.getTop().pipe(first()).subscribe(
-      apiResponseUsersTop => {
-        if (apiResponseUsersTop.ok) {
-          this.usersTop = apiResponseUsersTop.usersTop;
-          this.usersList = apiResponseUsersTop.users;
-          this.userExamples = apiResponseUsersTop.exampleProfiles;
-        } else {
-          this.alertService.error(apiResponseUsersTop.msg);
-        }
-        this.scrollToValue(apiResponseUsersTop.count);
-      },
-      error => {
-        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-      });
+    if (this.serverDataModule.userTop) {
+      this.usersTop = this.serverDataModule.userTop.usersTop;
+      this.usersList = this.serverDataModule.userTop.users;
+      this.userExamples = this.serverDataModule.userTop.exampleProfiles;
+      this.scrollToValue(this.serverDataModule.userTop.count);
+    } else {
+      this.userService.getTop().pipe(first()).subscribe(
+        apiResponseUsersTop => {
+          if (apiResponseUsersTop.ok) {
+            this.usersTop = apiResponseUsersTop.usersTop;
+            this.usersList = apiResponseUsersTop.users;
+            this.userExamples = apiResponseUsersTop.exampleProfiles;
+            this.scrollToValue(apiResponseUsersTop.count);
+          } else {
+            this.alertService.error(apiResponseUsersTop.msg);
+          }
+        },
+        error => {
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+        });
+    }
   }
 
   /**

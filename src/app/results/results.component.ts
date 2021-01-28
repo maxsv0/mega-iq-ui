@@ -6,6 +6,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {PublicTestResult} from '@/_models/public-test-result';
 import {IqTest} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
+import {ServerDataModule} from '@/server-data.module';
 
 /**
  * @class ResultsComponent
@@ -34,6 +35,7 @@ export class ResultsComponent implements OnInit {
     private iqTestService: IqTestService,
     private alertService: AlertService,
     private i18n: I18n,
+    private serverDataModule: ServerDataModule
   ) {
     this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
     const metaTitle = this.titleService.getTitle();
@@ -64,21 +66,28 @@ export class ResultsComponent implements OnInit {
    * @description Get latest iq tests results to show in ranking
    */
   private loadUsersResults() {
-    this.iqTestService.getLatestResults().pipe(first()).subscribe(
-      apiResponsePublicTestResultList => {
-        if (apiResponsePublicTestResultList.ok) {
-          this.testsActive = apiResponsePublicTestResultList.testsActive;
-          this.tests = apiResponsePublicTestResultList.tests;
-          this.count = apiResponsePublicTestResultList.count;
+    if (this.serverDataModule.listLatest) {
+      this.testsActive = this.serverDataModule.listLatest.testsActive;
+      this.tests = this.serverDataModule.listLatest.tests;
+      this.count = this.serverDataModule.listLatest.count;
+      this.isLoading = false;
+    } else {
+      this.iqTestService.getLatestResults().pipe(first()).subscribe(
+        apiResponsePublicTestResultList => {
+          if (apiResponsePublicTestResultList.ok) {
+            this.testsActive = apiResponsePublicTestResultList.testsActive;
+            this.tests = apiResponsePublicTestResultList.tests;
+            this.count = apiResponsePublicTestResultList.count;
+            this.isLoading = false;
+          } else {
+            this.alertService.error(apiResponsePublicTestResultList.msg);
+            this.isLoading = false;
+          }
+        },
+        error => {
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
-        } else {
-          this.alertService.error(apiResponsePublicTestResultList.msg);
-          this.isLoading = false;
-        }
-      },
-      error => {
-        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-        this.isLoading = false;
-      });
+        });
+    }
   }
 }

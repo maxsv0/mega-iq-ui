@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '@/_models';
 import {Meta, Title} from '@angular/platform-browser';
 import {AlertService, UserService} from '@/_services';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {first} from 'rxjs/operators';
+import {ServerDataModule} from '@/server-data.module';
 
 @Component({
   selector: 'app-users',
@@ -21,6 +22,7 @@ export class UsersComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService,
     private i18n: I18n,
+    private serverDataModule: ServerDataModule
   ) {
     this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
     const metaTitle = this.titleService.getTitle();
@@ -41,21 +43,27 @@ export class UsersComponent implements OnInit {
    * @description Get all users to show in ranking
    */
   private loadUsersAll() {
-    this.userService.getAll().pipe(first()).subscribe(
-      apiResponseUsersList => {
-        if (apiResponseUsersList.ok) {
-          this.users = apiResponseUsersList.users;
-          this.count = apiResponseUsersList.count;
+    if (this.serverDataModule.userList) {
+      this.users = this.serverDataModule.userList.users;
+      this.count = this.serverDataModule.userList.count;
+      this.isLoading = false;
+    } else {
+      this.userService.getAll().pipe(first()).subscribe(
+        apiResponseUsersList => {
+          if (apiResponseUsersList.ok) {
+            this.users = apiResponseUsersList.users;
+            this.count = apiResponseUsersList.count;
+            this.isLoading = false;
+          } else {
+            this.alertService.error(apiResponseUsersList.msg);
+            this.isLoading = false;
+          }
+        },
+        error => {
+          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
-        } else {
-          this.alertService.error(apiResponseUsersList.msg);
-          this.isLoading = false;
-        }
-      },
-      error => {
-        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-        this.isLoading = false;
-      });
+        });
+    }
   }
 
 }

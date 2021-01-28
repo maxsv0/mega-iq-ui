@@ -31,12 +31,16 @@ if (APP_LOCALE_ID === 'de') {
 
 // we will load latest IQ test results from API and save to a local file
 // periodically, so it could be used by /sitemap.xml request
-// job set every 15 min.
+// job set every hour.
 let sitemap = '';
+let testTypes = '';
+let userTop = '';
+let listLatest = '';
+let userList = '';
 const http = require('https');
 
 const CronJob = require('cron').CronJob;
-const job = new CronJob('0 */15 * * * *', function () {
+const job = new CronJob('0 7 * * * *', function () {
   http.get(hostName + 'api/v1/list-latest-all', function (response) {
     let body = '';
     response.on('data', function (chunk) {
@@ -48,6 +52,62 @@ const job = new CronJob('0 */15 * * * *', function () {
   });
 }, null, true, 'Europe/Berlin');
 job.start();
+
+const jobTestTypes = new CronJob('0 3 * * * *', function () {
+  http.get(hostName + 'api/v1/test', function (response) {
+    let body = '';
+    response.on('data', function (chunk) {
+      body += chunk;
+    });
+    response.on('end', function () {
+      testTypes = body;
+      localStorage.setItem('ServerDataModule/test', JSON.stringify(testTypes));
+    });
+  });
+}, null, true, 'Europe/Berlin');
+jobTestTypes.start();
+
+const jobUserTop = new CronJob('0 */5 * * * *', function () {
+  http.get(hostName + 'api/v1/user/top', function (response) {
+    let body = '';
+    response.on('data', function (chunk) {
+      body += chunk;
+    });
+    response.on('end', function () {
+      userTop = body;
+      localStorage.setItem('ServerDataModule/user/top', JSON.stringify(userTop));
+    });
+  });
+}, null, true, 'Europe/Berlin');
+jobUserTop.start();
+
+const jobListLatest = new CronJob('0 */15 * * * *', function () {
+  http.get(hostName + 'api/v1/list-latest', function (response) {
+    let body = '';
+    response.on('data', function (chunk) {
+      body += chunk;
+    });
+    response.on('end', function () {
+      listLatest = body;
+      localStorage.setItem('ServerDataModule/list-latest', JSON.stringify(listLatest));
+    });
+  });
+}, null, true, 'Europe/Berlin');
+jobListLatest.start();
+
+const jobUserList = new CronJob('0 */15 * * * *', function () {
+  http.get(hostName + 'api/v1/user/list', function (response) {
+    let body = '';
+    response.on('data', function (chunk) {
+      body += chunk;
+    });
+    response.on('end', function () {
+      userList = body;
+      localStorage.setItem('ServerDataModule/user/list', JSON.stringify(userList));
+    });
+  });
+}, null, true, 'Europe/Berlin');
+jobUserList.start();
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
