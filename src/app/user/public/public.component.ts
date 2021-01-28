@@ -11,6 +11,7 @@ import {ShareButtonsConfig} from 'ngx-sharebuttons';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {isPlatformBrowser} from '@angular/common';
 import firebase from 'firebase/app';
+import {APP_LOCALE_ID} from '../../../environments/app-locale';
 
 /**
  * @class PublicComponent
@@ -34,6 +35,7 @@ export class PublicComponent implements OnInit {
   testTypeEnum = TestTypeEnum;
   isBrowser: boolean;
   customConfig: ShareButtonsConfig;
+  hostName: string;
 
   currentUser: firebase.User;
 
@@ -54,6 +56,19 @@ export class PublicComponent implements OnInit {
     if (userId == null) {
       return;
     }
+
+    let hostName = 'https://www.mega-iq.com';
+    // @ts-ignore
+    if (APP_LOCALE_ID === 'de') {
+      hostName = 'https://de.mega-iq.com';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'es') {
+      hostName = 'https://es.mega-iq.com';
+      // @ts-ignore
+    } else if (APP_LOCALE_ID === 'ru') {
+      hostName = 'https://ru.mega-iq.com';
+    }
+    this.hostName = hostName;
 
     this.userId = userId;
 
@@ -170,7 +185,8 @@ export class PublicComponent implements OnInit {
     const [imageOption, titleOption] = options;
     this.customConfig = {
       image: imageOption,
-      title: titleOption
+      title: titleOption,
+      url: this.hostName + '/user/' + this.userId
     };
     ShareButtonsModule.withConfig(this.customConfig);
   }

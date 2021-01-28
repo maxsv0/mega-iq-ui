@@ -12,6 +12,7 @@ import {isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
 import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
+import {ShareButtonsConfig} from 'ngx-sharebuttons';
 
 /**
  * @class IqResultComponent
@@ -36,9 +37,11 @@ export class IqResultComponent {
   isBrowser: boolean;
   chart: any;
   chartAnswers: any;
+  testCode: string;
   hostName: string;
   testQuestionsCount = 0;
   public testTypeEnum = TestTypeEnum;
+  customConfig: ShareButtonsConfig;
 
   currentUser: firebase.User;
 
@@ -84,12 +87,12 @@ export class IqResultComponent {
       );
     });
 
-    const testCode = this.route.snapshot.params['testCode'];
+    this.testCode = this.route.snapshot.params['testCode'];
 
     this.isLoading = true;
 
     /** Get a selected test by test code **/
-    this.iqTestService.getByCode(testCode)
+    this.iqTestService.getByCode(this.testCode)
       .pipe(first())
       .subscribe(
         apiResponseTestResult => {
@@ -105,6 +108,8 @@ export class IqResultComponent {
                 this.test.points,
                 this.test.finishDate.toString(),
                 this.test.type);
+
+              this.setCustomShareButtonsConfig(this.titleService.getTitle());
 
               let showIndex = 0;
               this.testTypesToShow = this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 2);
@@ -207,7 +212,7 @@ export class IqResultComponent {
 
     this.ctxAnswers = (<HTMLCanvasElement>this.myCanvasAnswers.nativeElement).getContext('2d');
 
-    this.chartAnswers  = new Chart(this.ctxAnswers, {
+    this.chartAnswers = new Chart(this.ctxAnswers, {
       type: 'bar',
       data: {
         labels: this.createLabelsForQuestions(),
@@ -235,7 +240,7 @@ export class IqResultComponent {
     const list: string[] = [];
 
     for (let i = 0; i < this.test.answerInfo.length; i++) {
-        list.push('Question ' + (i + 1));
+      list.push('Question ' + (i + 1));
     }
 
     return list;
@@ -306,7 +311,8 @@ export class IqResultComponent {
           this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} passed on {{date}}', {
             test: testName,
             score: score,
-            date: date}));
+            date: date
+          }));
           break;
         case TestTypeEnum.PRACTICE_IQ:
         case TestTypeEnum.MATH:
@@ -315,7 +321,8 @@ export class IqResultComponent {
             test: testName,
             score: score,
             date: date,
-            questions: testQuestions}));
+            questions: testQuestions
+          }));
           break;
       }
     } else {
@@ -329,5 +336,13 @@ export class IqResultComponent {
     this.metaService.updateTag({property: 'og:description', content: this.titleService.getTitle()});
     this.metaService.updateTag({property: 'og:image', content: testPic});
     this.metaService.updateTag({property: 'og:url', content: this.router.url});
+  }
+
+  setCustomShareButtonsConfig(titleOption) {
+    this.customConfig = {
+      title: titleOption,
+      url: this.hostName + '/iqtest/result/' + this.testCode
+    };
+    ShareButtonsModule.withConfig(this.customConfig);
   }
 }

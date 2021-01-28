@@ -17,13 +17,6 @@
         <p *ngIf="activeTest.points">
           <span i18n>Result</span>: {{activeTest.points}}
         </p>
-        <p *ngIf="activeTestCompleted && !activeTest.finishDate">
-          <button class="btn btn-primary btn-block" (click)="submitFinish(activeTest.code)" [disabled]="loading">
-            <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
-            <span *ngIf="!loading" i18n>Submit test</span>
-            <span *ngIf="loading" class="actn-loader"></span>
-          </button>
-        </p>
         <div *ngIf="activeTest.finishDate" class="text-muted">
           <h4>
             <fa-icon [icon]="['fas', 'check']" class="mr-1"></fa-icon>
@@ -34,10 +27,17 @@
           </h4>
         </div>
         <div class="card">
-            <div class="card-body">
-                <span class="text-center" i18n>Time remaining: {{ remainingTime | date:'mm:ss' }}</span>
+            <div class="card-body text-center">
+                <span i18n>Time remaining: {{ remainingTime | date:'mm:ss' }}</span>
             </div>
         </div>
+        <p *ngIf="activeTestCompleted && !activeTest.finishDate" class="mt-3">
+          <button class="btn btn-primary btn-block btn-lg" (click)="submitFinish(activeTest.code)" [disabled]="loading">
+            <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
+            <span *ngIf="!loading" i18n>Submit test</span>
+            <span *ngIf="loading" class="actn-loader"></span>
+          </button>
+        </p>
       </div>
     </div>
     <div class="col-md-8 d-none d-md-block d-lg-block d-xl-block">
