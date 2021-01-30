@@ -63,7 +63,7 @@ const jobTestTypes = new CronJob('0 3 * * * *', function () {
     });
     response.on('end', function () {
       apiTestTypes = JSON.parse(body);
-      console.log('Tokens for api/v1/test updated at=' + apiTestTypes.date);
+      console.log('Data for api/v1/test updated at=' + apiTestTypes.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -77,7 +77,7 @@ const jobUserTop = new CronJob('0 */5 * * * *', function () {
     });
     response.on('end', function () {
       userTop = JSON.parse(body);
-      console.log('Tokens for api/v1/user/top updated at=' + userTop.date);
+      console.log('Data for api/v1/user/top updated at=' + userTop.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -91,7 +91,7 @@ const jobListLatest = new CronJob('0 */15 * * * *', function () {
     });
     response.on('end', function () {
       listLatest = JSON.parse(body);
-      console.log('Tokens for api/v1/user/top updated at=' + userTop.date);
+      console.log('Data for api/v1/user/top updated at=' + userTop.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -105,7 +105,7 @@ const jobUserList = new CronJob('0 */15 * * * *', function () {
     });
     response.on('end', function () {
       userList = JSON.parse(body);
-      console.log('Tokens for api/v1/user/list updated at=' + userList.date);
+      console.log('Data for api/v1/user/list updated at=' + userList.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
