@@ -10,7 +10,6 @@ import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {ShareButtonsConfig} from 'ngx-sharebuttons';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
-import {ServerDataModule} from '@/server-data.module';
 
 /**
  * @class IndexComponent
@@ -70,7 +69,6 @@ export class IndexComponent implements OnInit, OnDestroy {
     private i18n: I18n,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private serverDataModule: ServerDataModule
   ) {
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
@@ -127,11 +125,11 @@ export class IndexComponent implements OnInit, OnDestroy {
    * @description Loads data for top users tables
    */
   private loadUsersTop() {
-    if (this.serverDataModule.userTop) {
-      this.usersTop = this.serverDataModule.userTop.usersTop;
-      this.usersList = this.serverDataModule.userTop.users;
-      this.userExamples = this.serverDataModule.userTop.exampleProfiles;
-      this.scrollToValue(this.serverDataModule.userTop.count);
+    if (false) {
+      // this.usersTop = this.serverDataModule.userTop.usersTop;
+      // this.usersList = this.serverDataModule.userTop.users;
+      // this.userExamples = this.serverDataModule.userTop.exampleProfiles;
+      // this.scrollToValue(this.serverDataModule.userTop.count);
     } else {
       this.userService.getTop().pipe(first()).subscribe(
         apiResponseUsersTop => {

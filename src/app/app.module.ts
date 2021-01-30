@@ -38,7 +38,6 @@ import {DialogComponent} from './_dialog';
 import {RatingComponent} from './user/rating/rating.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
 import { RegisteranonComponent } from './user/registeranon/registeranon.component';
-import {ServerDataModule} from '@/server-data.module';
 
 declare const require; // Use the require method provided by webpack
 
@@ -55,7 +54,6 @@ declare const require; // Use the require method provided by webpack
     OwlModule,
     InfiniteScrollModule,
     ShareButtonsModule,
-    ServerDataModule
   ],
   declarations: [
     AppComponent,

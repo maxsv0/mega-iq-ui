@@ -15,7 +15,9 @@ import {existsSync} from 'fs';
 import 'localstorage-polyfill';
 import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
-import {ServerDataModule} from './src/app/server-data.module';
+import {DATA_TEST_RESULT, DATA_TEST_TYPE, DATA_USERS_LIST, DATA_USERS_TOP} from './src/app/_helpers/tokens';
+import {ApiResponseTests, ApiResponseUsersList, ApiResponseUsersTop} from './src/app/_models';
+import {ApiResponsePublicTestResultList} from './src/app/_models/api-response-public-test-result-list';
 
 let hostName = 'https://www.mega-iq.com/';
 // @ts-ignore
@@ -33,10 +35,10 @@ if (APP_LOCALE_ID === 'de') {
 // periodically, so it could be used by /sitemap.xml request
 // job set every hour.
 let sitemap = '';
-let testTypes = '';
-let userTop = '';
-let listLatest = '';
-let userList = '';
+let apiTestTypes: ApiResponseTests;
+let userTop: ApiResponseUsersTop;
+let listLatest: ApiResponsePublicTestResultList;
+let userList: ApiResponseUsersList;
 const http = require('https');
 
 const CronJob = require('cron').CronJob;
@@ -60,11 +62,11 @@ const jobTestTypes = new CronJob('0 3 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      testTypes = body;
-      localStorage.setItem('ServerDataModule/test', JSON.stringify(testTypes));
+      apiTestTypes = JSON.parse(body);
+      console.log('Tokens for api/v1/test updated at=' + apiTestTypes.date);
     });
   });
-}, null, true, 'Europe/Berlin');
+}, null, true, 'Europe/Berlin', null, true);
 jobTestTypes.start();
 
 const jobUserTop = new CronJob('0 */5 * * * *', function () {
@@ -74,11 +76,11 @@ const jobUserTop = new CronJob('0 */5 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      userTop = body;
-      localStorage.setItem('ServerDataModule/user/top', JSON.stringify(userTop));
+      userTop = JSON.parse(body);
+      console.log('Tokens for api/v1/user/top updated at=' + userTop.date);
     });
   });
-}, null, true, 'Europe/Berlin');
+}, null, true, 'Europe/Berlin', null, true);
 jobUserTop.start();
 
 const jobListLatest = new CronJob('0 */15 * * * *', function () {
@@ -88,11 +90,11 @@ const jobListLatest = new CronJob('0 */15 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      listLatest = body;
-      localStorage.setItem('ServerDataModule/list-latest', JSON.stringify(listLatest));
+      listLatest = JSON.parse(body);
+      console.log('Tokens for api/v1/user/top updated at=' + userTop.date);
     });
   });
-}, null, true, 'Europe/Berlin');
+}, null, true, 'Europe/Berlin', null, true);
 jobListLatest.start();
 
 const jobUserList = new CronJob('0 */15 * * * *', function () {
@@ -102,11 +104,11 @@ const jobUserList = new CronJob('0 */15 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      userList = body;
-      localStorage.setItem('ServerDataModule/user/list', JSON.stringify(userList));
+      userList = JSON.parse(body);
+      console.log('Tokens for api/v1/user/list updated at=' + userList.date);
     });
   });
-}, null, true, 'Europe/Berlin');
+}, null, true, 'Europe/Berlin', null, true);
 jobUserList.start();
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -188,7 +190,10 @@ export function app(): express.Express {
     res.render(indexHtml, {
       req, providers: [
         {provide: APP_BASE_HREF, useValue: req.baseUrl},
-        {provide: ServerDataModule},
+        {provide: DATA_TEST_TYPE, useValue: apiTestTypes},
+        {provide: DATA_USERS_TOP, useValue: userTop},
+        {provide: DATA_TEST_RESULT, useValue: listLatest},
+        {provide: DATA_USERS_LIST, useValue: userList},
       ]
     });
   });
