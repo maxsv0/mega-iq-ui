@@ -10,6 +10,7 @@ export class IqTest {
   url: string;
   pic: string;
   description: string;
+  title: string;
   questions: number;
   time: number;
   expire: number;
