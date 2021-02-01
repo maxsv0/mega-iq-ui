@@ -13,7 +13,7 @@ import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 
 /**
  * @class IndexComponent
- * @implements Oninit, OnDestroy
+ * @implements OnInit, OnDestroy
  * @description Home page controller
  */
 @Component({
@@ -125,27 +125,20 @@ export class IndexComponent implements OnInit, OnDestroy {
    * @description Loads data for top users tables
    */
   private loadUsersTop() {
-    if (false) {
-      // this.usersTop = this.serverDataModule.userTop.usersTop;
-      // this.usersList = this.serverDataModule.userTop.users;
-      // this.userExamples = this.serverDataModule.userTop.exampleProfiles;
-      // this.scrollToValue(this.serverDataModule.userTop.count);
-    } else {
-      this.userService.getTop().pipe(first()).subscribe(
-        apiResponseUsersTop => {
-          if (apiResponseUsersTop.ok) {
-            this.usersTop = apiResponseUsersTop.usersTop;
-            this.usersList = apiResponseUsersTop.users;
-            this.userExamples = apiResponseUsersTop.exampleProfiles;
-            this.scrollToValue(apiResponseUsersTop.count);
-          } else {
-            this.alertService.error(apiResponseUsersTop.msg);
-          }
-        },
-        error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-        });
-    }
+    this.userService.getTop().pipe(first()).subscribe(
+      apiResponseUsersTop => {
+        if (apiResponseUsersTop.ok) {
+          this.usersTop = apiResponseUsersTop.usersTop;
+          this.usersList = apiResponseUsersTop.users;
+          this.userExamples = apiResponseUsersTop.exampleProfiles;
+          this.scrollToValue(apiResponseUsersTop.count);
+        } else {
+          this.alertService.error(apiResponseUsersTop.msg);
+        }
+      },
+      error => {
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+      });
   }
 
   /**

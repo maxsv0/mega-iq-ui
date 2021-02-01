@@ -64,28 +64,21 @@ export class ResultsComponent implements OnInit {
    * @description Get latest iq tests results to show in ranking
    */
   private loadUsersResults() {
-    if (false) {
-      // this.testsActive = this.serverDataModule.listLatest.testsActive;
-      // this.tests = this.serverDataModule.listLatest.tests;
-      // this.count = this.serverDataModule.listLatest.count;
-      // this.isLoading = false;
-    } else {
-      this.iqTestService.getLatestResults().pipe(first()).subscribe(
-        apiResponsePublicTestResultList => {
-          if (apiResponsePublicTestResultList.ok) {
-            this.testsActive = apiResponsePublicTestResultList.testsActive;
-            this.tests = apiResponsePublicTestResultList.tests;
-            this.count = apiResponsePublicTestResultList.count;
-            this.isLoading = false;
-          } else {
-            this.alertService.error(apiResponsePublicTestResultList.msg);
-            this.isLoading = false;
-          }
-        },
-        error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+    this.iqTestService.getLatestResults().pipe(first()).subscribe(
+      apiResponsePublicTestResultList => {
+        if (apiResponsePublicTestResultList.ok) {
+          this.testsActive = apiResponsePublicTestResultList.testsActive;
+          this.tests = apiResponsePublicTestResultList.tests;
+          this.count = apiResponsePublicTestResultList.count;
           this.isLoading = false;
-        });
-    }
+        } else {
+          this.alertService.error(apiResponsePublicTestResultList.msg);
+          this.isLoading = false;
+        }
+      },
+      error => {
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+        this.isLoading = false;
+      });
   }
 }

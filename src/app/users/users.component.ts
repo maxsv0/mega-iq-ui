@@ -41,27 +41,21 @@ export class UsersComponent implements OnInit {
    * @description Get all users to show in ranking
    */
   private loadUsersAll() {
-    if (false) {
-      // this.users = this.serverDataModule.userList.users;
-      // this.count = this.serverDataModule.userList.count;
-      // this.isLoading = false;
-    } else {
-      this.userService.getAll().pipe(first()).subscribe(
-        apiResponseUsersList => {
-          if (apiResponseUsersList.ok) {
-            this.users = apiResponseUsersList.users;
-            this.count = apiResponseUsersList.count;
-            this.isLoading = false;
-          } else {
-            this.alertService.error(apiResponseUsersList.msg);
-            this.isLoading = false;
-          }
-        },
-        error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+    this.userService.getAll().pipe(first()).subscribe(
+      apiResponseUsersList => {
+        if (apiResponseUsersList.ok) {
+          this.users = apiResponseUsersList.users;
+          this.count = apiResponseUsersList.count;
           this.isLoading = false;
-        });
-    }
+        } else {
+          this.alertService.error(apiResponseUsersList.msg);
+          this.isLoading = false;
+        }
+      },
+      error => {
+        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+        this.isLoading = false;
+      });
   }
 
 }
