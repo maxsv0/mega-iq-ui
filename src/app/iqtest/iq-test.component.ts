@@ -161,6 +161,9 @@ export class IqTestComponent implements OnInit {
   }
 
     private updateTest(paramType: string): IqTest {
+        if (!this.testTypes) {
+          return null;
+        }
         if (this.testTypes.length) {
             let type: TestTypeEnum;
             switch (paramType) {

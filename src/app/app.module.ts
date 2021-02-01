@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule, makeStateKey} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -54,6 +54,7 @@ declare const require; // Use the require method provided by webpack
     OwlModule,
     InfiniteScrollModule,
     ShareButtonsModule,
+    BrowserTransferStateModule
   ],
   declarations: [
     AppComponent,
@@ -98,7 +99,6 @@ declare const require; // Use the require method provided by webpack
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(...shareButtonsIcons);

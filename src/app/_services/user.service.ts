@@ -1,11 +1,14 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {ApiResponseBase, ApiResponseTestResultList, ApiResponseUser, ApiResponseUsersList, ApiResponseUsersTop, User} from '@/_models';
 import {environment} from '../../environments/environment';
 import {ApiResponseGeoIp} from '@/_models/api-response-geoip';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
-import { Rating } from '@/_models/rating';
+import {Rating} from '@/_models/rating';
+import {TransferState} from '@angular/platform-browser';
+import {DATA_USERS_LIST, DATA_USERS_TOP, STATE_KEY_USERS_LIST, STATE_KEY_USERS_TOP} from '@/_helpers/tokens';
+import {of} from 'rxjs';
 
 /**
  * @class UserService
@@ -13,8 +16,30 @@ import { Rating } from '@/_models/rating';
  */
 @Injectable({providedIn: 'root'})
 export class UserService {
+  private usersTop: ApiResponseUsersTop;
+  private userList: ApiResponseUsersList;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private state: TransferState,
+    @Optional() @Inject(DATA_USERS_TOP) private dataApiUsersTop: ApiResponseUsersTop,
+    @Optional() @Inject(DATA_USERS_LIST) private dataApiUserList: ApiResponseUsersList,
+  ) {
+    // Get variable from TransferState service if it exists.
+    // This part is for browser-side
+    this.usersTop = this.state.get(STATE_KEY_USERS_TOP, null);
+    this.userList = this.state.get(STATE_KEY_USERS_LIST, null);
+
+    // Look for injected value and if found sent it to TransferState
+    // This part is only for server-side
+    if (dataApiUsersTop) {
+      this.usersTop = dataApiUsersTop;
+      this.state.set(STATE_KEY_USERS_TOP, this.dataApiUsersTop);
+    }
+    if (dataApiUserList) {
+      this.userList = dataApiUserList;
+      this.state.set(STATE_KEY_USERS_LIST, this.dataApiUserList);
+    }
   }
 
   /**
@@ -22,7 +47,11 @@ export class UserService {
    * @description Gets users for top ranking
    */
   getTop() {
-    return this.http.get<ApiResponseUsersTop>(environment.apiUrl + '/user/top');
+    if (this.usersTop) {
+      return of(this.usersTop);
+    } else {
+      return this.http.get<ApiResponseUsersTop>(environment.apiUrl + '/user/top');
+    }
   }
 
   /**
@@ -30,7 +59,11 @@ export class UserService {
    * @description Gets all users
    */
   getAll() {
-    return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/list');
+    if (this.userList) {
+      return of(this.userList);
+    } else {
+      return this.http.get<ApiResponseUsersList>(environment.apiUrl + '/user/list');
+    }
   }
 
   /**

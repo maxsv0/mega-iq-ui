@@ -1,11 +1,13 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ApiResponseBase, ApiResponseTestResult, ApiResponseTestResultList, ApiResponseTests, IqTest} from '@/_models';
 import {TestTypeEnum} from '@/_models/enum';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {ApiResponsePublicTestResultList} from '@/_models/api-response-public-test-result-list';
 import {first} from 'rxjs/operators';
+import {TransferState} from '@angular/platform-browser';
+import {DATA_TEST_RESULT, DATA_TESTS, STATE_KEY_TEST_RESULT, STATE_KEY_TESTS} from '@/_helpers/tokens';
 
 /**
  * @class IqTestService
@@ -15,6 +17,9 @@ import {first} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class IqTestService {
+  private apiTests: ApiResponseTests;
+  private apiTestResult: ApiResponsePublicTestResultList;
+
   private testTypes = [];
   public testTypesSubscription: Observable<IqTest[]>;
   private testTypesSubject: BehaviorSubject<IqTest[]>;
@@ -22,12 +27,33 @@ export class IqTestService {
 
   constructor(
     private http: HttpClient,
+    private state: TransferState,
+    @Optional() @Inject(DATA_TESTS) private dataApiTests: ApiResponseTests,
+    @Optional() @Inject(DATA_TEST_RESULT) private dataApiTestResult: ApiResponsePublicTestResultList
   ) {
-    // this.testTypes = JSON.parse(apiTests).tests;
+    // Get variable from TransferState service if it exists.
+    // This part is for browser-side
+    this.apiTests = this.state.get(STATE_KEY_TESTS, null);
+    this.apiTestResult = this.state.get(STATE_KEY_TEST_RESULT, null);
+
+    // Look for injected value and if found send it to TransferState
+    // This part is only for server-side
+    if (dataApiTests) {
+      this.apiTests = dataApiTests;
+      this.state.set(STATE_KEY_TESTS, this.apiTests);
+    }
+    if (dataApiTestResult) {
+      this.apiTestResult = dataApiTestResult;
+      this.state.set(STATE_KEY_TEST_RESULT, this.apiTestResult);
+    }
+
+    // Convert cached response to values
+    if (this.apiTests && this.apiTests.ok) {
+      this.testTypes = this.apiTests.tests;
+    }
+
     this.testTypesSubject = new BehaviorSubject<IqTest[]>(this.testTypes);
     this.testTypesSubscription = this.testTypesSubject.asObservable();
-
-    console.log('this.testTypes=' + this.testTypes);
 
     if (!this.testTypes || this.testTypes.length === 0) {
       this.http.get<ApiResponseTests>(environment.apiUrl + '/test')
@@ -43,7 +69,11 @@ export class IqTestService {
   }
 
   getLatestResults() {
-    return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest`);
+    if (this.apiTestResult) {
+      return of(this.apiTestResult);
+    } else {
+      return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest`);
+    }
   }
 
   /**

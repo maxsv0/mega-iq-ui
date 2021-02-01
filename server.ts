@@ -9,13 +9,12 @@ import * as express from 'express';
 import {join} from 'path';
 
 import {AppServerModule} from './src/main.server';
-import {APP_BASE_HREF} from '@angular/common';
 import {existsSync} from 'fs';
 
 import 'localstorage-polyfill';
 import {SitemapStream} from 'sitemap';
 import {APP_LOCALE_ID} from './src/environments/app-locale';
-import {DATA_TEST_RESULT, DATA_TEST_TYPE, DATA_USERS_LIST, DATA_USERS_TOP} from './src/app/_helpers/tokens';
+import {DATA_TEST_RESULT, DATA_TESTS, DATA_USERS_LIST, DATA_USERS_TOP} from './src/app/_helpers/tokens';
 import {ApiResponseTests, ApiResponseUsersList, ApiResponseUsersTop} from './src/app/_models';
 import {ApiResponsePublicTestResultList} from './src/app/_models/api-response-public-test-result-list';
 
@@ -35,10 +34,10 @@ if (APP_LOCALE_ID === 'de') {
 // periodically, so it could be used by /sitemap.xml request
 // job set every hour.
 let sitemap = '';
-let apiTestTypes: ApiResponseTests;
-let userTop: ApiResponseUsersTop;
-let listLatest: ApiResponsePublicTestResultList;
-let userList: ApiResponseUsersList;
+let apiTests: ApiResponseTests;
+let apiUsersTop: ApiResponseUsersTop;
+let apiListLatest: ApiResponsePublicTestResultList;
+let apiUserList: ApiResponseUsersList;
 const http = require('https');
 
 const CronJob = require('cron').CronJob;
@@ -62,8 +61,8 @@ const jobTestTypes = new CronJob('0 3 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      apiTestTypes = JSON.parse(body);
-      console.log('Data for api/v1/test updated at=' + apiTestTypes.date);
+      apiTests = JSON.parse(body);
+      console.log('Data for api/v1/test updated at=' + apiTests.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -76,36 +75,36 @@ const jobUserTop = new CronJob('0 */5 * * * *', function () {
       body += chunk;
     });
     response.on('end', function () {
-      userTop = JSON.parse(body);
-      console.log('Data for api/v1/user/top updated at=' + userTop.date);
+      apiUsersTop = JSON.parse(body);
+      console.log('Data for api/v1/user/top updated at=' + apiUsersTop.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
 jobUserTop.start();
 
-const jobListLatest = new CronJob('0 */15 * * * *', function () {
+const jobListLatest = new CronJob('0 */17 * * * *', function () {
   http.get(hostName + 'api/v1/list-latest', function (response) {
     let body = '';
     response.on('data', function (chunk) {
       body += chunk;
     });
     response.on('end', function () {
-      listLatest = JSON.parse(body);
-      console.log('Data for api/v1/user/top updated at=' + userTop.date);
+      apiListLatest = JSON.parse(body);
+      console.log('Data for api/v1/user/top updated at=' + apiListLatest.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
 jobListLatest.start();
 
-const jobUserList = new CronJob('0 */15 * * * *', function () {
+const jobUserList = new CronJob('0 */7 * * * *', function () {
   http.get(hostName + 'api/v1/user/list', function (response) {
     let body = '';
     response.on('data', function (chunk) {
       body += chunk;
     });
     response.on('end', function () {
-      userList = JSON.parse(body);
-      console.log('Data for api/v1/user/list updated at=' + userList.date);
+      apiUserList = JSON.parse(body);
+      console.log('Data for api/v1/user/list updated at=' + apiUserList.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -120,6 +119,8 @@ export function app(): express.Express {
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
+    providers: [
+    ]
   }));
 
   server.set('view engine', 'html');
@@ -185,15 +186,27 @@ export function app(): express.Express {
     }
   });
 
-  // All regular routes use the Universal engine
   server.get('*', (req, res) => {
     res.render(indexHtml, {
-      req, providers: [
-        {provide: APP_BASE_HREF, useValue: req.baseUrl},
-        {provide: DATA_TEST_TYPE, useValue: apiTestTypes},
-        {provide: DATA_USERS_TOP, useValue: userTop},
-        {provide: DATA_TEST_RESULT, useValue: listLatest},
-        {provide: DATA_USERS_LIST, useValue: userList},
+      req,
+      res,
+      providers: [
+        {
+          provide: DATA_TESTS,
+          useValue: apiTests
+        },
+        {
+          provide: DATA_USERS_TOP,
+          useValue: apiUsersTop
+        },
+        {
+          provide: DATA_TEST_RESULT,
+          useValue: apiListLatest
+        },
+        {
+          provide: DATA_USERS_LIST,
+          useValue: apiUserList
+        }
       ]
     });
   });
