@@ -21,12 +21,6 @@
           <span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h4>
-        <div class="row my-3"
-             *ngIf="!(this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ)">
-          <div class="col-lg-12 text-right">
-            <span i18n>Result code</span>: {{test.code}}
-          </div>
-        </div>
         <div class="row mt-4">
           <div class="col-lg-6 py-5">
             <!-- User profile card -->
@@ -44,13 +38,16 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <h1><span i18n>IQ Score</span>: {{test.points}}</h1>
-            <h4 *ngIf="test.info && test.info.questions">
+            <div>
+              <h1>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>online</span></h1>
+            </div>
+            <h2 class="my-3"><span i18n>IQ Score</span>: {{test.points}}</h2>
+            <p class="lead" *ngIf="test.info && test.info.questions">
               <span i18n>Total Questions</span>: {{test.info.questions}}
-            </h4>
-            <h4 *ngIf="test.info && test.info.answersCorrect">
+            </p>
+            <p class="lead" *ngIf="test.info && test.info.answersCorrect">
               <span i18n>Correct Answers</span>: {{test.info.answersCorrect}}
-            </h4>
+            </p>
 
             <!-- Chart js results -->
             <div *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
