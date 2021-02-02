@@ -1,0 +1,17 @@
+<div class="card-container col-md-5 offset-md-1"
+     [lazyLoad]="test.pic" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'">
+  <div class="text-white">
+    <h2><span i18n>Start</span> {{test.name}}</h2>
+  </div>
+  <div class="text-white">
+    <p class="lead">{{test.title}}</p>
+  </div>
+  <div class="text-white">
+    <h4>{{test.description}}</h4>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-lg btn-{{test.styleName}} btn-rounded w-75">
+      <a class="text-white" routerLink="{{test.url}}" i18n>More about a Test</a>
+    </button>
+  </div>
+</div>

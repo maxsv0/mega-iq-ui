@@ -95,22 +95,8 @@
       <h2 i18n>Mega-iq tests</h2>
     </div>
 
-    <div class="card-container col-sm-5 offset-sm-1" *ngFor="let item of testTypes"
-         [lazyLoad]="item.pic" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'">
-      <div class="text-white">
-        <h2><span i18n>Start</span> {{item.name}}</h2>
-      </div>
-      <div class="text-white">
-        <p class="lead">{{item.title}}</p>
-      </div>
-      <div class="text-white">
-        <h4>{{item.description}}</h4>
-      </div>
-      <div class="text-center mt-3">
-        <button class="btn btn-lg btn-{{item.styleName}} btn-rounded w-75">
-          <a class="text-white" routerLink="{{item.url}}" i18n>Start Test</a>
-        </button>
-      </div>
+    <div class="col-sm-5 offset-sm-1" *ngFor="let item of testTypes">
+      <app-iq-test-promo [test]="item"></app-iq-test-promo>
     </div>
   </div>
 </section>

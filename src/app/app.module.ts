@@ -1,4 +1,4 @@
-import {BrowserModule, BrowserTransferStateModule, makeStateKey} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -37,7 +37,8 @@ import {UsersComponent} from './users/users.component';
 import {DialogComponent} from './_dialog';
 import {RatingComponent} from './user/rating/rating.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
-import { RegisteranonComponent } from './user/registeranon/registeranon.component';
+import {RegisteranonComponent} from './user/registeranon/registeranon.component';
+import {IqTestPromoComponent} from './iq-test-promo/iq-test-promo.component';
 
 declare const require; // Use the require method provided by webpack
 
@@ -77,7 +78,8 @@ declare const require; // Use the require method provided by webpack
     DialogComponent,
     RatingComponent,
     IqReviewComponent,
-    RegisteranonComponent
+    RegisteranonComponent,
+    IqTestPromoComponent
   ],
   providers: [
     AuthenticationService,
