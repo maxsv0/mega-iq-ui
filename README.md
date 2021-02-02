@@ -5,7 +5,7 @@ Mega-IQ Angular 8 application. Version 1.0-beta
 [![Build Status](http://ci.msvhost.com:8080/job/mega-iq-ui-es/badge/icon)](http://ci.msvhost.com:8080/job/mega-iq-ui-es/)
 
 ## Features
-* Multi-language UI for [www.mega-iq.com](https://www.mega-iq.com)
+* Multi-language UI for [Mega-IQ Free Online IQ Test](https://www.mega-iq.com)
 * Enabled Server-side rendering
 * Secure Firebase authentication
 * Bootstrap responsive design
@@ -29,7 +29,7 @@ The Mega-IQ team:
 ## Further help
 
 Visit our [GitHub Sponsorship page](https://github.com/sponsors/maxsv0) if you would like 
-to become a sponsor and support the [www.mega-iq.com](https://www.mega-iq.com).
+to become a sponsor and support the Mega-IQ.
 
 ## Production server
 Local end-point URL: 
@@ -80,25 +80,14 @@ Run `ng test` to execute the unit tests.
 
 Run `ng e2e` to execute the end-to-end tests.
 
-## Requirements Document
+## New Mega-IQ
 
-[MEGA-IQ 3.0. Requirements Document](https://docs.google.com/document/d/1juGpnjcJOHJY45edddpCGH7KFqlJFZyafU-qRk0eF3s/edit?usp=sharing) 
-was initially published in October 2018. 
-
-| Version        | Date           | Summary  |
-| ------------- |:-------------:| -----|
-| 0.1      | 22.10.2018    |  Draft |
-| 0.2      | 16.03.2019    |  Alpha release. Scope update |
-| 0.2.1    | 05.04.2019    |  Update according to current status |
-| 0.2.2    | 20.04.2019    |  Update page structure |
-
-The result of this doc is a list if tasks published in two projects 
+New Mega-IQ published in two projects 
 [Front-end UI](https://github.com/maxsv0/mega-iq-ui/projects) and [Back-end API](https://github.com/maxsv0/mega-iq-api/projects).
 
 | Status   | Tasks   | Repository           | Summary  |
 | ------------- |-------------| -----|-----|
 | DONE     | 12/12   | [mega-iq-api](https://github.com/maxsv0/mega-iq-api)   |  [Milestone 1. Enable Iq Website features](https://github.com/maxsv0/mega-iq-api/projects/1)  |
 | DONE     | 11/11    | [mega-iq-ui](https://github.com/maxsv0/mega-iq-ui)   |  [Milestone 1. Enable Iq Website features](https://github.com/maxsv0/mega-iq-ui/projects/1) |
-| progress | 14/15    | [mega-iq-api](https://github.com/maxsv0/mega-iq-api)   |  [Milestone 2. Mega-IQ 3.0 release](https://github.com/maxsv0/mega-iq-api/projects/2) |
-| progress | 30/36    | [mega-iq-ui](https://github.com/maxsv0/mega-iq-ui)   |  [Milestone 2. Mega-IQ 3.0 release](https://github.com/maxsv0/mega-iq-ui/projects/3) |
-
+| DONE     | 17/17    | [mega-iq-api](https://github.com/maxsv0/mega-iq-api)   |  [Milestone 2. Mega-IQ 3.0 release](https://github.com/maxsv0/mega-iq-api/projects/2) |
+| DONE     | 47/47    | [mega-iq-ui](https://github.com/maxsv0/mega-iq-ui)   |  [Milestone 2. Mega-IQ 3.0 release](https://github.com/maxsv0/mega-iq-ui/projects/3) |
