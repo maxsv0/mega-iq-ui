@@ -33,10 +33,10 @@ to become a sponsor and support the Mega-IQ.
 
 ## Production server
 Local end-point URL: 
-* https://www.mega-iq.com (English)
-* https://es.mega-iq.com (Español) - ONLINE
-* https://ru.mega-iq.com (Русский) - ONLINE
-* https://de.mega-iq.com (Deutsch)
+* [Mega-IQ free IQ test](https://www.mega-iq.com) (English)
+* [Test Mega IQ gratis](https://es.mega-iq.com) (Español)
+* [Мега IQ тест бесплатно](https://ru.mega-iq.com) (Русский)
+* [Mega IQ Test kostenlos](https://de.mega-iq.com) (Deutsch)
 
 ## Development server
 
