@@ -370,16 +370,16 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:73</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>result score for every answer</source>
-      <target>result score for every answer</target></segment>
+      <target>Ergebnis für jede Antwort</target></segment>
     </unit><unit id="7615187996573244854">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:76</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Bar height represents questions' complexity.</source>
-      <target>Bar height represents questions' complexity.</target></segment>
+      <target>Die Balkenhöhe repräsentiert die Komplexität der Fragen.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
         
