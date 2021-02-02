@@ -366,10 +366,24 @@
       <segment state="translated">
         <source>Show Answers</source>
       <target>Antworten anzeigen</target></segment>
+    </unit><unit id="3323262348032698514">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:73</note>
+      </notes>
+      <segment state="initial">
+        <source>result score for every answer</source>
+      <target>result score for every answer</target></segment>
+    </unit><unit id="7615187996573244854">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:76</note>
+      </notes>
+      <segment state="initial">
+        <source>Bar height represents questions' complexity.</source>
+      <target>Bar height represents questions' complexity.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:92</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:96</note></notes>
       <segment state="translated">
         <source>One more Mega-iq test?</source>
       <target>Noch ein Mega-IQ-Test?</target></segment>
