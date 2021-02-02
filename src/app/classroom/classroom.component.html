@@ -27,17 +27,10 @@
           </h4>
         </div>
         <div class="card">
-            <div class="card-body text-center">
-                <span i18n>Time remaining: {{ remainingTime | date:'mm:ss' }}</span>
-            </div>
+          <div class="card-body text-center">
+            <span i18n>Time remaining:</span> {{ remainingTime | date:'mm:ss' }}
+          </div>
         </div>
-        <p *ngIf="activeTestCompleted && !activeTest.finishDate" class="mt-3">
-          <button class="btn btn-primary btn-block btn-lg" (click)="submitFinish(activeTest.code)" [disabled]="loading">
-            <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
-            <span *ngIf="!loading" i18n>Submit test</span>
-            <span *ngIf="loading" class="actn-loader"></span>
-          </button>
-        </p>
       </div>
     </div>
     <div class="col-md-8 d-none d-md-block d-lg-block d-xl-block">
@@ -54,8 +47,22 @@
   </div>
 </div>
 
+<div *ngIf="activeTestCompleted && !activeTest.finishDate" style="background-color: #d4edda;">
+  <div class="container py-4 text-center">
+    <!-- submit finish button -->
+    <div class="col-md-8 offset-md-2">
+      <h3 i18n>The test is finished. Please press the submit button to submit your result.</h3>
+      <button class="btn btn-primary btn-block btn-lg my-3" (click)="submitFinish(activeTest.code)" [disabled]="loading">
+        <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
+        <span *ngIf="!loading" i18n>Submit test</span>
+        <span *ngIf="loading" class="actn-loader"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="bg-light" *ngIf="activeTest">
-  <div class="container pt-5 pt-sm-2 pb-1 question-title">
+  <div class="container py-4 question-title">
     <!-- Question title -->
     <span class="text-muted mr-2"><span
       i18n>Question</span>&nbsp;#{{activeQuestionId}}</span> {{activeQuestion.title}}
@@ -112,7 +119,8 @@
             <span class="text-success"
                   *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
                   i18n>Answer submitted</span>
-            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>Click to submit the answer</p>
+            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>
+              Click to submit the answer</p>
           </div>
         </div>
       </div>
@@ -126,14 +134,14 @@
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
         <button class="btn btn-outline-primary p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdPrev)"
-            [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId > 1">
+                [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId > 1">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
           <span i18n>Previous Question</span>
         </button>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
         <button class="btn btn-outline-primary p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdNext)"
-            [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId !== activeTest.questionSet.length">
+                [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId !== activeTest.questionSet.length">
           <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>
         </button>
