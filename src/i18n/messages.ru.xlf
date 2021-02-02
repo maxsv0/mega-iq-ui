@@ -576,6 +576,288 @@
       <segment state="translated">
         <source>Top users this month</source>
       <target>Сегодня прошли тест iq онлайн:</target></segment>
+    </unit><unit id="3495792873445212740">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+        <note category="location">src/app/user/home/home.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Mega-IQ is loading..</source>
+      <target>Mega-IQ is loading..</target></segment>
+    </unit><unit id="7621426683557637403">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/index/index.component.ts:1</note>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+        <note category="location">src/app/results/results.component.ts:1</note>
+        <note category="location">src/app/user/forget/forget.component.ts:1</note>
+        <note category="location">src/app/user/login/login.component.ts:1</note>
+        <note category="location">src/app/user/rating/rating.component.ts:1</note>
+        <note category="location">src/app/user/register/register.component.ts:1</note>
+        <note category="location">src/app/user/register/register.component.ts:1</note>
+        <note category="location">src/app/user/registeranon/registeranon.component.ts:1</note>
+        <note category="location">src/app/user/registeranon/registeranon.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+        <note category="location">src/app/users/users.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>API Service Unavailable</source>
+      <target>API Service Unavailable</target></segment>
+    </unit><unit id="8384225360105280028">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Complete</source>
+      <target>Complete</target></segment>
+    </unit><unit id="1222738782186578685">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>question</source>
+      <target>question</target></segment>
+    </unit><unit id="5881876145178332550">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>of</source>
+      <target>of</target></segment>
+    </unit><unit id="508112199778710798">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{progress}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{progress}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/></target></segment>
+    </unit><unit id="7551548766553335391">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Your test has expired. You will be redirected to Home. Please start a new test.</source>
+      <target>Your test has expired. You will be redirected to Home. Please start a new test.</target></segment>
+    </unit><unit id="4546031215649737393">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>You have completed this test. Check the result of this test.</source>
+      <target>You have completed this test. Check the result of this test.</target></segment>
+    </unit><unit id="4319786573708387572">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Back to Home</source>
+      <target>Back to Home</target></segment>
+    </unit><unit id="61627423335000084">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Check results</source>
+      <target>Check results</target></segment>
+    </unit><unit id="7130645516181757587">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>You are logged in as an anonymous user.</source>
+      <target>You are logged in as an anonymous user.</target></segment>
+    </unit><unit id="968633584255070737">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Click below to create an account or continue anonymously.</source>
+      <target>Click below to create an account or continue anonymously.</target></segment>
+    </unit><unit id="8816017041760894003">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Register anonymous account.</source>
+      <target>Register anonymous account.</target></segment>
+    </unit><unit id="8731193898313107006">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Register account</source>
+      <target>Register account</target></segment>
+    </unit><unit id="3311458704302424015">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Continue anonyomously</source>
+      <target>Continue anonyomously</target></segment>
+    </unit><unit id="6114899825059152260">
+      <notes>
+        <note category="location">src/app/index/index.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Mega-IQ free online IQ test</source>
+      <target>Mega-IQ free online IQ test</target></segment>
+    </unit><unit id="3080099711511142058">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Math</source>
+      <target>Math</target></segment>
+    </unit><unit id="194955646686156927">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Grammar</source>
+      <target>Grammar</target></segment>
+    </unit><unit id="1628460947800854030">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Logic</source>
+      <target>Logic</target></segment>
+    </unit><unit id="7033391752809569769">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Horizons</source>
+      <target>Horizons</target></segment>
+    </unit><unit id="2174699020890542276">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
+      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
+    </unit><unit id="5201126520440031540">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
+    </unit><unit id="164535864791925829">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></target></segment>
+    </unit><unit id="1823834804218715735">
+      <notes>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Test not finished.</source>
+      <target>Test not finished.</target></segment>
+    </unit><unit id="5540821253066644358">
+      <notes>
+        <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>You have not finished your test yet. You will be redirected to Home.</source>
+      <target>You have not finished your test yet. You will be redirected to Home.</target></segment>
+    </unit><unit id="6918087724127868060">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Free IQ test on Mega-IQ</source>
+      <target>Free IQ test on Mega-IQ</target></segment>
+    </unit><unit id="429949191312178475">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</target></segment>
+    </unit><unit id="7322074626709578366">
+      <notes>
+        <note category="location">src/app/results/results.component.ts:1</note>
+        <note category="location">src/app/users/users.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Top scores of IQ test on Mega-IQ</source>
+      <target>Top scores of IQ test on Mega-IQ</target></segment>
+    </unit><unit id="1493967136692480194">
+      <notes>
+        <note category="location">src/app/user/forget/forget.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Reset password for Mega-IQ account</source>
+      <target>Reset password for Mega-IQ account</target></segment>
+    </unit><unit id="4740215929714132313">
+      <notes>
+        <note category="location">src/app/user/home/home.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> personal account</source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> personal account</target></segment>
+    </unit><unit id="2184209554581120801">
+      <notes>
+        <note category="location">src/app/user/login/login.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Log In to Mega-IQ</source>
+      <target>Log In to Mega-IQ</target></segment>
+    </unit><unit id="4705920552996038958">
+      <notes>
+        <note category="location">src/app/user/public/public.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></source>
+      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></target></segment>
+    </unit><unit id="4769716070289642970">
+      <notes>
+        <note category="location">src/app/user/public/public.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
+    </unit><unit id="4596284747196642156">
+      <notes>
+        <note category="location">src/app/user/rating/rating.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Thank you for your feedback</source>
+      <target>Thank you for your feedback</target></segment>
+    </unit><unit id="3898617878162339498">
+      <notes>
+        <note category="location">src/app/user/register/register.component.ts:1</note>
+        <note category="location">src/app/user/registeranon/registeranon.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Register on Mega-IQ</source>
+      <target>Register on Mega-IQ</target></segment>
+    </unit><unit id="1025469907696587992">
+      <notes>
+        <note category="location">src/app/user/settings/settings.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Edit Profile <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></source>
+      <target>Edit Profile <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></target></segment>
     </unit><unit id="1011618102036048733">
       <notes>
         
