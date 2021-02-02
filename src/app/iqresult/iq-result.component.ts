@@ -317,6 +317,7 @@ export class IqResultComponent {
         case TestTypeEnum.PRACTICE_IQ:
         case TestTypeEnum.MATH:
         case TestTypeEnum.GRAMMAR:
+        case TestTypeEnum.KIDS:
           this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} passed on {{date}}', {
             test: testName,
             score: score,

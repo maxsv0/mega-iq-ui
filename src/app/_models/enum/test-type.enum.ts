@@ -7,5 +7,6 @@ export enum TestTypeEnum {
   STANDARD_IQ = 'STANDARD_IQ',
   MEGA_IQ = 'MEGA_IQ',
   MATH = 'MATH',
-  GRAMMAR = 'GRAMMAR'
+  GRAMMAR = 'GRAMMAR',
+  KIDS = 'KIDS'
 }

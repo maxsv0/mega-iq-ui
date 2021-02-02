@@ -116,6 +116,9 @@ export class AppComponent {
                     case this.testType.GRAMMAR:
                         this.backgroundClass = 'bg-grammar';
                         break;
+                    case this.testType.KIDS:
+                        this.backgroundClass = 'bg-kids';
+                        break;
                 }
             });
         } else if (eventUrl.startsWith('/iqtest/')) {
@@ -134,6 +137,9 @@ export class AppComponent {
               break;
             case '/iqtest/grammar':
               this.backgroundClass = 'bg-grammar';
+              break;
+            case '/iqtest/kids':
+              this.backgroundClass = 'bg-kids';
               break;
             default:
               this.backgroundClass = 'bg-blank';
