@@ -136,7 +136,7 @@ body {
 
 .btn-kids {
   border-color: $colorKids;
-  background-color: $colorMegaIq;
+  background-color: $colorKids;
   border-bottom: 5px $colorKidsDark solid;
 }
 
@@ -177,7 +177,7 @@ body {
 }
 
 .bg-kids {
-  @include gradient(#e62968, #642b73, horizontal);
+  @include gradient(#000046, #642b73, horizontal);
 }
 
 .bg-light-gradient {
