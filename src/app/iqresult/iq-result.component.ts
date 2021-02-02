@@ -217,7 +217,7 @@ export class IqResultComponent {
       data: {
         labels: this.createLabelsForQuestions(),
         datasets: [{
-          label: 'Points per question',
+          label: 'Question complexity',
           data: this.createPointForQuestions(),
           backgroundColor: this.createBackgroundColorForQuestions(),
           borderColor: this.createBorderColorForQuestions(),
