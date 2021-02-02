@@ -112,7 +112,8 @@ export class IqResultComponent {
               this.setCustomShareButtonsConfig(this.titleService.getTitle());
 
               let showIndex = 0;
-              this.testTypesToShow = this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 2);
+              this.testTypesToShow = this.testTypes.filter(t => t.type === this.test.type);
+              this.testTypesToShow.push(...this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 1));
 
               /** Draw chart js canvas **/
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
