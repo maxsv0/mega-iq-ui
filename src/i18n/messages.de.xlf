@@ -241,9 +241,9 @@
       <notes>
         <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>More about a Test</source>
-      <target>More about a Test</target></segment>
+      <target>Mehr über einen Test</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
