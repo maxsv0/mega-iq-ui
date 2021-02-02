@@ -182,6 +182,9 @@ export class IqTestComponent implements OnInit {
                 case 'grammar':
                     type = TestTypeEnum.GRAMMAR;
                     break;
+                case 'iq-kids':
+                    type = TestTypeEnum.KIDS;
+                    break;
             }
             for (let i = 0; i < this.testTypes.length; i++) {
                 if (this.testTypes[i].type === type) {

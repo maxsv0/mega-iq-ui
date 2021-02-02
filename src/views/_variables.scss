@@ -19,6 +19,10 @@ $colorGrammar: #d3c1a9;
 $colorGrammarLight: lighten($colorMath, 10%);
 $colorGrammarDark: darken($colorMath, 15%);
 
+$colorKids: #7d8ac0;
+$colorKidsLight: lighten($colorKids, 10%);
+$colorKidsDark: darken($colorKids, 15%);
+
 // gradient picker for profile settings
 $gradients: (
   "1": (

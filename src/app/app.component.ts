@@ -138,7 +138,7 @@ export class AppComponent {
             case '/iqtest/grammar':
               this.backgroundClass = 'bg-grammar';
               break;
-            case '/iqtest/kids':
+            case '/iqtest/iq-kids':
               this.backgroundClass = 'bg-kids';
               break;
             default:

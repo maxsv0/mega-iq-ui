@@ -129,6 +129,22 @@ body {
   border-bottom: 5px $colorGrammarDark solid;
 }
 
+.test-kids {
+  border-color: $colorKidsDark;
+  background-color: $colorKids;
+}
+
+.btn-kids {
+  border-color: $colorKids;
+  background-color: $colorMegaIq;
+  border-bottom: 5px $colorKidsDark solid;
+}
+
+.btn-kids:hover {
+  background-color: $colorKidsLight;
+  border-bottom: 5px $colorKidsDark solid;
+}
+
 .bg-user {
   background-size: 100%;
   background-color: #000 !important;
