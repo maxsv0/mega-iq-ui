@@ -101,17 +101,9 @@
         <source>Result</source>
       </segment>
     </unit>
-    <unit id="4440205593100213861">
-      <notes>
-        <note category="location">src/app/classroom/classroom.component.html:23</note>
-      </notes>
-      <segment>
-        <source>Submit test</source>
-      </segment>
-    </unit>
     <unit id="361469352814485355">
       <notes>
-        <note category="location">src/app/classroom/classroom.component.html:30</note>
+        <note category="location">src/app/classroom/classroom.component.html:23</note>
         <note category="location">src/app/iqreview/iq-review.component.html:20</note>
       </notes>
       <segment>
@@ -120,10 +112,18 @@
     </unit>
     <unit id="7361215373663778763">
       <notes>
-        <note category="location">src/app/classroom/classroom.component.html:38</note>
+        <note category="location">src/app/classroom/classroom.component.html:31</note>
       </notes>
       <segment>
         <source>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></source>
+      </segment>
+    </unit>
+    <unit id="4440205593100213861">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.html:37</note>
+      </notes>
+      <segment>
+        <source>Submit test</source>
       </segment>
     </unit>
     <unit id="8538201418531541683">
@@ -290,52 +290,57 @@
     </unit>
     <unit id="5162686434580248853">
       <notes>
-        <note category="location">src/app/index/index.component.html:101</note>
-        <note category="location">src/app/iqresult/iq-result.component.html:98</note>
+        <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:4</note>
       </notes>
       <segment>
         <source>Start</source>
       </segment>
     </unit>
-    <unit id="6611630004208902126">
+    <unit id="8566797598917615029">
       <notes>
-        <note category="location">src/app/index/index.component.html:108</note>
-        <note category="location">src/app/iqresult/iq-result.component.html:105</note>
-        <note category="location">src/app/iqtest/iq-test.component.html:46</note>
+        <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:14</note>
       </notes>
       <segment>
-        <source>Start Test</source>
+        <source>More about a Test</source>
       </segment>
     </unit>
     <unit id="2124672565465036433">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:20</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:22</note>
       </notes>
       <segment>
         <source>passed</source>
       </segment>
     </unit>
-    <unit id="8008770153767785281">
-      <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:25</note>
-        <note category="location">src/app/iqresult/iq-result.component.html:39</note>
-      </notes>
-      <segment>
-        <source>Result code</source>
-      </segment>
-    </unit>
     <unit id="1627152575473720569">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:36</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:32</note>
       </notes>
       <segment>
         <source>Permanent IQ result link</source>
       </segment>
     </unit>
+    <unit id="8008770153767785281">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:35</note>
+      </notes>
+      <segment>
+        <source>Result code</source>
+      </segment>
+    </unit>
+    <unit id="180949385590118498">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:42</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:70</note>
+      </notes>
+      <segment>
+        <source>online</source>
+      </segment>
+    </unit>
     <unit id="6108143310015300307">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:45</note>
-        <note category="location">src/app/iqresult/iq-result.component.html:60</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:44</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:59</note>
       </notes>
       <segment>
         <source>IQ Score</source>
@@ -343,7 +348,7 @@
     </unit>
     <unit id="9037223601982900500">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:47</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:46</note>
       </notes>
       <segment>
         <source>Total Questions</source>
@@ -351,7 +356,7 @@
     </unit>
     <unit id="5599997413987082662">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:50</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:49</note>
       </notes>
       <segment>
         <source>Correct Answers</source>
@@ -359,7 +364,7 @@
     </unit>
     <unit id="6976453063741511743">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:67</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:66</note>
         <note category="location">src/app/user/testcard/testcard.component.html:32</note>
       </notes>
       <segment>
@@ -368,7 +373,7 @@
     </unit>
     <unit id="6460615541801374815">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:91</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:89</note>
       </notes>
       <segment>
         <source>One more Mega-iq test?</source>
@@ -417,7 +422,7 @@
     <unit id="2650269401046048840">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.html:32</note>
-        <note category="location">src/app/iqtest/iq-test.component.html:75</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:76</note>
       </notes>
       <segment>
         <source>questions</source>
@@ -426,7 +431,7 @@
     <unit id="7422678012467593770">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.html:33</note>
-        <note category="location">src/app/iqtest/iq-test.component.html:76</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:77</note>
       </notes>
       <segment>
         <source>Average testing time is</source>
@@ -436,8 +441,8 @@
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.html:33</note>
         <note category="location">src/app/iqtest/iq-test.component.html:34</note>
-        <note category="location">src/app/iqtest/iq-test.component.html:76</note>
         <note category="location">src/app/iqtest/iq-test.component.html:77</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:78</note>
       </notes>
       <segment>
         <source>min</source>
@@ -446,10 +451,18 @@
     <unit id="5653531963388315526">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.html:34</note>
-        <note category="location">src/app/iqtest/iq-test.component.html:77</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:78</note>
       </notes>
       <segment>
         <source>limit</source>
+      </segment>
+    </unit>
+    <unit id="6611630004208902126">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.html:46</note>
+      </notes>
+      <segment>
+        <source>Start Test</source>
       </segment>
     </unit>
     <unit id="4116274496435988242">
@@ -460,17 +473,9 @@
         <source>Loading... please wait</source>
       </segment>
     </unit>
-    <unit id="180949385590118498">
-      <notes>
-        <note category="location">src/app/iqtest/iq-test.component.html:70</note>
-      </notes>
-      <segment>
-        <source>online</source>
-      </segment>
-    </unit>
     <unit id="7593555694782789615">
       <notes>
-        <note category="location">src/app/iqtest/iq-test.component.html:82</note>
+        <note category="location">src/app/iqtest/iq-test.component.html:83</note>
       </notes>
       <segment>
         <source>Open</source>
@@ -503,7 +508,7 @@
     <unit id="599874826031482666">
       <notes>
         <note category="location">src/app/results/results.component.html:23</note>
-        <note category="location">src/app/user/public/public.component.html:86</note>
+        <note category="location">src/app/user/public/public.component.html:90</note>
         <note category="location">src/app/user/testcard/testcard.component.html:47</note>
       </notes>
       <segment>
@@ -521,7 +526,7 @@
     <unit id="7604457930521531705">
       <notes>
         <note category="location">src/app/results/results.component.html:46</note>
-        <note category="location">src/app/user/public/public.component.html:81</note>
+        <note category="location">src/app/user/public/public.component.html:84</note>
         <note category="location">src/app/user/testcard/testcard.component.html:25</note>
       </notes>
       <segment>
@@ -602,7 +607,7 @@
     <unit id="2606712855106855414">
       <notes>
         <note category="location">src/app/user/home/home.component.html:11</note>
-        <note category="location">src/app/user/public/public.component.html:23</note>
+        <note category="location">src/app/user/public/public.component.html:24</note>
       </notes>
       <segment>
         <source>Open Profile</source>
@@ -611,7 +616,7 @@
     <unit id="2984628903434675339">
       <notes>
         <note category="location">src/app/user/home/home.component.html:17</note>
-        <note category="location">src/app/user/public/public.component.html:29</note>
+        <note category="location">src/app/user/public/public.component.html:30</note>
       </notes>
       <segment>
         <source>Edit Profile</source>
@@ -644,7 +649,7 @@
     <unit id="2515826609292720294">
       <notes>
         <note category="location">src/app/user/home/home.component.html:74</note>
-        <note category="location">src/app/user/public/public.component.html:94</note>
+        <note category="location">src/app/user/public/public.component.html:98</note>
       </notes>
       <segment>
         <source>All results were loaded successfully.</source>
@@ -716,7 +721,7 @@
     </unit>
     <unit id="5879741663972722968">
       <notes>
-        <note category="location">src/app/user/public/public.component.html:53</note>
+        <note category="location">src/app/user/public/public.component.html:54</note>
       </notes>
       <segment>
         <source>latest passed iq tests</source>
