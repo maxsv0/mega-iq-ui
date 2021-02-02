@@ -747,9 +747,9 @@
       <notes>
         <note category="location">src/app/classroom/classroom.component.html:54</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>The test is finished. Please press the submit button to submit your result.</source>
-      <target>The test is finished. Please press the submit button to submit your result.</target></segment>
+      <target>Тест закончен. Пожалуйста, нажмите кнопку получить результат, чтобы отправить свой тест.</target></segment>
     </unit><unit id="8922168210464314649">
       <notes>
 
@@ -798,9 +798,9 @@
       <notes>
         <note category="location">src/app/classroom/classroom.component.html:31</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Time remaining:</source>
-      <target>Time remaining:</target></segment>
+      <target>Оставшееся время:</target></segment>
     </unit><unit id="2124672565465036433">
       <notes>
         
