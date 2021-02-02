@@ -1,6 +1,6 @@
-@import '../styles.scss';
+@import 'src/views/_mixins';
 
-/** Main page sytles and navbar styles **/
+/** Main page styles and navbar styles **/
 
 #bgMain {
   margin-top: 66px;
@@ -22,26 +22,9 @@
 
   @include box-shadow(0, 2px, 2px, -2px rgba(0, 0, 0, .2));
 
-  .bg-none {
-    background: none;
-  }
-
   button.navbar-toggler {
     &:focus {
       outline: none;
-    }
-  }
-
-  #profile-modal {
-
-    img {
-      max-width: 4em;
-      max-height: 4em;
-      @include border-radius(4em);
-    }
-
-    .modal-dialog {
-      margin: 10em auto;
     }
   }
 
