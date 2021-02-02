@@ -119,8 +119,7 @@
             <span class="text-success"
                   *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
                   i18n>Answer submitted</span>
-            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>
-              Click to submit the answer</p>
+            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>Click to submit the answer</p>
           </div>
         </div>
       </div>

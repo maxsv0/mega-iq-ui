@@ -233,14 +233,14 @@
     </unit><unit id="5162686434580248853">
       <notes>
         
-      <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:4</note></notes>
+      <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:3</note></notes>
       <segment state="final">
         <source>Start</source>
       <target>Start</target></segment>
     </unit><unit id="8566797598917615029">
       <notes>
-        <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:14</note>
-      </notes>
+        
+      <note category="location">src/app/iq-test-promo/iq-test-promo.component.html:10</note></notes>
       <segment state="translated">
         <source>More about a Test</source>
       <target>More about an IQ Test</target></segment>
@@ -362,14 +362,14 @@
     </unit><unit id="6976453063741511743">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:66</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:59</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="final">
         <source>Show Answers</source>
       <target>Show Answers</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:89</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:92</note></notes>
       <segment state="final">
         <source>One more Mega-iq test?</source>
       <target>One more Mega-iq test?</target></segment>
@@ -629,7 +629,7 @@
       <notes>
         
         
-      <note category="location">src/app/iqtest/iq-test.component.html:32</note><note category="location">src/app/iqtest/iq-test.component.html:76</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:33</note><note category="location">src/app/iqtest/iq-test.component.html:77</note></notes>
       <segment state="final">
         <source>questions</source>
       <target>questions</target></segment>
@@ -637,7 +637,7 @@
       <notes>
         
         
-      <note category="location">src/app/iqtest/iq-test.component.html:33</note><note category="location">src/app/iqtest/iq-test.component.html:77</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:78</note></notes>
       <segment state="final">
         <source>Average testing time is</source>
       <target>Average testing time is</target></segment>
@@ -647,7 +647,7 @@
         
         
         
-      <note category="location">src/app/iqtest/iq-test.component.html:33</note><note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:77</note><note category="location">src/app/iqtest/iq-test.component.html:78</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:35</note><note category="location">src/app/iqtest/iq-test.component.html:78</note><note category="location">src/app/iqtest/iq-test.component.html:79</note></notes>
       <segment state="final">
         <source>min</source>
       <target>min</target></segment>
@@ -655,21 +655,21 @@
       <notes>
         
         
-      <note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:78</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:35</note><note category="location">src/app/iqtest/iq-test.component.html:79</note></notes>
       <segment state="final">
         <source>limit</source>
       <target>limit</target></segment>
     </unit><unit id="4116274496435988242">
       <notes>
         
-      <note category="location">src/app/iqtest/iq-test.component.html:50</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
       <segment state="final">
         <source>Loading... please wait</source>
       <target>Loading... please wait</target></segment>
     </unit><unit id="180949385590118498">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:42</note><note category="location">src/app/iqtest/iq-test.component.html:70</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:42</note><note category="location">src/app/iqtest/iq-test.component.html:71</note></notes>
       <segment state="translated">
         <source>online</source>
       <target>online IQ test</target></segment>
@@ -683,66 +683,73 @@
     </unit><unit id="6611630004208902126">
       <notes>
         
-      <note category="location">src/app/iqtest/iq-test.component.html:46</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:47</note></notes>
       <segment state="translated">
         <source>Start Test</source>
       <target>Start IQ Test</target></segment>
     </unit><unit id="7593555694782789615">
       <notes>
         
-      <note category="location">src/app/iqtest/iq-test.component.html:83</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:84</note></notes>
       <segment state="final">
         <source>Open</source>
       <target>Open</target></segment>
     </unit><unit id="5320870651003627043">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:61</note><note category="location">src/app/iqreview/iq-review.component.html:47</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:68</note><note category="location">src/app/iqreview/iq-review.component.html:47</note></notes>
       <segment state="final">
         <source>Question</source>
       <target>Question</target></segment>
     </unit><unit id="6803050435766824928">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:115</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:122</note></notes>
       <segment state="final">
         <source>Click to submit the answer</source>
       <target>Click to submit the answer</target></segment>
     </unit><unit id="1847384773580767337">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:91</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:98</note></notes>
       <segment state="final">
         <source>Submitting your answer, please wait</source>
       <target>Submitting your answer, please wait</target></segment>
     </unit><unit id="2111634770914259121">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:114</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:121</note></notes>
       <segment state="final">
         <source>Answer submitted</source>
       <target>Answer submitted</target></segment>
     </unit><unit id="1473171196585331987">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:131</note><note category="location">src/app/iqreview/iq-review.component.html:125</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:138</note><note category="location">src/app/iqreview/iq-review.component.html:125</note></notes>
       <segment state="final">
         <source>Previous Question</source>
       <target>Previous Question</target></segment>
     </unit><unit id="2067260738522363442">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:137</note><note category="location">src/app/iqreview/iq-review.component.html:131</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:144</note><note category="location">src/app/iqreview/iq-review.component.html:131</note></notes>
       <segment state="final">
         <source>Next Question</source>
       <target>Next Question</target></segment>
     </unit><unit id="8538201418531541683">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:45</note><note category="location">src/app/classroom/classroom.component.html:148</note><note category="location">src/app/iqreview/iq-review.component.html:30</note><note category="location">src/app/iqreview/iq-review.component.html:143</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:38</note><note category="location">src/app/classroom/classroom.component.html:155</note><note category="location">src/app/iqreview/iq-review.component.html:30</note><note category="location">src/app/iqreview/iq-review.component.html:143</note></notes>
       <segment state="final">
         <source>Click to navigate questions</source>
       <target>Click to navigate questions</target></segment>
+    </unit><unit id="4344657958994956592">
+      <notes>
+        <note category="location">src/app/classroom/classroom.component.html:54</note>
+      </notes>
+      <segment state="final">
+        <source>The test is finished. Please press the submit button to submit your result.</source>
+      <target>The test is finished. Please press the submit button to submit your result.</target></segment>
     </unit><unit id="8922168210464314649">
       <notes>
         
@@ -775,7 +782,7 @@
     </unit><unit id="4440205593100213861">
       <notes>
         
-      <note category="location">src/app/classroom/classroom.component.html:37</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:57</note></notes>
       <segment state="final">
         <source>Submit test</source>
       <target>Submit test</target></segment>
@@ -787,13 +794,13 @@
       <segment state="final">
         <source>Test finished</source>
       <target>Test finished</target></segment>
-    </unit><unit id="7361215373663778763">
+    </unit><unit id="7759529576743021965">
       <notes>
-        
-      <note category="location">src/app/classroom/classroom.component.html:31</note></notes>
+        <note category="location">src/app/classroom/classroom.component.html:31</note>
+      </notes>
       <segment state="final">
-        <source>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></source>
-      <target>Time remaining: <ph id="0" equiv="INTERPOLATION" disp="{{ remainingTime | date:'mm:ss' }}"/></target></segment>
+        <source>Time remaining:</source>
+      <target>Time remaining:</target></segment>
     </unit><unit id="2124672565465036433">
       <notes>
         
@@ -805,21 +812,21 @@
       <notes>
         
         
-      <note category="location">src/app/iqresult/iq-result.component.html:44</note><note category="location">src/app/iqresult/iq-result.component.html:59</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:44</note><note category="location">src/app/iqresult/iq-result.component.html:69</note></notes>
       <segment state="final">
         <source>IQ Score</source>
       <target>IQ Score</target></segment>
     </unit><unit id="9037223601982900500">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:46</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:47</note></notes>
       <segment state="final">
         <source>Total Questions</source>
       <target>Total Questions</target></segment>
     </unit><unit id="5599997413987082662">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:49</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:50</note></notes>
       <segment state="final">
         <source>Correct Answers</source>
       <target>Correct Answers</target></segment>
