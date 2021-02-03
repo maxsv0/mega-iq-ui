@@ -41,7 +41,7 @@
             {{test.finishDate | date:'medium'}}
           </td>
           <td>
-            <a *ngIf="test.userPic" routerLink="{{test.url}}" class="btn btn-success btn-block">
+            <a *ngIf="test.url" routerLink="{{test.url}}" class="btn btn-success btn-block">
               <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
               <span i18n>Open Details</span></a>
           </td>
