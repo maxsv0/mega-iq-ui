@@ -384,9 +384,9 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:97</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Error 404. Test result not found.</source>
-      <target>Error 404. Test result not found.</target></segment>
+      <target>Ошибка 404. Результат теста не найден.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
 
