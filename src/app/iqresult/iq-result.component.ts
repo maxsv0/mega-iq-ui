@@ -33,6 +33,7 @@ export class IqResultComponent {
   testTypesKeys: [] = [];
   test: TestResult;
   user: User;
+  testNotFound = false;
   isLoading = false;
   isBrowser: boolean;
   chart: any;
@@ -79,6 +80,7 @@ export class IqResultComponent {
 
     this.iqTestService.getIqTest().subscribe(tests => {
       this.testTypes = tests;
+      this.testTypesToShow = tests;
 
       Object.entries(this.testTypes).forEach(
         ([key, test]) => {
@@ -137,6 +139,7 @@ export class IqResultComponent {
         error => {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
+          this.testNotFound = true;
         });
   }
 

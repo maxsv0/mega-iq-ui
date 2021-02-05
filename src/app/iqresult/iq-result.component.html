@@ -12,7 +12,7 @@
   ></share-buttons>
 </div>
 <!-- IQ Test Result -->
-<div class="container" *ngIf="!isLoading">
+<div class="container" *ngIf="!isLoading && test">
   <div class="row">
     <div class="col">
       <div class="jumbotron">
@@ -86,6 +86,17 @@
 <div class="container" *ngIf="isLoading">
   <div class="loader-placeholder">
     <div class="page-loader"></div>
+  </div>
+</div>
+
+<!-- Test not found block -->
+<div class="container pt-5" *ngIf="!isLoading && testNotFound">
+  <div class="row">
+    <div class="col">
+        <div class="jumbotron">
+          <h1 class="text-center text-danger">Error 404. Test result not found.</h1>
+        </div>
+    </div>
   </div>
 </div>
 
