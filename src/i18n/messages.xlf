@@ -349,9 +349,16 @@
       <segment>
         <source>Bar height represents questions&apos; complexity.</source>
       </segment>
+    </unit><unit id="7317992942718656921">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:97</note>
+      </notes>
+      <segment>
+        <source>Error 404. Test result not found.</source>
+      </segment>
     </unit><unit id="6460615541801374815">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:96</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:107</note>
       </notes>
       <segment>
         <source>One more Mega-iq test?</source>
