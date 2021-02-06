@@ -22,7 +22,7 @@
       <note category="location">src/app/app.component.html:33</note></notes>
       <segment state="translated">
         <source>Best Results</source>
-      <target>Рейтинг IQ теста</target></segment>
+      <target>Последние результаты IQ теста</target></segment>
     </unit><unit id="2864338553126737462">
       <notes>
 
@@ -215,7 +215,7 @@
       <note category="location">src/app/index/index.component.html:56</note></notes>
       <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Тест на IQ бесплатно прошли</target></segment>
+      <target>Лучшие результаты теста на IQ за сегодня</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
 
@@ -229,7 +229,7 @@
       <note category="location">src/app/index/index.component.html:95</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
-      <target>Мега-Айкю тесты на iq 2020</target></segment>
+      <target>Мега-Айкю тесты на iq 2021</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
 

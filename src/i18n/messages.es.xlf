@@ -23,14 +23,14 @@
       <note category="location">src/app/app.component.html:33</note></notes>
       <segment state="translated">
         <source>Best Results</source>
-      <target>Top Resultados</target></segment>
+      <target>Los últimos resultados de las test IQ</target></segment>
     </unit><unit id="2864338553126737462">
       <notes>
 
       <note category="location">src/app/app.component.html:36</note></notes>
       <segment state="translated">
         <source>Best Users</source>
-      <target>Mejores Usuarios</target></segment>
+      <target>Los usuarios con el más alto IQ</target></segment>
     </unit>
 
     <unit id="7028204981963450021">
@@ -257,7 +257,7 @@
       <note category="location">src/app/index/index.component.html:95</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
-      <target>Mega-IQ tests de iq</target></segment>
+      <target>Mega-IQ tests de coeficiente intellectual 2021</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
 

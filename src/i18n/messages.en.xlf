@@ -20,16 +20,16 @@
       <notes>
         
       <note category="location">src/app/app.component.html:33</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Best Results</source>
-      <target>Best Results</target></segment>
+      <target>Latest IQ test scores</target></segment>
     </unit><unit id="2864338553126737462">
       <notes>
         
       <note category="location">src/app/app.component.html:36</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Best Users</source>
-      <target>Best Users</target></segment>
+      <target>Users with the highest IQ</target></segment>
     </unit>
     
     <unit id="7028204981963450021">
@@ -215,7 +215,7 @@
       <note category="location">src/app/index/index.component.html:56</note></notes>
       <segment state="translated">
         <source>Best IQ Today</source>
-      <target>Best IQ Test Today</target></segment>
+      <target>Best IQ Test Scores Today</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
         
@@ -229,7 +229,7 @@
       <note category="location">src/app/index/index.component.html:95</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
-      <target>Free IQ Test Online</target></segment>
+      <target>Our Free IQ Tests Online 2021</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
         
