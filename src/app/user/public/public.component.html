@@ -47,6 +47,17 @@
   </div>
 </div>
 
+<!-- userNotFound -->
+<div class="container pt-5" *ngIf="!isLoadingPage && userNotFound">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h1 class="text-center text-danger" i18n>Error 404. User not found.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- User public tests -->
 <div class="container mt-4" *ngIf="user && userTests && !isLoadingPage">
   <div class="row">

@@ -140,6 +140,8 @@ export class IqResultComponent {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.isLoading = false;
           this.testNotFound = true;
+
+          this.titleService.setTitle(this.i18n('Error 404. Test result not found.'));
         });
   }
 

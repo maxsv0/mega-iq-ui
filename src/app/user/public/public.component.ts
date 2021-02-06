@@ -30,6 +30,7 @@ export class PublicComponent implements OnInit {
   testTypesKeys: [] = [];
   isLoadingPage = false;
   isLastLoaded = false;
+  userNotFound = false;
   isPageLoaded: boolean[] = [];
   userTestsPage = 0;
   testTypeEnum = TestTypeEnum;
@@ -133,12 +134,16 @@ export class PublicComponent implements OnInit {
             this.userTestsPage++;
           } else {
             this.alertService.error(apiResponseTestResultList.msg);
+            this.userNotFound = true;
+
+            this.titleService.setTitle(this.i18n('Error 404. User not found.'));
           }
           this.isLoadingPage = false;
         },
         error => {
           this.alertService.error(error);
           this.isLoadingPage = false;
+          this.userNotFound = true;
         });
   }
 
