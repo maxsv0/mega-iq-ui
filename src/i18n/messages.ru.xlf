@@ -472,9 +472,9 @@
       <notes>
         <note category="location">src/app/user/public/public.component.html:55</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Error 404. User not found.</source>
-      <target>Error 404. User not found.</target></segment>
+      <target>Ошибка 404. Пользователь не найден.</target></segment>
     </unit>
 
     <unit id="3649366019356514608">
