@@ -45,7 +45,6 @@ export class GoogleAnalyticsService {
       if (typeof ga === 'function') {
         ga('set', 'page', url);
         ga('send', 'pageview');
-        console.log('%%% Google Analytics page view event %%%');
       }
     } catch (e) {
       console.log(e);
