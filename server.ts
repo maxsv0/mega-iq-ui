@@ -150,6 +150,18 @@ export function app(): express.Express {
       smStream.write({url: '/iqtest/results', changefreq: 'hourly', priority: 0.8});
       smStream.write({url: '/iqtest/users', changefreq: 'hourly', priority: 0.8});
 
+      if (apiUserList && apiUserList.ok && apiUserList.users) {
+        for (const user of apiUserList.users) {
+          if (user.url) {
+            smStream.write({
+              url: user.url,
+              changefreq: 'weekly',
+              priority: 0.5
+            });
+          }
+        }
+      }
+
       if (sitemap && sitemap !== '') {
         const tests = JSON.parse(sitemap);
 
