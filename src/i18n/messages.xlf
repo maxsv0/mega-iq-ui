@@ -477,7 +477,7 @@
     </unit><unit id="599874826031482666">
       <notes>
         <note category="location">src/app/results/results.component.html:23</note>
-        <note category="location">src/app/user/public/public.component.html:90</note>
+        <note category="location">src/app/user/public/public.component.html:101</note>
         <note category="location">src/app/user/testcard/testcard.component.html:47</note>
       </notes>
       <segment>
@@ -493,7 +493,7 @@
     </unit><unit id="7604457930521531705">
       <notes>
         <note category="location">src/app/results/results.component.html:46</note>
-        <note category="location">src/app/user/public/public.component.html:84</note>
+        <note category="location">src/app/user/public/public.component.html:95</note>
         <note category="location">src/app/user/testcard/testcard.component.html:25</note>
       </notes>
       <segment>
@@ -603,7 +603,7 @@
     </unit><unit id="2515826609292720294">
       <notes>
         <note category="location">src/app/user/home/home.component.html:74</note>
-        <note category="location">src/app/user/public/public.component.html:98</note>
+        <note category="location">src/app/user/public/public.component.html:109</note>
       </notes>
       <segment>
         <source>All results were loaded successfully.</source>
@@ -665,9 +665,16 @@
       <segment>
         <source>Unlock your certificate</source>
       </segment>
+    </unit><unit id="1214783695473552503">
+      <notes>
+        <note category="location">src/app/user/public/public.component.html:55</note>
+      </notes>
+      <segment>
+        <source>Error 404. User not found.</source>
+      </segment>
     </unit><unit id="5879741663972722968">
       <notes>
-        <note category="location">src/app/user/public/public.component.html:54</note>
+        <note category="location">src/app/user/public/public.component.html:65</note>
       </notes>
       <segment>
         <source>latest passed iq tests</source>
