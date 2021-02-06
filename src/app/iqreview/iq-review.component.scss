@@ -79,6 +79,11 @@ h3 {
   top: -25px;
 }
 
+.icon-answer-result {
+  font-size: 130px;
+  line-height: 130px;
+}
+
 @include mobile-md {
   .question-title {
     line-height: 28px;

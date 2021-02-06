@@ -102,11 +102,13 @@
           <div class="col-sm-6 card">
             <div class="card-body">
               <h4 class="card-text">Result</h4>
-              <div class="bg-danger p-5" *ngIf="activeQuestion.answerUser !== activeQuestion.answerCorrect">
-                <h3 class="text-white text-center" i18n>Incorrect Answer</h3>
+              <div class="p-4 text-center" *ngIf="activeQuestion.answerUser !== activeQuestion.answerCorrect">
+                <fa-icon [icon]="['fas', 'times']" class="text-danger icon-answer-result"></fa-icon>
+                <h3 class="text-danger" i18n>Incorrect Answer</h3>
               </div>
-              <div class="bg-success p-5" *ngIf="activeQuestion.answerUser === activeQuestion.answerCorrect">
-                <h3 class="text-white text-center" i18n>Correct Answer</h3>
+              <div class="p-4 text-center" *ngIf="activeQuestion.answerUser === activeQuestion.answerCorrect">
+                <fa-icon [icon]="['fas', 'check']" class="text-success icon-answer-result"></fa-icon>
+                <h3 class="text-success" i18n>Correct Answer</h3>
               </div>
             </div>
           </div>
