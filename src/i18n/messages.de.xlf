@@ -809,9 +809,9 @@
       <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> bei Mega-IQ</target></segment>
     </unit><unit id="7322074626709578366">
       <notes>
-        <note category="location">src/app/results/results.component.ts:1</note>
-        <note category="location">src/app/users/users.component.ts:1</note>
-      </notes>
+        
+        
+      <note category="location">src/app/results/results.component.ts:1</note></notes>
       <segment state="translated">
         <source>Top scores of IQ test on Mega-IQ</source>
       <target>Top Ergebnisse IQ Test bei Mega-IQ</target></segment>
@@ -872,6 +872,13 @@
       <segment state="translated">
         <source>Edit Profile <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></source>
       <target>Profil bearbeiten <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></target></segment>
+    </unit><unit id="1816036616210250625">
+      <notes>
+        <note category="location">src/app/users/users.component.ts:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Users with the highest IQ</source>
+      <target>Users with the highest IQ</target></segment>
     </unit><unit id="1011618102036048733">
       <notes>
 
@@ -910,14 +917,14 @@
     </unit><unit id="989531434287244974">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:106</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:107</note></notes>
       <segment state="translated">
         <source>Incorrect Answer</source>
       <target>Falsche Antwort</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:109</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:111</note></notes>
       <segment state="translated">
         <source>Correct Answer</source>
       <target>Korrekte Antwort</target></segment>
@@ -1035,21 +1042,21 @@
     </unit><unit id="1473171196585331987">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:138</note><note category="location">src/app/iqreview/iq-review.component.html:125</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:138</note><note category="location">src/app/iqreview/iq-review.component.html:127</note></notes>
       <segment state="translated">
         <source>Previous Question</source>
       <target>Letzte Frage</target></segment>
     </unit><unit id="2067260738522363442">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:144</note><note category="location">src/app/iqreview/iq-review.component.html:131</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:144</note><note category="location">src/app/iqreview/iq-review.component.html:133</note></notes>
       <segment state="translated">
         <source>Next Question</source>
       <target>Nächste Frage</target></segment>
     </unit><unit id="8538201418531541683">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:38</note><note category="location">src/app/classroom/classroom.component.html:155</note><note category="location">src/app/iqreview/iq-review.component.html:30</note><note category="location">src/app/iqreview/iq-review.component.html:143</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:38</note><note category="location">src/app/classroom/classroom.component.html:155</note><note category="location">src/app/iqreview/iq-review.component.html:30</note><note category="location">src/app/iqreview/iq-review.component.html:145</note></notes>
       <segment state="translated">
         <source>Click to navigate questions</source>
       <target>Klicke um Fragen zu navigieren</target></segment>

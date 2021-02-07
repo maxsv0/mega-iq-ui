@@ -109,7 +109,7 @@
         <note category="location">src/app/classroom/classroom.component.html:38</note>
         <note category="location">src/app/classroom/classroom.component.html:155</note>
         <note category="location">src/app/iqreview/iq-review.component.html:30</note>
-        <note category="location">src/app/iqreview/iq-review.component.html:143</note>
+        <note category="location">src/app/iqreview/iq-review.component.html:145</note>
       </notes>
       <segment>
         <source>Click to navigate questions</source>
@@ -160,7 +160,7 @@
     </unit><unit id="1473171196585331987">
       <notes>
         <note category="location">src/app/classroom/classroom.component.html:138</note>
-        <note category="location">src/app/iqreview/iq-review.component.html:125</note>
+        <note category="location">src/app/iqreview/iq-review.component.html:127</note>
       </notes>
       <segment>
         <source>Previous Question</source>
@@ -168,7 +168,7 @@
     </unit><unit id="2067260738522363442">
       <notes>
         <note category="location">src/app/classroom/classroom.component.html:144</note>
-        <note category="location">src/app/iqreview/iq-review.component.html:131</note>
+        <note category="location">src/app/iqreview/iq-review.component.html:133</note>
       </notes>
       <segment>
         <source>Next Question</source>
@@ -379,14 +379,14 @@
       </segment>
     </unit><unit id="989531434287244974">
       <notes>
-        <note category="location">src/app/iqreview/iq-review.component.html:106</note>
+        <note category="location">src/app/iqreview/iq-review.component.html:107</note>
       </notes>
       <segment>
         <source>Incorrect Answer</source>
       </segment>
     </unit><unit id="4511078976932448193">
       <notes>
-        <note category="location">src/app/iqreview/iq-review.component.html:109</note>
+        <note category="location">src/app/iqreview/iq-review.component.html:111</note>
       </notes>
       <segment>
         <source>Correct Answer</source>
@@ -1133,7 +1133,6 @@
     <unit id="7322074626709578366">
       <notes>
         <note category="location">src/app/results/results.component.ts:1</note>
-        <note category="location">src/app/users/users.component.ts:1</note>
       </notes>
       <segment>
         <source>Top scores of IQ test on Mega-IQ</source>
@@ -1202,6 +1201,14 @@
       </notes>
       <segment>
         <source>Edit Profile <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/></source>
+      </segment>
+    </unit>
+    <unit id="1816036616210250625">
+      <notes>
+        <note category="location">src/app/users/users.component.ts:1</note>
+      </notes>
+      <segment>
+        <source>Users with the highest IQ</source>
       </segment>
     </unit>
   </file>
