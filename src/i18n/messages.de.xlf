@@ -876,9 +876,9 @@
       <notes>
         <note category="location">src/app/users/users.component.ts:1</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Users with the highest IQ</source>
-      <target>Users with the highest IQ</target></segment>
+      <target>Benutzer mit dem höchsten IQ</target></segment>
     </unit><unit id="1011618102036048733">
       <notes>
 
