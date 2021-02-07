@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
     private alertService: AlertService,
     private i18n: I18n
   ) {
-    this.titleService.setTitle(this.i18n('Top scores of IQ test on Mega-IQ'));
+    this.titleService.setTitle(this.i18n('Users with the highest IQ'));
     const metaTitle = this.titleService.getTitle();
     const metaDescription = this.i18n('Every day thousands pass the online Mega-IQ test for free worldwide!');
     this.metaService.updateTag({property: 'og:title', content: metaTitle});

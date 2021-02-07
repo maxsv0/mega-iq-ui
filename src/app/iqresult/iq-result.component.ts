@@ -8,7 +8,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
-import {isPlatformBrowser} from '@angular/common';
+import {DatePipe, isPlatformBrowser} from '@angular/common';
 import {Chart} from 'chart.js';
 import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
@@ -47,6 +47,7 @@ export class IqResultComponent {
   currentUser: firebase.User;
 
   constructor(
+    public datepipe: DatePipe,
     private titleService: Title,
     private metaService: Meta,
     private iqTestService: IqTestService,
@@ -106,9 +107,10 @@ export class IqResultComponent {
               this.user = apiResponseTestResult.user;
               this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
 
+              const finishDate = this.datepipe.transform(this.test.finishDate, 'MMM d, y, h:mm:ss a');
               this.setMetaTags(
                 this.test.points,
-                this.test.finishDate.toString(),
+                finishDate,
                 this.test.type);
 
               this.setCustomShareButtonsConfig(this.titleService.getTitle());

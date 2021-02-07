@@ -39,6 +39,7 @@ import {RatingComponent} from './user/rating/rating.component';
 import {IqReviewComponent} from './iqreview/iq-review.component';
 import {RegisteranonComponent} from './user/registeranon/registeranon.component';
 import {IqTestPromoComponent} from './iq-test-promo/iq-test-promo.component';
+import {DatePipe} from '@angular/common';
 
 declare const require; // Use the require method provided by webpack
 
@@ -82,6 +83,7 @@ declare const require; // Use the require method provided by webpack
     IqTestPromoComponent
   ],
   providers: [
+    DatePipe,
     AuthenticationService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {

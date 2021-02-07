@@ -728,7 +728,7 @@
       </notes>
       <segment state="translated">
         <source>Mega-IQ free online IQ test</source>
-      <target>Mega-IQ бесплатный онлайн тест IQ</target></segment>
+      <target>Mega-IQ тест на IQ пройти онлайн бесплатно</target></segment>
     </unit><unit id="3080099711511142058">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
@@ -763,14 +763,14 @@
       </notes>
       <segment state="translated">
         <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
-      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> прошел <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
+      <target>IQ тест уровень <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> прошел <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
     </unit><unit id="5201126520440031540">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment state="translated">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> прошел <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
+      <target>IQ тест уровень <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> из <ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> прошел <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
     </unit><unit id="164535864791925829">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
@@ -798,7 +798,7 @@
       </notes>
       <segment state="translated">
         <source>Free IQ test on Mega-IQ</source>
-      <target>Бесплатный тест на IQ от Mega-IQ</target></segment>
+      <target>IQ тест от Mega-IQ можно пройти онлайн прямо сейчас</target></segment>
     </unit><unit id="429949191312178475">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
@@ -806,7 +806,7 @@
       </notes>
       <segment state="translated">
         <source><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> on Mega-IQ</source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> на Mega-IQ</target></segment>
+      <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> онлайн бесплатно на Mega-IQ</target></segment>
     </unit><unit id="7322074626709578366">
       <notes>
         <note category="location">src/app/results/results.component.ts:1</note>
@@ -842,7 +842,7 @@
       </notes>
       <segment state="translated">
         <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></source>
-      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></target></segment>
+      <target>Уровень IQ <ph id="0" equiv="INTERPOLATION" disp="{{iq}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{name}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{location}}"/></target></segment>
     </unit><unit id="4769716070289642970">
       <notes>
         <note category="location">src/app/user/public/public.component.ts:1</note>
