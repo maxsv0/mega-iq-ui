@@ -380,17 +380,38 @@
       <segment state="final">
         <source>Bar height represents questions' complexity.</source>
       <target>Bar height represents questions' complexity.</target></segment>
+    </unit><unit id="7552885605336493941">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:80</note>
+      </notes>
+      <segment state="final">
+        <source>Result score for every answer</source>
+      <target>Result score for every answer</target></segment>
+    </unit><unit id="8938710631144986960">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:84</note>
+      </notes>
+      <segment state="final">
+        <source>Question Number</source>
+      <target>Question Number</target></segment>
+    </unit><unit id="7743177478101846210">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:86</note>
+      </notes>
+      <segment state="final">
+        <source>Question Complexity</source>
+      <target>Question Complexity</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:97</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:126</note></notes>
       <segment state="final">
         <source>Error 404. Test result not found.</source>
       <target>Error 404. Test result not found.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:107</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:136</note></notes>
       <segment state="final">
         <source>One more Mega-iq test?</source>
       <target>One more Mega-iq test?</target></segment>
@@ -917,14 +938,14 @@
     </unit><unit id="989531434287244974">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:107</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:98</note><note category="location">src/app/iqreview/iq-review.component.html:107</note></notes>
       <segment state="final">
         <source>Incorrect Answer</source>
       <target>Incorrect Answer</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:111</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:94</note><note category="location">src/app/iqreview/iq-review.component.html:111</note></notes>
       <segment state="final">
         <source>Correct Answer</source>
       <target>Correct Answer</target></segment>
@@ -1092,7 +1113,7 @@
     </unit><unit id="2525230676386818985">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqreview/iq-review.component.html:15</note><note category="location">src/app/results/results.component.html:22</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:85</note><note category="location">src/app/iqreview/iq-review.component.html:15</note><note category="location">src/app/results/results.component.html:22</note></notes>
       <segment state="final">
         <source>Result</source>
       <target>Result</target></segment>
