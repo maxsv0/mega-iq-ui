@@ -6,6 +6,17 @@ canvas {
   height: auto !important;
 }
 
+.icon-answer-result {
+  font-size: 26px;
+  line-height: 26px;
+}
+
+.icon-answer-complexity {
+  font-size: 26px;
+  line-height: 26px;
+  color: #b76ec5;
+}
+
 /** Responsive **/
 @include tablet {
   .jumbotron {

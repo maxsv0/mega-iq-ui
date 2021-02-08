@@ -69,12 +69,41 @@
               <h1 [ngClass]="{ 'text-success': (test.points / testQuestionsCount) >= 0.75, 'text-danger': (test.points / testQuestionsCount) < 0.75}"><span i18n>IQ Score</span>: {{test.points}} / {{testQuestionsCount}}</h1>
             </div>
           </div>
-          <div class="col" *ngIf="this.test.answerInfo">
+          <div class="col-12" *ngIf="this.test.answerInfo">
             <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>result score for every answer</span></h3>
             <canvas #myCanvasAnswers width="1000" height="400"></canvas>
             <p class="pt-2 text-right">
             <span i18n>Bar height represents questions' complexity.</span>
             </p>
+          </div>
+          <div class="col-12" *ngIf="this.test.answerInfo">
+            <h3 i18n>Result score for every answer</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" i18n>Question Number</th>
+                  <th scope="col" i18n>Result</th>
+                  <th scope="col" i18n>Question Complexity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let info of this.test.answerInfo; index as i">
+                  <td>{{this.testTypes[this.testTypesKeys[test.type]].name}}. <span>Question</span> {{i + 1}}</td>
+                  <td *ngIf="info.correct">
+                    <fa-icon [icon]="['fas', 'check']" class="text-success icon-answer-result pr-2"></fa-icon>
+                    <span class="text-success" i18n>Correct Answer</span>
+                  </td>
+                  <td *ngIf="!info.correct">
+                    <fa-icon [icon]="['fas', 'times']" class="text-danger icon-answer-result pr-2"></fa-icon>
+                    <span class="text-danger" i18n>Incorrect Answer</span>
+                  </td>
+                  <td>
+                    <fa-icon [icon]="['fas', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(info.points)"></fa-icon>
+                    <fa-icon [icon]="['far', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(4 - info.points)"></fa-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
