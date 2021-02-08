@@ -99,7 +99,7 @@ jobListLatest.start();
 
 for (let i = 0; i < 10; i++) {
   const jobListLatestPage = new CronJob('0 */' + (17 + i * 2) + ' * * * *', function () {
-    http.get(hostName + 'api/v1/list-latest?page=' + i + '&size=50', function (response) {
+    http.get(hostName + 'api/v1/list-latest?p`age=' + i + '&size=50', function (response) {
       let body = '';
       response.on('data', function (chunk) {
         body += chunk;
@@ -198,6 +198,7 @@ export function app(): express.Express {
       smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/forget', changefreq: 'monthly', priority: 0.2});
 
+      // @ts-ignore
       if (APP_LOCALE_ID === 'en') {
         smStream.write({url: '/assets/static/about.html', changefreq: 'monthly', priority: 0.1});
         smStream.write({url: '/assets/static/privacy-policy.html', changefreq: 'monthly', priority: 0.1});
