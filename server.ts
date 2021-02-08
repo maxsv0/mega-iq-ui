@@ -37,6 +37,7 @@ let sitemap = '';
 let apiTests: ApiResponseTests;
 let apiUsersTop: ApiResponseUsersTop;
 let apiListLatest: ApiResponsePublicTestResultList;
+const apiListLatestPages: ApiResponsePublicTestResultList[] = [];
 let apiUserList: ApiResponseUsersList;
 const http = require('https');
 
@@ -83,7 +84,7 @@ const jobUserTop = new CronJob('0 */5 * * * *', function () {
 jobUserTop.start();
 
 const jobListLatest = new CronJob('0 */17 * * * *', function () {
-  http.get(hostName + 'api/v1/list-latest', function (response) {
+  http.get(hostName + 'api/v1/list-latest?page=0&size=20', function (response) {
     let body = '';
     response.on('data', function (chunk) {
       body += chunk;
@@ -95,6 +96,22 @@ const jobListLatest = new CronJob('0 */17 * * * *', function () {
   });
 }, null, true, 'Europe/Berlin', null, true);
 jobListLatest.start();
+
+for (let i = 0; i < 10; i++) {
+  const jobListLatestPage = new CronJob('0 */' + (17 + i * 2) + ' * * * *', function () {
+    http.get(hostName + 'api/v1/list-latest?page=' + i + '&size=50', function (response) {
+      let body = '';
+      response.on('data', function (chunk) {
+        body += chunk;
+      });
+      response.on('end', function () {
+        apiListLatestPages[i] = JSON.parse(body);
+        console.log('Data for api/v1/user/list-latest:Page ' + i + ' updated at=' + apiListLatestPages[i].date);
+      });
+    });
+  }, null, true, 'Europe/Berlin', null, true);
+  jobListLatestPage.start();
+}
 
 const jobUserList = new CronJob('0 */7 * * * *', function () {
   http.get(hostName + 'api/v1/user/list', function (response) {
@@ -119,8 +136,7 @@ export function app(): express.Express {
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
-    providers: [
-    ]
+    providers: []
   }));
 
   server.set('view engine', 'html');
@@ -181,9 +197,45 @@ export function app(): express.Express {
       smStream.write({url: '/register', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/login', changefreq: 'monthly', priority: 0.2});
       smStream.write({url: '/forget', changefreq: 'monthly', priority: 0.2});
-      smStream.write({url: '/assets/static/about.html', changefreq: 'monthly', priority: 0.1});
-      smStream.write({url: '/assets/static/privacy-policy.html', changefreq: 'monthly', priority: 0.1});
-      smStream.write({url: '/assets/static/terms-conditions.html', changefreq: 'monthly', priority: 0.1});
+
+      if (APP_LOCALE_ID === 'en') {
+        smStream.write({url: '/assets/static/about.html', changefreq: 'monthly', priority: 0.1});
+        smStream.write({url: '/assets/static/privacy-policy.html', changefreq: 'monthly', priority: 0.1});
+        smStream.write({url: '/assets/static/terms-conditions.html', changefreq: 'monthly', priority: 0.1});
+      }
+
+      smStream.end();
+
+      // stream write the response
+      smStream.pipe(res).on('error', (e) => {
+        console.error(e);
+        res.status(500).end();
+      });
+    } catch (e) {
+      console.error(e);
+      res.status(500).end();
+    }
+  });
+
+
+  server.get('/:page/sitemap-result.xml', function (req, res) {
+    res.setHeader('Content-Type', 'application/xml');
+
+    try {
+      const smStream = new SitemapStream({hostname: hostName});
+      const resultPage = apiListLatestPages[req.params.page];
+
+      if (req.params.page && resultPage && resultPage.ok && resultPage.tests) {
+        for (const testInfo of resultPage.tests) {
+          if (testInfo.url) {
+            smStream.write({
+              url: testInfo.url,
+              changefreq: 'monthly',
+              priority: 0.3
+            });
+          }
+        }
+      }
 
       smStream.end();
 
