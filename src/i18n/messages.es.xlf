@@ -398,23 +398,23 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:80</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Result score for every answer</source>
-      <target>Result score for every answer</target></segment>
+      <target>Puntuación de resultado para cada respuesta</target></segment>
     </unit><unit id="8938710631144986960">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:84</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Question Number</source>
-      <target>Question Number</target></segment>
+      <target>Pregunta</target></segment>
     </unit><unit id="7743177478101846210">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:86</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Question Complexity</source>
-      <target>Question Complexity</target></segment>
+      <target>Pregunta complejidad</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
         
