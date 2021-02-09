@@ -91,7 +91,7 @@ const jobListLatest = new CronJob('0 */17 * * * *', function () {
     });
     response.on('end', function () {
       apiListLatest = JSON.parse(body);
-      console.log('Data for api/v1/user/top updated at=' + apiListLatest.date);
+      console.log('Data for api/v1/list-latest updated at=' + apiListLatest.date);
     });
   });
 }, null, true, 'Europe/Berlin', null, true);
@@ -99,7 +99,7 @@ jobListLatest.start();
 
 for (let i = 0; i < 10; i++) {
   const jobListLatestPage = new CronJob('0 */' + (17 + i * 2) + ' * * * *', function () {
-    http.get(hostName + 'api/v1/list-latest?p`age=' + i + '&size=50', function (response) {
+    http.get(hostName + 'api/v1/list-latest?page=' + i + '&size=50', function (response) {
       let body = '';
       response.on('data', function (chunk) {
         body += chunk;
@@ -109,7 +109,7 @@ for (let i = 0; i < 10; i++) {
         console.log('Data for api/v1/user/list-latest:Page ' + i + ' updated at=' + apiListLatestPages[i].date);
       });
     });
-  }, null, true, 'Europe/Berlin', null, true);
+  }, null, true, 'Europe/Berlin', null, false);
   jobListLatestPage.start();
 }
 
