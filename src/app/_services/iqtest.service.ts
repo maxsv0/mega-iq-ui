@@ -68,11 +68,15 @@ export class IqTestService {
     }
   }
 
-  getLatestResults() {
-    if (this.apiTestResult) {
-      return of(this.apiTestResult);
+  getLatestResults(page: number) {
+    if (!page || page === 0) {
+      if (this.apiTestResult) {
+        return of(this.apiTestResult);
+      } else {
+        return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest`);
+      }
     } else {
-      return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest`);
+      return this.http.get<ApiResponsePublicTestResultList>(environment.apiUrl + `/list-latest?page=${page}`);
     }
   }
 

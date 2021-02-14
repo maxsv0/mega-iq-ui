@@ -33,7 +33,7 @@
           <td *ngIf="!test.userPic">
             <span i18n>private</span>
           </td>
-          <td><h5>{{this.testTypes[this.testTypesKeys[test.type]].name}}</h5></td>
+          <td class="lead"><a routerLink="{{this.testTypes[this.testTypesKeys[test.type]].url}}">{{this.testTypes[this.testTypesKeys[test.type]].name}}</a></td>
           <td>
             <span>{{test.points}}</span>
           </td>
@@ -48,6 +48,24 @@
         </tr>
         </tbody>
       </table>
+
+      <nav class="mt-3">
+        <ul class="pagination pagination-lg justify-content-center">
+<!--          <li class="page-item">-->
+<!--            <a class="page-link" href="#" aria-label="Previous">-->
+<!--              <span aria-hidden="true">&laquo;</span>-->
+<!--              <span class="sr-only">Previous</span>-->
+<!--            </a>-->
+<!--          </li>-->
+          <li class="page-item" [ngClass]="{'active' : this.testsPageCurrent === page}" *ngFor="let page of testsPages"><a class="page-link" [routerLink]="['/iqtest/results', page]">{{page + 1}}</a></li>
+<!--          <li class="page-item">-->
+<!--            <a class="page-link" href="#" aria-label="Next">-->
+<!--              <span aria-hidden="true">&raquo;</span>-->
+<!--              <span class="sr-only">Next</span>-->
+<!--            </a>-->
+<!--          </li>-->
+        </ul>
+      </nav>
     </div>
 
   </div>
