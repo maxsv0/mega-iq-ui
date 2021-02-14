@@ -42,14 +42,14 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{currentUser.background != null ? currentUser.background : 'bg-default'}}" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
+<div class="bg-user" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
   <div class="container py-4">
     <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
   </div>
 </div>
 
 <!-- User tests -->
-<div class="container mt-5" *ngIf="!isLoadingPage && currentUser">
+<div class="container" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-12">
       <h1>{{currentUser.name || "Anonymous"}}, <span i18n> your iq tests are displayed below</span>.</h1>

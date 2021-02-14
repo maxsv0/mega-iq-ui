@@ -121,30 +121,8 @@ export class AppComponent {
                         break;
                 }
             });
-        } else if (eventUrl.startsWith('/iqtest/')) {
-          switch (eventUrl) {
-            case '/iqtest/iq-practice':
-              this.backgroundClass = 'bg-practice';
-              break;
-            case '/iqtest/iq-standard':
-              this.backgroundClass = 'bg-standard';
-              break;
-            case '/iqtest/mega-iq':
-              this.backgroundClass = 'bg-megaiq';
-              break;
-            case '/iqtest/math':
-              this.backgroundClass = 'bg-math';
-              break;
-            case '/iqtest/grammar':
-              this.backgroundClass = 'bg-grammar';
-              break;
-            case '/iqtest/iq-kids':
-              this.backgroundClass = 'bg-kids';
-              break;
-            default:
-              this.backgroundClass = 'bg-blank';
-              break;
-          }
+        } else if (eventUrl.startsWith('/iqtest')) {
+          this.backgroundClass = 'bg-blank';
         } else {
             switch (eventUrl) {
                 case '/':
@@ -153,14 +131,13 @@ export class AppComponent {
                 case '/register':
                 case '/forget':
                 case '/login':
-                    this.backgroundClass = 'home-image';
-                    break;
                 case '/home':
                 case '/settings':
+                case '/user':
                     this.backgroundClass = 'bg-blank';
                     break;
                 default:
-                    this.backgroundClass = 'home-image';
+                    this.backgroundClass = 'bg-blank';
                     break;
             }
         }

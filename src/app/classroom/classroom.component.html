@@ -61,8 +61,8 @@
   </div>
 </div>
 
-<div class="bg-light" *ngIf="activeTest">
-  <div class="container py-4 question-title">
+<div class="container py-4" *ngIf="activeTest">
+  <div class="jumbotron question-title">
     <!-- Question title -->
     <span class="text-muted mr-2"><span
       i18n>Question</span>&nbsp;#{{activeQuestionId}}</span> {{activeQuestion.title}}

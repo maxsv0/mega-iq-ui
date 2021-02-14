@@ -19,10 +19,10 @@
 </div>
 
 <!-- Test details -->
-<div class="container" *ngIf="testTypes && testSelected" id="iq-test-list">
+<div class="container py-5" *ngIf="testTypes && testSelected" id="iq-test-list">
   <div class="row">
     <div class="col-12">
-      <div class="test">
+      <div class="test bg-{{testSelected.styleName}} pt-2">
         <div class="test-{{testSelected.styleName}}">
           <h1 class="my-3 p-3 p-md-4">{{testSelected.name}} <span i18n>free online</span></h1>
         </div>
@@ -58,7 +58,7 @@
 <!-- List of all iq tests -->
 <section *ngIf="testTypes && !testSelected">
 
-  <div *ngFor="let item of testTypes" [ngClass]="'bg-' + item.styleName">
+  <div *ngFor="let item of testTypes">
     <div class="container py-5">
       <div class="row">
 
@@ -67,7 +67,7 @@
              [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'">
           <div class="media mb-2">
             <div class="media-body">
-              <div class="test-{{item.styleName}}">
+              <div class="test-{{item.styleName}} bg-{{item.styleName}}">
                 <h2 class="mx-4 my-3 py-2">{{item.name}} <span i18n>online</span></h2>
               </div>
               <div class="row mx-1">
