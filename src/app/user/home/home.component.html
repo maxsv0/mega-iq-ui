@@ -42,10 +42,8 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
-  <div class="container py-4">
-    <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
-  </div>
+<div class="container py-4" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
+  <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
 </div>
 
 <!-- User tests -->

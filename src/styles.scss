@@ -150,10 +150,6 @@ body {
   border-bottom: 5px $colorKidsDark solid;
 }
 
-.bg-user {
-  min-height: 590px;
-}
-
 .bg-default {
   @include gradient(#fc4a1a, #f7b733, horizontal);
 }
