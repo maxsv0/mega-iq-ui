@@ -17,15 +17,32 @@ canvas {
   color: #b76ec5;
 }
 
+
 /** Responsive **/
 @include tablet {
-  .jumbotron {
-    padding: 4rem 15px !important;
+  .icon-answer-complexity {
+    font-size: 16px;
+    line-height: 16px;
   }
 }
 
 @include mobile-lg {
-  .jumbotron {
-    max-width: 100%;
+  .icon-answer-complexity {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+@include mobile-md {
+  .icon-answer-complexity {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+@include mobile-sm {
+  .icon-answer-complexity {
+    font-size: 12px;
+    line-height: 12px;
   }
 }

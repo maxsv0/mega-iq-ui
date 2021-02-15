@@ -89,16 +89,14 @@
   </div>
 
   <!-- main app container -->
-  <div *ngIf="!loading" id="bgMain" class="{{backgroundClass}}"
-       [lazyLoad]="'https://img.mega-iq.com/g/about/img/bg-index.jpg'"
-       style="background-image: none;">
+  <div *ngIf="!loading" id="bgMain">
 
     <alert></alert>
     <app-dialog></app-dialog>
     <router-outlet></router-outlet>
 
     <!-- Footer -->
-    <footer class="mt-5">
+    <footer class="mt-5 bg-light-gradient">
       <div class="container">
         <!-- credits -->
         <div class="row">

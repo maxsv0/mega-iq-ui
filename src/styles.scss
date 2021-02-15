@@ -179,11 +179,23 @@ body {
 }
 
 .bg-light-gradient {
-  @include gradient(#ffffff, #f8f9fa, vertical);
+  @include gradient(#e9f0fa, #ccd9ea, vertical);
 }
 
 .bg-blank {
   background-image: none !important;
+}
+
+.btn-outline-primary {
+  @include box-shadow(3px, 3px, 6px, #94a5b1);
+}
+
+.alert {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
+}
+
+.form-group .btn-primary {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
 }
 
 /** User profile card **/
