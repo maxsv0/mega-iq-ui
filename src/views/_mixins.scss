@@ -29,6 +29,18 @@
       (-$left) (-$top) $radius #fff;
 }
 
+@mixin box-shadow-soft($left, $top, $radius, $color) {
+  box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
+  -webkit-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
+  -moz-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
+}
+
 @mixin gradient($start-color, $end-color, $orientation) {
   background: $start-color;
   @if $orientation == 'vertical' {

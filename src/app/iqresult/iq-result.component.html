@@ -80,7 +80,7 @@
           <canvas #myCanvas width="800" height="800"></canvas>
         </div>
         <!-- Standard results for practice test -->
-        <div class="py-5"
+        <div class="py-5 text-center"
              *ngIf="!(this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ)">
           <h1 [ngClass]="{ 'text-success': (test.points / testQuestionsCount) >= 0.75, 'text-danger': (test.points / testQuestionsCount) < 0.75}"><span i18n>IQ Score</span>: {{test.points}} / {{testQuestionsCount}}</h1>
         </div>

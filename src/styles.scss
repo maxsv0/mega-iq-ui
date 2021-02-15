@@ -57,12 +57,14 @@ body {
 .test-practice {
   border-color: $colorPracticeDark;
   background-color: $colorPractice;
+  @include box-shadow-soft(0px, 8px, 16px, $colorPracticeSoft);
 }
 
 .btn-practice {
   border-color: $colorPractice;
   background-color: $colorPractice;
   border-bottom: 5px $colorPracticeDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorPracticeSoft);
 }
 
 .btn-practice:hover {
@@ -73,12 +75,14 @@ body {
 .test-standard {
   border-color: $colorStandardDark;
   background-color: $colorStandard;
+  @include box-shadow-soft(0px, 8px, 16px, $colorStandardSoft);
 }
 
 .btn-standard {
   border-color: $colorStandard;
   background-color: $colorStandard;
   border-bottom: 5px $colorStandardDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorStandardSoft);
 }
 
 .btn-standard:hover {
@@ -89,12 +93,14 @@ body {
 .test-megaiq {
   border-color: $colorMegaIqDark;
   background-color: $colorMegaIq;
+  @include box-shadow-soft(0px, 8px, 16px, $colorMegaIqSoft);
 }
 
 .btn-megaiq {
   border-color: $colorMegaIq;
   background-color: $colorMegaIq;
   border-bottom: 5px $colorMegaIqDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorMegaIqSoft);
 }
 
 .btn-megaiq:hover {
@@ -105,12 +111,14 @@ body {
 .test-math {
   border-color: $colorMathDark;
   background-color: $colorMath;
+  @include box-shadow-soft(0px, 8px, 16px, $colorMathSoft);
 }
 
 .btn-math {
   border-color: $colorMath;
   background-color: $colorMath;
   border-bottom: 5px $colorMathDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorMathSoft);
 }
 
 .btn-math:hover {
@@ -121,12 +129,14 @@ body {
 .test-grammar {
   border-color: $colorGrammarDark;
   background-color: $colorGrammar;
+  @include box-shadow-soft(0px, 8px, 16px, $colorGrammarSoft);
 }
 
 .btn-grammar {
   border-color: $colorGrammar;
   background-color: $colorGrammar;
   border-bottom: 5px $colorGrammarDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorGrammarSoft);
 }
 
 .btn-grammar:hover {
@@ -137,12 +147,14 @@ body {
 .test-kids {
   border-color: $colorKidsDark;
   background-color: $colorKids;
+  @include box-shadow-soft(0px, 8px, 16px, $colorKidsSoft);
 }
 
 .btn-kids {
   border-color: $colorKids;
   background-color: $colorKids;
   border-bottom: 5px $colorKidsDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorKidsSoft);
 }
 
 .btn-kids:hover {
@@ -195,6 +207,14 @@ body {
 }
 
 .form-group .btn-primary {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
+}
+
+.btn-block {
+  @include box-shadow-soft(3px, 3px, 6px, #94a5b1);
+}
+
+.table {
   @include box-shadow(6px, 6px, 12px, #94a5b1);
 }
 
