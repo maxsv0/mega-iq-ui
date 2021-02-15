@@ -190,8 +190,12 @@ body {
   @include gradient(#000046, #642b73, horizontal);
 }
 
-.bg-light-gradient {
+.bg-light-gradient-footer {
   @include gradient(#e9f0fa, #ccd9ea, vertical);
+}
+
+.bg-light-gradient {
+  @include gradient(#ccd9ea, #e9f0fa, vertical);
 }
 
 .bg-blank {
@@ -210,7 +214,7 @@ body {
   @include box-shadow(6px, 6px, 12px, #94a5b1);
 }
 
-.btn-block {
+.card-container .btn-block {
   @include box-shadow-soft(3px, 3px, 6px, #94a5b1);
 }
 
