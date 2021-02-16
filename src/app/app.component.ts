@@ -22,7 +22,6 @@ import firebase from 'firebase/app';
 export class AppComponent {
   title = 'mega-iq-ui';
   currentUser: firebase.User;
-  backgroundClass: string;
   testType = TestTypeEnum;
   testTypes: IqTest[] = [];
   loading = false;
@@ -51,18 +50,11 @@ export class AppComponent {
     // load iq tests
     this.loadIqTest();
 
-    // init background on a first load
-    this.setBackground(this.location.path());
-
     // TODO: update not only bg, but also page title and styles
     /** Shows background color or image on respective route **/
     // Only for browser
     if (this.isBrowser) {
       router.events.subscribe((event) => {
-        if (event instanceof NavigationStart) {
-          this.setBackground(event.url);
-        }
-
         // page loading is done
         if (event instanceof NavigationEnd) {
           /** Send GA page view event */
@@ -90,58 +82,5 @@ export class AppComponent {
       this.loading = false;
     }
   }
-
-  /**
-   * @function setBackground
-   * @param eventUrl Events based to url navigation
-   * @description Set the background based on the URL the user is navigating
-   * @returns Background class
-   */
-    private setBackground(eventUrl: string): string {
-        if (eventUrl.startsWith('/classroom/')) {
-            this.iqTestService.getType().subscribe(type => {
-                switch (type) {
-                    case this.testType.PRACTICE_IQ:
-                        this.backgroundClass = 'bg-practice';
-                        break;
-                    case this.testType.STANDARD_IQ:
-                        this.backgroundClass = 'bg-standard';
-                        break;
-                    case this.testType.MEGA_IQ:
-                        this.backgroundClass = 'bg-megaiq';
-                        break;
-                    case this.testType.MATH:
-                        this.backgroundClass = 'bg-math';
-                        break;
-                    case this.testType.GRAMMAR:
-                        this.backgroundClass = 'bg-grammar';
-                        break;
-                    case this.testType.KIDS:
-                        this.backgroundClass = 'bg-kids';
-                        break;
-                }
-            });
-        } else if (eventUrl.startsWith('/iqtest')) {
-          this.backgroundClass = 'bg-blank';
-        } else {
-            switch (eventUrl) {
-                case '/':
-                    this.backgroundClass = 'home-image';
-                    break;
-                case '/register':
-                case '/forget':
-                case '/login':
-                case '/home':
-                case '/settings':
-                case '/user':
-                    this.backgroundClass = 'bg-blank';
-                    break;
-                default:
-                    this.backgroundClass = 'bg-blank';
-                    break;
-            }
-        }
-        return this.backgroundClass;
-    }
 }
 
