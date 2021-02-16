@@ -17,10 +17,13 @@
 }
 
 #header-mega-iq {
-  background-color: #ccd9ea;
-  background-size: 150px 85px;
-  background-position: bottom left;
-  background-repeat: no-repeat;
+  .navbar {
+    background-size: 150px 85px;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+  }
+
+  @include gradient(#ccd9ea, #e9f0fa, vertical);
 
   button.navbar-toggler {
     &:focus {
@@ -31,7 +34,7 @@
   #language-picker {
 
     button {
-      background: #b3c8db;
+      background: rgb(179, 200, 219, 0.4);
     }
 
     button:focus {

@@ -108,35 +108,33 @@
 <div class="container" *ngIf="!isLoading && test">
   <div class="row">
     <div class="col">
-      <div class="jumbotron">
-        <h3 i18n>Result score for every answer</h3>
-        <table class="table text-center">
-          <thead>
-          <tr>
-            <th scope="col" i18n>Question Number</th>
-            <th scope="col" i18n>Result</th>
-            <th scope="col" i18n>Question Complexity</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let info of this.test.answerInfo; index as i">
-            <td>{{this.testTypes[this.testTypesKeys[test.type]].name}}. <span>Question</span> {{i + 1}}</td>
-            <td *ngIf="info.correct">
-              <fa-icon [icon]="['fas', 'check']" class="text-success icon-answer-result pr-2"></fa-icon>
-              <span class="text-success" i18n>Correct Answer</span>
-            </td>
-            <td *ngIf="!info.correct">
-              <fa-icon [icon]="['fas', 'times']" class="text-danger icon-answer-result pr-2"></fa-icon>
-              <span class="text-danger" i18n>Incorrect Answer</span>
-            </td>
-            <td>
-              <fa-icon [icon]="['fas', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(info.points)"></fa-icon>
-              <fa-icon [icon]="['far', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(4 - info.points)"></fa-icon>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <h3 i18n>Result score for every answer</h3>
+      <table class="table text-center">
+        <thead>
+        <tr>
+          <th scope="col" i18n>Question Number</th>
+          <th scope="col" i18n>Result</th>
+          <th scope="col" i18n>Question Complexity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let info of this.test.answerInfo; index as i">
+          <td>{{this.testTypes[this.testTypesKeys[test.type]].name}}. <span>Question</span> {{i + 1}}</td>
+          <td *ngIf="info.correct">
+            <fa-icon [icon]="['fas', 'check']" class="text-success icon-answer-result pr-2"></fa-icon>
+            <span class="text-success" i18n>Correct Answer</span>
+          </td>
+          <td *ngIf="!info.correct">
+            <fa-icon [icon]="['fas', 'times']" class="text-danger icon-answer-result pr-2"></fa-icon>
+            <span class="text-danger" i18n>Incorrect Answer</span>
+          </td>
+          <td>
+            <fa-icon [icon]="['fas', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(info.points)"></fa-icon>
+            <fa-icon [icon]="['far', 'star']" class="icon-answer-complexity mr-1" *ngFor="let number of [].constructor(4 - info.points)"></fa-icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
