@@ -1,10 +1,10 @@
 <!-- Main Site wrapper -->
 <div class="site-wrapper">
-  <div id="header-mega-iq" class="bg-light fixed-top"
-       [lazyLoad]="'https://img.mega-iq.com/g/brand/mega-iq-brain-navbar.jpg'"
-       style="background-image: none;">
+  <div id="header-mega-iq" class="fixed-top bg-light-gradient">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light my-md-0 my-lg-2">
+    <nav class="navbar navbar-expand-md navbar-light"
+         [lazyLoad]="'https://img.mega-iq.com/g/brand/mega-iq-brain-navbar.jpg'"
+         style="background-image: none;">
       <a class="navbar-brand p-0" routerLink="/"><img class="mx-2"
                                                       [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'"
                                                       [lazyLoad]="'https://img.mega-iq.com/g/brand/logo-mega-iq-navbar.png'"
@@ -15,7 +15,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mr-auto my-md-0 my-lg-2">
           <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
             <div class="btn-group" role="group" aria-label="Mega IQ tests">
               <button type="button" class="btn btn-primary btn-rounded l-radius">
@@ -38,7 +38,7 @@
         </ul>
 
         <!-- Profile Button -->
-        <button type="button" class="btn btn-primary" routerLink="/home/" *ngIf="currentUser" data-toggle="collapse"
+        <button type="button" class="btn btn-primary mr-2" routerLink="/home/" *ngIf="currentUser" data-toggle="collapse"
                 data-target=".navbar-collapse.show">
           <fa-icon [icon]="['fas', 'user']"></fa-icon>
           {{ currentUser.displayName || "Anonymous" }}
@@ -56,7 +56,7 @@
         <!-- Language switcher -->
         <div class="my-2 my-lg-0">
           <div class="dropdown" id="language-picker">
-            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
               <a href="javascript:void(0)" id="locale-link-current">
                 <img class="mr-2" [lazyLoad]="'/assets/img/flag/' + this.locale + '.png'"
@@ -89,16 +89,14 @@
   </div>
 
   <!-- main app container -->
-  <div *ngIf="!loading" id="bgMain" class="{{backgroundClass}}"
-       [lazyLoad]="'https://img.mega-iq.com/g/about/img/bg-index.jpg'"
-       style="background-image: none;">
+  <div *ngIf="!loading" id="bgMain">
 
     <alert></alert>
     <app-dialog></app-dialog>
     <router-outlet></router-outlet>
 
     <!-- Footer -->
-    <footer class="bg-light mt-5">
+    <footer class="mt-5 bg-light-gradient-footer">
       <div class="container">
         <!-- credits -->
         <div class="row">

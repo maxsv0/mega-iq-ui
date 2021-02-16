@@ -29,10 +29,15 @@ body {
 }
 
 .jumbotron {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: .375rem;
-  @include box-shadow(0px, 3px, 15px, rgba(0, 0, 0, 0.2));
+  border: .0625rem solid rgb(184, 185, 190, 0.3);
+  border-radius: 30px;
+  background: #e9f0fa;
+  @include box-shadow(12px, 12px, 24px, #94a5b1);
+}
+
+.card {
+  background: #e9f0fa;
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
 }
 
 .btn-rounded {
@@ -52,12 +57,14 @@ body {
 .test-practice {
   border-color: $colorPracticeDark;
   background-color: $colorPractice;
+  @include box-shadow-soft(0px, 8px, 16px, $colorPracticeSoft);
 }
 
 .btn-practice {
   border-color: $colorPractice;
   background-color: $colorPractice;
   border-bottom: 5px $colorPracticeDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorPracticeSoft);
 }
 
 .btn-practice:hover {
@@ -68,12 +75,14 @@ body {
 .test-standard {
   border-color: $colorStandardDark;
   background-color: $colorStandard;
+  @include box-shadow-soft(0px, 8px, 16px, $colorStandardSoft);
 }
 
 .btn-standard {
   border-color: $colorStandard;
   background-color: $colorStandard;
   border-bottom: 5px $colorStandardDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorStandardSoft);
 }
 
 .btn-standard:hover {
@@ -84,12 +93,14 @@ body {
 .test-megaiq {
   border-color: $colorMegaIqDark;
   background-color: $colorMegaIq;
+  @include box-shadow-soft(0px, 8px, 16px, $colorMegaIqSoft);
 }
 
 .btn-megaiq {
   border-color: $colorMegaIq;
   background-color: $colorMegaIq;
   border-bottom: 5px $colorMegaIqDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorMegaIqSoft);
 }
 
 .btn-megaiq:hover {
@@ -100,12 +111,14 @@ body {
 .test-math {
   border-color: $colorMathDark;
   background-color: $colorMath;
+  @include box-shadow-soft(0px, 8px, 16px, $colorMathSoft);
 }
 
 .btn-math {
   border-color: $colorMath;
   background-color: $colorMath;
   border-bottom: 5px $colorMathDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorMathSoft);
 }
 
 .btn-math:hover {
@@ -116,12 +129,14 @@ body {
 .test-grammar {
   border-color: $colorGrammarDark;
   background-color: $colorGrammar;
+  @include box-shadow-soft(0px, 8px, 16px, $colorGrammarSoft);
 }
 
 .btn-grammar {
   border-color: $colorGrammar;
   background-color: $colorGrammar;
   border-bottom: 5px $colorGrammarDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorGrammarSoft);
 }
 
 .btn-grammar:hover {
@@ -132,25 +147,19 @@ body {
 .test-kids {
   border-color: $colorKidsDark;
   background-color: $colorKids;
+  @include box-shadow-soft(0px, 8px, 16px, $colorKidsSoft);
 }
 
 .btn-kids {
   border-color: $colorKids;
   background-color: $colorKids;
   border-bottom: 5px $colorKidsDark solid;
+  @include box-shadow-soft(8px, 8px, 16px, $colorKidsSoft);
 }
 
 .btn-kids:hover {
   background-color: $colorKidsLight;
   border-bottom: 5px $colorKidsDark solid;
-}
-
-.bg-user {
-  background-size: 100%;
-  background-color: #000 !important;
-  background-position: center top;
-  background-repeat: no-repeat;
-  min-height: 590px;
 }
 
 .bg-default {
@@ -181,19 +190,51 @@ body {
   @include gradient(#000046, #642b73, horizontal);
 }
 
+.bg-light-gradient-footer {
+  @include gradient(#e9f0fa, #ccd9ea, vertical);
+}
+
 .bg-light-gradient {
-  @include gradient(#ffffff, #f8f9fa, vertical);
+  @include gradient(#ccd9ea, #e9f0fa, vertical);
 }
 
 .bg-blank {
   background-image: none !important;
 }
 
+.btn-outline-primary {
+  @include box-shadow(3px, 3px, 6px, #94a5b1);
+}
+
+.alert {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
+}
+
+.form-group .btn-primary {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
+}
+
+.card-container .btn-block {
+  @include box-shadow-soft(3px, 3px, 6px, #94a5b1);
+}
+
+.table {
+  @include box-shadow(6px, 6px, 12px, #94a5b1);
+}
+
 /** User profile card **/
 #iq-user {
   .iq-user-body {
     width: 300px;
-    @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
+    margin-left: auto;
+    margin-right: auto;
+
+    @include box-shadow(20px, 20px, 40px, #94a5b1);
+
+    .iq-badge {
+      left: -35px;
+      top: -45px;
+    }
   }
 
   .profile-example {

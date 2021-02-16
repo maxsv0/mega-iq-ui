@@ -61,85 +61,83 @@
   </div>
 </div>
 
-<div class="bg-light" *ngIf="activeTest">
-  <div class="container py-4 question-title">
+<div class="container py-4" *ngIf="activeTest">
+  <div class="jumbotron question-title">
     <!-- Question title -->
     <span class="text-muted mr-2"><span
       i18n>Question</span>&nbsp;#{{activeQuestionId}}</span> {{activeQuestion.title}}
   </div>
 </div>
 
-<div class="bg-light-gradient" *ngIf="activeTest">
-  <div class="container pt-1">
-    <div class="row">
+<div class="container pt-1" *ngIf="activeTest">
+  <div class="row">
 
-      <!-- Question description -->
-      <div class="col-md-12" *ngIf="activeQuestion.description">
-        <p class="my-5">
-          <fa-icon [icon]="['fas', 'question']" class="mr-1"></fa-icon>
-          {{activeQuestion.description}}
-        </p>
-      </div>
+    <!-- Question description -->
+    <div class="col-md-12" *ngIf="activeQuestion.description">
+      <p class="my-5">
+        <fa-icon [icon]="['fas', 'question']" class="mr-1"></fa-icon>
+        {{activeQuestion.description}}
+      </p>
+    </div>
 
-      <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center">
 
-        <!-- Shows active question -->
-        <img class="w-100" *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x">
-        <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
+      <!-- Shows active question -->
+      <img class="w-100" *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x">
+      <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
 
-      </div>
-      <div class="col-md-6">
-        <!-- Possible answers set -->
-        <div class="row">
-          <div class="col-md-12" *ngIf="activeTest.status === testStatus.ACTIVE">
-            <div class="position-absolute">
-              <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
-          <span class="submit-answer position-relative">
-          <span class="px-4 text-muted" i18n>Submitting your answer, please wait</span>
-          <span class="actn-loader text-muted"></span>
-          </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-4" *ngFor="let answer of activeQuestion.answers"
-               [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
-            <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
-                 *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0 w-100">
-              <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
-            </div>
-            <div *ngIf="activeTest.status === testStatus.FINISHED" class="px-0 w-100">
-              <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
+    </div>
+    <div class="col-md-6">
+      <!-- Possible answers set -->
+      <div class="row">
+        <div class="col-md-12" *ngIf="activeTest.status === testStatus.ACTIVE">
+          <div class="position-absolute">
+            <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
+        <span class="submit-answer position-relative">
+        <span class="px-4 text-muted" i18n>Submitting your answer, please wait</span>
+        <span class="actn-loader text-muted"></span>
+        </span>
             </div>
           </div>
         </div>
 
-        <div class="row mt-2">
-          <div class="col">
-            <span class="text-success"
-                  *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
-                  i18n>Answer submitted</span>
-            <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>Click to submit the answer</p>
+        <div class="col-4" *ngFor="let answer of activeQuestion.answers"
+             [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
+          <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
+               *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0 w-100">
+            <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
           </div>
+          <div *ngIf="activeTest.status === testStatus.FINISHED" class="px-0 w-100">
+            <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col">
+          <span class="text-success"
+                *ngIf="activeTest.status === testStatus.ACTIVE && activeQuestion.answerUser"
+                i18n>Answer submitted</span>
+          <p class="text-muted" *ngIf="activeTest.status === testStatus.ACTIVE && !activeQuestion.answerUser" i18n>Click to submit the answer</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="bg-light mb-3" *ngIf="activeTest">
+<div class="mb-3" *ngIf="activeTest">
   <div class="container">
     <div class="row pb-4">
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
-        <button class="btn btn-outline-primary p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdPrev)"
+        <button class="btn btn-outline-primary m-2" (click)="setQuestion(activeQuestionIdPrev)"
                 [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId > 1">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
           <span i18n>Previous Question</span>
         </button>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
-        <button class="btn btn-outline-primary p-1 p-md-2 m-2" (click)="setQuestion(activeQuestionIdNext)"
+        <button class="btn btn-outline-primary m-2" (click)="setQuestion(activeQuestionIdNext)"
                 [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId !== activeTest.questionSet.length">
           <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>

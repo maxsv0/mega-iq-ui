@@ -18,7 +18,7 @@ a, a:hover {
 }
 
 .loader-placeholder {
-  padding: 10rem 2rem;
+  padding: 20rem 2rem;
   position: relative;
 }
 
@@ -115,8 +115,8 @@ a, a:hover {
   min-height: 250px;
   padding: 30px;
   margin: 30px auto;
-  border-radius: 10px;
-  @include box-shadow(3px, 3px, 0, rgba(0, 0, 0, .10));
+  border-radius: 1rem;
+  @include box-shadow(12px, 12px, 24px, #94a5b1);
   background-color: white;
   background-size: cover;
   background-position: center;
@@ -178,22 +178,6 @@ a, a:hover {
   top: 0;
   border: 2px solid #eee;
 }
-
-#iq-user {
-  .iq-user-body {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include box-shadow(0, 3px, 6px, rgba(0, 0, 0, 0.16));
-
-    .iq-badge {
-      left: -35px;
-      top: -45px;
-    }
-  }
-}
-
 
 #iq-scores {
 

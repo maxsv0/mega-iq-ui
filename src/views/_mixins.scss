@@ -18,13 +18,31 @@
 }
 
 @mixin box-shadow($left, $top, $radius, $color) {
-  box-shadow: $left $top $radius $color;
-  -webkit-box-shadow: $left $top $radius $color;
-  -moz-box-shadow: $left $top $radius $color;
+  box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius #fff;
+  -webkit-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius #fff;
+  -moz-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius #fff;
+}
+
+@mixin box-shadow-soft($left, $top, $radius, $color) {
+  box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
+  -webkit-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
+  -moz-box-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius rgba(255, 255, 255, .1);
 }
 
 @mixin gradient($start-color, $end-color, $orientation) {
-  background: $start-color;
+  background-color: $start-color;
   @if $orientation == 'vertical' {
     background: -webkit-linear-gradient(top, $start-color, $end-color) !important;
     background: linear-gradient(to bottom, $start-color, $end-color) !important;

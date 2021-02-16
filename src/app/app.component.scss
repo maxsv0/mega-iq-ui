@@ -3,7 +3,8 @@
 /** Main page styles and navbar styles **/
 
 #bgMain {
-  margin-top: 66px;
+  background: #e9f0fa;
+  margin-top: 65px;
 }
 
 .home-image {
@@ -16,11 +17,13 @@
 }
 
 #header-mega-iq {
-  background-size: 150px 85px;
-  background-position: bottom left;
-  background-repeat: no-repeat;
+  .navbar {
+    background-size: 150px 85px;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+  }
 
-  @include box-shadow(0, 2px, 2px, -2px rgba(0, 0, 0, .2));
+  @include gradient(#ccd9ea, #e9f0fa, vertical);
 
   button.navbar-toggler {
     &:focus {
@@ -29,6 +32,10 @@
   }
 
   #language-picker {
+
+    button {
+      background: rgb(179, 200, 219, 0.4);
+    }
 
     button:focus {
       outline: 0;
@@ -50,10 +57,6 @@
   .dropdown-locale {
     margin-left: -50px;
   }
-
-  #bgMain {
-    margin-top: 85px;
-  }
 }
 
 @include desktop {
@@ -62,7 +65,7 @@
   }
 
   #bgMain {
-    margin-top: 85px;
+    margin-top: 80px;
   }
 }
 
