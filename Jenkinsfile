@@ -2,7 +2,7 @@ pipeline {
   environment {
     registrySchema = 'https://'
     registryHost = 'eu.gcr.io'
-    machineType = 'g1-small'
+    machineType = 'f1-micro'
     deploymentProject = 'megaiq637'
     deploymentZone = 'europe-west2-c'
     repositoryName = ''
@@ -96,7 +96,7 @@ def deployByLocale(def locale) {
     if ("${locale}" != 'en') {
       sh "sed -i 's/www/${locale}/g' src/environments/environment.prod.ts"
     } else {
-      machineType = "n1-standard-1";
+      machineType = "g1-small";
     }
     sh "sed -i \"s/'en'/'${locale}'/g\" src/environments/app-locale.ts"
     sh "sed -i 's/\"en\"/\"${locale}\"/g' src/index.html"
