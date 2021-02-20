@@ -9,7 +9,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsConfig} from 'ngx-sharebuttons';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
-import {isPlatformBrowser} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../../environments/app-locale';
 
@@ -51,7 +51,8 @@ export class PublicComponent implements OnInit {
     private shareButtonsModule: ShareButtonsModule,
     private authenticationService: AuthenticationService,
     private i18n: I18n,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document
   ) {
     const userId = this.route.snapshot.params['userId'];
     if (userId == null) {
@@ -117,12 +118,17 @@ export class PublicComponent implements OnInit {
       .subscribe(
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
-            if (!this.user) {
-              this.user = apiResponseTestResultList.user;
-              this.setMetaTags(this.user);
+            if (apiResponseTestResultList.user) {
+              if (apiResponseTestResultList.user.locale !== APP_LOCALE_ID.toUpperCase() && apiResponseTestResultList.user.homepage) {
+                this.document.location.href = apiResponseTestResultList.user.homepage;
+              } else {
+                this.user = apiResponseTestResultList.user;
 
-              const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
-              this.setCustomShareButtonsConfig(this.titleService, this.titleService.getTitle());
+                this.setMetaTags(this.user);
+
+                const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
+                this.setCustomShareButtonsConfig(customShareImage, this.titleService.getTitle());
+              }
             }
 
             if (apiResponseTestResultList.tests.length < 8) {

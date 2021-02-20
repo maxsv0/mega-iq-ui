@@ -11,9 +11,11 @@ export class User {
   name: string;
   pic: string;
   certificate: string;
+  homepage: string;
   url: string;
   age: string;
   iq: number;
+  locale: string;
   location: string;
   country: string;
   cityLatLong: string;
