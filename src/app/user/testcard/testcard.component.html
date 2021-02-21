@@ -41,10 +41,10 @@
     </div>
   </div>
   <div class="course-starts text-white pt-2">
-    <span i18n>Started at</span>: {{test.createDate}}
+    <span i18n>Started at</span>: {{test.createDate | date:'medium'}}
   </div>
   <div class="course-ends text-white" *ngIf="test.finishDate">
-    <span i18n>Finished at</span>: {{test.finishDate}}
+    <span i18n>Finished at</span>: {{test.finishDate | date:'medium'}}
   </div>
   <!-- Test actions -->
   <div class="row">
@@ -55,7 +55,7 @@
   </div>
 
   <div class="text-right">
-    <button class="btn btn-outline-danger btn-lg mt-3" (click)="deleteTestResult(test.code)"
+    <button class="btn btn-outline-danger btn-lg mt-3 w-50" (click)="deleteTestResult(test.code)"
             *ngIf="test.status !== testStatus.ACTIVE" [disabled]="loading">
             <span *ngIf="!loading"><fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon><span
               i18n>Delete</span></span>

@@ -42,7 +42,7 @@
 @include mobile-lg {
   #home {
     #counter {
-      width: 420px;
+      width: 355px;
     }
 
     .flip-clock-wrapper {
@@ -51,20 +51,20 @@
 
     .flip-clock-wrapper ul {
       margin: 3px;
-      width: 45px;
-      height: 60px;
-      font-size: 50px;
+      width: 40px;
+      height: 55px;
+      font-size: 44px;
       font-weight: bold;
-      line-height: 67px;
+      line-height: 52px;
       border-radius: 6px;
     }
 
     .flip-clock-wrapper ul li {
-      line-height: 67px;
+      line-height: 52px;
     }
 
     .flip-clock-wrapper ul li a div {
-      font-size: 50px;
+      font-size: 44px;
     }
 
   }
@@ -104,7 +104,7 @@
 @include mobile-sm {
   #home {
     #counter {
-      width: 310px;
+      width: 300px;
     }
 
     .flip-clock-wrapper {
@@ -113,20 +113,20 @@
 
     .flip-clock-wrapper ul {
       margin: 1px;
-      width: 35px;
-      height: 45px;
-      font-size: 32px;
+      width: 32px;
+      height: 43px;
+      font-size: 30px;
       font-weight: bold;
-      line-height: 42px;
+      line-height: 40px;
       border-radius: 6px;
     }
 
     .flip-clock-wrapper ul li {
-      line-height: 42px;
+      line-height: 40px;
     }
 
     .flip-clock-wrapper ul li a div {
-      font-size: 32px;
+      font-size: 30px;
     }
   }
 

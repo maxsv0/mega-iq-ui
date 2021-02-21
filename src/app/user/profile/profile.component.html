@@ -1,6 +1,6 @@
 <!-- Profile card -->
-<div id="iq-user" class="row" *ngIf="user">
-  <div class="col-xs-12 col-sm-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1">
+<div id="iq-user" class="row jumbotron" *ngIf="user">
+  <div class="col-xs-12 col-sm-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1 pb-4">
     <div class="iq-user-body">
 
       <div class="position-absolute" *ngIf="user.iq">
@@ -12,7 +12,7 @@
           <img [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s300-c'" class="img-avatar">
         </a>
       </div>
-      <div class="profile-data bg-primary px-3 py-4">
+      <div class="profile-data px-3 py-4 {{user.background}}">
         <h3 class="text-white">{{user.name}}</h3>
         <h4 class="text-white" *ngIf="user.location">{{user.location}}</h4>
       </div>
@@ -25,7 +25,7 @@
     <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="'https://img.mega-iq.com/g/iqtest/iq-certificate-example.jpg'"
          alt="Example IQ Certificate">
   </div>
-  <div class="col-12 unlockCertificateBlock p-3"
+  <div class="col-12 py-5 px-4 unlockCertificateBlock mt-3"
        *ngIf="user && user.certificateProgress < 100 && user.certificateProgress !== null && !user.iq">
     <h3 i18n>Unlock your certificate</h3>
     <div class="progress certificate-progress">

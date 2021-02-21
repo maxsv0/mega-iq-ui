@@ -19,13 +19,13 @@
   <div class="row">
     <div id="home-actions" class="col text-right">
       <!-- Open profile -->
-      <button routerLink="/home" class="btn btn-outline-primary mr-2 text-white">
+      <button routerLink="/home" class="btn btn-outline-primary mr-2">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
         <span i18n>Open Profile</span>
       </button>
 
       <!-- Profile settings -->
-      <button routerLink="/settings" class="btn btn-outline-primary mr-2  text-white">
+      <button routerLink="/settings" class="btn btn-outline-primary mr-2">
         <fa-icon [icon]="['fas', 'cog']" class="mr-1"></fa-icon>
         <span i18n>Edit Profile</span>
       </button>
@@ -34,8 +34,8 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user {{user && user.background != null ? user.background : 'bg-default'}}" *ngIf="!isLoadingPage && user">
-  <div class="container py-4">
+<div class="bg-user" *ngIf="!isLoadingPage && user">
+  <div class="container px-4">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>
 </div>
@@ -59,7 +59,7 @@
 </div>
 
 <!-- User public tests -->
-<div class="container mt-4" *ngIf="user && userTests && !isLoadingPage">
+<div class="container" *ngIf="user && userTests && !isLoadingPage">
   <div class="row">
     <div class="col-12">
       <h1>{{user.name}} <span i18n>latest passed iq tests</span></h1>
@@ -104,7 +104,7 @@
     </div>
   </section>
 
-  <div class="row" *ngIf="isLastLoaded">
+  <div class="row mt-4" *ngIf="isLastLoaded">
     <div class="col-md-8 offset-md-2">
       <div class="alert alert-info" i18n>All results were loaded successfully.</div>
     </div>

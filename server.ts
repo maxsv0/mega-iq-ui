@@ -18,6 +18,10 @@ import {DATA_TEST_RESULT, DATA_TESTS, DATA_USERS_LIST, DATA_USERS_TOP} from './s
 import {ApiResponseTests, ApiResponseUsersList, ApiResponseUsersTop} from './src/app/_models';
 import {ApiResponsePublicTestResultList} from './src/app/_models/api-response-public-test-result-list';
 
+const cacheHtml = new Map<string, string>();
+const cacheHtmlTime = new Map<string, Date>();
+const cacheHtmlExpire = 1000 * 60 * 10;         // 10 minutes
+
 let hostName = 'https://www.mega-iq.com/';
 // @ts-ignore
 if (APP_LOCALE_ID === 'de') {
@@ -252,28 +256,46 @@ export function app(): express.Express {
   });
 
   server.get('*', (req, res) => {
-    res.render(indexHtml, {
-      req,
-      res,
-      providers: [
-        {
-          provide: DATA_TESTS,
-          useValue: apiTests
-        },
-        {
-          provide: DATA_USERS_TOP,
-          useValue: apiUsersTop
-        },
-        {
-          provide: DATA_TEST_RESULT,
-          useValue: apiListLatest
-        },
-        {
-          provide: DATA_USERS_LIST,
-          useValue: apiUserList
-        }
-      ]
-    });
+
+    // check if we have a cache entry
+    const entry = cacheHtml.get(req.originalUrl);
+    const entryTime = cacheHtmlTime.get(req.originalUrl);
+
+    if (entry && entryTime && (new Date()).getTime() < entryTime.getTime() + cacheHtmlExpire) {
+      console.log('Sending cached item for URL=' + req.originalUrl);
+      // send the cache entry
+      res.send(entry);
+    } else {
+      console.log('Render page URL=' + req.originalUrl);
+      // render page and store result
+      res.render(indexHtml, {
+        req,
+        res,
+        providers: [
+          {
+            provide: DATA_TESTS,
+            useValue: apiTests
+          },
+          {
+            provide: DATA_USERS_TOP,
+            useValue: apiUsersTop
+          },
+          {
+            provide: DATA_TEST_RESULT,
+            useValue: apiListLatest
+          },
+          {
+            provide: DATA_USERS_LIST,
+            useValue: apiUserList
+          }
+        ]
+      }, (err, html) => {
+        // save the HTML in the cache
+        cacheHtml.set(req.originalUrl, html);
+        cacheHtmlTime.set(req.originalUrl, new Date());
+        res.send(html);
+      });
+    }
   });
 
   return server;
