@@ -1,5 +1,5 @@
 <!-- User dashboard -->
-<div class="container pt-4 pb-3" *ngIf="!isLoadingPage && currentUser">
+<div class="container pt-4" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-sm-5">
       <h2><span i18n>Hi</span>, {{currentUser.name || "Anonymous"}}!</h2>
@@ -50,7 +50,7 @@
 <div class="container" *ngIf="!isLoadingPage && currentUser">
   <div class="row">
     <div class="col-12">
-      <h1>{{currentUser.name || "Anonymous"}}, <span i18n> your iq tests are displayed below</span>.</h1>
+      <h3>{{currentUser.name || "Anonymous"}}, <span i18n> your iq tests are displayed below</span>.</h3>
     </div>
   </div>
 

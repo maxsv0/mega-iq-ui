@@ -17,13 +17,14 @@
 }
 
 #header-mega-iq {
+  border-bottom: 1px solid #ccd9ea;
+  @include gradient(#ccd9ea, #e9f0fa, vertical);
+
   .navbar {
     background-size: 150px 85px;
     background-position: bottom left;
     background-repeat: no-repeat;
   }
-
-  @include gradient(#ccd9ea, #e9f0fa, vertical);
 
   button.navbar-toggler {
     &:focus {

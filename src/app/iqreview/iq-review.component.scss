@@ -70,10 +70,13 @@ h3 {
 .question-title {
   font-size: 36px;
   min-height: 130px;
+  margin-bottom: 0;
+  padding: 2rem 2rem;
 }
 
 .question-description {
   font-size: 24px;
+  padding: 2rem 2rem;
 }
 
 .answer-submit-loader {
@@ -86,6 +89,13 @@ h3 {
 .icon-answer-result {
   font-size: 130px;
   line-height: 130px;
+}
+
+@include mobile-lg {
+  .question-title {
+    line-height: 30px;
+    font-size: 28px;
+  }
 }
 
 @include mobile-md {

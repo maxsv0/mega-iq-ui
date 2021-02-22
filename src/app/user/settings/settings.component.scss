@@ -20,8 +20,6 @@ input[type=radio]:checked + label {
 
 .card-body {
   padding: 5px;
-  max-height: 200px;
-  overflow: scroll;
 }
 
 .required label::after {
