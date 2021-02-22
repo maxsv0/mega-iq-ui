@@ -29,6 +29,7 @@ export class ClassroomComponent implements OnInit {
   updating = false;
   public testStatus = TestStatusEnum;
   remainingTime: number;
+  remainingTimeBar: number;
 
   activeTest: TestResult;
   activeTestName: string;
@@ -257,14 +258,15 @@ export class ClassroomComponent implements OnInit {
     private expireCountdown(createDate: Date, expireTime: number): void {
         const minInMs = 60000;
         const secInMs = 1000;
-        const timeOffset = 7 * secInMs;
         const start = new Date(createDate).getTime();
         const expire = Math.floor(expireTime * minInMs);
-        const countDownDate = start + expire + timeOffset;
+        const countDownDate = start + expire;
 
         const x = setInterval(() => {
             const now = new Date().getTime();
             this.remainingTime = countDownDate - now;
+            this.remainingTimeBar = 100 - Math.floor(100 * this.remainingTime / expire);
+
             if(this.remainingTime < 0) {
                 clearInterval(x);
                 this.remainingTime = 0;

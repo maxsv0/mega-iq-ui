@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4">
       <!-- Switch between all questions (tablet and desktop only) -->
-      <div class="jumbotron py-4">
+      <div class="jumbotron py-4 mb-4">
         <h4>{{activeTestName}}
           <span class="badge"
                 [ngClass]="{ 'badge-success': activeTest.status === testStatus.FINISHED, 'badge-primary': activeTest.status === testStatus.ACTIVE, 'badge-secondary': activeTest.status === testStatus.EXPIRED}">{{activeTest.status}}</span>
@@ -26,10 +26,12 @@
             {{activeTest.finishDate | date:'medium'}}
           </h4>
         </div>
-        <div class="card">
-          <div class="card-body text-center">
-            <span i18n>Time remaining:</span> {{ remainingTime | date:'mm:ss' }}
-          </div>
+      </div>
+      <div class="card">
+        <div class="card-progress position-absolute" [ngStyle]="{'width' : remainingTimeBar + '%'}"
+             [ngClass]="{'card-progress-ok' : remainingTimeBar <= 70, 'card-progress-info' : remainingTimeBar > 70 && remainingTimeBar < 90, 'card-progress-danger' : remainingTimeBar >= 90}"></div>
+        <div class="card-body text-center bg-white">
+          <span i18n>Time remaining:</span> {{ remainingTime | date:'mm:ss' }}
         </div>
       </div>
     </div>
@@ -104,10 +106,10 @@
         <div class="col-4" *ngFor="let answer of activeQuestion.answers"
              [ngClass]="{'answer': activeTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
           <div (click)="submitAnswer(activeTest.code, activeQuestionId, answer.id)"
-               *ngIf="activeTest.status === testStatus.ACTIVE" class="btn px-0 w-100">
+               *ngIf="activeTest.status === testStatus.ACTIVE" class="btn p-0 w-100">
             <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
           </div>
-          <div *ngIf="activeTest.status === testStatus.FINISHED" class="px-0 w-100">
+          <div *ngIf="activeTest.status === testStatus.FINISHED" class="p-0 w-100">
             <img src="{{answer.pic}}" srcset="{{answer.pic2x}} 2x" class="w-100">
           </div>
         </div>
@@ -130,15 +132,15 @@
     <div class="row pb-4">
       <!-- Question navigation -->
       <div class="col-sm-6 col-6 px-0">
-        <button class="btn btn-outline-primary m-2" (click)="setQuestion(activeQuestionIdPrev)"
-                [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId > 1">
+        <button class="btn btn-outline-primary m-2 p-2" (click)="setQuestion(activeQuestionIdPrev)"
+                [disabled]="updating || activeTestCompleted || activeQuestionId <= 1">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
           <span i18n>Previous Question</span>
         </button>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
-        <button class="btn btn-outline-primary m-2" (click)="setQuestion(activeQuestionIdNext)"
-                [disabled]="updating || activeTestCompleted" *ngIf="activeQuestionId !== activeTest.questionSet.length">
+        <button class="btn btn-outline-primary m-2 p-2" (click)="setQuestion(activeQuestionIdNext)"
+                [disabled]="updating || activeTestCompleted || activeQuestionId === activeTest.questionSet.length">
           <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>
         </button>

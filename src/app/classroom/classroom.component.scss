@@ -40,7 +40,7 @@ h3 {
 }
 
 .answer {
-  border: 1px solid #f8f9fa;
+  border: 1px solid #e9f0fa;
 }
 
 .answer:hover {
@@ -62,6 +62,8 @@ h3 {
 .question-title {
   font-size: 36px;
   min-height: 130px;
+  margin-bottom: 0;
+  padding: 2rem 2rem;
 }
 
 .answer-submit-loader {
@@ -69,6 +71,31 @@ h3 {
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 9;
   top: -25px;
+}
+
+.card-progress {
+  width: 1%;
+  height: 65px;
+  border-radius: 0.25rem;
+}
+
+.card-progress-ok {
+  background: rgb(40, 167, 69, 0.25);
+}
+
+.card-progress-info {
+  background: rgb(255, 193, 7, 0.25);
+}
+
+.card-progress-danger {
+  background: rgb(220, 53, 69, 0.25);
+}
+
+@include mobile-lg {
+  .question-title {
+    line-height: 30px;
+    font-size: 28px;
+  }
 }
 
 @include mobile-md {
