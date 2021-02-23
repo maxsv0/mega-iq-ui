@@ -1,53 +1,20 @@
-<div class="p-3" *ngIf="isBrowser && customConfig">
-  <!-- Social media share -->
-  <share-buttons
-    [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp','copy']"
-    [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger','sms','email']"
-    [show]="7"
-    [showText]="true"
-    [autoSetMeta]="false"
-    [theme]="'modern-dark'"
-    [url]="customConfig.url"
-    [title]="customConfig.title"
-  ></share-buttons>
-</div>
-
 <!-- IQ Test Result -->
-<div class="container mt-2" *ngIf="!isLoading && test">
+<div class="container pt-4" *ngIf="!isLoading && test">
   <div class="row">
     <div class="col">
       <div class="jumbotron">
         <!-- Title -->
-        <h3>{{user.name || "Anonymous"}}
-          <span
+        <h1>
+<span *ngIf="!user.name" i18n>Anonymous</span><span *ngIf="user.name">{{user.name}}</span>&nbsp;<span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
-        </h3>
-        <div class="row mt-2">
-          <div class="col-lg-6">
-            <div class="card my-3">
-              <div class="card-body">
-                <p>
-                  <span i18n>Permanent IQ result link</span>: <a href="{{ hostName }}{{test.url}}">{{ hostName }}{{test.url}}</a>
-                </p>
-                <p>
-                  <span i18n>Result code</span>: <span class="text-muted">{{test.code}}</span>
-                </p>
-              </div>
-            </div>
+        </h1>
+        <h2 class="my-3 text-center"><span i18n>Score for </span> {{this.testTypes[this.testTypesKeys[test.type]].name}}: {{test.points}}</h2>
+        <div class="lead">
+          <div *ngIf="test.info && test.info.questions">
+            <span i18n>Total Questions</span>: {{test.info.questions}}
           </div>
-          <div class="col-lg-6">
-            <div>
-              <h2>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>online</span></h2>
-            </div>
-            <h2 class="my-3"><span i18n>IQ Score</span>: {{test.points}}</h2>
-            <div class="lead">
-              <div *ngIf="test.info && test.info.questions">
-                <span i18n>Total Questions</span>: {{test.info.questions}}
-              </div>
-              <div *ngIf="test.info && test.info.answersCorrect">
-                <span i18n>Correct Answers</span>: {{test.info.answersCorrect}}
-              </div>
-            </div>
+          <div *ngIf="test.info && test.info.answersCorrect">
+            <span i18n>Correct Answers</span>: {{test.info.answersCorrect}}
           </div>
         </div>
       </div>
@@ -59,9 +26,43 @@
 <div class="container" *ngIf="!isLoading && test && currentUser && user && user.uid === currentUser.uid">
   <div class="row">
     <div class="col-sm-4 offset-sm-8">
-      <button routerLink="/iqtest/review/{{test.code}}" class="btn btn-warning btn-block btn-lg">
+      <button routerLink="/iqtest/review/{{test.code}}" class="btn btn-warning btn-block btn-rounded btn-lg">
         <fa-icon [icon]="['fas', 'sun']" class="mr-1"></fa-icon>
         <span i18n>Show Answers</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- IQ Test Result -->
+<div class="container mb-4" *ngIf="!isLoading && test">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card my-3 bg-light-gradient-footer">
+        <div class="card-body">
+          <div>
+            <h4>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>online</span></h4>
+          </div>
+          <p>
+            <span i18n>Permanent IQ result link</span>: <a href="{{ hostName }}{{test.url}}">{{ hostName }}{{test.url}}</a>
+          </p>
+          <p>
+            <span i18n>Result code</span>: <span class="text-muted">{{test.code}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 pt-3" *ngIf="isBrowser && customConfig">
+      <!-- Social media share -->
+      <share-buttons
+        [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','messenger','whatsapp']"
+        [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger','sms','email','copy']"
+        [show]="7"
+        [showText]="true"
+        [autoSetMeta]="false"
+        [theme]="'modern-dark'"
+        [url]="customConfig.url"
+        [title]="customConfig.title"
+      ></share-buttons>
     </div>
   </div>
 </div>
@@ -69,14 +70,14 @@
 <!-- User -->
 <div class="container" *ngIf="!isLoading && test">
   <div class="row">
-    <div class="col-sm-4 offset-sm-1 mt-4">
+    <div class="col-sm-4 offset-sm-1 mt-4 mb-3">
       <!-- User profile card -->
       <app-avatar *ngIf="user && user.isPublic" [user]="user"></app-avatar>
     </div>
     <div class="col-md-6 mt-4">
       <div class="jumbotron">
         <!-- Chart js results -->
-        <div *ngIf="this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
+        <div *ngIf="isBrowser && this.test.type === testTypeEnum.MEGA_IQ || this.test.type === testTypeEnum.STANDARD_IQ">
           <canvas #myCanvas width="800" height="800"></canvas>
         </div>
         <!-- Standard results for practice test -->
@@ -89,26 +90,11 @@
   </div>
 </div>
 
-<!-- IQ Test Result Chart -->
-<div class="container" *ngIf="!isLoading && test">
-  <div class="row">
-    <div class="col">
-      <div class="jumbotron">
-        <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>result score for every answer</span></h3>
-        <canvas #myCanvasAnswers width="1000" height="400"></canvas>
-        <p class="pt-2 text-right">
-          <span i18n>Bar height represents questions' complexity.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- IQ Test Result -->
-<div class="container" *ngIf="!isLoading && test">
+<div class="container mt-4" *ngIf="!isLoading && test">
   <div class="row">
     <div class="col">
-      <h3 i18n>Result score for every answer</h3>
+      <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>Result score for every answer</span></h3>
       <table class="table text-center">
         <thead>
         <tr>
@@ -135,6 +121,21 @@
         </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<!-- IQ Test Result Chart -->
+<div class="container mt-4" *ngIf="!isLoading && test && isBrowser">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h3>{{this.testTypes[this.testTypesKeys[test.type]].name}} <span i18n>result score for every answer</span></h3>
+        <canvas #myCanvasAnswers width="1000" height="400"></canvas>
+        <p class="pt-2 text-right">
+          <span i18n>Bar height represents questions' complexity.</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>

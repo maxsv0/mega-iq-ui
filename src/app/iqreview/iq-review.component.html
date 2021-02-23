@@ -11,9 +11,6 @@
         <p>
           <span i18n>Started</span>: {{ finishedTest.createDate | date:'medium' }}
         </p>
-        <p *ngIf="finishedTest.points">
-          <span i18n>Result</span>: {{ finishedTest.points }}
-        </p>
         <div class="text-muted">
           <h4>
             <fa-icon [icon]="['fas', 'check']" class="mr-1"></fa-icon>
@@ -22,6 +19,11 @@
           <h4 class="text-info" *ngIf="finishedTest.finishDate">
             {{ finishedTest.finishDate | date:'medium' }}
           </h4>
+        </div>
+        <div class="mt-2">
+          <a routerLink="{{finishedTest.url}}" class="btn btn-success btn-block btn-rounded btn-lg">
+            <fa-icon [icon]="['fas', 'share']" class="mr-1"></fa-icon>
+            <span i18n>Open Details</span></a>
         </div>
       </div>
     </div>
@@ -60,7 +62,7 @@
       </div>
       <div class="col-md-6">
         <!-- Possible answers set -->
-        <div class="row">
+        <div class="row mt-md-5">
           <div class="col-4 mb-3" *ngFor="let answer of activeQuestion.answers"
                [ngClass]="{'answer': finishedTest.status === testStatus.ACTIVE, 'answer-active': answer.id === activeQuestion.answerUser, 'answer-correct': answer.id === activeQuestion.answerCorrect}">
             <div class="px-0 w-100">
@@ -107,7 +109,7 @@
   <div class="jumbotron">
     <div class="row">
       <!-- User answer details -->
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="card-body">
           <h4 class="card-text" i18n>Your answer</h4>
           <div *ngFor="let answer of activeQuestion.answers">
@@ -117,7 +119,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="card-body">
           <h4 class="card-text" i18n>Correct answer</h4>
           <div *ngFor="let answer of activeQuestion.answers">
@@ -127,7 +129,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <div class="card-body">
           <h4 class="card-text">Result</h4>
           <div class="p-4 text-center" *ngIf="activeQuestion.answerUser !== activeQuestion.answerCorrect">

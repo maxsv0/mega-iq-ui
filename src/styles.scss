@@ -45,8 +45,7 @@ body {
 }
 
 .img-avatar {
-  width: 300px;
-  height: 300px;
+  width: 100%;
 }
 
 .img-avatar-small {
@@ -225,14 +224,13 @@ body {
 /** User profile card **/
 #iq-user {
   .iq-user-body {
-    width: 300px;
     margin-left: auto;
     margin-right: auto;
 
     @include box-shadow(20px, 20px, 40px, #94a5b1);
 
     .iq-badge {
-      left: -35px;
+      left: -22px;
       top: -45px;
     }
   }
@@ -271,6 +269,11 @@ body {
 }
 
 @include mobile-lg {
+  .btn-lg {
+    font-size: 1.10rem;
+    line-height: 1.25;
+  }
+
   .card-container {
     max-width: 415px;
     min-height: 250px;
@@ -290,18 +293,18 @@ body {
     width: 100% !important;
     height: auto;
   }
-
-  .iq-user-body {
-    width: 100% !important;
-  }
 }
 
 @include mobile-md {
+  .btn-lg {
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+
   .card-container {
     max-width: 365px;
     min-height: 200px;
-    padding: 10px;
-    margin: 10px auto;
+    padding: 15px;
   }
 
   #iq-scores {
@@ -314,11 +317,15 @@ body {
 }
 
 @include mobile-sm {
+  .btn-lg {
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+
   .card-container {
     max-width: 310px;
     min-height: 200px;
-    padding: 10px;
-    margin: 5px auto;
+    padding: 12px;
   }
 
   #iq-scores {

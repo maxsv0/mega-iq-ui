@@ -1,21 +1,5 @@
-<!-- User public profile -->
-<div class="p-3" *ngIf="isBrowser && customConfig">
-  <!-- Social media share -->
-  <share-buttons
-    [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','line','copy']"
-    [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger','sms','email']"
-    [show]="7"
-    [showText]="true"
-    [autoSetMeta]="false"
-    [theme]="'modern-dark'"
-    [image]="customConfig.image"
-    [title]="customConfig.title"
-    [url]="customConfig.url"
-  ></share-buttons>
-</div>
-
 <!-- User dashboard -->
-<div class="container pt-2 pb-3" *ngIf="!isLoadingPage && currentUser && user && user.uid === currentUser.uid">
+<div class="container pt-4" *ngIf="!isLoadingPage && currentUser && user && user.uid === currentUser.uid">
   <div class="row">
     <div id="home-actions" class="col text-right">
       <!-- Open profile -->
@@ -34,7 +18,7 @@
 </div>
 
 <!-- User banner -->
-<div class="bg-user" *ngIf="!isLoadingPage && user">
+<div class="bg-user pt-4" *ngIf="!isLoadingPage && user">
   <div class="container px-4">
     <app-profile *ngIf="user" [user]="user"></app-profile>
   </div>
@@ -56,6 +40,22 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- User public profile -->
+<div class="container p-3" *ngIf="isBrowser && customConfig">
+  <!-- Social media share -->
+  <share-buttons
+    [include]="['facebook','twitter','linkedin','pinterest','reddit','vk','telegram','whatsapp','line']"
+    [exclude]="['google','mix','tumblr','linkedin','xing','print','messenger','sms','email','copy']"
+    [show]="9"
+    [showText]="true"
+    [autoSetMeta]="false"
+    [theme]="'modern-dark'"
+    [image]="customConfig.image"
+    [title]="customConfig.title"
+    [url]="customConfig.url"
+  ></share-buttons>
 </div>
 
 <!-- User public tests -->

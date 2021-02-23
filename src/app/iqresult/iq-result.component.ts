@@ -121,9 +121,12 @@ export class IqResultComponent {
 
               /** Draw chart js canvas **/
               if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
-                setTimeout(() => {
-                  this.drawResultGraph();
-                }, 500);
+                // This is to fix ERROR Error: NotYetImplemented
+                if (this.isBrowser) {
+                  setTimeout(() => {
+                    this.drawResultGraph();
+                  }, 500);
+                }
               }
 
               // This is to fix ERROR Error: NotYetImplemented
