@@ -842,13 +842,20 @@
       <segment state="initial">
         <source>You have not finished your test yet. You will be redirected to Home.</source>
       <target>You have not finished your test yet. You will be redirected to Home.</target></segment>
-    </unit><unit id="6918087724127868060">
+    </unit><unit id="2125558799973255666">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
       </notes>
       <segment state="translated">
-        <source>Free IQ test on Mega-IQ</source>
-      <target>Kostenloser IQ test bei Mega-IQ</target></segment>
+        <source>iqtest:meta:title</source>
+      <target>IQ test von Mega-IQ</target></segment>
+    </unit><unit id="6933510038621748140">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>iqtest:meta:description</source>
+      <target>Mega-IQ-Tests sind rund um die Uhr für alle verfügbar</target></segment>
     </unit><unit id="429949191312178475">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>

@@ -390,42 +390,42 @@
       <target>Показать ответы</target></segment>
     </unit><unit id="3323262348032698514">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:133</note></notes>
       <segment state="translated">
         <source>result score for every answer</source>
       <target>результат для каждого ответа</target></segment>
     </unit><unit id="7615187996573244854">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:136</note></notes>
       <segment state="translated">
         <source>Bar height represents questions' complexity.</source>
       <target>Высота столбца представляет сложность вопроса.</target></segment>
     </unit><unit id="7552885605336493941">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:97</note></notes>
       <segment state="translated">
         <source>Result score for every answer</source>
       <target>Результат для каждого вопроса</target></segment>
     </unit><unit id="8938710631144986960">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:101</note></notes>
       <segment state="translated">
         <source>Question Number</source>
       <target>Номер вопроса</target></segment>
     </unit><unit id="7743177478101846210">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:103</note></notes>
       <segment state="translated">
         <source>Question Complexity</source>
       <target>Сложность вопроса</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:155</note></notes>
       <segment state="translated">
         <source>Error 404. Test result not found.</source>
@@ -513,7 +513,7 @@
       <target>Разблокируйте свой сертификат</target></segment>
     </unit><unit id="1214783695473552503">
       <notes>
-        
+
       <note category="location">src/app/user/public/public.component.html:39</note></notes>
       <segment state="translated">
         <source>Error 404. User not found.</source>
@@ -842,13 +842,20 @@
       <segment state="translated">
         <source>You have not finished your test yet. You will be redirected to Home.</source>
       <target>Вы еще не закончили тест. Вы будете перенаправлены на главную.</target></segment>
-    </unit><unit id="6918087724127868060">
+    </unit><unit id="2125558799973255666">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
       </notes>
       <segment state="translated">
-        <source>Free IQ test on Mega-IQ</source>
-      <target>IQ тест от Mega-IQ можно пройти онлайн прямо сейчас</target></segment>
+        <source>iqtest:meta:title</source>
+      <target>Пройти IQ тест онлайн</target></segment>
+    </unit><unit id="6933510038621748140">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>iqtest:meta:description</source>
+      <target>IQ тесты от Mega-IQ онлайн 24/7 для всех</target></segment>
     </unit><unit id="429949191312178475">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
@@ -859,8 +866,8 @@
       <target><ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> онлайн бесплатно на Mega-IQ</target></segment>
     </unit><unit id="7322074626709578366">
       <notes>
-        
-        
+
+
       <note category="location">src/app/results/results.component.ts:1</note></notes>
       <segment state="translated">
         <source>Top scores of IQ test on Mega-IQ</source>
@@ -1112,7 +1119,7 @@
       <target>Нажмите для перехода между вопросам</target></segment>
     </unit><unit id="4344657958994956592">
       <notes>
-        
+
       <note category="location">src/app/classroom/classroom.component.html:56</note></notes>
       <segment state="translated">
         <source>The test is finished. Please press the submit button to submit your result.</source>
@@ -1163,7 +1170,7 @@
       <target>Тест завершен</target></segment>
     </unit><unit id="7759529576743021965">
       <notes>
-        
+
       <note category="location">src/app/classroom/classroom.component.html:34</note></notes>
       <segment state="translated">
         <source>Time remaining:</source>

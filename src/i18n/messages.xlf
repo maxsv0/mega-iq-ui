@@ -1173,12 +1173,20 @@
         <source>You have not finished your test yet. You will be redirected to Home.</source>
       </segment>
     </unit>
-    <unit id="6918087724127868060">
+    <unit id="2125558799973255666">
       <notes>
         <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
       </notes>
       <segment>
-        <source>Free IQ test on Mega-IQ</source>
+        <source>iqtest:meta:title</source>
+      </segment>
+    </unit>
+    <unit id="6933510038621748140">
+      <notes>
+        <note category="location">src/app/iqtest/iq-test.component.ts:1</note>
+      </notes>
+      <segment>
+        <source>iqtest:meta:description</source>
       </segment>
     </unit>
     <unit id="429949191312178475">

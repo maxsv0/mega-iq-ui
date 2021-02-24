@@ -56,8 +56,8 @@ export class IqTestComponent implements OnInit {
       this.testTypes = tests;
 
       if (testType == null) {
-          this.titleService.setTitle(this.i18n('Free IQ test on Mega-IQ'));
-          const metaDescription = this.i18n('Start The IQ Test');
+          this.titleService.setTitle(this.i18n('iqtest:meta:title'));
+          const metaDescription = this.i18n('iqtest:meta:description');
         this.updateMetaTags(this.titleService.getTitle(), this.router.url, metaDescription);
         this.setCustomShareButtonsConfig(this.metaImage, this.titleService.getTitle(), metaDescription);
       } else {
@@ -211,6 +211,10 @@ export class IqTestComponent implements OnInit {
             },
             {
                 property: 'og:description',
+                content: description
+            },
+            {
+                name: 'description',
                 content: description
             },
             {
