@@ -41,6 +41,7 @@ export class IqResultComponent {
   testCode: string;
   hostName: string;
   testQuestionsCount = 0;
+  testResultLevel = 0;  // from 0 (poor) to 5 (excellent)
   public testTypeEnum = TestTypeEnum;
   customConfig: ShareButtonsConfig;
 
@@ -106,6 +107,35 @@ export class IqResultComponent {
               this.test = apiResponseTestResult.test;
               this.user = apiResponseTestResult.user;
               this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
+
+              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+                if (this.test.points > 155) {
+                  this.testResultLevel = 5;
+                } else if (this.test.points >= 150) {
+                  this.testResultLevel = 4;
+                } else if (this.test.points >= 140) {
+                  this.testResultLevel = 3;
+                } else if (this.test.points >= 120) {
+                  this.testResultLevel = 2;
+                } else if (this.test.points >= 100) {
+                  this.testResultLevel = 1;
+                }
+              } else {
+                const testQuestions = this.testTypes[this.testTypesKeys[this.test.type]].questions;
+                const testResult = this.test.points / testQuestions;
+
+                if (testResult > 0.95) {
+                  this.testResultLevel = 5;
+                } else if (testResult >= 0.9) {
+                  this.testResultLevel = 4;
+                } else if (testResult >= 0.8) {
+                  this.testResultLevel = 3;
+                } else if (testResult >= 0.7) {
+                  this.testResultLevel = 2;
+                } else if (testResult >= 0.5) {
+                  this.testResultLevel = 1;
+                }
+              }
 
               const finishDate = this.datepipe.transform(this.test.finishDate, 'MMM d, y, h:mm:ss a');
               this.setMetaTags(

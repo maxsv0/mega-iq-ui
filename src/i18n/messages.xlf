@@ -83,7 +83,7 @@
     </unit><unit id="2525230676386818985">
       <notes>
         <note category="location">src/app/classroom/classroom.component.html:18</note>
-        <note category="location">src/app/iqresult/iq-result.component.html:102</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:111</note>
         <note category="location">src/app/results/results.component.html:22</note>
       </notes>
       <segment>
@@ -290,30 +290,79 @@
       <segment>
         <source>passed</source>
       </segment>
-    </unit><unit id="4470796495168115736">
+    </unit><unit id="8319686831611559974">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:11</note>
       </notes>
       <segment>
+        <source>The test passed successfully</source>
+      </segment>
+    </unit><unit id="4470796495168115736">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:12</note>
+      </notes>
+      <segment>
         <source>Score for</source>
+      </segment>
+    </unit><unit id="6871688908417068603">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:14</note>
+      </notes>
+      <segment>
+        <source>Applause! Superior IQ result!</source>
+      </segment>
+    </unit><unit id="2703983474644014358">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:15</note>
+      </notes>
+      <segment>
+        <source>Congratulations on a superior result! Continue to accelerate your IQ!</source>
+      </segment>
+    </unit><unit id="3135678070624482001">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:16</note>
+      </notes>
+      <segment>
+        <source>Congratulations on an excellent result. Try again to advance your IQ score!</source>
+      </segment>
+    </unit><unit id="2831078440456457008">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:17</note>
+      </notes>
+      <segment>
+        <source>Great result. Try again to improve your IQ score!</source>
+      </segment>
+    </unit><unit id="5123075262364572087">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:18</note>
+      </notes>
+      <segment>
+        <source>Great beginning. Worth trying again!</source>
+      </segment>
+    </unit><unit id="1802222405018172640">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:19</note>
+      </notes>
+      <segment>
+        <source>Worth trying again. Better luck next time!</source>
       </segment>
     </unit><unit id="9037223601982900500">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:14</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:23</note>
       </notes>
       <segment>
         <source>Total Questions</source>
       </segment>
     </unit><unit id="5599997413987082662">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:17</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:26</note>
       </notes>
       <segment>
         <source>Correct Answers</source>
       </segment>
     </unit><unit id="6976453063741511743">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:31</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:40</note>
         <note category="location">src/app/user/testcard/testcard.component.html:32</note>
       </notes>
       <segment>
@@ -321,7 +370,7 @@
       </segment>
     </unit><unit id="180949385590118498">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:43</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:52</note>
         <note category="location">src/app/iqtest/iq-test.component.html:51</note>
       </notes>
       <segment>
@@ -329,49 +378,49 @@
       </segment>
     </unit><unit id="1627152575473720569">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:46</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:55</note>
       </notes>
       <segment>
         <source>Permanent IQ result link</source>
       </segment>
     </unit><unit id="8008770153767785281">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:49</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:58</note>
       </notes>
       <segment>
         <source>Result code</source>
       </segment>
     </unit><unit id="6108143310015300307">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:86</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:95</note>
       </notes>
       <segment>
         <source>IQ Score</source>
       </segment>
     </unit><unit id="7552885605336493941">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:97</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:106</note>
       </notes>
       <segment>
         <source>Result score for every answer</source>
       </segment>
     </unit><unit id="8938710631144986960">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:101</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:110</note>
       </notes>
       <segment>
         <source>Question Number</source>
       </segment>
     </unit><unit id="7743177478101846210">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:103</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:112</note>
       </notes>
       <segment>
         <source>Question Complexity</source>
       </segment>
     </unit><unit id="4511078976932448193">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:111</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:120</note>
         <note category="location">src/app/iqreview/iq-review.component.html:141</note>
       </notes>
       <segment>
@@ -379,7 +428,7 @@
       </segment>
     </unit><unit id="989531434287244974">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:115</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:124</note>
         <note category="location">src/app/iqreview/iq-review.component.html:137</note>
       </notes>
       <segment>
@@ -387,28 +436,28 @@
       </segment>
     </unit><unit id="3323262348032698514">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:133</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:142</note>
       </notes>
       <segment>
         <source>result score for every answer</source>
       </segment>
     </unit><unit id="7615187996573244854">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:136</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:145</note>
       </notes>
       <segment>
         <source>Bar height represents questions&apos; complexity.</source>
       </segment>
     </unit><unit id="7317992942718656921">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:155</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:164</note>
       </notes>
       <segment>
         <source>Error 404. Test result not found.</source>
       </segment>
     </unit><unit id="6460615541801374815">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:165</note>
+        <note category="location">src/app/iqresult/iq-result.component.html:174</note>
       </notes>
       <segment>
         <source>One more Mega-iq test?</source>

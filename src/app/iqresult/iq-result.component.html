@@ -8,8 +8,17 @@
 <span *ngIf="!user.name" i18n>Anonymous</span><span *ngIf="user.name">{{user.name}}</span>&nbsp;<span
             i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
         </h1>
-        <h2 class="my-3 text-center"><span i18n>Score for</span> {{this.testTypes[this.testTypesKeys[test.type]].name}}: {{test.points}}</h2>
-        <div class="lead">
+        <p class="my-3 text-center"><span i18n>The test passed successfully</span>.</p>
+        <h2 class="my-3 text-center"><span i18n>Score for</span> {{this.testTypes[this.testTypesKeys[test.type]].name}}: <b>{{test.points}}</b></h2>
+
+        <h3 class="my-3 text-center text-warning" *ngIf="this.testResultLevel === 5" i18n>Applause! Superior IQ result!</h3>
+        <h3 class="my-3 text-center text-success" *ngIf="this.testResultLevel === 4" i18n>Congratulations on a superior result! Continue to accelerate your IQ!</h3>
+        <h3 class="my-3 text-center text-primary" *ngIf="this.testResultLevel === 3" i18n>Congratulations on an excellent result. Try again to advance your IQ score!</h3>
+        <h3 class="my-3 text-center text-primary" *ngIf="this.testResultLevel === 2" i18n>Great result. Try again to improve your IQ score!</h3>
+        <h3 class="my-3 text-center text-info" *ngIf="this.testResultLevel === 1" i18n>Great beginning. Worth trying again!</h3>
+        <h3 class="my-3 text-center text-info" *ngIf="this.testResultLevel === 0" i18n>Worth trying again. Better luck next time!</h3>
+
+        <div>
           <div *ngIf="test.info && test.info.questions">
             <span i18n>Total Questions</span>: {{test.info.questions}}
           </div>
