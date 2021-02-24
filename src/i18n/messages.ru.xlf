@@ -4,14 +4,14 @@
     <unit id="2586312104569557204">
       <notes>
 
-      <note category="location">src/app/app.component.html:107</note></notes>
+      <note category="location">src/app/app.component.html:102</note></notes>
       <segment state="translated">
         <source>Mega-IQ</source>
       <target>Мега-Айкю</target></segment>
     </unit><unit id="3854501539966213538">
       <notes>
 
-      <note category="location">src/app/app.component.html:22</note></notes>
+      <note category="location">src/app/app.component.html:19</note></notes>
       <segment state="translated">
         <source>Start IQ Test</source>
       <target>Пройти тест на iq</target></segment>
@@ -19,14 +19,14 @@
     <unit id="3242997623282735515">
       <notes>
 
-      <note category="location">src/app/app.component.html:33</note></notes>
+      <note category="location">src/app/app.component.html:30</note></notes>
       <segment state="translated">
         <source>Best Results</source>
       <target>Последние результаты IQ теста</target></segment>
     </unit><unit id="2864338553126737462">
       <notes>
 
-      <note category="location">src/app/app.component.html:36</note></notes>
+      <note category="location">src/app/app.component.html:33</note></notes>
       <segment state="translated">
         <source>Best Users</source>
       <target>Лучшие IQ</target></segment>
@@ -35,7 +35,7 @@
     <unit id="7028204981963450021">
       <notes>
 
-      <note category="location">src/app/app.component.html:49</note></notes>
+      <note category="location">src/app/app.component.html:46</note></notes>
       <segment state="translated">
         <source>Sign up</source>
       <target>Регистрация</target></segment>
@@ -43,7 +43,7 @@
     <unit id="8520023152129279437">
       <notes>
 
-      <note category="location">src/app/app.component.html:52</note><note category="location">src/app/user/login/login.component.html:38</note></notes>
+      <note category="location">src/app/app.component.html:49</note><note category="location">src/app/user/login/login.component.html:38</note></notes>
       <segment state="translated">
         <source>Log In</source>
       <target>Войти</target></segment>
@@ -51,7 +51,7 @@
     <unit id="1726363342938046830">
       <notes>
 
-      <note category="location">src/app/app.component.html:108</note></notes>
+      <note category="location">src/app/app.component.html:103</note></notes>
       <segment state="translated">
         <source>About</source>
       <target>О Мега-Айкю</target></segment>
@@ -59,7 +59,7 @@
     <unit id="8439955599488894226">
       <notes>
 
-      <note category="location">src/app/app.component.html:109</note></notes>
+      <note category="location">src/app/app.component.html:104</note></notes>
       <segment state="translated">
         <source>Privacy Policy</source>
       <target>Политика конфиденциальности</target></segment>
@@ -67,28 +67,28 @@
     <unit id="664573589261423471">
       <notes>
 
-      <note category="location">src/app/app.component.html:110</note></notes>
+      <note category="location">src/app/app.component.html:105</note></notes>
       <segment state="translated">
         <source>Terms and Conditions</source>
       <target>Условия и положения</target></segment>
     </unit><unit id="5329546516669101200">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:20</note></notes>
+      <note category="location">src/app/index/index.component.html:21</note></notes>
       <segment state="translated">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
       <target>Пройти тест на iq онлайн сейчас!</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:28</note></notes>
+      <note category="location">src/app/index/index.component.html:29</note></notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
       <target>Пройти Мега-Айкю тест онлайн</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:39</note></notes>
+      <note category="location">src/app/index/index.component.html:40</note></notes>
       <segment state="translated">
         <source>Mega IQ Ever</source>
       <target>Результаты теста на iq</target></segment>
@@ -96,7 +96,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:43</note><note category="location">src/app/index/index.component.html:60</note><note category="location">src/app/results/results.component.html:20</note><note category="location">src/app/users/users.component.html:13</note></notes>
+      <note category="location">src/app/index/index.component.html:44</note><note category="location">src/app/index/index.component.html:61</note><note category="location">src/app/results/results.component.html:20</note><note category="location">src/app/users/users.component.html:13</note></notes>
       <segment state="translated">
         <source>User</source>
       <target>Имя</target></segment>
@@ -131,6 +131,21 @@
       <segment state="translated">
         <source>Login with Google</source>
       <target>Вход через Google</target></segment>
+    </unit><unit id="8779630416201284171">
+      <notes>
+        <note category="location">src/app/user/login/login.component.html:67</note>
+        <note category="location">src/app/user/register/register.component.html:113</note>
+      </notes>
+      <segment state="translated">
+        <source>Google Firebase Authentication and User Management</source>
+      <target>Google Firebase Аутентификация и управление пользователями</target></segment>
+    </unit><unit id="4714368500943395425">
+      <notes>
+        <note category="location">src/app/user/profile/profile.component.html:28,29</note>
+      </notes>
+      <segment state="translated">
+        <source> Click on the certificate to enlarge it. </source>
+      <target> Нажмите на сертификат, чтобы увеличить его. </target></segment>
     </unit>
     <unit id="4768749765465246664">
       <notes>
@@ -181,7 +196,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:61</note><note category="location">src/app/user/register/register.component.html:27</note><note category="location">src/app/user/registeranon/registeranon.component.html:27</note><note category="location">src/app/user/settings/settings.component.html:46</note><note category="location">src/app/users/users.component.html:16</note></notes>
+      <note category="location">src/app/index/index.component.html:62</note><note category="location">src/app/user/register/register.component.html:27</note><note category="location">src/app/user/registeranon/registeranon.component.html:27</note><note category="location">src/app/user/settings/settings.component.html:46</note><note category="location">src/app/users/users.component.html:16</note></notes>
       <segment state="translated">
         <source>Age</source>
       <target>Возраст</target></segment>
@@ -190,7 +205,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:62</note><note category="location">src/app/user/register/register.component.html:31</note><note category="location">src/app/user/registeranon/registeranon.component.html:31</note><note category="location">src/app/user/settings/settings.component.html:50</note><note category="location">src/app/users/users.component.html:15</note></notes>
+      <note category="location">src/app/index/index.component.html:63</note><note category="location">src/app/user/register/register.component.html:31</note><note category="location">src/app/user/registeranon/registeranon.component.html:31</note><note category="location">src/app/user/settings/settings.component.html:50</note><note category="location">src/app/users/users.component.html:15</note></notes>
       <segment state="translated">
         <source>Location</source>
       <target>Регион</target></segment>
@@ -198,35 +213,35 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:63</note><note category="location">src/app/users/users.component.html:17</note></notes>
+      <note category="location">src/app/index/index.component.html:64</note><note category="location">src/app/users/users.component.html:17</note></notes>
       <segment state="translated">
         <source>IQ</source>
       <target>Айкю</target></segment>
     </unit><unit id="5263690784228037855">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:44</note></notes>
+      <note category="location">src/app/index/index.component.html:45</note></notes>
       <segment state="translated">
         <source>Total Score</source>
       <target>Всего</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:56</note></notes>
+      <note category="location">src/app/index/index.component.html:57</note></notes>
       <segment state="translated">
         <source>Best IQ Today</source>
       <target>Лучшие результаты теста на IQ за сегодня</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:82</note></notes>
+      <note category="location">src/app/index/index.component.html:83</note></notes>
       <segment state="translated">
         <source>Example profile</source>
       <target>Соревнуйся с теми кто смог пройти бесплатный онлайн тест на iq</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:95</note></notes>
+      <note category="location">src/app/index/index.component.html:96</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
       <target>Мега-Айкю тесты на iq 2021</target></segment>
@@ -244,6 +259,13 @@
       <segment state="translated">
         <source>More about a Test</source>
       <target>Подробнее о IQ тесте</target></segment>
+    </unit><unit id="358462242581945792">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:8</note>
+      </notes>
+      <segment state="translated">
+        <source>Anonymous</source>
+      <target>Аноним</target></segment>
     </unit>
     <unit id="1431416938026210429">
       <notes>
@@ -319,14 +341,14 @@
     </unit><unit id="2606712855106855414">
       <notes>
 
-      <note category="location">src/app/user/home/home.component.html:11</note><note category="location">src/app/user/public/public.component.html:24</note></notes>
+      <note category="location">src/app/user/home/home.component.html:11</note><note category="location">src/app/user/public/public.component.html:8</note></notes>
       <segment state="translated">
         <source>Open Profile</source>
       <target>Открыть Ваш профиль</target></segment>
     </unit><unit id="2984628903434675339">
       <notes>
 
-      <note category="location">src/app/user/home/home.component.html:17</note><note category="location">src/app/user/public/public.component.html:30</note></notes>
+      <note category="location">src/app/user/home/home.component.html:17</note><note category="location">src/app/user/public/public.component.html:14</note></notes>
       <segment state="translated">
         <source>Edit Profile</source>
       <target>Редактировать профиль</target></segment>
@@ -347,7 +369,7 @@
     </unit><unit id="6205220545163020073">
       <notes>
 
-      <note category="location">src/app/user/home/home.component.html:55</note></notes>
+      <note category="location">src/app/user/home/home.component.html:53</note></notes>
       <segment state="translated">
         <source> your iq tests are displayed below</source>
       <target>ваши айкю тесты отображаются ниже</target></segment>
@@ -355,63 +377,63 @@
       <notes>
 
 
-      <note category="location">src/app/results/results.component.html:46</note><note category="location">src/app/user/public/public.component.html:95</note><note category="location">src/app/user/testcard/testcard.component.html:25</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:26</note><note category="location">src/app/results/results.component.html:46</note><note category="location">src/app/user/public/public.component.html:95</note><note category="location">src/app/user/testcard/testcard.component.html:25</note></notes>
       <segment state="translated">
         <source>Open Details</source>
       <target>Подробнее</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:59</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:31</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="translated">
         <source>Show Answers</source>
       <target>Показать ответы</target></segment>
     </unit><unit id="3323262348032698514">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:73</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:133</note></notes>
       <segment state="translated">
         <source>result score for every answer</source>
       <target>результат для каждого ответа</target></segment>
     </unit><unit id="7615187996573244854">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:76</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:136</note></notes>
       <segment state="translated">
         <source>Bar height represents questions' complexity.</source>
       <target>Высота столбца представляет сложность вопроса.</target></segment>
     </unit><unit id="7552885605336493941">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:80</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:97</note></notes>
       <segment state="translated">
         <source>Result score for every answer</source>
       <target>Результат для каждого вопроса</target></segment>
     </unit><unit id="8938710631144986960">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:84</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:101</note></notes>
       <segment state="translated">
         <source>Question Number</source>
       <target>Номер вопроса</target></segment>
     </unit><unit id="7743177478101846210">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:86</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:103</note></notes>
       <segment state="translated">
         <source>Question Complexity</source>
       <target>Сложность вопроса</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:126</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:155</note></notes>
       <segment state="translated">
         <source>Error 404. Test result not found.</source>
       <target>Ошибка 404. Результат теста не найден.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:136</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:165</note></notes>
       <segment state="translated">
         <source>One more Mega-iq test?</source>
       <target>Еще один мега IQ тест?</target></segment>
@@ -478,21 +500,21 @@
       <notes>
 
 
-      <note category="location">src/app/user/home/home.component.html:74</note><note category="location">src/app/user/public/public.component.html:109</note></notes>
+      <note category="location">src/app/user/home/home.component.html:72</note><note category="location">src/app/user/public/public.component.html:109</note></notes>
       <segment state="translated">
         <source>All results were loaded successfully.</source>
       <target>Все результаты были успешно загружены.</target></segment>
     </unit><unit id="6655612091758099473">
       <notes>
 
-      <note category="location">src/app/user/profile/profile.component.html:30</note></notes>
+      <note category="location">src/app/user/profile/profile.component.html:37</note></notes>
       <segment state="translated">
         <source>Unlock your certificate</source>
       <target>Разблокируйте свой сертификат</target></segment>
     </unit><unit id="1214783695473552503">
       <notes>
-        <note category="location">src/app/user/public/public.component.html:55</note>
-      </notes>
+        
+      <note category="location">src/app/user/public/public.component.html:39</note></notes>
       <segment state="translated">
         <source>Error 404. User not found.</source>
       <target>Ошибка 404. Пользователь не найден.</target></segment>
@@ -743,12 +765,19 @@
       <segment state="translated">
         <source>Continue anonyomously</source>
       <target>Продолжить анонимно</target></segment>
-    </unit><unit id="6114899825059152260">
+    </unit><unit id="6455050077748323818">
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>
       </notes>
       <segment state="translated">
-        <source>Mega-IQ free online IQ test</source>
+        <source>index:meta:title</source>
+      <target>Mega-IQ тест на IQ</target></segment>
+    </unit><unit id="8844758158369316633">
+      <notes>
+        <note category="location">src/app/index/index.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>index:meta:description</source>
       <target>Mega-IQ тест на IQ пройти онлайн бесплатно</target></segment>
     </unit><unit id="3080099711511142058">
       <notes>
@@ -924,28 +953,28 @@
     </unit><unit id="3212237534127642519">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:84</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:114</note></notes>
       <segment state="translated">
         <source>Your answer</source>
       <target>Ваш ответ</target></segment>
     </unit><unit id="6737127594232120391">
       <notes>
 
-      <note category="location">src/app/iqreview/iq-review.component.html:94</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:124</note></notes>
       <segment state="translated">
         <source>Correct answer</source>
       <target>Правильный ответ</target></segment>
     </unit><unit id="989531434287244974">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:98</note><note category="location">src/app/iqreview/iq-review.component.html:107</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:115</note><note category="location">src/app/iqreview/iq-review.component.html:137</note></notes>
       <segment state="translated">
         <source>Incorrect Answer</source>
       <target>Ответ неверный</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:94</note><note category="location">src/app/iqreview/iq-review.component.html:111</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:111</note><note category="location">src/app/iqreview/iq-review.component.html:141</note></notes>
       <segment state="translated">
         <source>Correct Answer</source>
       <target>Правильный ответ</target></segment>
@@ -967,7 +996,7 @@
       <notes>
 
 
-      <note category="location">src/app/iqtest/iq-test.component.html:33</note><note category="location">src/app/iqtest/iq-test.component.html:77</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:13</note><note category="location">src/app/iqtest/iq-test.component.html:57</note></notes>
       <segment state="translated">
         <source>questions</source>
       <target>вопросов</target></segment>
@@ -975,7 +1004,7 @@
       <notes>
 
 
-      <note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:78</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:14</note><note category="location">src/app/iqtest/iq-test.component.html:58</note></notes>
       <segment state="translated">
         <source>Average testing time is</source>
       <target>Среднее время тестирования</target></segment>
@@ -985,7 +1014,7 @@
 
 
 
-      <note category="location">src/app/iqtest/iq-test.component.html:34</note><note category="location">src/app/iqtest/iq-test.component.html:35</note><note category="location">src/app/iqtest/iq-test.component.html:78</note><note category="location">src/app/iqtest/iq-test.component.html:79</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:14</note><note category="location">src/app/iqtest/iq-test.component.html:15</note><note category="location">src/app/iqtest/iq-test.component.html:58</note><note category="location">src/app/iqtest/iq-test.component.html:59</note></notes>
       <segment state="translated">
         <source>min</source>
       <target>минут</target></segment>
@@ -993,98 +1022,98 @@
       <notes>
 
 
-      <note category="location">src/app/iqtest/iq-test.component.html:35</note><note category="location">src/app/iqtest/iq-test.component.html:79</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:15</note><note category="location">src/app/iqtest/iq-test.component.html:59</note></notes>
       <segment state="translated">
         <source>limit</source>
       <target>лимит</target></segment>
     </unit><unit id="4116274496435988242">
       <notes>
 
-      <note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:31</note></notes>
       <segment state="translated">
         <source>Loading... please wait</source>
       <target>Загрузка, пожалуйста подождите</target></segment>
     </unit><unit id="180949385590118498">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:42</note><note category="location">src/app/iqtest/iq-test.component.html:71</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:43</note><note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
       <segment state="translated">
         <source>online</source>
       <target>онлайн</target></segment>
     </unit><unit id="6812374314162236933">
       <notes>
 
-      <note category="location">src/app/iqtest/iq-test.component.html:27</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:7</note></notes>
       <segment state="translated">
         <source>free online</source>
       <target>бесплатно онлайн</target></segment>
     </unit><unit id="6611630004208902126">
       <notes>
 
-      <note category="location">src/app/iqtest/iq-test.component.html:47</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:27</note></notes>
       <segment state="translated">
         <source>Start Test</source>
       <target>Пройти iq тест</target></segment>
     </unit><unit id="7593555694782789615">
       <notes>
 
-      <note category="location">src/app/iqtest/iq-test.component.html:84</note></notes>
+      <note category="location">src/app/iqtest/iq-test.component.html:64</note></notes>
       <segment state="translated">
         <source>Open</source>
       <target>Открыть</target></segment>
     </unit><unit id="5320870651003627043">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:68</note><note category="location">src/app/iqreview/iq-review.component.html:47</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:70</note><note category="location">src/app/iqreview/iq-review.component.html:49</note></notes>
       <segment state="translated">
         <source>Question</source>
       <target>Вопрос</target></segment>
     </unit><unit id="6803050435766824928">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:122</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:112</note></notes>
       <segment state="translated">
         <source>Click to submit the answer</source>
       <target>Нажмите, чтобы отправить ответ</target></segment>
     </unit><unit id="1847384773580767337">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:98</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:81</note></notes>
       <segment state="translated">
         <source>Submitting your answer, please wait</source>
       <target>Посылаем ваш ответ, пожалуйста, подождите</target></segment>
     </unit><unit id="2111634770914259121">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:121</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:111</note></notes>
       <segment state="translated">
         <source>Answer submitted</source>
       <target>Ответ отправлен</target></segment>
     </unit><unit id="1473171196585331987">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:138</note><note category="location">src/app/iqreview/iq-review.component.html:127</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:127</note><note category="location">src/app/iqreview/iq-review.component.html:94</note></notes>
       <segment state="translated">
         <source>Previous Question</source>
       <target>Предыдущий вопрос</target></segment>
     </unit><unit id="2067260738522363442">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:144</note><note category="location">src/app/iqreview/iq-review.component.html:133</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:133</note><note category="location">src/app/iqreview/iq-review.component.html:100</note></notes>
       <segment state="translated">
         <source>Next Question</source>
       <target>Следующий вопрос</target></segment>
     </unit><unit id="8538201418531541683">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:38</note><note category="location">src/app/classroom/classroom.component.html:155</note><note category="location">src/app/iqreview/iq-review.component.html:30</note><note category="location">src/app/iqreview/iq-review.component.html:145</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:40</note><note category="location">src/app/classroom/classroom.component.html:144</note><note category="location">src/app/iqreview/iq-review.component.html:32</note><note category="location">src/app/iqreview/iq-review.component.html:153</note></notes>
       <segment state="translated">
         <source>Click to navigate questions</source>
       <target>Нажмите для перехода между вопросам</target></segment>
     </unit><unit id="4344657958994956592">
       <notes>
-        <note category="location">src/app/classroom/classroom.component.html:54</note>
-      </notes>
+        
+      <note category="location">src/app/classroom/classroom.component.html:56</note></notes>
       <segment state="translated">
         <source>The test is finished. Please press the submit button to submit your result.</source>
       <target>Тест закончен. Пожалуйста, нажмите кнопку получить результат, чтобы отправить свой тест.</target></segment>
@@ -1113,14 +1142,14 @@
     </unit><unit id="2525230676386818985">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:85</note><note category="location">src/app/iqreview/iq-review.component.html:15</note><note category="location">src/app/results/results.component.html:22</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:102</note><note category="location">src/app/results/results.component.html:22</note></notes>
       <segment state="translated">
         <source>Result</source>
       <target>Результат</target></segment>
     </unit><unit id="4440205593100213861">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:57</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:59</note></notes>
       <segment state="translated">
         <source>Submit test</source>
       <target>Получить результат</target></segment>
@@ -1128,43 +1157,50 @@
     <unit id="361469352814485355">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:23</note><note category="location">src/app/iqreview/iq-review.component.html:20</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:23</note><note category="location">src/app/iqreview/iq-review.component.html:17</note></notes>
       <segment state="translated">
         <source>Test finished</source>
       <target>Тест завершен</target></segment>
     </unit><unit id="7759529576743021965">
       <notes>
-        <note category="location">src/app/classroom/classroom.component.html:31</note>
-      </notes>
+        
+      <note category="location">src/app/classroom/classroom.component.html:34</note></notes>
       <segment state="translated">
         <source>Time remaining:</source>
       <target>Оставшееся время:</target></segment>
     </unit><unit id="2124672565465036433">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:22</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:9</note></notes>
       <segment state="translated">
         <source>passed</source>
       <target>прошел</target></segment>
+    </unit><unit id="4470796495168115736">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.html:11</note>
+      </notes>
+      <segment state="translated">
+        <source>Score for</source>
+      <target>Результат</target></segment>
     </unit><unit id="6108143310015300307">
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:44</note><note category="location">src/app/iqresult/iq-result.component.html:69</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:86</note></notes>
       <segment state="translated">
         <source>IQ Score</source>
       <target>Результат IQ</target></segment>
     </unit><unit id="9037223601982900500">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:47</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:14</note></notes>
       <segment state="translated">
         <source>Total Questions</source>
       <target>Всего вопросов</target></segment>
     </unit><unit id="5599997413987082662">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:50</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:17</note></notes>
       <segment state="translated">
         <source>Correct Answers</source>
       <target>Правильных ответов</target></segment>
@@ -1172,14 +1208,14 @@
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:35</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:49</note></notes>
       <segment state="translated">
         <source>Result code</source>
       <target>Код результата</target></segment>
     </unit><unit id="1627152575473720569">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:32</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:46</note></notes>
       <segment state="translated">
         <source>Permanent IQ result link</source>
       <target>Постоянная ссылка на результат теста</target></segment>
