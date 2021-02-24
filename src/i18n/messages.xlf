@@ -1133,28 +1133,36 @@
         <source>Horizons</source>
       </segment>
     </unit>
-    <unit id="2174699020890542276">
+    <unit id="4211951307054414722">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment>
-        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
+        <source>iq-result:meta:title:IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
       </segment>
     </unit>
-    <unit id="5201126520440031540">
+    <unit id="2856544848532993040">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
+        <source>iq-result:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
       </segment>
     </unit>
-    <unit id="164535864791925829">
+    <unit id="8193154624716640470">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
+        <source>iq-result:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
+      </segment>
+    </unit>
+    <unit id="9116583137766188781">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment>
+        <source>iq-result:meta:description</source>
       </segment>
     </unit>
     <unit id="1823834804218715735">

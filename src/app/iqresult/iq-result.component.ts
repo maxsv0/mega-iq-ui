@@ -319,7 +319,7 @@ export class IqResultComponent {
       switch (type) {
         case TestTypeEnum.MEGA_IQ:
         case TestTypeEnum.STANDARD_IQ:
-          this.titleService.setTitle(this.i18n('IQ {{score}} {{test}} passed on {{date}}', {
+          this.titleService.setTitle(this.i18n('iq-result:meta:title:IQ {{score}} {{test}} {{date}}', {
             test: testName,
             score: score,
             date: date
@@ -329,7 +329,7 @@ export class IqResultComponent {
         case TestTypeEnum.MATH:
         case TestTypeEnum.GRAMMAR:
         case TestTypeEnum.KIDS:
-          this.titleService.setTitle(this.i18n('{{score}}/{{questions}} {{test}} passed on {{date}}', {
+          this.titleService.setTitle(this.i18n('iq-result:meta:title:{{score}}/{{questions}} {{test}} {{date}}', {
             test: testName,
             score: score,
             date: date,
@@ -338,14 +338,17 @@ export class IqResultComponent {
           break;
       }
     } else {
-      this.titleService.setTitle(this.i18n('{{test}} {{date}}', {
+      this.titleService.setTitle(this.i18n('iq-result:meta:title:{{test}} {{date}}', {
         test: testName,
         date: date
       }));
     }
 
+    const description = this.i18n('iq-result:meta:description');
+
     this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
-    this.metaService.updateTag({property: 'og:description', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:description', content: description});
+    this.metaService.updateTag({name: 'description', content: description});
     this.metaService.updateTag({property: 'og:image', content: testPic});
     this.metaService.updateTag({property: 'og:url', content: this.router.url});
   }

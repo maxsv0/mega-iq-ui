@@ -807,27 +807,34 @@
       <segment state="final">
         <source>Horizons</source>
       <target>Horizons</target></segment>
-    </unit><unit id="2174699020890542276">
+    </unit><unit id="4211951307054414722">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
-      <segment state="final">
-        <source>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed on <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
-      <target>IQ Test Score <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> passed at <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
-    </unit><unit id="5201126520440031540">
+      <segment state="translated">
+        <source>iq-result:meta:title:IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></source>
+      <target>IQ <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> Test IQ <ph id="1" equiv="INTERPOLATION_1" disp="{{test}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{date}}"/></target></segment>
+    </unit><unit id="2856544848532993040">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
-      <segment state="final">
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
-      <target>Test IQ Score <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/> of <ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> passed on <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
-    </unit><unit id="164535864791925829">
+      <segment state="translated">
+        <source>iq-result:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></source>
+      <target>IQ score <ph id="0" equiv="INTERPOLATION" disp="{{score}}"/>/<ph id="1" equiv="INTERPOLATION_1" disp="{{questions}}"/> Test IQ <ph id="2" equiv="INTERPOLATION_2" disp="{{test}}"/> <ph id="3" equiv="INTERPOLATION_3" disp="{{date}}"/></target></segment>
+    </unit><unit id="8193154624716640470">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
       </notes>
-      <segment state="final">
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
-      <target><ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></target></segment>
+      <segment state="translated">
+        <source>iq-result:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></source>
+      <target>Test IQ <ph id="0" equiv="INTERPOLATION" disp="{{test}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{date}}"/></target></segment>
+    </unit><unit id="9116583137766188781">
+      <notes>
+        <note category="location">src/app/iqresult/iq-result.component.ts:1</note>
+      </notes>
+      <segment state="translated">
+        <source>iq-result:meta:description</source>
+      <target>Test IQ score result</target></segment>
     </unit><unit id="1823834804218715735">
       <notes>
         <note category="location">src/app/iqreview/iq-review.component.ts:1</note>
