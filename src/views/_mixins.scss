@@ -41,6 +41,18 @@
       (-$left) (-$top) $radius rgba(255, 255, 255, .1);
 }
 
+@mixin box-shadow-inset($left, $top, $radius, $color) {
+  box-shadow:
+    inset $left $top $radius $color,
+    inset (-$left) (-$top) $radius #fff;
+  -webkit-box-shadow:
+    inset $left $top $radius $color,
+    inset (-$left) (-$top) $radius #fff;
+  -moz-box-shadow:
+    inset $left $top $radius $color,
+    inset (-$left) (-$top) $radius #fff;
+}
+
 @mixin gradient($start-color, $end-color, $orientation) {
   background-color: $start-color;
   @if $orientation == 'vertical' {

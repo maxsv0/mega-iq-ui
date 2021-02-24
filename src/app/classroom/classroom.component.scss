@@ -91,6 +91,10 @@ h3 {
   background: rgb(220, 53, 69, 0.25);
 }
 
+.container-test-finished {
+  @include box-shadow-inset(3px, 3px, 6px, #ccd9ea);
+}
+
 @include mobile-lg {
   .question-title {
     line-height: 30px;

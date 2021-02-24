@@ -49,12 +49,12 @@
   </div>
 </div>
 
-<div *ngIf="activeTestCompleted && !activeTest.finishDate" style="background-color: #d4edda;">
+<div *ngIf="activeTestCompleted && !activeTest.finishDate" class="container-test-finished" style="background-color: #d4edda;">
   <div class="container py-4 text-center">
     <!-- submit finish button -->
     <div class="col-md-8 offset-md-2">
       <h3 i18n>The test is finished. Please press the submit button to submit your result.</h3>
-      <button class="btn btn-primary btn-block btn-lg my-3" (click)="submitFinish(activeTest.code)" [disabled]="loading">
+      <button class="btn btn-outline-primary btn-rounded btn-lg my-2 px-5 py-4" (click)="submitFinish(activeTest.code)" [disabled]="loading">
         <fa-icon *ngIf="!loading" [icon]="['fas', 'x-ray']" class="mr-1"></fa-icon>
         <span *ngIf="!loading" i18n>Submit test</span>
         <span *ngIf="loading" class="actn-loader"></span>
