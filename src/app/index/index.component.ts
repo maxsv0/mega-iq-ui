@@ -75,10 +75,10 @@ export class IndexComponent implements OnInit, OnDestroy {
     });
 
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.titleService.setTitle(this.i18n('Mega-IQ free online IQ test'));
+    this.titleService.setTitle(this.i18n('index:meta:title'));
     const metaImage = 'https://img.mega-iq.com/g/about/img/bg-index.jpg';
     const metaTitle = this.titleService.getTitle();
-    const metaDescription = this.i18n('Join the Mega IQ now! IQ Tests Passed');
+    const metaDescription = this.i18n('index:meta:description');
     this.metaService.updateTag({property: 'og:title', content: metaTitle});
     this.metaService.updateTag({property: 'og:description', content: metaDescription});
     this.metaService.updateTag({property: 'og:image', content: metaImage});
