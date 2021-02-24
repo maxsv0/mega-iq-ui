@@ -77,7 +77,7 @@
       <note category="location">src/app/index/index.component.html:21</note></notes>
       <segment state="translated">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
-      <target>Пройти тест на iq онлайн сейчас!</target></segment>
+      <target>IQ тест - это онлайн упражнение для мозга</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
 
@@ -1216,42 +1216,42 @@
       </notes>
       <segment state="translated">
         <source>Applause! Superior IQ result!</source>
-      <target>Аплодисменты! Превосходный результат IQ!</target></segment>
+      <target>Аплодисменты! Превосходный IQ результат!</target></segment>
     </unit><unit id="2703983474644014358">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:15</note>
       </notes>
       <segment state="translated">
         <source>Congratulations on a superior result! Continue to accelerate your IQ!</source>
-      <target>Поздравляем с отличным результатом! Продолжайте повышать свой IQ!</target></segment>
+      <target>Поздравляем с отличным результатом! Продолжайте повышать свой уровень IQ!</target></segment>
     </unit><unit id="3135678070624482001">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:16</note>
       </notes>
       <segment state="translated">
         <source>Congratulations on an excellent result. Try again to advance your IQ score!</source>
-      <target>Поздравляем с отличным результатом. Попробуйте еще раз, чтобы повысить свой IQ!</target></segment>
+      <target>Поздравляем с отличным результатом. Попробуйте пройти тест IQ еще раз, чтобы повысить свой уровень IQ!</target></segment>
     </unit><unit id="2831078440456457008">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:17</note>
       </notes>
       <segment state="translated">
         <source>Great result. Try again to improve your IQ score!</source>
-      <target>Отличный результат. Попробуйте еще раз, чтобы улучшить свой IQ!</target></segment>
+      <target>Отличный результат. Попробуйте пройти тест IQ еще раз, чтобы улучшить свой уровень IQ!</target></segment>
     </unit><unit id="5123075262364572087">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:18</note>
       </notes>
       <segment state="translated">
         <source>Great beginning. Worth trying again!</source>
-      <target>Отличное начало. Стоит попробовать еще раз!</target></segment>
+      <target>Отличное начало. Стоит попробовать пройти тест IQ еще раз!</target></segment>
     </unit><unit id="1802222405018172640">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:19</note>
       </notes>
       <segment state="translated">
         <source>Worth trying again. Better luck next time!</source>
-      <target>Стоит попробовать еще раз. В следующий раз повезет больше !</target></segment>
+      <target>Стоит попробовать пройти тест на IQ еще раз. В следующий раз повезет больше!</target></segment>
     </unit><unit id="6108143310015300307">
       <notes>
 
