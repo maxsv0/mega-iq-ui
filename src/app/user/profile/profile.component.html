@@ -19,9 +19,14 @@
     </div>
   </div>
   <div class="col-md-6 my-2" *ngIf="user.certificate">
-    <a href="{{user.certificate}}" target="_blank">
-      <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.certificate" alt="IQ Certificate" />
-    </a>
+    <p>
+      <a href="{{user.certificate}}" target="_blank">
+        <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.certificate" alt="IQ Certificate" />
+      </a>
+    </p>
+    <p class="text-muted text-right" i18n>
+      Click on the certificate to enlarge it.
+    </p>
   </div>
   <div class="col-md-6 my-2" *ngIf="user && !user.certificate">
     <img class="img-thumbnail" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="'https://img.mega-iq.com/g/iqtest/iq-certificate-example.jpg'"
