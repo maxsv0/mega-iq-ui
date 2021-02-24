@@ -168,22 +168,27 @@ export class PublicComponent implements OnInit {
    */
   public setMetaTags(user: User) {
     if (user.iq != null) {
-      this.titleService.setTitle(this.i18n('IQ {{iq}} {{name}} {{location}}', {
+      this.titleService.setTitle(this.i18n('user:meta:title:IQ {{iq}} {{name}} {{location}}', {
         name: user.name,
         iq: user.iq,
         location: user.location
       }));
     } else {
-      this.titleService.setTitle(this.i18n('{{name}} {{location}}', {
+      this.titleService.setTitle(this.i18n('user:meta:title:{{name}} {{location}}', {
         name: user.name,
         location: user.location
       }));
     }
 
+    const description = this.i18n('user:meta:description:{{name}} {{location}}', {
+      name: user.name,
+      location: user.location
+    });
     const shareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
 
     this.metaService.updateTag({property: 'og:title', content: this.titleService.getTitle()});
-    this.metaService.updateTag({property: 'og:description', content: this.titleService.getTitle()});
+    this.metaService.updateTag({property: 'og:description', content: description});
+    this.metaService.updateTag({name: 'description', content: description});
     this.metaService.updateTag({property: 'og:image', content: shareImage});
     this.metaService.updateTag({property: 'og:url', content: user.url});
   }
