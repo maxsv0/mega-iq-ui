@@ -242,9 +242,9 @@
       <notes>
         <note category="location">src/app/index/index.component.html:53</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>What is IQ score?</source>
-      <target>What is IQ score?</target></segment>
+      <target>IQ-Testergebnis für</target></segment>
     </unit><unit id="5449861807509961063">
       <notes>
         <note category="location">src/app/index/index.component.html:54,55</note>
@@ -662,37 +662,37 @@
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:47</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>The Highest IQ score is</source>
-      <target>The Highest IQ score is</target></segment>
+      <target>Der höchster IQ ist</target></segment>
     </unit><unit id="8507534306786265730">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:48</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ average score is above </source>
-      <target>IQ average score is above </target></segment>
+      <target>IQ-Ergebnis ist oben</target></segment>
     </unit><unit id="3268760062274361987">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:48</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>of all results</source>
-      <target>of all results</target></segment>
+      <target>aller Ergebnisse</target></segment>
     </unit><unit id="2906085448324465187">
       <notes>
         <note category="location">src/app/user/public/public.component.html:24</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ test score for</source>
-      <target>IQ test score for</target></segment>
+      <target>IQ-Testergebnis für</target></segment>
     </unit><unit id="23518581647153834">
       <notes>
         <note category="location">src/app/user/public/public.component.html:24</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>from</source>
-      <target>from</target></segment>
+      <target>von</target></segment>
     </unit><unit id="1214783695473552503">
       <notes>
 
@@ -1389,9 +1389,9 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ Score for</source>
-      <target>IQ Score for</target></segment>
+      <target>IQ Testergebnis</target></segment>
     </unit><unit id="6871688908417068603">
       <notes>
         

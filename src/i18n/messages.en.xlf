@@ -242,9 +242,9 @@
       <notes>
         <note category="location">src/app/index/index.component.html:53</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>What is IQ score?</source>
-      <target>What is IQ score?</target></segment>
+      <target>What is an IQ score?</target></segment>
     </unit><unit id="5449861807509961063">
       <notes>
         <note category="location">src/app/index/index.component.html:54,55</note>
@@ -277,16 +277,16 @@
       <notes>
         <note category="location">src/app/index/index.component.html:70</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>What is highest IQ?</source>
-      <target>What is highest IQ?</target></segment>
+      <target>What is the highest IQ?</target></segment>
     </unit><unit id="906637244187198163">
       <notes>
         <note category="location">src/app/index/index.component.html:71</note>
       </notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Average adult combined IQs associated with real-life accomplishments by various tests.</source>
-      <target>Average adult combined IQs associated with real-life accomplishments by various tests.</target></segment>
+      <target>Average adult combined IQ is associated with real-life accomplishments by various tests.</target></segment>
     </unit><unit id="5372967340771557006">
       <notes>
         <note category="location">src/app/index/index.component.html:74</note>

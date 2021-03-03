@@ -270,149 +270,149 @@
       <notes>
         <note category="location">src/app/index/index.component.html:53</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>What is IQ score?</source>
-      <target>What is IQ score?</target></segment>
+      <target>¿Qué es un coeficiente intelectual?</target></segment>
     </unit><unit id="5449861807509961063">
       <notes>
         <note category="location">src/app/index/index.component.html:54,55</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>An <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b>" dispEnd="&lt;/b> ">intelligence quotient</pc> (IQ) is a total score derived from a set of standardized tests or subtests designed to assess human intelligence.</source>
-      <target>An <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b>" dispEnd="&lt;/b> ">intelligence quotient</pc> (IQ) is a total score derived from a set of standardized tests or subtests designed to assess human intelligence.</target></segment>
+      <target>El <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b>" dispEnd="&lt;/b> ">cociente intellectual/coeficiente intelectual</pc> (CI en forma abreviada; del alemán Intelligenzquotient o IQ) es un estimador de la inteligencia general, resultado de alguno de los test estandarizados diseñados para este fin.</target></segment>
     </unit><unit id="3370931172017325849">
       <notes>
         <note category="location">src/app/index/index.component.html:60</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>What is my average IQ?</source>
-      <target>What is my average IQ?</target></segment>
+      <target>¿Cuál es mi coeficiente intelectual?</target></segment>
     </unit><unit id="4852499818070493860">
       <notes>
         <note category="location">src/app/index/index.component.html:62</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Our Mega-IQ tests would help you to know your highest IQ score.</source>
-      <target>Our Mega-IQ tests would help you to know your highest IQ score.</target></segment>
+      <target>Nuestras pruebas Mega-IQ le ayudarán a conocer su puntaje de IQ más alto.</target></segment>
     </unit><unit id="3258166966782076186">
       <notes>
         <note category="location">src/app/index/index.component.html:63</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Several free IQ tests with different complexity and a different number of questions are available.</source>
-      <target>Several free IQ tests with different complexity and a different number of questions are available.</target></segment>
+      <target>Se encuentran disponibles varias pruebas de CI gratuitas con diferente complejidad y un número diferente de preguntas.</target></segment>
     </unit><unit id="5030438325914520551">
       <notes>
         <note category="location">src/app/index/index.component.html:70</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>What is highest IQ?</source>
-      <target>What is highest IQ?</target></segment>
+      <target>¿Cuál es el IQ más alto?</target></segment>
     </unit><unit id="906637244187198163">
       <notes>
         <note category="location">src/app/index/index.component.html:71</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Average adult combined IQs associated with real-life accomplishments by various tests.</source>
-      <target>Average adult combined IQs associated with real-life accomplishments by various tests.</target></segment>
+      <target>El coeficiente intelectual combinado promedio de un adulto se asocia con los logros de la vida real mediante varias pruebas.</target></segment>
     </unit><unit id="5372967340771557006">
       <notes>
         <note category="location">src/app/index/index.component.html:74</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Accomplishment</source>
-      <target>Accomplishment</target></segment>
+      <target>Logro</target></segment>
     </unit><unit id="3623496420474217899">
       <notes>
         <note category="location">src/app/index/index.component.html:78</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>MDs, JDs, and PhDs</source>
       <target>MDs, JDs, and PhDs</target></segment>
     </unit><unit id="5115874266138932286">
       <notes>
         <note category="location">src/app/index/index.component.html:82</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>College graduates</source>
-      <target>College graduates</target></segment>
+      <target>Graduados universitarios</target></segment>
     </unit><unit id="1488407138253285185">
       <notes>
         <note category="location">src/app/index/index.component.html:86</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>1–3 years of college</source>
-      <target>1–3 years of college</target></segment>
+      <target>1-3 años de universidad</target></segment>
     </unit><unit id="87952014641184031">
       <notes>
         <note category="location">src/app/index/index.component.html:90</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Clerical and sales workers</source>
-      <target>Clerical and sales workers</target></segment>
+      <target>Trabajadores de oficina y ventas</target></segment>
     </unit><unit id="6993729628470465989">
       <notes>
         <note category="location">src/app/index/index.component.html:94</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>High school graduates, skilled workers (e.g., electricians, cabinetmakers)</source>
-      <target>High school graduates, skilled workers (e.g., electricians, cabinetmakers)</target></segment>
+      <target>Graduados de la escuela secundaria, trabajadores calificados (por ejemplo, electricistas, ebanistas)</target></segment>
     </unit><unit id="3712289709331084504">
       <notes>
         <note category="location">src/app/index/index.component.html:98</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Semi-skilled workers (e.g. truck drivers, factory workers)</source>
-      <target>Semi-skilled workers (e.g. truck drivers, factory workers)</target></segment>
+      <target>Trabajadores semicualificados (por ejemplo, conductores de camiones, trabajadores de fábricas)</target></segment>
     </unit><unit id="8145074366700621082">
       <notes>
         <note category="location">src/app/index/index.component.html:102</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Elementary school graduates (completed eighth grade)</source>
-      <target>Elementary school graduates (completed eighth grade)</target></segment>
+      <target>Graduados de la escuela primaria (completaron el octavo grado)</target></segment>
     </unit><unit id="313256967835444679">
       <notes>
         <note category="location">src/app/index/index.component.html:106</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Elementary school dropouts (completed 0–7 years of school)</source>
-      <target>Elementary school dropouts (completed 0–7 years of school)</target></segment>
+      <target>Desertores de la escuela primaria (completaron 0 a 7 años de escuela)</target></segment>
     </unit><unit id="7263437374725006158">
       <notes>
         <note category="location">src/app/index/index.component.html:110</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Have 50/50 chance of reaching high school</source>
-      <target>Have 50/50 chance of reaching high school</target></segment>
+      <target>Tener una probabilidad del 50/50 de llegar a la escuela secundaria.</target></segment>
     </unit><unit id="5451059643917717877">
       <notes>
         <note category="location">src/app/index/index.component.html:117</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>How Mega-IQ tests work?</source>
-      <target>How Mega-IQ tests work?</target></segment>
+      <target>¿Cómo funcionan las pruebas Mega-IQ?</target></segment>
     </unit><unit id="8678474343861978932">
       <notes>
         <note category="location">src/app/index/index.component.html:118,120</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Currently, our database contains <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">268</pc> questions and <pc id="1" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">1608</pc> answers available in <pc id="2" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">4</pc> languages.</source>
-      <target>Currently, our database contains <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">268</pc> questions and <pc id="1" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">1608</pc> answers available in <pc id="2" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">4</pc> languages.</target></segment>
+      <target>Actualmente, nuestra base de datos contiene <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">268</pc> preguntas y <pc id="1" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">1608</pc> respuestas disponibles en <pc id="2" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">4</pc> idiomas.</target></segment>
     </unit><unit id="7347622050350141741">
       <notes>
         <note category="location">src/app/index/index.component.html:121</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>A random set of questions is selected from the questions database every time you start a test.</source>
-      <target>A random set of questions is selected from the questions database every time you start a test.</target></segment>
+      <target>Cada vez que inicia una prueba, se selecciona un conjunto aleatorio de preguntas de la base de datos de preguntas.</target></segment>
     </unit><unit id="6085450464855282138">
       <notes>
         <note category="location">src/app/index/index.component.html:122</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>The highest IQ score for both Mega-IQ and Standard Test IQ is 160.</source>
-      <target>The highest IQ score for both Mega-IQ and Standard Test IQ is 160.</target></segment>
+      <target>El puntaje de CI más alto para Mega-IQ y Standard Test IQ es 160.</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
 
@@ -675,37 +675,37 @@
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:47</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>The Highest IQ score is</source>
-      <target>The Highest IQ score is</target></segment>
+      <target>El puntaje de coeficiente intelectual más alto es</target></segment>
     </unit><unit id="8507534306786265730">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:48</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ average score is above </source>
-      <target>IQ average score is above </target></segment>
+      <target>El cociente intelectual está por encima del</target></segment>
     </unit><unit id="3268760062274361987">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:48</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>of all results</source>
-      <target>of all results</target></segment>
+      <target>de todos los resultados</target></segment>
     </unit><unit id="2906085448324465187">
       <notes>
         <note category="location">src/app/user/public/public.component.html:24</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ test score for</source>
-      <target>IQ test score for</target></segment>
+      <target>Resultado de test de IQ para</target></segment>
     </unit><unit id="23518581647153834">
       <notes>
         <note category="location">src/app/user/public/public.component.html:24</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>from</source>
-      <target>from</target></segment>
+      <target>desde</target></segment>
     </unit><unit id="1214783695473552503">
       <notes>
 
@@ -1405,9 +1405,9 @@
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:14</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>IQ Score for</source>
-      <target>IQ Score for</target></segment>
+      <target>Resultado de coeficiente intellectual para</target></segment>
     </unit><unit id="6871688908417068603">
       <notes>
         
