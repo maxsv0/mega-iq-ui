@@ -3,10 +3,8 @@
   <div class="row">
     <div class="col-12 pb-3">
       <!-- Title -->
-      <h1>
-        <span *ngIf="!user.name" i18n>Anonymous</span><span *ngIf="user.name">{{user.name}}</span>&nbsp;<span
-        i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}} {{test.finishDate | date:'fullDate'}}
-      </h1>
+      <h1><span *ngIf="!user.name" i18n>Anonymous</span><span *ngIf="user.name">{{user.name}}</span>&nbsp;<span
+        i18n>passed</span> {{this.testTypes[this.testTypesKeys[test.type]].name}}</h1>
     </div>
     <div class="col-12">
       <div class="jumbotron">
@@ -21,6 +19,7 @@
         <h4 class="my-3 text-center text-info" *ngIf="this.testResultLevel === 0" i18n>Worth trying again. Better luck next time!</h4>
 
         <div class="lead">
+          <p class="text-right">{{test.finishDate | date:'fullDate'}}</p>
           <div *ngIf="test.info && test.info.questions">
             <span i18n>Total Questions</span>: {{test.info.questions}}
           </div>
