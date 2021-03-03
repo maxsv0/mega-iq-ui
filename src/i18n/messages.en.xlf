@@ -81,14 +81,14 @@
     </unit><unit id="6748946987170626971">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:29</note></notes>
+      <note category="location">src/app/index/index.component.html:29</note><note category="location">src/app/index/index.component.html:65</note></notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
       <target>Start the IQ Test Online</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:40</note></notes>
+      <note category="location">src/app/index/index.component.html:134</note></notes>
       <segment state="translated">
         <source>Mega IQ Ever</source>
       <target>IQ Test Overall</target></segment>
@@ -96,7 +96,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:44</note><note category="location">src/app/index/index.component.html:61</note><note category="location">src/app/results/results.component.html:20</note><note category="location">src/app/users/users.component.html:13</note></notes>
+      <note category="location">src/app/index/index.component.html:138</note><note category="location">src/app/index/index.component.html:155</note><note category="location">src/app/results/results.component.html:20</note><note category="location">src/app/users/users.component.html:13</note></notes>
       <segment state="final">
         <source>User</source>
       <target>User</target></segment>
@@ -196,7 +196,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:62</note><note category="location">src/app/user/register/register.component.html:27</note><note category="location">src/app/user/registeranon/registeranon.component.html:27</note><note category="location">src/app/user/settings/settings.component.html:46</note><note category="location">src/app/users/users.component.html:16</note></notes>
+      <note category="location">src/app/index/index.component.html:156</note><note category="location">src/app/user/register/register.component.html:27</note><note category="location">src/app/user/registeranon/registeranon.component.html:27</note><note category="location">src/app/user/settings/settings.component.html:46</note><note category="location">src/app/users/users.component.html:16</note></notes>
       <segment state="final">
         <source>Age</source>
       <target>Age</target></segment>
@@ -205,7 +205,7 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:63</note><note category="location">src/app/user/register/register.component.html:31</note><note category="location">src/app/user/registeranon/registeranon.component.html:31</note><note category="location">src/app/user/settings/settings.component.html:50</note><note category="location">src/app/users/users.component.html:15</note></notes>
+      <note category="location">src/app/index/index.component.html:157</note><note category="location">src/app/user/register/register.component.html:31</note><note category="location">src/app/user/registeranon/registeranon.component.html:31</note><note category="location">src/app/user/settings/settings.component.html:50</note><note category="location">src/app/users/users.component.html:15</note></notes>
       <segment state="final">
         <source>Location</source>
       <target>Location</target></segment>
@@ -213,35 +213,182 @@
       <notes>
 
 
-      <note category="location">src/app/index/index.component.html:64</note><note category="location">src/app/users/users.component.html:17</note></notes>
+      <note category="location">src/app/index/index.component.html:158</note><note category="location">src/app/users/users.component.html:17</note></notes>
       <segment state="final">
         <source>IQ</source>
       <target>IQ</target></segment>
     </unit><unit id="5263690784228037855">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:45</note></notes>
+      <note category="location">src/app/index/index.component.html:139</note></notes>
       <segment state="final">
         <source>Total Score</source>
       <target>Total Score</target></segment>
     </unit><unit id="1551462023299745992">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:57</note></notes>
+      <note category="location">src/app/index/index.component.html:151</note></notes>
       <segment state="translated">
         <source>Best IQ Today</source>
       <target>Best IQ Test Scores Today</target></segment>
     </unit><unit id="735510670641180511">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:83</note></notes>
+      <note category="location">src/app/index/index.component.html:39</note></notes>
       <segment state="translated">
         <source>Example profile</source>
       <target>Best IQ scores</target></segment>
+    </unit><unit id="8182406625628022386">
+      <notes>
+        <note category="location">src/app/index/index.component.html:53</note>
+      </notes>
+      <segment state="final">
+        <source>What is IQ score?</source>
+      <target>What is IQ score?</target></segment>
+    </unit><unit id="5449861807509961063">
+      <notes>
+        <note category="location">src/app/index/index.component.html:54,55</note>
+      </notes>
+      <segment state="final">
+        <source>An <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b>" dispEnd="&lt;/b> ">intelligence quotient</pc> (IQ) is a total score derived from a set of standardized tests or subtests designed to assess human intelligence.</source>
+      <target>An <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b>" dispEnd="&lt;/b> ">intelligence quotient</pc> (IQ) is a total score derived from a set of standardized tests or subtests designed to assess human intelligence.</target></segment>
+    </unit><unit id="3370931172017325849">
+      <notes>
+        <note category="location">src/app/index/index.component.html:60</note>
+      </notes>
+      <segment state="final">
+        <source>What is my average IQ?</source>
+      <target>What is my average IQ?</target></segment>
+    </unit><unit id="4852499818070493860">
+      <notes>
+        <note category="location">src/app/index/index.component.html:62</note>
+      </notes>
+      <segment state="final">
+        <source>Our Mega-IQ tests would help you to know your highest IQ score.</source>
+      <target>Our Mega-IQ tests would help you to know your highest IQ score.</target></segment>
+    </unit><unit id="3258166966782076186">
+      <notes>
+        <note category="location">src/app/index/index.component.html:63</note>
+      </notes>
+      <segment state="final">
+        <source>Several free IQ tests with different complexity and a different number of questions are available.</source>
+      <target>Several free IQ tests with different complexity and a different number of questions are available.</target></segment>
+    </unit><unit id="5030438325914520551">
+      <notes>
+        <note category="location">src/app/index/index.component.html:70</note>
+      </notes>
+      <segment state="final">
+        <source>What is highest IQ?</source>
+      <target>What is highest IQ?</target></segment>
+    </unit><unit id="906637244187198163">
+      <notes>
+        <note category="location">src/app/index/index.component.html:71</note>
+      </notes>
+      <segment state="final">
+        <source>Average adult combined IQs associated with real-life accomplishments by various tests.</source>
+      <target>Average adult combined IQs associated with real-life accomplishments by various tests.</target></segment>
+    </unit><unit id="5372967340771557006">
+      <notes>
+        <note category="location">src/app/index/index.component.html:74</note>
+      </notes>
+      <segment state="final">
+        <source>Accomplishment</source>
+      <target>Accomplishment</target></segment>
+    </unit><unit id="3623496420474217899">
+      <notes>
+        <note category="location">src/app/index/index.component.html:78</note>
+      </notes>
+      <segment state="final">
+        <source>MDs, JDs, and PhDs</source>
+      <target>MDs, JDs, and PhDs</target></segment>
+    </unit><unit id="5115874266138932286">
+      <notes>
+        <note category="location">src/app/index/index.component.html:82</note>
+      </notes>
+      <segment state="final">
+        <source>College graduates</source>
+      <target>College graduates</target></segment>
+    </unit><unit id="1488407138253285185">
+      <notes>
+        <note category="location">src/app/index/index.component.html:86</note>
+      </notes>
+      <segment state="final">
+        <source>1–3 years of college</source>
+      <target>1–3 years of college</target></segment>
+    </unit><unit id="87952014641184031">
+      <notes>
+        <note category="location">src/app/index/index.component.html:90</note>
+      </notes>
+      <segment state="final">
+        <source>Clerical and sales workers</source>
+      <target>Clerical and sales workers</target></segment>
+    </unit><unit id="6993729628470465989">
+      <notes>
+        <note category="location">src/app/index/index.component.html:94</note>
+      </notes>
+      <segment state="final">
+        <source>High school graduates, skilled workers (e.g., electricians, cabinetmakers)</source>
+      <target>High school graduates, skilled workers (e.g., electricians, cabinetmakers)</target></segment>
+    </unit><unit id="3712289709331084504">
+      <notes>
+        <note category="location">src/app/index/index.component.html:98</note>
+      </notes>
+      <segment state="final">
+        <source>Semi-skilled workers (e.g. truck drivers, factory workers)</source>
+      <target>Semi-skilled workers (e.g. truck drivers, factory workers)</target></segment>
+    </unit><unit id="8145074366700621082">
+      <notes>
+        <note category="location">src/app/index/index.component.html:102</note>
+      </notes>
+      <segment state="final">
+        <source>Elementary school graduates (completed eighth grade)</source>
+      <target>Elementary school graduates (completed eighth grade)</target></segment>
+    </unit><unit id="313256967835444679">
+      <notes>
+        <note category="location">src/app/index/index.component.html:106</note>
+      </notes>
+      <segment state="final">
+        <source>Elementary school dropouts (completed 0–7 years of school)</source>
+      <target>Elementary school dropouts (completed 0–7 years of school)</target></segment>
+    </unit><unit id="7263437374725006158">
+      <notes>
+        <note category="location">src/app/index/index.component.html:110</note>
+      </notes>
+      <segment state="final">
+        <source>Have 50/50 chance of reaching high school</source>
+      <target>Have 50/50 chance of reaching high school</target></segment>
+    </unit><unit id="5451059643917717877">
+      <notes>
+        <note category="location">src/app/index/index.component.html:117</note>
+      </notes>
+      <segment state="final">
+        <source>How Mega-IQ tests work?</source>
+      <target>How Mega-IQ tests work?</target></segment>
+    </unit><unit id="8678474343861978932">
+      <notes>
+        <note category="location">src/app/index/index.component.html:118,120</note>
+      </notes>
+      <segment state="final">
+        <source>Currently, our database contains <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">268</pc> questions and <pc id="1" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">1608</pc> answers available in <pc id="2" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">4</pc> languages.</source>
+      <target>Currently, our database contains <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">268</pc> questions and <pc id="1" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">1608</pc> answers available in <pc id="2" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other" dispStart="&lt;span class=&quot;mx-1 textHighlight&quot;>" dispEnd="&lt;/span> ">4</pc> languages.</target></segment>
+    </unit><unit id="7347622050350141741">
+      <notes>
+        <note category="location">src/app/index/index.component.html:121</note>
+      </notes>
+      <segment state="final">
+        <source>A random set of questions is selected from the questions database every time you start a test.</source>
+      <target>A random set of questions is selected from the questions database every time you start a test.</target></segment>
+    </unit><unit id="6085450464855282138">
+      <notes>
+        <note category="location">src/app/index/index.component.html:122</note>
+      </notes>
+      <segment state="final">
+        <source>The highest IQ score for both Mega-IQ and Standard Test IQ is 160.</source>
+      <target>The highest IQ score for both Mega-IQ and Standard Test IQ is 160.</target></segment>
     </unit><unit id="399495303521601536">
       <notes>
 
-      <note category="location">src/app/index/index.component.html:96</note></notes>
+      <note category="location">src/app/index/index.component.html:179</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
       <target>Our Free IQ Tests Online 2021</target></segment>
@@ -261,8 +408,8 @@
       <target>More about an IQ Test</target></segment>
     </unit><unit id="358462242581945792">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:8</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:7</note></notes>
       <segment state="final">
         <source>Anonymous</source>
       <target>Anonymous</target></segment>
@@ -377,63 +524,63 @@
       <notes>
 
 
-      <note category="location">src/app/iqreview/iq-review.component.html:26</note><note category="location">src/app/results/results.component.html:46</note><note category="location">src/app/user/public/public.component.html:95</note><note category="location">src/app/user/testcard/testcard.component.html:25</note></notes>
+      <note category="location">src/app/iqreview/iq-review.component.html:26</note><note category="location">src/app/results/results.component.html:46</note><note category="location">src/app/user/public/public.component.html:98</note><note category="location">src/app/user/testcard/testcard.component.html:25</note></notes>
       <segment state="final">
         <source>Open Details</source>
       <target>Open Details</target></segment>
     </unit><unit id="6976453063741511743">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:40</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:42</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="final">
         <source>Show Answers</source>
       <target>Show Answers</target></segment>
     </unit><unit id="3323262348032698514">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:142</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:144</note></notes>
       <segment state="final">
         <source>result score for every answer</source>
       <target>result score for every answer</target></segment>
     </unit><unit id="7615187996573244854">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:145</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:147</note></notes>
       <segment state="final">
         <source>Bar height represents questions' complexity.</source>
       <target>Bar height represents questions' complexity.</target></segment>
     </unit><unit id="7552885605336493941">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:106</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:108</note></notes>
       <segment state="final">
         <source>Result score for every answer</source>
       <target>Result score for every answer</target></segment>
     </unit><unit id="8938710631144986960">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:110</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:112</note></notes>
       <segment state="final">
         <source>Question Number</source>
       <target>Question Number</target></segment>
     </unit><unit id="7743177478101846210">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:112</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:114</note></notes>
       <segment state="final">
         <source>Question Complexity</source>
       <target>Question Complexity</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:164</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:166</note></notes>
       <segment state="final">
         <source>Error 404. Test result not found.</source>
       <target>Error 404. Test result not found.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:174</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:176</note></notes>
       <segment state="final">
         <source>One more Mega-iq test?</source>
       <target>One more Mega-iq test?</target></segment>
@@ -466,7 +613,7 @@
 
 
 
-      <note category="location">src/app/results/results.component.html:23</note><note category="location">src/app/user/public/public.component.html:101</note><note category="location">src/app/user/testcard/testcard.component.html:47</note></notes>
+      <note category="location">src/app/results/results.component.html:23</note><note category="location">src/app/user/public/public.component.html:104</note><note category="location">src/app/user/testcard/testcard.component.html:47</note></notes>
       <segment state="final">
         <source>Finished at</source>
       <target>Finished at</target></segment>
@@ -500,7 +647,7 @@
       <notes>
 
 
-      <note category="location">src/app/user/home/home.component.html:72</note><note category="location">src/app/user/public/public.component.html:109</note></notes>
+      <note category="location">src/app/user/home/home.component.html:72</note><note category="location">src/app/user/public/public.component.html:112</note></notes>
       <segment state="final">
         <source>All results were loaded successfully.</source>
       <target>All results were loaded successfully.</target></segment>
@@ -511,10 +658,45 @@
       <segment state="final">
         <source>Unlock your certificate</source>
       <target>Unlock your certificate</target></segment>
+    </unit><unit id="2226125653581994020">
+      <notes>
+        <note category="location">src/app/user/profile/profile.component.html:47</note>
+      </notes>
+      <segment state="final">
+        <source>The Highest IQ score is</source>
+      <target>The Highest IQ score is</target></segment>
+    </unit><unit id="8507534306786265730">
+      <notes>
+        <note category="location">src/app/user/profile/profile.component.html:48</note>
+      </notes>
+      <segment state="final">
+        <source>IQ average score is above </source>
+      <target>IQ average score is above </target></segment>
+    </unit><unit id="3268760062274361987">
+      <notes>
+        <note category="location">src/app/user/profile/profile.component.html:48</note>
+      </notes>
+      <segment state="final">
+        <source>of all results</source>
+      <target>of all results</target></segment>
+    </unit><unit id="2906085448324465187">
+      <notes>
+        <note category="location">src/app/user/public/public.component.html:24</note>
+      </notes>
+      <segment state="final">
+        <source>IQ test score for</source>
+      <target>IQ test score for</target></segment>
+    </unit><unit id="23518581647153834">
+      <notes>
+        <note category="location">src/app/user/public/public.component.html:24</note>
+      </notes>
+      <segment state="final">
+        <source>from</source>
+      <target>from</target></segment>
     </unit><unit id="1214783695473552503">
       <notes>
 
-      <note category="location">src/app/user/public/public.component.html:39</note></notes>
+      <note category="location">src/app/user/public/public.component.html:42</note></notes>
       <segment state="final">
         <source>Error 404. User not found.</source>
       <target>Error 404. User not found.</target></segment>
@@ -988,14 +1170,14 @@
     </unit><unit id="989531434287244974">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:124</note><note category="location">src/app/iqreview/iq-review.component.html:137</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:126</note><note category="location">src/app/iqreview/iq-review.component.html:137</note></notes>
       <segment state="final">
         <source>Incorrect Answer</source>
       <target>Incorrect Answer</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:120</note><note category="location">src/app/iqreview/iq-review.component.html:141</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:122</note><note category="location">src/app/iqreview/iq-review.component.html:141</note></notes>
       <segment state="final">
         <source>Correct Answer</source>
       <target>Correct Answer</target></segment>
@@ -1057,7 +1239,7 @@
     </unit><unit id="180949385590118498">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:52</note><note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:54</note><note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
       <segment state="translated">
         <source>online</source>
       <target>online IQ test</target></segment>
@@ -1163,7 +1345,7 @@
     </unit><unit id="2525230676386818985">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:111</note><note category="location">src/app/results/results.component.html:22</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:113</note><note category="location">src/app/results/results.component.html:22</note></notes>
       <segment state="final">
         <source>Result</source>
       <target>Result</target></segment>
@@ -1192,63 +1374,63 @@
     </unit><unit id="2124672565465036433">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:9</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:8</note></notes>
       <segment state="final">
         <source>passed</source>
       <target>passed</target></segment>
     </unit><unit id="8319686831611559974">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:11</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:13</note></notes>
       <segment state="final">
         <source>The test passed successfully</source>
       <target>The test passed successfully</target></segment>
-    </unit><unit id="4470796495168115736">
-      <notes>
-        
-      <note category="location">src/app/iqresult/iq-result.component.html:12</note></notes>
-      <segment state="final">
-        <source>Score for</source>
-      <target>Score for</target></segment>
-    </unit><unit id="6871688908417068603">
+    </unit><unit id="3281515512378665694">
       <notes>
         <note category="location">src/app/iqresult/iq-result.component.html:14</note>
       </notes>
+      <segment state="final">
+        <source>IQ Score for</source>
+      <target>IQ Score for</target></segment>
+    </unit><unit id="6871688908417068603">
+      <notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:16</note></notes>
       <segment state="translated">
         <source>Applause! Superior IQ result!</source>
       <target>Applause! Superior IQ score!</target></segment>
     </unit><unit id="2703983474644014358">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:15</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:17</note></notes>
       <segment state="translated">
         <source>Congratulations on a superior result! Continue to accelerate your IQ!</source>
       <target>Congratulations on a superior IQ score! Continue to accelerate your intelligence!</target></segment>
     </unit><unit id="3135678070624482001">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:16</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:18</note></notes>
       <segment state="translated">
         <source>Congratulations on an excellent result. Try again to advance your IQ score!</source>
       <target>Congratulations on an excellent result. Try an IQ test again to advance your average IQ score!</target></segment>
     </unit><unit id="2831078440456457008">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:17</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:19</note></notes>
       <segment state="translated">
         <source>Great result. Try again to improve your IQ score!</source>
       <target>Great result. Try to test IQ again to improve your average IQ score!</target></segment>
     </unit><unit id="5123075262364572087">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:18</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:20</note></notes>
       <segment state="translated">
         <source>Great beginning. Worth trying again!</source>
       <target>Great beginning. Worth trying to test IQ again!</target></segment>
     </unit><unit id="1802222405018172640">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:19</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:21</note></notes>
       <segment state="translated">
         <source>Worth trying again. Better luck next time!</source>
       <target>Worth trying to test IQ again. Better luck next time!</target></segment>
@@ -1256,21 +1438,21 @@
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:95</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:97</note></notes>
       <segment state="final">
         <source>IQ Score</source>
       <target>IQ Score</target></segment>
     </unit><unit id="9037223601982900500">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:23</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:25</note></notes>
       <segment state="final">
         <source>Total Questions</source>
       <target>Total Questions</target></segment>
     </unit><unit id="5599997413987082662">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:26</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:28</note></notes>
       <segment state="final">
         <source>Correct Answers</source>
       <target>Correct Answers</target></segment>
@@ -1278,21 +1460,21 @@
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:58</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:60</note></notes>
       <segment state="final">
         <source>Result code</source>
       <target>Result code</target></segment>
     </unit><unit id="1627152575473720569">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:55</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:57</note></notes>
       <segment state="final">
         <source>Permanent IQ result link</source>
       <target>Permanent IQ result link</target></segment>
     </unit><unit id="5879741663972722968">
       <notes>
 
-      <note category="location">src/app/user/public/public.component.html:65</note></notes>
+      <note category="location">src/app/user/public/public.component.html:68</note></notes>
       <segment state="final">
         <source>latest passed iq tests</source>
       <target>latest passed iq tests</target></segment>
