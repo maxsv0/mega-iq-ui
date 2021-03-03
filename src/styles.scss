@@ -258,6 +258,10 @@ body {
   border: 2px solid #eee;
 }
 
+.textHighlight {
+  font-weight: bold;
+  @include text-shadow(4px, 4px, 8px, #94a5b1);
+}
 
 /** User profile card **/
 #iq-user {

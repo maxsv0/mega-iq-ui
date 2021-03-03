@@ -44,7 +44,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         nav: true
       },
       425: {
-        items: 1,
+        items: 2,
         nav: true
       },
       768: {
@@ -53,7 +53,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         loop: false
       },
       1024: {
-        items: 3,
+        items: 4,
         nav: true,
         loop: false
       }

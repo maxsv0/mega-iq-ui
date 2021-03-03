@@ -33,60 +33,143 @@
   </div>
 </section>
 
-<!-- Top iq users tables -->
-<section id="iq-scores" class="container my-5">
-<div class="row">
-  <div class="col-md-4">
-    <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
-    <table class="table">
-      <thead>
-      <tr>
-        <th i18n>User</th>
-        <th i18n>Total Score</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td>{{user.totalScore || '-'}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-8 p-sm-0">
-    <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
-    <table class="table">
-      <thead>
-      <tr>
-        <th i18n>User</th>
-        <th i18n>Age</th>
-        <th i18n>Location</th>
-        <th i18n>IQ</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
-        <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
-        <td>{{user.age || '-'}}</td>
-        <td>{{user.location || '-'}}</td>
-        <td>{{user.iq || '-'}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</section>
-
 <!-- Public users carousel -->
-<section id="user-example" class="container my-5" *ngIf="userExamples">
+<section id="user-example" class="container-fluid my-5 px-4">
   <div class="clearfix mb-5">
     <h2 class="text-center" i18n>Example profile</h2>
   </div>
-  <owl-carousel [options]="carouselOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-    <div *ngFor="let userExample of userExamples">
-      <app-avatar *ngIf="userExample" [user]="userExample"></app-avatar>
+  <owl-carousel *ngIf="userExamples" [options]="carouselOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div *ngFor="let userExample of userExamples" class="px-3">
+      <app-avatar [user]="userExample"></app-avatar>
     </div>
   </owl-carousel>
+</section>
+
+<section id="what-is-iq" class="py-3 bg-light-gradient-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="jumbotron bg-light-gradient p-4">
+          <h2 class="text-center" i18n>What is IQ score?</h2>
+          <p class="mt-4" i18n>An <b>intelligence quotient</b> (IQ) is a total score derived from a set of standardized
+            tests or subtests designed to assess human intelligence.</p>
+          <p class="text-muted text-right">by wikipedia.org</p>
+        </div>
+
+        <div class="jumbotron p-4">
+          <h1 class="text-center" i18n>What is my average IQ?</h1>
+
+          <p class="my-3" i18n>Our Mega-IQ tests would help you to know your highest IQ score.</p>
+          <p class="my-3" i18n>Several free IQ tests with different complexity and a different number of questions are available.</p>
+          <p class="text-center mt-4">
+            <button type="button" routerLink="/iqtest/" class="btn btn-primary btn-lg btn-rounded" i18n>Start The IQ Test</button>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-8 text-center">
+        <h2 i18n>What is highest IQ?</h2>
+        <p class="mt-4" i18n>Average adult combined IQs associated with real-life accomplishments by various tests.</p>
+        <table class="table mx-lg-4">
+          <tr class="text-center">
+            <th i18n>Accomplishment</th>
+            <th width="100">IQ</th>
+          </tr>
+          <tr>
+            <td i18n>MDs, JDs, and PhDs</td>
+            <td class="text-center">125+</td>
+          </tr>
+          <tr>
+            <td i18n>College graduates</td>
+            <td class="text-center">111-125</td>
+          </tr>
+          <tr>
+            <td i18n>1–3 years of college</td>
+            <td class="text-center">100-110</td>
+          </tr>
+          <tr>
+            <td i18n>Clerical and sales workers</td>
+            <td class="text-center">100-105</td>
+          </tr>
+          <tr>
+            <td i18n>High school graduates, skilled workers (e.g., electricians, cabinetmakers)</td>
+            <td class="text-center">95-100</td>
+          </tr>
+          <tr>
+            <td i18n>Semi-skilled workers (e.g. truck drivers, factory workers)</td>
+            <td class="text-center">90-95</td>
+          </tr>
+          <tr>
+            <td i18n>Elementary school graduates (completed eighth grade)</td>
+            <td class="text-center">90</td>
+          </tr>
+          <tr>
+            <td i18n>Elementary school dropouts (completed 0–7 years of school)</td>
+            <td class="text-center">80–85</td>
+          </tr>
+          <tr>
+            <td i18n>Have 50/50 chance of reaching high school</td>
+            <td class="text-center">75</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-10 offset-lg-2 py-3">
+        <div class="jumbotron bg-light-gradient-footer">
+          <h2 class="text-center" i18n>How Mega-IQ tests work?</h2>
+          <p class="lead" i18n>Currently, our database contains <span class="mx-1 textHighlight">268</span> questions
+            and <span class="mx-1 textHighlight">1608</span> answers available in
+            <span class="mx-1 textHighlight">4</span> languages.</p>
+          <p i18n>A random set of questions is selected from the questions database every time you start a test.</p>
+          <h3 i18n>The highest IQ score for both Mega-IQ and Standard Test IQ is 160.</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top iq users tables -->
+<section id="iq-scores" class="py-3 bg-light-gradient">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="text-center mb-3" i18n>Mega IQ Ever</h3>
+        <table class="table">
+          <thead>
+          <tr>
+            <th i18n>User</th>
+            <th i18n>Total Score</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of usersTop" routerLink="{{user.url}}">
+            <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+            <td>{{user.totalScore || '-'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-8 p-sm-0">
+        <h3 class="text-center mb-3" i18n>Best IQ Today</h3>
+        <table class="table">
+          <thead>
+          <tr>
+            <th i18n>User</th>
+            <th i18n>Age</th>
+            <th i18n>Location</th>
+            <th i18n>IQ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of usersList" routerLink="{{user.url}}">
+            <td><img class="img-avatar-small" [defaultImage]="'https://img.mega-iq.com/g/assets/iqloader.gif'" [lazyLoad]="user.pic+'=s60-c'" alt="{{user.name}} IQ {{user.iq}}"></td>
+            <td>{{user.age || '-'}}</td>
+            <td>{{user.location || '-'}}</td>
+            <td>{{user.iq || '-'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- IQ tests collection -->

@@ -16,9 +16,13 @@
   }
 }
 
+#what-is-iq {
+  min-height: 500px;
+}
+
 /* Public users carousel */
 #user-example {
-  overflow-x: hidden;
+  min-height: 500px;
 
   .owl-carousel {
     margin: 0;

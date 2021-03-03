@@ -13,8 +13,8 @@
         </a>
       </div>
       <div class="profile-data px-3 py-4 {{user.background}}">
-        <h3 class="text-white">{{user.name}}</h3>
-        <h4 class="text-white" *ngIf="user.location">{{user.location}}</h4>
+        <div class="text-white lead">{{user.name}}</div>
+        <div class="text-white lead" *ngIf="user.location">{{user.location}}</div>
       </div>
     </div>
   </div>
@@ -42,6 +42,10 @@
         <span>{{user.certificateProgress}}%</span>
       </div>
     </div>
+  </div>
+  <div class="col-12" *ngIf="user && user.iq">
+    <h2><span i18n>The Highest IQ score is</span><span class="ml-2 textHighlight">{{user.iq}}</span></h2>
+    <h3><span i18n>IQ average score is above </span> <span class="mx-2 textHighlight">{{getPercentForPoints()}}</span> <span i18n>of all results</span></h3>
   </div>
 </div>
 

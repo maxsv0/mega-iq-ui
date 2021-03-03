@@ -17,6 +17,12 @@
   -moz-transition: $property $duration $easing;
 }
 
+@mixin text-shadow($left, $top, $radius, $color) {
+  text-shadow:
+    $left $top $radius $color,
+      (-$left) (-$top) $radius #fff;
+}
+
 @mixin box-shadow($left, $top, $radius, $color) {
   box-shadow:
     $left $top $radius $color,
