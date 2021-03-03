@@ -62,6 +62,11 @@
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/flipclock.js",
               "./node_modules/owl.carousel/dist/owl.carousel.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "jquery",
+              "chart.js",
+              "ngx-owl-carousel"
             ]
           },
           "configurations": {
@@ -227,7 +232,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
           }
         },
         "lint": {
