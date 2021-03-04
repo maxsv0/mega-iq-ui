@@ -46,6 +46,7 @@ body {
 
 .img-avatar {
   width: 100%;
+  min-height: 300px;
 }
 
 .img-avatar-small {
@@ -331,11 +332,6 @@ body {
         padding: 10px 15px;
       }
     }
-  }
-
-  .img-avatar {
-    width: 100% !important;
-    height: auto;
   }
 }
 

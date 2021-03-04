@@ -23,7 +23,7 @@ export class UserService {
     private http: HttpClient,
     private state: TransferState,
     @Optional() @Inject(DATA_USERS_TOP) private dataApiUsersTop: ApiResponseUsersTop,
-    @Optional() @Inject(DATA_USERS_LIST) private dataApiUserList: ApiResponseUsersList,
+    @Optional() @Inject(DATA_USERS_LIST) private dataApiUserList: ApiResponseUsersList
   ) {
     // Get variable from TransferState service if it exists.
     // This part is for browser-side

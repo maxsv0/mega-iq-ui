@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService, AuthenticationService, IqTestService, UserService} from '@/_services';
-import {IqTest, TestResult, User} from '@/_models';
+import {ApiResponseTestResultList, IqTest, TestResult, User} from '@/_models';
 import {first} from 'rxjs/operators';
-import {Meta, Title} from '@angular/platform-browser';
+import {Meta, Title, TransferState} from '@angular/platform-browser';
 import {TestTypeEnum} from '@/_models/enum';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
@@ -12,6 +12,7 @@ import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../../environments/app-locale';
+import {STATE_KEY_USER_PUBLIC} from '@/_helpers/tokens';
 
 /**
  * @class PublicComponent
@@ -23,6 +24,8 @@ import {APP_LOCALE_ID} from '../../../environments/app-locale';
   styleUrls: ['./public.component.scss']
 })
 export class PublicComponent implements OnInit {
+  private userPublic: ApiResponseTestResultList;
+
   userId: number;
   user: User;
   userTests: TestResult[] = [];
@@ -50,6 +53,7 @@ export class PublicComponent implements OnInit {
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
     private authenticationService: AuthenticationService,
+    private state: TransferState,
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(DOCUMENT) private document: Document
@@ -72,7 +76,7 @@ export class PublicComponent implements OnInit {
     }
     this.hostName = hostName;
 
-    this.userId = userId;
+    this.userId = Number(userId);
 
     this.isBrowser = isPlatformBrowser(this.platformId);
 
@@ -90,8 +94,15 @@ export class PublicComponent implements OnInit {
       );
     });
 
-    this.isLoadingPage = true;
-    this.loadUserResult();
+    // this is browser instance and it should check for data from transfer state service
+    this.userPublic = this.state.get(STATE_KEY_USER_PUBLIC, null);
+
+    if (this.userPublic && this.userPublic.ok && this.userPublic.user && this.userPublic.user.id === this.userId) {
+      this.processApiResponse(this.userPublic);
+    } else {
+      this.loadUserResult();
+      this.isLoadingPage = true;
+    }
   }
 
   ngOnInit() {
@@ -118,24 +129,17 @@ export class PublicComponent implements OnInit {
       .subscribe(
         apiResponseTestResultList => {
           if (apiResponseTestResultList.ok) {
-            if (apiResponseTestResultList.user) {
-              if (apiResponseTestResultList.user.locale !== APP_LOCALE_ID.toUpperCase() && apiResponseTestResultList.user.homepage) {
-                this.document.location.href = apiResponseTestResultList.user.homepage;
-              } else {
-                this.user = apiResponseTestResultList.user;
+            this.userPublic = apiResponseTestResultList;
 
-                this.setMetaTags(this.user);
-
-                const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
-                this.setCustomShareButtonsConfig(customShareImage, this.titleService.getTitle());
-              }
+            if (!this.isBrowser && this.userTestsPage === 0) {
+              this.state.set(STATE_KEY_USER_PUBLIC, this.userPublic);
             }
 
-            if (apiResponseTestResultList.tests.length < 8) {
-              this.isLastLoaded = true;
+            if (this.isBrowser && this.userPublic.user.locale !== APP_LOCALE_ID.toUpperCase() && this.userPublic.user.homepage) {
+              this.document.location.href = this.userPublic.user.homepage;
             }
 
-            this.userTests = this.userTests.concat(apiResponseTestResultList.tests);
+            this.processApiResponse(this.userPublic);
 
             this.userTestsPage++;
           } else {
@@ -153,7 +157,26 @@ export class PublicComponent implements OnInit {
         });
   }
 
-  /**7
+  processApiResponse(userPublic: ApiResponseTestResultList) {
+    if (userPublic.user) {
+      this.user = userPublic.user;
+
+      this.setMetaTags(this.user);
+
+      const customShareImage = (this.user.certificate !== null) ? this.user.certificate : this.user.pic;
+      this.setCustomShareButtonsConfig(customShareImage, this.titleService.getTitle());
+    }
+
+    if (userPublic.tests) {
+      this.userTests = this.userTests.concat(userPublic.tests);
+
+      if (userPublic.tests.length < 8) {
+        this.isLastLoaded = true;
+      }
+    }
+  }
+
+  /**
    * @function onScrollDown
    * @description Loads more tests on scroll
    */

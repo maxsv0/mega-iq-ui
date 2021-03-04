@@ -2,9 +2,9 @@ import {Component, ElementRef, Inject, PLATFORM_ID, ViewChild} from '@angular/co
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AlertService, AuthenticationService, IqTestService} from '@/_services';
-import {IqTest, TestResult, User} from '@/_models';
+import {ApiResponseTestResult, ApiResponseTestResultList, IqTest, TestResult, User} from '@/_models';
 import {TestStatusEnum, TestTypeEnum} from '@/_models/enum';
-import {Meta, Title} from '@angular/platform-browser';
+import {Meta, Title, TransferState} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from 'ngx-sharebuttons/buttons';
@@ -13,6 +13,7 @@ import {Chart} from 'chart.js';
 import firebase from 'firebase/app';
 import {APP_LOCALE_ID} from '../../environments/app-locale';
 import {ShareButtonsConfig} from 'ngx-sharebuttons';
+import {STATE_KEY_TEST_PUBLIC, STATE_KEY_USER_PUBLIC} from '@/_helpers/tokens';
 
 /**
  * @class IqResultComponent
@@ -24,6 +25,8 @@ import {ShareButtonsConfig} from 'ngx-sharebuttons';
   styleUrls: ['./iq-result.component.scss']
 })
 export class IqResultComponent {
+  private testPublic: ApiResponseTestResult;
+
   @ViewChild('myCanvas') myCanvas: ElementRef;
   @ViewChild('myCanvasAnswers') myCanvasAnswers: ElementRef;
   public ctx: CanvasRenderingContext2D;
@@ -58,6 +61,7 @@ export class IqResultComponent {
     private httpClientModule: HttpClientModule,
     private shareButtonsModule: ShareButtonsModule,
     private authenticationService: AuthenticationService,
+    private state: TransferState,
     private i18n: I18n,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -93,91 +97,107 @@ export class IqResultComponent {
 
     this.testCode = this.route.snapshot.params['testCode'];
 
-    this.isLoading = true;
+    // this is browser instance and it should check for data from transf er state service
+    this.testPublic = this.state.get(STATE_KEY_TEST_PUBLIC, null);
+    if (this.testPublic) {
+      this.processApiResponse(this.testPublic);
+    } else {
+      this.isLoading = true;
 
-    /** Get a selected test by test code **/
-    this.iqTestService.getByCode(this.testCode)
-      .pipe(first())
-      .subscribe(
-        apiResponseTestResult => {
-          if (apiResponseTestResult.ok) {
-            if (apiResponseTestResult.test.status === TestStatusEnum.ACTIVE) {
-              this.router.navigate(['/classroom/' + apiResponseTestResult.test.code]);
+      /** Get a selected test by test code **/
+      this.iqTestService.getByCode(this.testCode)
+        .pipe(first())
+        .subscribe(
+          apiResponseTestResult => {
+            if (apiResponseTestResult.ok) {
+              this.testPublic = apiResponseTestResult;
+
+              if (!this.isBrowser) {
+                this.state.set(STATE_KEY_TEST_PUBLIC, this.testPublic);
+              }
+
+              this.processApiResponse(this.testPublic);
             } else {
-              this.test = apiResponseTestResult.test;
-              this.user = apiResponseTestResult.user;
-              this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
-
-              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
-                if (this.test.points > 155) {
-                  this.testResultLevel = 5;
-                } else if (this.test.points >= 150) {
-                  this.testResultLevel = 4;
-                } else if (this.test.points >= 140) {
-                  this.testResultLevel = 3;
-                } else if (this.test.points >= 120) {
-                  this.testResultLevel = 2;
-                } else if (this.test.points >= 100) {
-                  this.testResultLevel = 1;
-                }
-              } else {
-                const testQuestions = this.testTypes[this.testTypesKeys[this.test.type]].questions;
-                const testResult = this.test.points / testQuestions;
-
-                if (testResult > 0.95) {
-                  this.testResultLevel = 5;
-                } else if (testResult >= 0.9) {
-                  this.testResultLevel = 4;
-                } else if (testResult >= 0.8) {
-                  this.testResultLevel = 3;
-                } else if (testResult >= 0.7) {
-                  this.testResultLevel = 2;
-                } else if (testResult >= 0.5) {
-                  this.testResultLevel = 1;
-                }
-              }
-
-              const finishDate = this.datepipe.transform(this.test.finishDate, 'MMM d, y, h:mm:ss a');
-              this.setMetaTags(
-                this.test.points,
-                finishDate,
-                this.test.type);
-
-              this.setCustomShareButtonsConfig(this.titleService.getTitle());
-
-              let showIndex = 0;
-              this.testTypesToShow = this.testTypes.filter(t => t.type === this.test.type);
-              this.testTypesToShow.push(...this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 1));
-
-              /** Draw chart js canvas **/
-              if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
-                // This is to fix ERROR Error: NotYetImplemented
-                if (this.isBrowser) {
-                  setTimeout(() => {
-                    this.drawResultGraph();
-                  }, 500);
-                }
-              }
-
-              // This is to fix ERROR Error: NotYetImplemented
-              if (this.isBrowser) {
-                setTimeout(() => {
-                  this.drawAnswersGraph();
-                }, 1000);
-              }
+              this.alertService.error(apiResponseTestResult.msg);
             }
-          } else {
-            this.alertService.error(apiResponseTestResult.msg);
-          }
-          this.isLoading = false;
-        },
-        error => {
-          this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-          this.isLoading = false;
-          this.testNotFound = true;
+            this.isLoading = false;
+          },
+          error => {
+            this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
+            this.isLoading = false;
+            this.testNotFound = true;
 
-          this.titleService.setTitle(this.i18n('Error 404. Test result not found.'));
-        });
+            this.titleService.setTitle(this.i18n('Error 404. Test result not found.'));
+          });
+    }
+  }
+
+  processApiResponse(testPublic: ApiResponseTestResult) {
+    if (testPublic.test.status === TestStatusEnum.ACTIVE) {
+      this.router.navigate(['/classroom/' + testPublic.test.code]);
+    } else {
+      this.test = testPublic.test;
+      this.user = testPublic.user;
+      this.testQuestionsCount = this.testTypes[this.testTypesKeys[this.test.type]].questions;
+
+      if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+        if (this.test.points > 155) {
+          this.testResultLevel = 5;
+        } else if (this.test.points >= 150) {
+          this.testResultLevel = 4;
+        } else if (this.test.points >= 140) {
+          this.testResultLevel = 3;
+        } else if (this.test.points >= 120) {
+          this.testResultLevel = 2;
+        } else if (this.test.points >= 100) {
+          this.testResultLevel = 1;
+        }
+      } else {
+        const testQuestions = this.testTypes[this.testTypesKeys[this.test.type]].questions;
+        const testResult = this.test.points / testQuestions;
+
+        if (testResult > 0.95) {
+          this.testResultLevel = 5;
+        } else if (testResult >= 0.9) {
+          this.testResultLevel = 4;
+        } else if (testResult >= 0.8) {
+          this.testResultLevel = 3;
+        } else if (testResult >= 0.7) {
+          this.testResultLevel = 2;
+        } else if (testResult >= 0.5) {
+          this.testResultLevel = 1;
+        }
+      }
+
+      const finishDate = this.datepipe.transform(this.test.finishDate, 'MMM d, y, h:mm:ss a');
+      this.setMetaTags(
+        this.test.points,
+        finishDate,
+        this.test.type);
+
+      this.setCustomShareButtonsConfig(this.titleService.getTitle());
+
+      let showIndex = 0;
+      this.testTypesToShow = this.testTypes.filter(t => t.type === this.test.type);
+      this.testTypesToShow.push(...this.testTypes.filter(t => t.type !== this.test.type && showIndex++ < 1));
+
+      /** Draw chart js canvas **/
+      if (this.test.type === TestTypeEnum.MEGA_IQ || this.test.type === TestTypeEnum.STANDARD_IQ) {
+        // This is to fix ERROR Error: NotYetImplemented
+        if (this.isBrowser) {
+          setTimeout(() => {
+            this.drawResultGraph();
+          }, 500);
+        }
+      }
+
+      // This is to fix ERROR Error: NotYetImplemented
+      if (this.isBrowser) {
+        setTimeout(() => {
+          this.drawAnswersGraph();
+        }, 1000);
+      }
+    }
   }
 
   /**

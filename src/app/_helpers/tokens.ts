@@ -12,5 +12,8 @@ export const STATE_KEY_TESTS = makeStateKey('tests');
 export const STATE_KEY_USERS_TOP = makeStateKey('usersTop');
 export const STATE_KEY_TEST_RESULT = makeStateKey('listLatest');
 export const STATE_KEY_USERS_LIST = makeStateKey('usersList');
+export const STATE_KEY_USER_PUBLIC = makeStateKey('userPublic');
+export const STATE_KEY_TEST_PUBLIC = makeStateKey('testPublic');
+
 
 
