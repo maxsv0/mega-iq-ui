@@ -22,6 +22,7 @@
 
 /* Public users carousel */
 #user-example {
+  overflow-x: hidden;
   min-height: 500px;
 
   .owl-carousel {
