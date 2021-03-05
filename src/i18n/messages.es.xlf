@@ -968,7 +968,7 @@
       </notes>
       <segment state="translated">
         <source>index:meta:title</source>
-      <target>Mega-IQ gratuita IQ test - coeficiente intelectual test</target></segment>
+      <target>IQ coeficiente intelectual test ci Mega-IQ</target></segment>
     </unit><unit id="8844758158369316633">
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>

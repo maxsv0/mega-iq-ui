@@ -14,7 +14,7 @@
       <note category="location">src/app/app.component.html:19</note></notes>
       <segment state="translated">
         <source>Start IQ Test</source>
-      <target>Пройти тест на iq</target></segment>
+      <target>Пройти тест на IQ</target></segment>
     </unit>
     <unit id="3242997623282735515">
       <notes>
@@ -77,7 +77,7 @@
       <note category="location">src/app/index/index.component.html:21</note></notes>
       <segment state="translated">
         <source>Join the Mega IQ now! IQ Tests Passed</source>
-      <target>IQ тест - это онлайн упражнение для мозга</target></segment>
+      <target>IQ тест - это онлайн упражнение для мозга бесплатно</target></segment>
     </unit><unit id="6748946987170626971">
       <notes>
 
@@ -237,7 +237,7 @@
       <note category="location">src/app/index/index.component.html:39</note></notes>
       <segment state="translated">
         <source>Example profile</source>
-      <target>Соревнуйся с теми кто смог пройти бесплатный онлайн тест на iq</target></segment>
+      <target>Тест на IQ онлайн бесплатно</target></segment>
     </unit><unit id="8182406625628022386">
       <notes>
         <note category="location">src/app/index/index.component.html:53</note>
@@ -258,7 +258,7 @@
       </notes>
       <segment state="translated">
         <source>What is my average IQ?</source>
-      <target>Какой мой уровень IQ?</target></segment>
+      <target>Как проверить мой IQ?</target></segment>
     </unit><unit id="4852499818070493860">
       <notes>
         <note category="location">src/app/index/index.component.html:62</note>
@@ -391,7 +391,7 @@
       <note category="location">src/app/index/index.component.html:179</note></notes>
       <segment state="translated">
         <source>Mega-iq tests</source>
-      <target>Мега-Айкю тесты на iq 2021</target></segment>
+      <target>Тесты на IQ 2021 от Мега-Айкю</target></segment>
     </unit><unit id="5162686434580248853">
       <notes>
 
@@ -953,7 +953,7 @@
       </notes>
       <segment state="translated">
         <source>index:meta:title</source>
-      <target>Mega-IQ тест на IQ</target></segment>
+      <target>IQ тест бесплатно онлайн Mega-IQ</target></segment>
     </unit><unit id="8844758158369316633">
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>

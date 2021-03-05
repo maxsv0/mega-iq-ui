@@ -953,7 +953,7 @@
       </notes>
       <segment state="translated">
         <source>index:meta:title</source>
-      <target>Mega-IQ online IQ test</target></segment>
+      <target>IQ test online Mega-IQ Deutschland</target></segment>
     </unit><unit id="8844758158369316633">
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>

@@ -12,9 +12,9 @@
       <notes>
 
       <note category="location">src/app/app.component.html:19</note></notes>
-      <segment state="final">
+      <segment state="translated">
         <source>Start IQ Test</source>
-      <target>Start IQ Test</target></segment>
+      <target>Free IQ Test</target></segment>
     </unit>
     <unit id="3242997623282735515">
       <notes>
@@ -22,14 +22,14 @@
       <note category="location">src/app/app.component.html:30</note></notes>
       <segment state="translated">
         <source>Best Results</source>
-      <target>Latest IQ test scores</target></segment>
+      <target>IQ test scores</target></segment>
     </unit><unit id="2864338553126737462">
       <notes>
 
       <note category="location">src/app/app.component.html:33</note></notes>
       <segment state="translated">
         <source>Best Users</source>
-      <target>Users with the highest IQ</target></segment>
+      <target>Highest IQ Users</target></segment>
     </unit>
 
     <unit id="7028204981963450021">
@@ -84,7 +84,7 @@
       <note category="location">src/app/index/index.component.html:29</note><note category="location">src/app/index/index.component.html:65</note></notes>
       <segment state="translated">
         <source>Start The IQ Test</source>
-      <target>Start the IQ Test Online</target></segment>
+      <target>Free Test IQ Online</target></segment>
     </unit><unit id="9003106289724138956">
       <notes>
 
@@ -237,7 +237,7 @@
       <note category="location">src/app/index/index.component.html:39</note></notes>
       <segment state="translated">
         <source>Example profile</source>
-      <target>Best IQ scores</target></segment>
+      <target>Free IQ Test Online</target></segment>
     </unit><unit id="8182406625628022386">
       <notes>
         <note category="location">src/app/index/index.component.html:53</note>
@@ -953,7 +953,7 @@
       </notes>
       <segment state="translated">
         <source>index:meta:title</source>
-      <target>Mega-IQ Test IQ</target></segment>
+      <target>IQ Test Free Online Mega-IQ</target></segment>
     </unit><unit id="8844758158369316633">
       <notes>
         <note category="location">src/app/index/index.component.ts:1</note>
