@@ -135,7 +135,7 @@ export class PublicComponent implements OnInit {
               this.state.set(STATE_KEY_USER_PUBLIC, this.userPublic);
             }
 
-            if (this.isBrowser && this.userPublic.user.locale !== APP_LOCALE_ID.toUpperCase() && this.userPublic.user.homepage) {
+            if (this.userPublic.user.locale !== APP_LOCALE_ID.toUpperCase() && this.userPublic.user.homepage) {
               this.document.location.href = this.userPublic.user.homepage;
             }
 
