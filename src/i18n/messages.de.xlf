@@ -409,7 +409,7 @@
     </unit><unit id="358462242581945792">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:7</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:6</note></notes>
       <segment state="translated">
         <source>Anonymous</source>
       <target>Anonym</target></segment>
@@ -531,56 +531,56 @@
     </unit><unit id="6976453063741511743">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:42</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:41</note><note category="location">src/app/user/testcard/testcard.component.html:32</note></notes>
       <segment state="translated">
         <source>Show Answers</source>
       <target>Antworten anzeigen</target></segment>
     </unit><unit id="3323262348032698514">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:144</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:143</note></notes>
       <segment state="translated">
         <source>result score for every answer</source>
       <target>Ergebnis für jede Antwort</target></segment>
     </unit><unit id="7615187996573244854">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:147</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:146</note></notes>
       <segment state="translated">
         <source>Bar height represents questions' complexity.</source>
       <target>Die Balkenhöhe repräsentiert die Komplexität der Fragen.</target></segment>
     </unit><unit id="7552885605336493941">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:108</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:107</note></notes>
       <segment state="translated">
         <source>Result score for every answer</source>
       <target>Ergebnis für jede Antwort</target></segment>
     </unit><unit id="8938710631144986960">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:112</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:111</note></notes>
       <segment state="translated">
         <source>Question Number</source>
       <target>Nummer der Frage</target></segment>
     </unit><unit id="7743177478101846210">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:114</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:113</note></notes>
       <segment state="translated">
         <source>Question Complexity</source>
       <target>Frage Komplexität</target></segment>
     </unit><unit id="7317992942718656921">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:166</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:165</note></notes>
       <segment state="translated">
         <source>Error 404. Test result not found.</source>
       <target>Fehler 404. Testergebnis wurde nicht gefunden.</target></segment>
     </unit><unit id="6460615541801374815">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:176</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:175</note></notes>
       <segment state="translated">
         <source>One more Mega-iq test?</source>
       <target>Noch ein Mega-IQ-Test?</target></segment>
@@ -700,6 +700,13 @@
       <segment state="translated">
         <source>Error 404. User not found.</source>
       <target>Fehler 404. Benutzer wurde nicht gefunden.</target></segment>
+    </unit><unit id="7044921919715315752">
+      <notes>
+        <note category="location">src/app/user/public/public.component.html:68</note>
+      </notes>
+      <segment state="translated">
+        <source>Test IQ result score</source>
+      <target>IQ Test Ergebnis Punktzahl</target></segment>
     </unit>
 
     <unit id="3649366019356514608">
@@ -1170,14 +1177,14 @@
     </unit><unit id="989531434287244974">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:126</note><note category="location">src/app/iqreview/iq-review.component.html:137</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:125</note><note category="location">src/app/iqreview/iq-review.component.html:137</note></notes>
       <segment state="translated">
         <source>Incorrect Answer</source>
       <target>Falsche Antwort</target></segment>
     </unit><unit id="4511078976932448193">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:122</note><note category="location">src/app/iqreview/iq-review.component.html:141</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:121</note><note category="location">src/app/iqreview/iq-review.component.html:141</note></notes>
       <segment state="translated">
         <source>Correct Answer</source>
       <target>Korrekte Antwort</target></segment>
@@ -1239,7 +1246,7 @@
     </unit><unit id="180949385590118498">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:54</note><note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:53</note><note category="location">src/app/iqtest/iq-test.component.html:51</note></notes>
       <segment state="translated">
         <source>online</source>
       <target>online</target></segment>
@@ -1345,7 +1352,7 @@
     </unit><unit id="2525230676386818985">
       <notes>
 
-      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:113</note><note category="location">src/app/results/results.component.html:22</note></notes>
+      <note category="location">src/app/classroom/classroom.component.html:18</note><note category="location">src/app/iqresult/iq-result.component.html:112</note><note category="location">src/app/results/results.component.html:22</note></notes>
       <segment state="translated">
         <source>Result</source>
       <target>Ergebnis</target></segment>
@@ -1374,63 +1381,63 @@
     </unit><unit id="2124672565465036433">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:8</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:7</note></notes>
       <segment state="translated">
         <source>passed</source>
       <target>bestanden</target></segment>
     </unit><unit id="8319686831611559974">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:13</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:11</note></notes>
       <segment state="translated">
         <source>The test passed successfully</source>
       <target>Der Test wurde erfolgreich bestanden</target></segment>
     </unit><unit id="3281515512378665694">
       <notes>
-        <note category="location">src/app/iqresult/iq-result.component.html:14</note>
-      </notes>
+        
+      <note category="location">src/app/iqresult/iq-result.component.html:12</note></notes>
       <segment state="translated">
         <source>IQ Score for</source>
       <target>IQ Testergebnis</target></segment>
     </unit><unit id="6871688908417068603">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:16</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:14</note></notes>
       <segment state="translated">
         <source>Applause! Superior IQ result!</source>
       <target>Beifall! Überlegenes IQ-Ergebnis!</target></segment>
     </unit><unit id="2703983474644014358">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:17</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:15</note></notes>
       <segment state="translated">
         <source>Congratulations on a superior result! Continue to accelerate your IQ!</source>
       <target>Herzlichen Glückwunsch zu einem überlegenen Ergebnis! Beschleunigen Sie Ihren IQ weiter!</target></segment>
     </unit><unit id="3135678070624482001">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:18</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:16</note></notes>
       <segment state="translated">
         <source>Congratulations on an excellent result. Try again to advance your IQ score!</source>
       <target>Herzlichen Glückwunsch zu einem hervorragenden Ergebnis. Versuchen Sie erneut, Ihren IQ-Wert zu verbessern!</target></segment>
     </unit><unit id="2831078440456457008">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:19</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:17</note></notes>
       <segment state="translated">
         <source>Great result. Try again to improve your IQ score!</source>
       <target>Tolles Ergebnis. Versuchen Sie erneut, Ihren IQ-Wert zu verbessern!</target></segment>
     </unit><unit id="5123075262364572087">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:20</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:18</note></notes>
       <segment state="translated">
         <source>Great beginning. Worth trying again!</source>
       <target>Toller Anfang. Es lohnt sich noch einmal zu versuchen!</target></segment>
     </unit><unit id="1802222405018172640">
       <notes>
         
-      <note category="location">src/app/iqresult/iq-result.component.html:21</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:19</note></notes>
       <segment state="translated">
         <source>Worth trying again. Better luck next time!</source>
       <target>Es lohnt sich, es noch einmal zu versuchen. Viel Glück beim nächsten Mal!</target></segment>
@@ -1438,21 +1445,21 @@
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:97</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:96</note></notes>
       <segment state="translated">
         <source>IQ Score</source>
       <target>IQ Ergebnis</target></segment>
     </unit><unit id="9037223601982900500">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:25</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:24</note></notes>
       <segment state="translated">
         <source>Total Questions</source>
       <target>Gesamtergebnis</target></segment>
     </unit><unit id="5599997413987082662">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:28</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:27</note></notes>
       <segment state="translated">
         <source>Correct Answers</source>
       <target>Korrekte Antwort</target></segment>
@@ -1460,24 +1467,17 @@
       <notes>
 
 
-      <note category="location">src/app/iqresult/iq-result.component.html:60</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:59</note></notes>
       <segment state="translated">
         <source>Result code</source>
       <target>Ergebnis code</target></segment>
     </unit><unit id="1627152575473720569">
       <notes>
 
-      <note category="location">src/app/iqresult/iq-result.component.html:57</note></notes>
+      <note category="location">src/app/iqresult/iq-result.component.html:56</note></notes>
       <segment state="translated">
         <source>Permanent IQ result link</source>
       <target>Permanenter Ergebnislink IQ</target></segment>
-    </unit><unit id="5879741663972722968">
-      <notes>
-
-      <note category="location">src/app/user/public/public.component.html:68</note></notes>
-      <segment state="translated">
-        <source>latest passed iq tests</source>
-      <target>letzte IQ Tests geschafft</target></segment>
     </unit>
   </file>
 </xliff>
