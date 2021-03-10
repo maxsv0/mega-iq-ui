@@ -1102,14 +1102,14 @@
       </notes>
       <segment state="translated">
         <source>user:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
-      <target>IQ тесты для <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
+      <target>IQ тест <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
     </unit><unit id="3817114280141339948">
       <notes>
         <note category="location">src/app/user/public/public.component.ts:1</note>
       </notes>
       <segment state="translated">
         <source>user:meta:description:<ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
-      <target>IQ тесты для <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/>. Уровень IQ</target></segment>
+      <target>IQ тест <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/>. Уровень IQ</target></segment>
     </unit><unit id="4596284747196642156">
       <notes>
         <note category="location">src/app/user/rating/rating.component.ts:1</note>
@@ -1394,7 +1394,7 @@
       <target>Тест пройден успешно</target></segment>
     </unit><unit id="3281515512378665694">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:12</note></notes>
       <segment state="translated">
         <source>IQ Score for</source>

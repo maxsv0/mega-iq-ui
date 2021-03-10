@@ -408,7 +408,7 @@
       <target>More about an IQ Test</target></segment>
     </unit><unit id="358462242581945792">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:6</note></notes>
       <segment state="final">
         <source>Anonymous</source>
@@ -1102,14 +1102,14 @@
       </notes>
       <segment state="translated">
         <source>user:meta:title:<ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
-      <target>Tests IQ for <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
+      <target>Test IQ for <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></target></segment>
     </unit><unit id="3817114280141339948">
       <notes>
         <note category="location">src/app/user/public/public.component.ts:1</note>
       </notes>
       <segment state="translated">
         <source>user:meta:description:<ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/></source>
-      <target>Tests IQ for <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/>. IQ score</target></segment>
+      <target>Test IQ for <ph id="0" equiv="INTERPOLATION" disp="{{name}}"/> <ph id="1" equiv="INTERPOLATION_1" disp="{{location}}"/>. IQ score</target></segment>
     </unit><unit id="4596284747196642156">
       <notes>
         <note category="location">src/app/user/rating/rating.component.ts:1</note>
@@ -1387,56 +1387,56 @@
       <target>passed</target></segment>
     </unit><unit id="8319686831611559974">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:11</note></notes>
       <segment state="final">
         <source>The test passed successfully</source>
       <target>The test passed successfully</target></segment>
     </unit><unit id="3281515512378665694">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:12</note></notes>
       <segment state="final">
         <source>IQ Score for</source>
       <target>IQ Score for</target></segment>
     </unit><unit id="6871688908417068603">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:14</note></notes>
       <segment state="translated">
         <source>Applause! Superior IQ result!</source>
       <target>Applause! Superior IQ score!</target></segment>
     </unit><unit id="2703983474644014358">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:15</note></notes>
       <segment state="translated">
         <source>Congratulations on a superior result! Continue to accelerate your IQ!</source>
       <target>Congratulations on a superior IQ score! Continue to accelerate your intelligence!</target></segment>
     </unit><unit id="3135678070624482001">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:16</note></notes>
       <segment state="translated">
         <source>Congratulations on an excellent result. Try again to advance your IQ score!</source>
       <target>Congratulations on an excellent result. Try an IQ test again to advance your average IQ score!</target></segment>
     </unit><unit id="2831078440456457008">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:17</note></notes>
       <segment state="translated">
         <source>Great result. Try again to improve your IQ score!</source>
       <target>Great result. Try to test IQ again to improve your average IQ score!</target></segment>
     </unit><unit id="5123075262364572087">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:18</note></notes>
       <segment state="translated">
         <source>Great beginning. Worth trying again!</source>
       <target>Great beginning. Worth trying to test IQ again!</target></segment>
     </unit><unit id="1802222405018172640">
       <notes>
-        
+
       <note category="location">src/app/iqresult/iq-result.component.html:19</note></notes>
       <segment state="translated">
         <source>Worth trying again. Better luck next time!</source>
