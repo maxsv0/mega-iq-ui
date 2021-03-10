@@ -135,10 +135,6 @@ export class PublicComponent implements OnInit {
               this.state.set(STATE_KEY_USER_PUBLIC, this.userPublic);
             }
 
-            if (this.userPublic.user.locale !== APP_LOCALE_ID.toUpperCase() && this.userPublic.user.homepage) {
-              this.document.location.href = this.userPublic.user.homepage;
-            }
-
             this.processApiResponse(this.userPublic);
 
             this.userTestsPage++;
@@ -158,6 +154,10 @@ export class PublicComponent implements OnInit {
   }
 
   processApiResponse(userPublic: ApiResponseTestResultList) {
+    if (userPublic.user && userPublic.user.locale !== APP_LOCALE_ID.toUpperCase() && userPublic.user.homepage) {
+      this.document.location.href = userPublic.user.homepage;
+    }
+
     if (userPublic.user) {
       this.user = userPublic.user;
 
