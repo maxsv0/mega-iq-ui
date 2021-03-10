@@ -657,7 +657,7 @@
       <note category="location">src/app/user/profile/profile.component.html:37</note></notes>
       <segment state="translated">
         <source>Unlock your certificate</source>
-      <target>Разблокируйте свой сертификат</target></segment>
+      <target>Уровень IQ вычисляется. Пройдите любой тест на IQ, чтобы выявить наивысший IQ и получить сертификат.</target></segment>
     </unit><unit id="2226125653581994020">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:47</note>

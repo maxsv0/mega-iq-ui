@@ -670,7 +670,7 @@
       <note category="location">src/app/user/profile/profile.component.html:37</note></notes>
       <segment state="translated">
         <source>Unlock your certificate</source>
-      <target>Desbloquea tu certificado</target></segment>
+      <target>Complete cualquier prueba de coeficiente intelectual para revelar el coeficiente intelectual más alto y obtener el certificado.</target></segment>
     </unit><unit id="2226125653581994020">
       <notes>
         <note category="location">src/app/user/profile/profile.component.html:47</note>
