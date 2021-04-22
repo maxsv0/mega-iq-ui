@@ -10,5 +10,8 @@ export const environment = {
     projectId: 'megaiq637',
     storageBucket: 'megaiq637.appspot.com',
     messagingSenderId: '589199945075'
+  }, adsense: {
+    adClient: 'ca-pub-3157107602259905',
+    adSlot: 2448668742
   }
 };
