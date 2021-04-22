@@ -71,16 +71,20 @@ export class AppComponent {
    * @function loadIqTest
    * @description Loads alls tests
    */
-  async loadIqTest() {
-    this.loading = true;
-    try {
-      await this.iqTestService.getIqTest().subscribe(tests => {
-        this.testTypes = tests;
-      });
+  loadIqTest() {
+    this.iqTestService.getIqTest().subscribe(tests => {
+      this.testTypes = tests;
       this.loading = false;
-    } catch (err) {
-      this.loading = false;
-    }
+    });
+  }
+
+  /**
+   * @function logout
+   * @description Logs out current user
+   */
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
 

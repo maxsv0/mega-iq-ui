@@ -8,7 +8,7 @@
                 [ngClass]="{ 'badge-success': activeTest.status === testStatus.FINISHED, 'badge-primary': activeTest.status === testStatus.ACTIVE, 'badge-secondary': activeTest.status === testStatus.EXPIRED}">{{activeTest.status}}</span>
         </h4>
         <div class="text-muted test-progress mb-2">
-          <p i18n class="mb-1">Current test progress</p>
+          <p i18n class="mb-1">Percent complete: {{activeTest.progress}}%</p>
           <progress class="w-100" value="{{activeTest.progress}}" max="100" role="progressbar"></progress>
         </div>
         <p>
@@ -26,12 +26,10 @@
             {{activeTest.finishDate | date:'medium'}}
           </h4>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-progress position-absolute" [ngStyle]="{'width' : remainingTimeBar + '%'}"
-             [ngClass]="{'card-progress-ok' : remainingTimeBar <= 70, 'card-progress-info' : remainingTimeBar > 70 && remainingTimeBar < 90, 'card-progress-danger' : remainingTimeBar >= 90}"></div>
-        <div class="card-body text-center bg-white">
-          <span i18n>Time remaining:</span> {{ remainingTime | date:'mm:ss' }}
+        <div class="my-2 p-2 bg-white w-100 text-center" id="test-info-time">
+          <div [ngClass]="{'text-warning' : remainingTimeBar > 70 && remainingTimeBar < 90, 'text-danger' : remainingTimeBar >= 90}">
+            Time remaining: {{ remainingTime | date:'HH:mm:ss':'+0000' }}
+          </div>
         </div>
       </div>
     </div>
@@ -69,25 +67,24 @@
     <span class="text-muted mr-2"><span
       i18n>Question</span>&nbsp;#{{activeQuestionId}}</span> {{activeQuestion.title}}
   </div>
+
+  <div *ngIf="activeTest && loading" class="col-lg-8 offset-lg-2 text-center">
+    <div class="position-absolute w-75">
+      <div class="position-relative py-3 px-5 answer-submit-loader">
+        <span class="submit-answer position-relative text-muted" i18n>Please wait...</span>
+        <span class="actn-loader text-muted"></span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container-fluid pt-1" *ngIf="activeTest">
   <div class="row">
 
     <div class="col-md-6 text-center">
-      <div class="position-absolute" *ngIf="activeTest.status === testStatus.ACTIVE">
-        <div class="position-relative py-3 px-5 answer-submit-loader" *ngIf="loading">
-        <span class="submit-answer position-relative">
-        <span class="text-muted" i18n>Submitting your answer, please wait</span>
-        <span class="actn-loader text-muted"></span>
-        </span>
-        </div>
-      </div>
-
       <!-- Shows active question -->
       <img class="w-100" *ngIf="!updating" src="{{activeQuestion.pic}}" srcset="{{activeQuestion.pic2x}} 2x">
       <div *ngIf="updating" class="page-loader position-relative mt-6"></div>
-
     </div>
     <div class="col-md-6">
       <!-- Possible answers set -->
@@ -124,13 +121,11 @@
         <button class="btn btn-outline-primary m-2 p-2" (click)="setQuestion(activeQuestionIdPrev)"
                 [disabled]="updating || activeTestCompleted || activeQuestionId <= 1">
           <fa-icon [icon]="['fas', 'chevron-left']" class="mr-1"></fa-icon>
-          <span i18n>Previous Question</span>
         </button>
       </div>
       <div class="col-sm-6 col-6 px-0 text-right">
         <button class="btn btn-outline-primary m-2 p-2" (click)="setQuestion(activeQuestionIdNext)"
                 [disabled]="updating || activeTestCompleted || activeQuestionId === activeTest.questionSet.length">
-          <span i18n>Next Question</span>
           <fa-icon [icon]="['fas', 'chevron-right']" class="ml-1"></fa-icon>
         </button>
       </div>

@@ -105,6 +105,8 @@ export class ClassroomComponent implements OnInit {
         apiResponseTestResult => {
           if (apiResponseTestResult.ok) {
             this.updateActiveTest(apiResponseTestResult.test);
+
+            this.goToNext();
           } else {
             this.alertService.error(apiResponseTestResult.msg);
           }
@@ -190,6 +192,16 @@ export class ClassroomComponent implements OnInit {
       this.activeQuestionIdNext = 0;
       this.activeQuestion = null;
       this.updating = false;
+    }
+  }
+
+  goToNext() {
+    // go to next question
+    if (this.activeQuestionIdNext && this.activeQuestionIdNext > 0) {
+      this.setQuestion(this.activeQuestionIdNext);
+    } else if (this.activeQuestionIdPrev && this.activeQuestionIdPrev > 0) {
+      this.setQuestion(this.activeQuestionIdPrev);
+    } else {
     }
   }
 

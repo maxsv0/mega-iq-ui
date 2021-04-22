@@ -160,13 +160,4 @@ export class HomeComponent implements OnInit {
           }
         });
   }
-
-  /**
-   * @function logout
-   * @description Logs out current user
-   */
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
-  }
 }

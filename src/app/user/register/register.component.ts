@@ -19,7 +19,7 @@ import {GoogleAnalyticsService} from '@/_services/google-analytics.service';
   templateUrl: 'register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements AfterViewInit {
+export class RegisterComponent {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -51,10 +51,6 @@ export class RegisterComponent implements AfterViewInit {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
-      age: [''],
-      location: [''],
-      country: [''],
-      cityLatLong: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
       terms: [true, Validators.required]
@@ -86,6 +82,9 @@ export class RegisterComponent implements AfterViewInit {
           if (apiResponseUser.ok) {
             this.alertService.success('Registration was successful. You can now log in.', true);
 
+            console.log('apiResponseUser.user');
+            console.log(apiResponseUser.user);
+
             if (apiResponseUser.user) {
               // user doesn't has access token at this point and need to log in
               if (apiResponseUser.user.token == null) {
@@ -116,38 +115,6 @@ export class RegisterComponent implements AfterViewInit {
           this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
           this.loading = false;
         });
-  }
-
-  /**
-   * @function ngAfterViewInit
-   * @description Detects user location
-   */
-  ngAfterViewInit() {
-    if (this.isBrowser) {
-      this.detectLocation();
-    }
-  }
-
-  /**
-   * @function detectLocation
-   * @description Detects user's location and sets them to location field
-   */
-  detectLocation() {
-    this.userService.detectLocation().subscribe(
-      apiResponseGeoIp => {
-        if (apiResponseGeoIp.ok) {
-          this.registerForm.controls['location'].setValue(apiResponseGeoIp.location);
-          this.registerForm.controls['country'].setValue(apiResponseGeoIp.country);
-          this.registerForm.controls['cityLatLong'].setValue(apiResponseGeoIp.cityLatLong);
-        } else {
-          this.alertService.error(apiResponseGeoIp.msg);
-        }
-        this.loading = false;
-      },
-      error => {
-        this.alertService.error(this.i18n('API Service Unavailable') + '. ' + error);
-        this.loading = false;
-      });
   }
 
   showHidePassword() {

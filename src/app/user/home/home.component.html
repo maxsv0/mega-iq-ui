@@ -4,7 +4,7 @@
     <div class="col-sm-5">
       <h2><span i18n>Hi</span>, {{currentUser.name || "Anonymous"}}!</h2>
     </div>
-    <div id="home-actions" class="col-sm-7 text-right">
+    <div class="col-sm-7 text-right">
       <!-- Open profile -->
       <button routerLink="{{currentUser.url}}" class="btn btn-outline-primary mr-2" [disabled]="!currentUser.url">
         <fa-icon [icon]="['fas', 'home']" class="mr-1"></fa-icon>
@@ -21,11 +21,6 @@
       <button (click)="deleteCertificate()" class="btn btn-outline-danger m-2" *ngIf="currentUser.certificate">
         <fa-icon [icon]="['fas', 'trash']" class="mr-1"></fa-icon>
         <span i18n>Delete Certificate</span>
-      </button>
-
-      <!-- Logout -->
-      <button (click)="logout()" class="btn btn-outline-primary">
-        <span i18n>Logout</span>
       </button>
     </div>
   </div>

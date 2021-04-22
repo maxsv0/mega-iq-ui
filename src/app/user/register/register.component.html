@@ -23,24 +23,6 @@
               <div *ngIf="f.name.errors.required" i18n>Name is required</div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="age" i18n>Age</label>
-            <input type="text" id="age" formControlName="age" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <label for="location" i18n>Location</label>
-            <div class="input-group mb-3">
-              <input type="text" id="location" formControlName="location" placeholder="Location" class="form-control"/>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" (click)="detectLocation()">
-                  <fa-icon [icon]="['fas', 'search-location']"></fa-icon>
-                </button>
-              </div>
-            </div>
-            <input type="hidden" id="country" formControlName="country"/>
-            <input type="hidden" id="cityLatLong" formControlName="cityLatLong"/>
-          </div>
-
           <div class="form-group required">
             <label for="password" i18n>Password</label>
             <div class="input-group mb-3">
@@ -100,7 +82,7 @@
     <!-- Google login -->
     <div class="col-md-5">
       <div class="jumbotron">
-        <h2 i18n>Login with Google</h2>
+        <h2 i18n>Sing Up with Google</h2>
 
         <button type="button" class="btn btn-link" (click)="loginGoogle()">
           <img src="/assets/img/btn_google_signin_light_normal_web.png"
