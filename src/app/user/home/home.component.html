@@ -26,6 +26,10 @@
   </div>
 </div>
 
+<div class="container py-3 text-center">
+  <app-big></app-big>
+</div>
+
 <!-- User current tests -->
 <div class="container mt-2" *ngIf="userTestsActive && !isLoadingPage">
   <section class="row" *ngIf="userTestsActive">
@@ -39,6 +43,10 @@
 <!-- User banner -->
 <div class="container py-4" *ngIf="!isLoadingPage && currentUser && !isUserAnonymous">
   <app-profile *ngIf="currentUser" [user]="currentUser"></app-profile>
+</div>
+
+<div class="container py-3 text-center">
+  <app-big></app-big>
 </div>
 
 <!-- User tests -->

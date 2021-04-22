@@ -1,5 +1,9 @@
+<div class="container py-5 text-center">
+  <app-big></app-big>
+</div>
+
 <!-- Test details -->
-<div class="container py-5" *ngIf="testTypes && testSelected" id="iq-test-list">
+<div class="container py-3" *ngIf="testTypes && testSelected" id="iq-test-list">
   <div class="row">
     <div class="col-12">
       <div class="test bg-{{testSelected.styleName}} pt-2">
@@ -15,7 +19,7 @@
               <span i18n>limit</span> {{testSelected.expire}} <span i18n>min</span></p>
           </div>
           <div class="col-md-5">
-            <!--            ad placeholder-->
+            <app-big></app-big>
           </div>
         </div>
 

@@ -32,6 +32,10 @@
   </div>
 </div>
 
+<div class="container py-3 text-center">
+  <app-big></app-big>
+</div>
+
 <!-- Only for test owner -->
 <div class="container" *ngIf="!isLoading && test && currentUser && user && user.uid === currentUser.uid">
   <div class="row">
@@ -98,6 +102,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container py-3 text-center">
+  <app-big></app-big>
 </div>
 
 <!-- IQ Test Result -->

@@ -40,11 +40,14 @@ import {IqReviewComponent} from './iqreview/iq-review.component';
 import {RegisteranonComponent} from './user/registeranon/registeranon.component';
 import {IqTestPromoComponent} from './iq-test-promo/iq-test-promo.component';
 import {DatePipe} from '@angular/common';
+import {AdsenseModule} from 'ng2-adsense';
+import { BigComponent } from './_b/big/big.component';
 
 declare const require; // Use the require method provided by webpack
 
 @NgModule({
   imports: [
+    AdsenseModule.forRoot(environment.adsense),
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     LazyLoadImageModule,
     FormsModule,
@@ -80,7 +83,8 @@ declare const require; // Use the require method provided by webpack
     RatingComponent,
     IqReviewComponent,
     RegisteranonComponent,
-    IqTestPromoComponent
+    IqTestPromoComponent,
+    BigComponent
   ],
   providers: [
     DatePipe,
