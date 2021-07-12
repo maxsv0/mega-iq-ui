@@ -26,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'iqtest', component: IqTestComponent},
   {path: 'iqtest/users', component: UsersComponent},
   {path: 'iqtest/results', component: ResultsComponent},
+  {path: 'iqtest/results/:page', component: ResultsComponent},
   {path: 'iqtest/:testType', component: IqTestComponent},
   {path: 'iqtest/result/:testCode', component: IqResultComponent},
   {path: 'iqtest/review/:testCode', component: IqReviewComponent},
