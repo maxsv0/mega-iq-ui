@@ -63,7 +63,7 @@
     "chart.js": "^2.9.4",
     "core-js": "^3.8.3",
     "cron": "^1.8.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^8.2.4",
     "jquery": "^3.5.1",
     "localstorage-polyfill": "^1.0.1",
